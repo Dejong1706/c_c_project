@@ -1,116 +1,284 @@
-'use client'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { Ruler, BookOpen, ArrowLeftRight, Menu, X } from 'lucide-react'
-import { useState } from 'react'
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Ruler, BookOpen, ArrowLeftRight, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const calculators = [
-  { href: '/concrete-calculator', label: 'Concrete calculator', group: 'Concrete' },
-  { href: '/concrete-bags', label: 'Concrete bag calculator', group: 'Concrete' },
-  { href: '/tile-calculator', label: 'Tile calculator', group: 'Finishing' },
-  { href: '/brick-calculator', label: 'Brick calculator', group: 'Finishing' },
-  { href: '/paint-calculator', label: 'Paint calculator', group: 'Finishing' },
-  { href: '/rebar-calculator', label: 'Rebar calculator', group: 'Reinforcement' },
-  { href: '/unit-converter', label: 'Unit converter', group: 'Tools' },
-]
+  {
+    href: "/concrete-calculator",
+    label: "Concrete calculator",
+    group: "Concrete",
+  },
+  {
+    href: "/concrete-bags",
+    label: "Concrete bag calculator",
+    group: "Concrete",
+  },
+  { href: "/tile-calculator", label: "Tile calculator", group: "Finishing" },
+  { href: "/brick-calculator", label: "Brick calculator", group: "Finishing" },
+  { href: "/paint-calculator", label: "Paint calculator", group: "Finishing" },
+  {
+    href: "/rebar-calculator",
+    label: "Rebar calculator",
+    group: "Reinforcement",
+  },
+  { href: "/unit-converter", label: "Unit converter", group: "Tools" },
+];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname()
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const groups = ['Concrete', 'Reinforcement', 'Finishing', 'Tools']
+  const groups = ["Concrete", "Reinforcement", "Finishing", "Tools"];
 
   const sidebarContent = (
-    <nav style={{ padding: '16px 12px' }}>
-      {groups.map(group => {
-        const items = calculators.filter(c => c.group === group)
-        if (!items.length) return null
+    <nav style={{ padding: "16px 12px" }}>
+      {groups.map((group) => {
+        const items = calculators.filter((c) => c.group === group);
+        if (!items.length) return null;
         return (
-          <div key={group} style={{ marginBottom: '20px' }}>
-            <p style={{ fontSize: '10px', fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.08em', textTransform: 'uppercase', padding: '0 10px', marginBottom: '6px' }}>
+          <div key={group} style={{ marginBottom: "20px" }}>
+            <p
+              style={{
+                fontSize: "10px",
+                fontWeight: 600,
+                color: "var(--text-3)",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                padding: "0 10px",
+                marginBottom: "6px",
+              }}
+            >
               {group}
             </p>
-            {items.map(item => (
-              <Link key={item.href} href={item.href}
+            {items.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
                 onClick={() => setMobileOpen(false)}
                 style={{
-                  display: 'block',
-                  padding: '8px 10px',
-                  borderRadius: '8px',
-                  fontSize: '13px',
+                  display: "block",
+                  padding: "8px 10px",
+                  borderRadius: "8px",
+                  fontSize: "13px",
                   fontWeight: pathname === item.href ? 500 : 400,
-                  color: pathname === item.href ? 'var(--accent-text)' : 'var(--text-2)',
-                  background: pathname === item.href ? 'var(--accent-light)' : 'transparent',
-                  textDecoration: 'none',
-                  marginBottom: '2px',
-                  transition: 'background 0.1s, color 0.1s',
+                  color:
+                    pathname === item.href
+                      ? "var(--accent-text)"
+                      : "var(--text-2)",
+                  background:
+                    pathname === item.href
+                      ? "var(--accent-light)"
+                      : "transparent",
+                  textDecoration: "none",
+                  marginBottom: "2px",
+                  transition: "background 0.1s, color 0.1s",
                 }}
               >
                 {item.label}
               </Link>
             ))}
           </div>
-        )
+        );
       })}
     </nav>
-  )
+  );
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div
+      style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
+    >
       {/* Top nav */}
-      <header style={{ background: 'var(--surface)', borderBottom: '1px solid var(--border)', height: '56px', display: 'flex', alignItems: 'center', padding: '0 20px', position: 'sticky', top: 0, zIndex: 50 }}>
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', marginRight: 'auto' }}>
-          <div style={{ width: '28px', height: '28px', background: 'var(--accent)', borderRadius: '7px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <header
+        style={{
+          background: "var(--surface)",
+          borderBottom: "1px solid var(--border)",
+          height: "56px",
+          display: "flex",
+          alignItems: "center",
+          padding: "0 20px",
+          position: "sticky",
+          top: 0,
+          zIndex: 50,
+        }}
+      >
+        <Link
+          href="/"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            textDecoration: "none",
+            marginRight: "auto",
+          }}
+        >
+          <div
+            style={{
+              width: "28px",
+              height: "28px",
+              background: "var(--accent)",
+              borderRadius: "7px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <Ruler size={15} color="white" />
           </div>
-          <span style={{ fontSize: '15px', fontWeight: 600, color: 'var(--text-1)' }}>BuildCalc</span>
+          <span
+            style={{
+              fontSize: "15px",
+              fontWeight: 600,
+              color: "var(--text-1)",
+            }}
+          >
+            BuildCalc
+          </span>
         </Link>
-        <div style={{ display: 'flex', gap: '4px' }}>
-          <Link href="/guides" style={{ display: 'flex', alignItems: 'center', gap: '5px', padding: '6px 12px', borderRadius: '7px', fontSize: '13px', color: 'var(--text-2)', textDecoration: 'none', background: pathname.startsWith('/guides') ? 'var(--surface-2)' : 'transparent' }}>
+        <div style={{ display: "flex", gap: "4px" }}>
+          <Link
+            href="/guides"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+              padding: "6px 12px",
+              borderRadius: "7px",
+              fontSize: "13px",
+              color: "var(--text-2)",
+              textDecoration: "none",
+              background: pathname.startsWith("/guides")
+                ? "var(--surface-2)"
+                : "transparent",
+            }}
+          >
             <BookOpen size={14} /> Guides
           </Link>
-          <Link href="/unit-converter" style={{ display: 'flex', alignItems: 'center', gap: '5px', padding: '6px 12px', borderRadius: '7px', fontSize: '13px', color: 'var(--text-2)', textDecoration: 'none', background: pathname === '/unit-converter' ? 'var(--surface-2)' : 'transparent' }}>
+          <Link
+            href="/unit-converter"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+              padding: "6px 12px",
+              borderRadius: "7px",
+              fontSize: "13px",
+              color: "var(--text-2)",
+              textDecoration: "none",
+              background:
+                pathname === "/unit-converter"
+                  ? "var(--surface-2)"
+                  : "transparent",
+            }}
+          >
             <ArrowLeftRight size={14} /> Converter
           </Link>
         </div>
-        <button onClick={() => setMobileOpen(!mobileOpen)} style={{ display: 'none', marginLeft: '12px', background: 'none', border: 'none', cursor: 'pointer', padding: '4px', color: 'var(--text-2)' }} className="mobile-menu-btn">
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          style={{
+            display: "none",
+            marginLeft: "12px",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: "4px",
+            color: "var(--text-2)",
+          }}
+          className="mobile-menu-btn"
+          aria-label="Open menu"
+        >
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </header>
 
-      <div style={{ display: 'flex', flex: 1 }}>
+      <div style={{ display: "flex", flex: 1 }}>
         {/* Desktop sidebar */}
-        <aside style={{ width: '220px', background: 'var(--surface)', borderRight: '1px solid var(--border)', position: 'sticky', top: '56px', height: 'calc(100vh - 56px)', overflowY: 'auto', flexShrink: 0 }} className="desktop-sidebar">
+        <aside
+          style={{
+            width: "220px",
+            background: "var(--surface)",
+            borderRight: "1px solid var(--border)",
+            position: "sticky",
+            top: "56px",
+            height: "calc(100vh - 56px)",
+            overflowY: "auto",
+            flexShrink: 0,
+          }}
+          className="desktop-sidebar"
+        >
           {sidebarContent}
         </aside>
 
         {/* Mobile sidebar overlay */}
         {mobileOpen && (
-          <div style={{ position: 'fixed', inset: 0, zIndex: 40, display: 'flex' }} className="mobile-sidebar">
-            <div style={{ background: 'var(--surface)', width: '260px', borderRight: '1px solid var(--border)', overflowY: 'auto', paddingTop: '56px' }}>
+          <div
+            style={{ position: "fixed", inset: 0, zIndex: 40, display: "flex" }}
+          >
+            <div
+              style={{
+                background: "var(--surface)",
+                width: "260px",
+                borderRight: "1px solid var(--border)",
+                overflowY: "auto",
+                paddingTop: "56px",
+              }}
+            >
               {sidebarContent}
             </div>
-            <div style={{ flex: 1, background: 'rgba(0,0,0,0.3)' }} onClick={() => setMobileOpen(false)} />
+            <div
+              style={{ flex: 1, background: "rgba(0,0,0,0.3)" }}
+              onClick={() => setMobileOpen(false)}
+            />
           </div>
         )}
 
-        {/* Main content */}
-        <main style={{ flex: 1, padding: '32px 28px', maxWidth: '820px' }}>
+        {/* Main content — flex:1 + minWidth:0 으로 사이드바 제외 전체 너비 사용 */}
+        <main
+          className="main-content"
+          style={{ flex: 1, minWidth: 0, width: "100%" }}
+        >
           {children}
         </main>
       </div>
 
-      <footer style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', padding: '20px 28px', fontSize: '12px', color: 'var(--text-3)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <footer
+        style={{
+          background: "var(--surface)",
+          borderTop: "1px solid var(--border)",
+          padding: "20px 28px",
+          fontSize: "12px",
+          color: "var(--text-3)",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: "8px",
+        }}
+      >
         <span>© 2025 BuildCalc — Free construction calculators</span>
         <span>Results are estimates for planning purposes only.</span>
       </footer>
 
       <style>{`
+        /* Desktop: 사이드바 있음 */
+        .main-content {
+          padding: 32px 28px;
+        }
+
+        /* 태블릿 이하: 사이드바 숨김, 모바일 메뉴 노출 */
         @media (max-width: 768px) {
           .desktop-sidebar { display: none !important; }
           .mobile-menu-btn { display: block !important; }
+          .main-content { padding: 20px 16px; }
+        }
+
+        /* 모바일: 패딩 더 줄임 */
+        @media (max-width: 480px) {
+          .main-content { padding: 16px 12px; }
         }
       `}</style>
     </div>
-  )
+  );
 }
