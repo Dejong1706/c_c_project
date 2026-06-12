@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import TileCalc from "./TileCalc";
-import CalcSchema from "../components/CalcSchma";
+import CalcSchema from "../components/CalcSchema";
 
 export const metadata: Metadata = {
   title: "Tile Calculator — How Many Tiles Do I Need? | BuildCalc",

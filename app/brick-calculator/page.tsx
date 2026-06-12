@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import BrickCalc from "./BrickCalc";
-import CalcSchema from "../components/CalcSchma";
+import CalcSchema from "../components/CalcSchema";
 
 export const metadata: Metadata = {
   title: "Brick Calculator — How Many Bricks Do I Need? | BuildCalc",

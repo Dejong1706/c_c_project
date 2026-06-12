@@ -13,8 +13,36 @@ const guides: {
   desc: string;
   category: string;
 }[] = [
-  // 예시 (실제 작성 시 주석 해제):
-  // { title: 'How to Calculate Concrete Volume', href: '/guides/how-to-calculate-concrete-volume', desc: 'Step-by-step formula with examples for slabs, footings and columns.', category: 'Concrete' },
+  {
+    title: "How to Calculate Concrete Volume",
+    href: "/guides/how-to-calculate-concrete-volume",
+    desc: "Step-by-step formula with examples for slabs, footings and columns, plus waste percentage and unit conversion tips.",
+    category: "Concrete",
+  },
+  {
+    title: "Cubic Yards to Cubic Meters",
+    href: "/guides/cubic-yards-to-cubic-meters",
+    desc: "Exact conversion formula, quick reference tables, and tips for ordering ready-mix concrete in the right unit.",
+    category: "Conversion",
+  },
+  {
+    title: "Tile Grout Gap Guide",
+    href: "/guides/tile-grout-gap-guide",
+    desc: "Recommended grout gap widths for floor, wall and large-format tile, and how joint size affects appearance and tile count.",
+    category: "Tile",
+  },
+  {
+    title: "Concrete Strength Grades Explained",
+    href: "/guides/concrete-strength-grades",
+    desc: "PSI and MPa strength grades for concrete, what they&apos;re used for, and how US and international (EN 206) classifications compare.",
+    category: "Concrete",
+  },
+  {
+    title: "How Many Tiles Do I Need?",
+    href: "/guides/how-many-tiles-do-i-need",
+    desc: "Step-by-step calculation including waste percentage by layout pattern, buying by the box, and common mistakes.",
+    category: "Tile",
+  },
 ];
 
 export default function GuidesPage() {

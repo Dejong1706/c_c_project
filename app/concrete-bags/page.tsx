@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import BagCalc from "./BagCalc";
-import CalcSchema from "../components/CalcSchma";
+import CalcSchema from "../components/CalcSchema";
 
 export const metadata: Metadata = {
   title: "Concrete Bag Calculator — How Many Bags of Concrete? | BuildCalc",
@@ -18,12 +18,12 @@ const faqs = [
   {
     question: "How many 80lb bags of concrete do I need?",
     answer:
-      "One 80lb bag of concrete yields about 0.022 cubic yards. Divide your total volume in cubic yards by 0.022, or multiply by 45 to get the number of 80lb bags needed.",
+      "One 80lb bag of concrete yields about 0.6 cubic feet (roughly 0.022 cubic yards). To find the number of bags, multiply your total volume in cubic yards by 45.",
   },
   {
     question: "How much volume does a 60lb bag of concrete make?",
     answer:
-      "A 60lb bag of concrete yields approximately 0.017 cubic yards (about 0.45 cubic feet) of mixed concrete.",
+      "A 60lb bag of concrete yields approximately 0.45 cubic feet (about 0.017 cubic yards) of mixed concrete — multiply your volume in cubic yards by 60 to get the number of 60lb bags needed.",
   },
   {
     question: "When should I use bags vs ready-mix concrete?",

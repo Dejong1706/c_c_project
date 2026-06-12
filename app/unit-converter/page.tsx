@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import UnitConverter from "./UnitConverter";
-import CalcSchema from "../components/CalcSchma";
+import CalcSchema from "../components/CalcSchema";
 
 export const metadata: Metadata = {
   title: "Construction Unit Converter — m, ft, m², yd³, kg, lbs | BuildCalc",

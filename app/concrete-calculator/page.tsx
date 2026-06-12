@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ConcreteCalc from "./ConcreteCalc";
-import CalcSchema from "../components/CalcSchma";
+import CalcSchema from "../components/CalcSchema";
 
 export const metadata: Metadata = {
   title:

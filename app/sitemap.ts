@@ -11,6 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/paint-calculator",
     "/rebar-calculator",
     "/unit-converter",
+    "/guides",
+    "/guides/how-to-calculate-concrete-volume",
+    "/guides/cubic-yards-to-cubic-meters",
+    "/guides/tile-grout-gap-guide",
+    "/guides/concrete-strength-grades",
+    "/guides/how-many-tiles-do-i-need",
   ];
   return routes.map((r) => ({
     url: `${base}${r}`,

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import RebarCalc from "./RebarCalc";
-import CalcSchema from "../components/CalcSchma";
+import CalcSchema from "../components/CalcSchema";
 
 export const metadata: Metadata = {
   title: "Rebar Weight Calculator — Steel Bar Weight & Length | BuildCalc",

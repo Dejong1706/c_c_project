@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PaintCalc from "./PaintCalc";
-import CalcSchema from "../components/CalcSchma";
+import CalcSchema from "../components/CalcSchema";
 
 export const metadata: Metadata = {
   title: "Paint Calculator — How Much Paint Do I Need? | BuildCalc",
