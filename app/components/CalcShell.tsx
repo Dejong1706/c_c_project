@@ -7,7 +7,7 @@ interface ResultItem {
   label: string;
   value: string | number;
   unit: string;
-  primary?: boolean;
+  tier?: 1 | 2 | 3; // 1=primary, 2=secondary, 3=tertiary
 }
 
 interface RelatedCalc {
@@ -36,6 +36,14 @@ export default function CalcShell({
   notice,
 }: CalcShellProps) {
   const [activeType, setActiveType] = useState(0);
+
+  const primary = results.find((r) => r.tier === 1) ?? results[0];
+  const secondary = results.filter((r) => r.tier === 2).length
+    ? results.filter((r) => r.tier === 2)
+    : results.slice(1, 3);
+  const tertiary = results.filter((r) => r.tier === 3).length
+    ? results.filter((r) => r.tier === 3)
+    : results.slice(3);
 
   return (
     <div>
@@ -92,7 +100,7 @@ export default function CalcShell({
         </div>
       )}
 
-      {/* Calc grid — 데스크탑: 2열, 모바일: 1열 */}
+      {/* Calc grid */}
       <div className="calc-grid" style={{ marginBottom: "20px" }}>
         {/* Inputs */}
         <div
@@ -139,32 +147,160 @@ export default function CalcShell({
           >
             Results
           </p>
-          <div className="result-grid">
-            {results.map((r, i) => (
-              <div
-                key={i}
-                className={
-                  r.primary ? "result-card result-card--primary" : "result-card"
-                }
-              >
-                <p className="rc-label">{r.label}</p>
-                <p
-                  className={
-                    r.primary ? "rc-value rc-value--primary" : "rc-value"
-                  }
-                >
-                  {r.value}
-                </p>
-                <p className="rc-unit">{r.unit}</p>
-              </div>
-            ))}
+
+          {/* Primary — 크고 임팩트 있게 */}
+          <div
+            style={{
+              background: "var(--accent)",
+              borderRadius: "10px",
+              padding: "16px 18px",
+              marginBottom: "8px",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "11px",
+                color: "rgba(255,255,255,0.7)",
+                marginBottom: "6px",
+              }}
+            >
+              {primary.label}
+            </p>
+            <p
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "48px",
+                fontWeight: 600,
+                color: "white",
+                lineHeight: 1,
+                letterSpacing: "0.01em",
+              }}
+            >
+              {primary.value === 0 ||
+              primary.value === "0" ||
+              primary.value === ""
+                ? "—"
+                : primary.value}
+            </p>
+            <p
+              style={{
+                fontSize: "13px",
+                color: "rgba(255,255,255,0.6)",
+                marginTop: "4px",
+              }}
+            >
+              {primary.unit}
+            </p>
           </div>
+
+          {/* Secondary — 중간 크기 2열 */}
+          {secondary.length > 0 && (
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "8px",
+                marginBottom: "8px",
+              }}
+            >
+              {secondary.map((r, i) => (
+                <div
+                  key={i}
+                  style={{
+                    background: "var(--surface-2)",
+                    borderRadius: "8px",
+                    padding: "10px 12px",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: "11px",
+                      color: "var(--text-3)",
+                      marginBottom: "3px",
+                    }}
+                  >
+                    {r.label}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "22px",
+                      fontWeight: 500,
+                      color: "var(--text-1)",
+                      lineHeight: 1,
+                    }}
+                  >
+                    {r.value === 0 || r.value === "0" || r.value === ""
+                      ? "—"
+                      : r.value}
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "11px",
+                      color: "var(--text-3)",
+                      marginTop: "2px",
+                    }}
+                  >
+                    {r.unit}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Tertiary — 작고 테두리만 */}
+          {tertiary.length > 0 && (
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "8px",
+              }}
+            >
+              {tertiary.map((r, i) => (
+                <div
+                  key={i}
+                  style={{
+                    border: "1px solid var(--border)",
+                    borderRadius: "8px",
+                    padding: "8px 10px",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: "10px",
+                      color: "var(--text-3)",
+                      marginBottom: "2px",
+                    }}
+                  >
+                    {r.label}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      color: "var(--text-2)",
+                    }}
+                  >
+                    {r.value === 0 || r.value === "0" || r.value === ""
+                      ? "—"
+                      : r.value}
+                  </p>
+                  <p style={{ fontSize: "10px", color: "var(--text-3)" }}>
+                    {r.unit}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+
           {notice && (
             <p
               style={{
                 fontSize: "11px",
                 color: "var(--text-3)",
-                marginTop: "14px",
+                marginTop: "12px",
                 lineHeight: 1.6,
                 padding: "8px 10px",
                 background: "var(--surface-2)",
@@ -192,9 +328,29 @@ export default function CalcShell({
           >
             Related calculators
           </p>
-          <div className="related-grid">
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+              gap: "8px",
+            }}
+          >
             {related.map((r) => (
-              <Link key={r.href} href={r.href} className="related-card">
+              <Link
+                key={r.href}
+                href={r.href}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  padding: "12px 14px",
+                  background: "var(--surface)",
+                  border: "1px solid var(--border)",
+                  borderRadius: "10px",
+                  textDecoration: "none",
+                  transition: "border-color 0.15s",
+                }}
+              >
                 <div>
                   <p
                     style={{
@@ -217,99 +373,16 @@ export default function CalcShell({
       )}
 
       <style>{`
-        /* 계산기 2열 그리드 */
         .calc-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 16px;
         }
-
-        /* 결과 카드 2열 */
-        .result-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 8px;
-        }
-
-        .result-card {
-          padding: 12px 14px;
-          border-radius: 10px;
-          background: var(--surface-2);
-        }
-        .result-card--primary {
-          background: var(--accent);
-          grid-column: span 2;
-        }
-
-        .rc-label {
-          font-size: 11px;
-          color: var(--text-3);
-          margin-bottom: 4px;
-        }
-        .result-card--primary .rc-label {
-          color: rgba(255,255,255,0.75);
-        }
-
-        .rc-value {
-          font-size: 20px;
-          font-weight: 600;
-          color: var(--text-1);
-          line-height: 1;
-          font-family: var(--font-mono);
-        }
-        .rc-value--primary {
-          font-size: 28px;
-          color: white;
-        }
-
-        .rc-unit {
-          font-size: 11px;
-          color: var(--text-3);
-          margin-top: 2px;
-        }
-        .result-card--primary .rc-unit {
-          color: rgba(255,255,255,0.6);
-        }
-
-        /* 관련 계산기 */
-        .related-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-          gap: 8px;
-        }
-        .related-card {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 12px 14px;
-          background: var(--surface);
-          border: 1px solid var(--border);
-          border-radius: 10px;
-          text-decoration: none;
-          transition: border-color 0.15s;
-        }
-        .related-card:hover {
-          border-color: var(--accent);
-        }
-
-        /* 태블릿: 계산기 그리드 1열 전환 */
         @media (max-width: 900px) {
-          .calc-grid {
-            grid-template-columns: 1fr;
-          }
+          .calc-grid { grid-template-columns: 1fr; }
         }
-
-        /* 모바일: result-card 1열 */
-        @media (max-width: 480px) {
-          .result-card--primary {
-            grid-column: span 2;
-          }
-          .rc-value--primary {
-            font-size: 24px;
-          }
-          .related-grid {
-            grid-template-columns: 1fr;
-          }
+        @media (max-width: 768px) {
+          .calc-grid { grid-template-columns: 1fr; }
         }
       `}</style>
     </div>
