@@ -44,7 +44,7 @@ export default function Page() {
       <CalcSchema
         name="Concrete Calculator"
         description="Calculate concrete volume, cubic yards, and ready-mix truck count for slabs, walls, columns and footings."
-        url="https://buildcalc.pro/concrete-calculator"
+        url="https://buildcalczone.com/concrete-calculator"
         faqs={faqs}
       />
       <ConcreteCalc />

@@ -43,7 +43,7 @@ export default function Page() {
       <CalcSchema
         name="Tile Calculator"
         description="Calculate how many tiles you need for floors, walls and backsplashes including grout joints and waste."
-        url="https://buildcalc.pro/tile-calculator"
+        url="https://buildcalczone.com/tile-calculator"
         faqs={faqs}
       />
       <TileCalc />

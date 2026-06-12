@@ -43,7 +43,7 @@ export default function Page() {
       <CalcSchema
         name="Rebar Weight Calculator"
         description="Calculate total steel rebar weight from diameter, length and quantity."
-        url="https://buildcalc.pro/rebar-calculator"
+        url="https://buildcalczone.com/rebar-calculator"
         faqs={faqs}
       />
       <RebarCalc />

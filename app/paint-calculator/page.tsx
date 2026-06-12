@@ -43,7 +43,7 @@ export default function Page() {
       <CalcSchema
         name="Paint Calculator"
         description="Calculate how much paint you need for walls, ceilings and exterior surfaces."
-        url="https://buildcalc.pro/paint-calculator"
+        url="https://buildcalczone.com/paint-calculator"
         faqs={faqs}
       />
       <PaintCalc />

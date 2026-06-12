@@ -44,7 +44,7 @@ export default function Page() {
       <CalcSchema
         name="Construction Unit Converter"
         description="Convert length, area, volume and weight units commonly used in construction."
-        url="https://buildcalc.pro/unit-converter"
+        url="https://buildcalczone.com/unit-converter"
         faqs={faqs}
       />
       <UnitConverter />

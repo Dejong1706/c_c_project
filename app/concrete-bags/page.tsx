@@ -43,7 +43,7 @@ export default function Page() {
       <CalcSchema
         name="Concrete Bag Calculator"
         description="Calculate how many bags of pre-mix concrete you need for your project."
-        url="https://buildcalc.pro/concrete-bags"
+        url="https://buildcalczone.com/concrete-bags"
         faqs={faqs}
       />
       <BagCalc />
