@@ -58,6 +58,14 @@ const calcs = [
     preview: { val: "74.4", unit: "kg", expr: "13mm × 6m × 20" },
   },
   {
+    href: "/excavation-calculator",
+    icon: "⛏",
+    title: "Excavation calculator",
+    desc: "Pit, trench and sloped-side cut volume",
+    tags: ["Length", "Width", "Depth", "Waste %"],
+    preview: { val: "22.5", unit: "m³", expr: "5×3×1.5m" },
+  },
+  {
     href: "/unit-converter",
     icon: "⇄",
     title: "Unit converter",
