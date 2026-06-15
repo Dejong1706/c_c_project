@@ -17,6 +17,11 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
+    question: "How do I convert meters to feet?",
+    answer:
+      "Multiply the value in meters by 3.2808 to get feet. For example, 1 meter equals approximately 3.281 feet, and 10 meters equals 32.81 feet.",
+  },
+  {
     question: "How do I convert square meters to square feet?",
     answer:
       "Multiply the value in square meters by 10.764 to get square feet. For example, 10 m² equals approximately 107.64 ft².",

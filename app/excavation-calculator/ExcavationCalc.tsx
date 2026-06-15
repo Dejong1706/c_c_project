@@ -144,6 +144,7 @@ export default function ExcavationCalc() {
       title="Excavation calculator"
       description="Calculate the volume of soil or material to be excavated for pits, trenches and sloped-side cuts. Results in m³, cubic yards and truck loads."
       types={TYPES}
+      onTypeChange={setType}
       inputs={inputs}
       results={results}
       notice="Add 10–15% buffer to account for over-excavation and soil swell. Actual removal volume may vary depending on soil type."

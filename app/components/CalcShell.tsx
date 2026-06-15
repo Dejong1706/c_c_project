@@ -20,6 +20,7 @@ interface CalcShellProps {
   title: string;
   description: string;
   types?: string[];
+  onTypeChange?: (index: number) => void;
   inputs: ReactNode;
   results: ResultItem[];
   related?: RelatedCalc[];
@@ -30,6 +31,7 @@ export default function CalcShell({
   title,
   description,
   types,
+  onTypeChange,
   inputs,
   results,
   related,
@@ -79,7 +81,7 @@ export default function CalcShell({
           {types.map((t, i) => (
             <button
               key={t}
-              onClick={() => setActiveType(i)}
+              onClick={() => { setActiveType(i); onTypeChange?.(i); }}
               style={{
                 padding: "6px 14px",
                 borderRadius: "20px",

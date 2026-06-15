@@ -136,6 +136,7 @@ export default function ConcreteCalc() {
       title="Concrete calculator"
       description="Calculate the volume of concrete needed for slabs, walls, columns, footings and round piers. Results include cubic yards and ready-mix truck count."
       types={TYPES}
+      onTypeChange={setType}
       inputs={inputs}
       results={results}
       notice="Estimates are for material planning only. Always order 5–10% extra. Consult an engineer for structural work."

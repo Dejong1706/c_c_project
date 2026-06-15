@@ -7,6 +7,7 @@ type UnitLen = "m" | "ft";
 const toM: Record<UnitLen, number> = { m: 1, ft: 0.3048 };
 
 export default function PaintCalc() {
+  const [type, setType] = useState(0);
   const [roomL, setRoomL] = useState("");
   const [rlUnit, setRlUnit] = useState<UnitLen>("m");
   const [roomW, setRoomW] = useState("");
@@ -15,12 +16,14 @@ export default function PaintCalc() {
   const [chUnit, setChUnit] = useState<UnitLen>("m");
   const [coats, setCoats] = useState(2);
 
+  const isCeiling = type === 1;
+
   const results = useMemo(() => {
     const L = (parseFloat(roomL) || 0) * toM[rlUnit];
     const W = (parseFloat(roomW) || 0) * toM[rwUnit];
     const H = (parseFloat(ceilH) || 0) * toM[chUnit];
-    const wallArea = 2 * (L + W) * H;
-    const litres = (wallArea / 10) * coats;
+    const area = isCeiling ? L * W : 2 * (L + W) * H;
+    const litres = (area / 10) * coats;
     return [
       {
         label: `Paint needed (${coats} coat${coats > 1 ? "s" : ""})`,
@@ -29,8 +32,8 @@ export default function PaintCalc() {
         tier: 1 as const,
       },
       {
-        label: "Wall area",
-        value: wallArea > 0 ? wallArea.toFixed(1) : "—",
+        label: isCeiling ? "Ceiling area" : "Wall area",
+        value: area > 0 ? area.toFixed(1) : "—",
         unit: "m²",
         tier: 2 as const,
       },
@@ -53,7 +56,7 @@ export default function PaintCalc() {
         tier: 3 as const,
       },
     ];
-  }, [roomL, rlUnit, roomW, rwUnit, ceilH, chUnit, coats]);
+  }, [roomL, rlUnit, roomW, rwUnit, ceilH, chUnit, coats, isCeiling]);
 
   const inputs = (
     <>
@@ -77,16 +80,18 @@ export default function PaintCalc() {
         selectedUnit={rwUnit}
         onUnitChange={(v) => setRwUnit(v as UnitLen)}
       />
-      <Field
-        label="Ceiling height"
-        id="ceilH"
-        value={ceilH}
-        onChange={setCeilH}
-        placeholder="e.g. 2.5"
-        units={["m", "ft"]}
-        selectedUnit={chUnit}
-        onUnitChange={(v) => setChUnit(v as UnitLen)}
-      />
+      {!isCeiling && (
+        <Field
+          label="Ceiling height"
+          id="ceilH"
+          value={ceilH}
+          onChange={setCeilH}
+          placeholder="e.g. 2.5"
+          units={["m", "ft"]}
+          selectedUnit={chUnit}
+          onUnitChange={(v) => setChUnit(v as UnitLen)}
+        />
+      )}
       <div
         style={{
           marginTop: "14px",
@@ -136,6 +141,7 @@ export default function PaintCalc() {
       title="Paint calculator"
       description="How much paint do you need? Enter room dimensions and coating preferences to get litres required and tin count. Based on 10 m²/litre standard coverage."
       types={["Walls", "Ceiling", "Exterior"]}
+      onTypeChange={setType}
       inputs={inputs}
       results={results}
       notice="Based on 10 m²/L coverage. Rough or porous surfaces may need 20% more. Excludes windows and doors."

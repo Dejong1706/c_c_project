@@ -8,17 +8,20 @@ type UnitLen = "m" | "ft";
 const toM: Record<UnitLen, number> = { m: 1, ft: 0.3048 };
 
 export default function BrickCalc() {
+  const [type, setType] = useState(0);
   const [len, setLen] = useState("");
   const [lUnit, setLUnit] = useState<UnitLen>("m");
   const [h, setH] = useState("");
   const [hUnit, setHUnit] = useState<UnitLen>("m");
   const [waste, setWaste] = useState(10);
 
+  const density = type === 1 ? 120 : 60;
+
   const results = useMemo(() => {
     const L = (parseFloat(len) || 0) * toM[lUnit];
     const H = (parseFloat(h) || 0) * toM[hUnit];
     const area = L * H;
-    const net = Math.ceil(area * 60);
+    const net = Math.ceil(area * density);
     const total = Math.ceil(net * (1 + waste / 100));
     return [
       {
@@ -45,9 +48,9 @@ export default function BrickCalc() {
         unit: "pcs (no waste)",
         tier: 3 as const,
       },
-      { label: "Density", value: "60", unit: "bricks/m²", tier: 3 as const },
+      { label: "Density", value: String(density), unit: "bricks/m²", tier: 3 as const },
     ];
-  }, [len, lUnit, h, hUnit, waste]);
+  }, [len, lUnit, h, hUnit, waste, density]);
 
   const inputs = (
     <>
@@ -78,11 +81,12 @@ export default function BrickCalc() {
   return (
     <CalcShell
       title="Brick calculator"
-      description="Estimate bricks needed for a wall including mortar joints. Based on standard brick (215×102×65mm) with 10mm mortar joints — approx 60 bricks per m²."
+      description="Estimate bricks needed for a wall including mortar joints. Based on standard brick (215×102×65mm) with 10mm mortar joints — 60 bricks/m² for single leaf, 120 bricks/m² for double leaf."
       types={["Single leaf", "Double leaf"]}
+      onTypeChange={setType}
       inputs={inputs}
       results={results}
-      notice="Based on 60 bricks/m² standard. Cavity walls or special bonds will differ."
+      notice="Single leaf: 60 bricks/m². Double leaf: 120 bricks/m². Special bonds or non-standard sizes will differ."
       related={[
         {
           href: "/concrete-calculator",

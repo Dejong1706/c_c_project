@@ -5,7 +5,7 @@ import CalcSchema from "../components/CalcSchema";
 export const metadata: Metadata = {
   title: "Rebar Weight Calculator — Steel Bar Weight & Length | BuildCalc",
   description:
-    "Calculate total rebar weight by diameter, length and quantity. Unit weight formula included. Works for #3 to #18 bars in metric and imperial.",
+    "Free rebar weight calculator. Enter bar diameter, length and quantity to get total weight in kg and tonnes. Unit weight formula included. Metric and imperial.",
   keywords: [
     "rebar calculator",
     "rebar weight calculator",

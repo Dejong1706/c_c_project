@@ -154,7 +154,7 @@ export default function TileCalc() {
         onChange={setGrout}
         placeholder="3"
         units={["mm"]}
-        hint="typical 2–5 mm"
+        hint="typical 3 mm"
       />
       <WasteSlider value={waste} onChange={setWaste} label="Waste / cuts" />
     </>

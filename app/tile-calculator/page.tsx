@@ -5,7 +5,7 @@ import CalcSchema from "../components/CalcSchema";
 export const metadata: Metadata = {
   title: "Tile Calculator — How Many Tiles Do I Need? | BuildCalc",
   description:
-    "Free tile calculator. Enter room dimensions and tile size to find exact tile count, boxes needed and grout coverage. Supports waste factor and multiple patterns.",
+    "Free tile calculator. Enter room dimensions and tile size to find exact tile count and boxes needed. Grout joint and waste factor included. Instant results.",
   keywords: [
     "tile calculator",
     "how many tiles do I need",
@@ -28,7 +28,7 @@ const faqs = [
   {
     question: "What size grout joint should I use?",
     answer:
-      "Most floor tiles use a 2–5mm grout joint. Larger format tiles (60cm+) typically use 3mm, while smaller mosaic tiles may need wider joints up to 6mm.",
+      "Most floor tiles use a 3mm grout joint. Larger format tiles (60cm+) typically need wider joints of 3–6mm to accommodate size variation, while smaller mosaic tiles use narrower joints of 1.5–2mm.",
   },
   {
     question: "How many tiles come in a box?",

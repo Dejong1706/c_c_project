@@ -248,7 +248,7 @@ export default function ConcreteVolumeGuide() {
         </ul>
         <p style={paragraph}>
           So for that 1.32 cubic meter (≈1.73 cubic yard) patio, you&apos;d need
-          roughly 78 bags at 80lb each (1.73 × 45 ≈ 78) — though buying a few
+          roughly 78 × 80lb bags (1.73 × 45 ≈ 78) — though buying a few
           extra is wise in case of spillage or a thicker pour than planned.
         </p>
 
