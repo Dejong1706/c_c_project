@@ -15,23 +15,46 @@ const calculators = [
     label: "Concrete bag calculator",
     group: "Concrete",
   },
-  { href: "/tile-calculator", label: "Tile calculator", group: "Finishing" },
-  { href: "/brick-calculator", label: "Brick calculator", group: "Finishing" },
-  { href: "/paint-calculator", label: "Paint calculator", group: "Finishing" },
   {
     href: "/rebar-calculator",
     label: "Rebar calculator",
     group: "Reinforcement",
   },
-  { href: "/unit-converter", label: "Unit converter", group: "Tools" },
+  {
+    href: "/brick-calculator",
+    label: "Brick calculator",
+    group: "Masonry",
+  },
+  {
+    href: "/tile-calculator",
+    label: "Tile calculator",
+    group: "Finishing",
+  },
+  {
+    href: "/paint-calculator",
+    label: "Paint calculator",
+    group: "Finishing",
+  },
   {
     href: "/excavation-calculator",
     label: "Excavation calculator",
     group: "Earthworks",
   },
+  {
+    href: "/unit-converter",
+    label: "Unit converter",
+    group: "Tools",
+  },
 ];
 
-const groups = ["Earthworks", "Concrete", "Reinforcement", "Finishing", "Tools"];
+const groups = [
+  "Concrete",
+  "Reinforcement",
+  "Masonry",
+  "Finishing",
+  "Earthworks",
+  "Tools",
+];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
