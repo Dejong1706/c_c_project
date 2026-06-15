@@ -264,7 +264,7 @@ export default function ConcreteStrengthGradesGuide() {
         <h2 style={sectionHeading}>Choosing the right grade</h2>
         <p style={paragraph}>
           For most homeowner projects — patios, walkways, small slabs — standard
-          ready-mix in the 3000-3500 psi (roughly C20-C25) range is common and
+          ready-mix in the 2500–3000 psi (roughly C15–C20) range is common and
           cost-effective. Anything load-bearing, exposed to freeze-thaw cycles,
           or structural (foundations, driveways with heavy vehicle traffic)
           generally calls for a higher grade. Local building codes often specify
