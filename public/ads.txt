@@ -1,6 +1,1 @@
-# ads.txt for BuildCalc
-# AdSense 승인 후, 아래 형식으로 발급받은 publisher ID를 입력하세요.
-# 형식: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
-#
-# 예시:
-# google.com, pub-1234567890123456, DIRECT, f08c47fec0942fa0
+google.com, pub-8534888375420361, DIRECT, f08c47fec0942fa0
