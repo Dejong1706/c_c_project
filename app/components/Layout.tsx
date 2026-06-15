@@ -27,11 +27,11 @@ const calculators = [
   {
     href: "/excavation-calculator",
     label: "Excavation calculator",
-    desc: "Pit & trench volume",
+    group: "Earthworks",
   },
 ];
 
-const groups = ["Concrete", "Reinforcement", "Finishing", "Tools"];
+const groups = ["Earthworks", "Concrete", "Reinforcement", "Finishing", "Tools"];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
