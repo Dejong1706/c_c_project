@@ -25,11 +25,10 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <Script
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8534888375420361"
           crossOrigin="anonymous"
-          strategy="beforeInteractive"
         />
       </head>
       <body>
