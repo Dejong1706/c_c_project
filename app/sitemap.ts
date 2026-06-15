@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/paint-calculator",
     "/rebar-calculator",
     "/unit-converter",
+    "/excavation-calculator",
     "/guides",
     "/guides/how-to-calculate-concrete-volume",
     "/guides/cubic-yards-to-cubic-meters",

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Layout from "./components/Layout";
 import GoogleAnalytics from "./components/GoogleAnalytics";
-import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "BuildCalc — Free Construction Calculators",
