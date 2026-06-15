@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Layout from "./components/Layout";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "BuildCalc — Free Construction Calculators",
@@ -23,6 +24,12 @@ export default function RootLayout({
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
+        />
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8534888375420361"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
         />
       </head>
       <body>
