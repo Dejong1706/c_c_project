@@ -43,6 +43,12 @@ const guides: {
     desc: "Step-by-step calculation including waste percentage by layout pattern, buying by the box, and common mistakes.",
     category: "Tile",
   },
+  {
+    title: 'How to Calculate Paint Coverage',
+    href: '/guides/how-to-calculate-paint-coverage',
+    desc: 'Wall area formula, coverage rates by paint type, and how many coats you actually need.',
+    category: 'Paint',
+  }
 ];
 
 export default function GuidesPage() {

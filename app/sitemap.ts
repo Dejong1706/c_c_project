@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/guides/tile-grout-gap-guide",
     "/guides/concrete-strength-grades",
     "/guides/how-many-tiles-do-i-need",
+    "/guides/how-to-calculate-paint-coverage",
   ];
   return routes.map((r) => ({
     url: `${base}${r}`,
