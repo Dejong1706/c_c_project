@@ -62,6 +62,35 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   const sidebarContent = (
     <nav style={{ padding: "16px 12px" }}>
+      {/* Guides 링크 추가 */}
+      <div style={{ marginBottom: "22px" }}>
+        <Link
+          href="/guides"
+          onClick={() => setMobileOpen(false)}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "6px",
+            padding: "8px 10px 8px 14px",
+            borderRadius: "8px",
+            fontSize: "13px",
+            fontWeight: pathname.startsWith("/guides") ? 600 : 400,
+            color: pathname.startsWith("/guides")
+              ? "var(--accent-text)"
+              : "var(--text-2)",
+            background: pathname.startsWith("/guides")
+              ? "var(--accent-light)"
+              : "transparent",
+            textDecoration: "none",
+            borderLeft: pathname.startsWith("/guides")
+              ? "3px solid var(--accent)"
+              : "3px solid transparent",
+          }}
+        >
+          <BookOpen size={13} />
+          Guides
+        </Link>
+      </div>
       {groups.map((group) => {
         const items = calculators.filter((c) => c.group === group);
         if (!items.length) return null;
