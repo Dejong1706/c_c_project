@@ -306,7 +306,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           gap: "8px",
         }}
       >
-        <span>© 2025 BuildCalc — Free construction calculators</span>
+        <span>© 2026 BuildCalc — Free construction calculators</span>
         <span>Results are estimates for planning purposes only.</span>
       </footer>
 
