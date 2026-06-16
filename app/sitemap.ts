@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/guides/how-to-mix-concrete-by-hand",
     "/guides/what-size-rebar-do-i-need",
     "/guides/how-many-bricks-per-square-metre",
+    "/guides/brick-mortar-mix-ratio",
   ];
   return routes.map((r) => ({
     url: `${base}${r}`,

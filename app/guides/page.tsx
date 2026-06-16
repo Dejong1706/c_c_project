@@ -67,6 +67,12 @@ const guides: {
     desc: "Brick counts per m² for standard, maxi and jumbo bricks, plus waste allowance and pallet guidance.",
     category: "Masonry",
   },
+  {
+    title: "Brick Mortar Mix Ratio Guide",
+    href: "/guides/brick-mortar-mix-ratio",
+    desc: "Cement to sand ratios for external walls, internal walls and below-ground work, plus the role of lime and how much mortar per m².",
+    category: "Masonry",
+  },
 ];
 
 export default function GuidesPage() {

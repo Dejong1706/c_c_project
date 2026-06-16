@@ -10,6 +10,7 @@ import PaintCoverageGuide from "../content/how-to-calculate-paint-coverage";
 import HowToMixConcreteByHandGuide from "../content/how-to-mix-concrete-by-hand";
 import WhatSizeRebarDoINeedGuide from "../content/what-size-rebar-do-i-need";
 import HowManyBricksPerSquareMetreGuide from "../content/how-many-bricks-per-square-metre";
+import BrickMortarMixRatioGuide from "../content/brick-mortar-mix-ratio";
 
 const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-concrete-volume": ConcreteVolumeGuide,
@@ -21,6 +22,7 @@ const contentMap: Record<string, React.ComponentType> = {
   "how-to-mix-concrete-by-hand": HowToMixConcreteByHandGuide,
   "what-size-rebar-do-i-need": WhatSizeRebarDoINeedGuide,
   "how-many-bricks-per-square-metre": HowManyBricksPerSquareMetreGuide,
+  "brick-mortar-mix-ratio": BrickMortarMixRatioGuide,
 };
 
 const metaMap: Record<
@@ -127,6 +129,17 @@ const metaMap: Record<
       "bricks per m2",
       "maxi brick calculator",
       "brick wall calculator",
+    ],
+  },
+  "brick-mortar-mix-ratio": {
+    title: "Brick Mortar Mix Ratio Guide: Which Mix for Which Job? | BuildCalc",
+    description:
+      "Mortar mix ratios for bricklaying by application. Covers cement to sand ratios for external walls, internal walls, below-ground work, and the role of lime.",
+    keywords: [
+      "mortar mix ratio",
+      "brick mortar ratio",
+      "cement sand ratio brickwork",
+      "mortar mix for bricklaying",
     ],
   },
 };
