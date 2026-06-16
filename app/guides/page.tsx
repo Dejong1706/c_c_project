@@ -59,7 +59,7 @@ const guides: {
     title: "What Size Rebar Do I Need?",
     href: "/guides/what-size-rebar-do-i-need",
     desc: "Bar size and spacing guide for slabs, footings and driveways. Covers metric and US Imperial sizes.",
-    category: "Concrete",
+    category: "Structural",
   },
   {
     title: "How Many Bricks Per Square Metre?",

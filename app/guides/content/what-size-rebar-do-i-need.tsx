@@ -120,7 +120,7 @@ export default function WhatSizeRebarDoINeedGuide() {
               borderRadius: "20px",
             }}
           >
-            Concrete
+            Structural
           </span>
           <h1
             style={{

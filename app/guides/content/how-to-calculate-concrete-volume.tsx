@@ -10,11 +10,6 @@ const faqs = [
       "Yes — most professionals add 5-10% to account for uneven ground, spillage, and minor formwork variations. Skipping this often means running short and needing a second delivery.",
   },
   {
-    question: "What's the difference between cubic yards and cubic meters?",
-    answer:
-      "A cubic yard is the standard unit for ready-mix concrete in the US, while cubic meters are more common in metric countries. One cubic meter equals roughly 1.31 cubic yards.",
-  },
-  {
     question: "How many 80lb bags of concrete do I need per cubic yard?",
     answer:
       "One cubic yard requires roughly 45 bags of 80lb concrete mix, since each bag yields about 0.022 cubic yards of mixed concrete, though this can vary slightly by brand.",
@@ -209,7 +204,12 @@ export default function ConcreteVolumeGuide() {
           So 1.32 cubic meters comes out to roughly 1.73 cubic yards. Ready-mix
           suppliers in the US typically sell by the cubic yard, often with a
           minimum order (commonly around 1 yard), so it&apos;s worth checking
-          with your supplier before finalizing quantities.
+          with your supplier before finalizing quantities. For a full conversion
+          table and more detail on working between units, see our{" "}
+          <a href="/guides/cubic-yards-to-cubic-meters" style={link}>
+            cubic yards to cubic meters guide
+          </a>
+          .
         </p>
 
         <h2 style={sectionHeading}>Bagged concrete vs. ready-mix</h2>

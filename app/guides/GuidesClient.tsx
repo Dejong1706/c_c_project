@@ -12,6 +12,7 @@ type Guide = {
 const CATEGORY_ORDER = [
   "All",
   "Concrete",
+  "Structural",
   "Masonry",
   "Tile",
   "Paint",
