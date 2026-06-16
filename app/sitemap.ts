@@ -19,6 +19,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/guides/concrete-strength-grades",
     "/guides/how-many-tiles-do-i-need",
     "/guides/how-to-calculate-paint-coverage",
+    "/guides/how-to-mix-concrete-by-hand",
+    "/guides/what-size-rebar-do-i-need",
+    "/guides/how-many-bricks-per-square-metre",
   ];
   return routes.map((r) => ({
     url: `${base}${r}`,

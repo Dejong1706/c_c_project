@@ -1,17 +1,3 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "How Many Tiles Do I Need? Calculation Guide & Tips | BuildCalc",
-  description:
-    "Learn how to calculate the number of tiles needed for a room, including waste percentage by layout pattern, box quantities, and common mistakes to avoid.",
-  keywords: [
-    "how many tiles do i need",
-    "tile calculator guide",
-    "tile quantity calculation",
-    "tile waste percentage",
-  ],
-};
-
 const faqs = [
   {
     question: "How do I calculate how many tiles I need for a room?",
@@ -70,7 +56,6 @@ const paragraph: React.CSSProperties = {
   lineHeight: 1.8,
   marginBottom: "14px",
 };
-
 
 const formula: React.CSSProperties = {
   fontFamily: "var(--font-mono)",

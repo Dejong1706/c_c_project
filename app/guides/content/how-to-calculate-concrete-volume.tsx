@@ -1,17 +1,3 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "How to Calculate Concrete Volume — Formula & Examples | BuildCalc",
-  description:
-    "Learn how to calculate concrete volume for slabs, footings and columns. Includes waste percentage tips, unit conversions, and bag vs ready-mix guidance.",
-  keywords: [
-    "concrete volume calculation",
-    "how to calculate concrete",
-    "concrete formula",
-    "cubic yards concrete",
-  ],
-};
-
 const faqs = [
   {
     question: "How much concrete do I need for a 10x10 slab?",

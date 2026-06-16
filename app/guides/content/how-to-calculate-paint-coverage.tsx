@@ -1,17 +1,3 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "How to Calculate Paint Coverage — Litres Per Room | BuildCalc",
-  description:
-    "Learn how to calculate how much paint you need for a room. Includes coverage rates, coat counts, wall area formulas and tips for buying the right amount.",
-  keywords: [
-    "how to calculate paint coverage",
-    "how much paint do i need",
-    "paint calculator guide",
-    "litres of paint per room",
-  ],
-};
-
 const faqs = [
   {
     question: "How much paint do I need for a room?",

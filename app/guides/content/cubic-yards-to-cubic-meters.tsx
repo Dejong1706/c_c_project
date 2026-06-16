@@ -1,17 +1,3 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Cubic Yards to Cubic Meters Converter & Conversion Guide | BuildCalc",
-  description:
-    "Convert cubic yards to cubic meters and back. Includes the exact formula, a quick reference table, and tips for ordering ready-mix concrete.",
-  keywords: [
-    "cubic yards to cubic meters",
-    "cubic meters to cubic yards",
-    "yd3 to m3",
-    "concrete volume conversion",
-  ],
-};
-
 const faqs = [
   {
     question: "How do I convert cubic yards to cubic meters?",

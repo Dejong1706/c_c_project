@@ -1,17 +1,3 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Concrete Strength Grades Explained (PSI & MPa) | BuildCalc",
-  description:
-    "Understand concrete strength grades in PSI and MPa, what they're used for, and how US and international (EN 206) classifications compare.",
-  keywords: [
-    "concrete strength grades",
-    "concrete psi chart",
-    "concrete mpa",
-    "concrete grade c25 c30",
-  ],
-};
-
 const faqs = [
   {
     question: "What PSI concrete should I use for a driveway?",

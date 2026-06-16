@@ -1,17 +1,3 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Tile Grout Gap Guide — How Wide Should Grout Lines Be? | BuildCalc",
-  description:
-    "Recommended grout gap widths for floor, wall and large-format tile. Learn how grout joint size affects appearance, durability and tile count.",
-  keywords: [
-    "grout gap size",
-    "tile grout width",
-    "grout line spacing",
-    "how wide should grout lines be",
-  ],
-};
-
 const faqs = [
   {
     question: "What is the standard grout gap for floor tile?",
@@ -70,7 +56,6 @@ const paragraph: React.CSSProperties = {
   lineHeight: 1.8,
   marginBottom: "14px",
 };
-
 
 const link: React.CSSProperties = {
   color: "var(--accent)",
