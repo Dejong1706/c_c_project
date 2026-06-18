@@ -73,6 +73,12 @@ const guides: {
     desc: "Cement to sand ratios for external walls, internal walls and below-ground work, plus the role of lime and how much mortar per m².",
     category: "Masonry",
   },
+  {
+    title: "Standard Brick Sizes by Country",
+    href: "/guides/standard-brick-sizes-by-country",
+    desc: "Work sizes, coordinating sizes, and bricks per m² for UK, US, Australia, Europe, and more.",
+    category: "Masonry",
+  },
 ];
 
 export default function GuidesPage() {

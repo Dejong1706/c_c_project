@@ -11,6 +11,7 @@ import HowToMixConcreteByHandGuide from "../content/how-to-mix-concrete-by-hand"
 import WhatSizeRebarDoINeedGuide from "../content/what-size-rebar-do-i-need";
 import HowManyBricksPerSquareMetreGuide from "../content/how-many-bricks-per-square-metre";
 import BrickMortarMixRatioGuide from "../content/brick-mortar-mix-ratio";
+import StandardBrickSizesByCountry from "../content/standard-brick-sizes-by-country";
 
 const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-concrete-volume": ConcreteVolumeGuide,
@@ -23,6 +24,7 @@ const contentMap: Record<string, React.ComponentType> = {
   "what-size-rebar-do-i-need": WhatSizeRebarDoINeedGuide,
   "how-many-bricks-per-square-metre": HowManyBricksPerSquareMetreGuide,
   "brick-mortar-mix-ratio": BrickMortarMixRatioGuide,
+  "standard-brick-sizes-by-country": StandardBrickSizesByCountry,
 };
 
 const metaMap: Record<
@@ -140,6 +142,19 @@ const metaMap: Record<
       "brick mortar ratio",
       "cement sand ratio brickwork",
       "mortar mix for bricklaying",
+    ],
+  },
+  "standard-brick-sizes-by-country": {
+    title: "Standard Brick Sizes by Country | BuildCalc",
+    description:
+      "Complete reference for standard brick dimensions in the UK, US, Australia, Europe, South Africa, and India — with mortar joint sizes and bricks per m².",
+    keywords: [
+      "standard brick size",
+      "brick dimensions",
+      "brick size uk",
+      "brick size us",
+      "brick size australia",
+      "bricks per m2",
     ],
   },
 };
