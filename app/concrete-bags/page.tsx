@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     "concrete bags calculator",
     "80lb bag calculator",
   ],
+  alternates: { canonical: "/concrete-bags" },
 };
 
 const faqs = [

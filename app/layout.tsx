@@ -4,10 +4,11 @@ import Layout from "./components/Layout";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://buildcalczone.com"),
   title: "BuildCalc — Free Construction Calculators",
   description:
     "Free construction calculators for concrete, tiles, bricks, rebar, paint and more.",
-  icons: { icon: "/favicon.ico" },
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({

@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     "trench volume calculator",
     "cubic yards excavation",
   ],
+  alternates: { canonical: "/excavation-calculator" },
 };
 
 const faqs = [

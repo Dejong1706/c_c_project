@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     "cubic yards concrete",
     "ready mix concrete calculator",
   ],
+  alternates: { canonical: "/concrete-calculator" },
 };
 
 const faqs = [

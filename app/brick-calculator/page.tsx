@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     "brick wall calculator",
     "bricks per square meter",
   ],
+  alternates: { canonical: "/brick-calculator" },
 };
 
 const faqs = [

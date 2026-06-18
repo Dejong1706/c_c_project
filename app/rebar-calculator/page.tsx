@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     "rebar weight per meter",
     "steel bar weight",
   ],
+  alternates: { canonical: "/rebar-calculator" },
 };
 
 const faqs = [

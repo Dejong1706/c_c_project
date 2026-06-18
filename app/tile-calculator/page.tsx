@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     "floor tile calculator",
     "tile estimator",
   ],
+  alternates: { canonical: "/tile-calculator" },
 };
 
 const faqs = [

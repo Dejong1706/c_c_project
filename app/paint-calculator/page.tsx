@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     "paint coverage calculator",
     "wall paint calculator",
   ],
+  alternates: { canonical: "/paint-calculator" },
 };
 
 const faqs = [

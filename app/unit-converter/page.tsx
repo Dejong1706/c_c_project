@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     "square meters to square feet",
     "cubic yards to cubic meters",
   ],
+  alternates: { canonical: "/unit-converter" },
 };
 
 const faqs = [

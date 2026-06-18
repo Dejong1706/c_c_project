@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Construction Guides — How-To & Reference | BuildCalc",
   description:
     "Free construction guides covering concrete, tiles, rebar, paint and more. Learn how to calculate material quantities and understand industry standards.",
+  alternates: { canonical: "/guides" },
 };
 
 const guides: {

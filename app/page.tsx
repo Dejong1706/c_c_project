@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "BuildCalc — Free Construction Calculators",
   description:
     "Free construction calculators for concrete volume, tile quantity, rebar weight, brick count and more. Instant results in metric and imperial.",
+  alternates: { canonical: "/" },
 };
 
 const calcs = [
