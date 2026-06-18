@@ -24,6 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/guides/how-many-bricks-per-square-metre",
     "/guides/brick-mortar-mix-ratio",
     "/guides/standard-brick-sizes-by-country",
+    "/guides/how-to-calculate-bricks-for-a-wall",
+    "/guides/single-vs-double-leaf-brick-wall",
   ];
   return routes.map((r) => ({
     url: `${base}${r}`,

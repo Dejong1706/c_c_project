@@ -79,6 +79,18 @@ const guides: {
     desc: "Work sizes, coordinating sizes, and bricks per m² for UK, US, Australia, Europe, and more.",
     category: "Masonry",
   },
+  {
+    title: "How to Calculate Bricks for a Wall",
+    href: "/guides/how-to-calculate-bricks-for-a-wall",
+    desc: "Step-by-step: wall area, openings, waste factor, and mortar — with worked examples.",
+    category: "Masonry",
+  },
+  {
+    title: "Single vs Double Leaf Brick Wall",
+    href: "/guides/single-vs-double-leaf-brick-wall",
+    desc: "Thickness, structural limits, brick counts, and bonding patterns — with cavity wall comparison.",
+    category: "Masonry",
+  },
 ];
 
 export default function GuidesPage() {

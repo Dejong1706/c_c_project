@@ -12,6 +12,8 @@ import WhatSizeRebarDoINeedGuide from "../content/what-size-rebar-do-i-need";
 import HowManyBricksPerSquareMetreGuide from "../content/how-many-bricks-per-square-metre";
 import BrickMortarMixRatioGuide from "../content/brick-mortar-mix-ratio";
 import StandardBrickSizesByCountry from "../content/standard-brick-sizes-by-country";
+import HowToCalculateBricksForAWall from "../content/how-to-calculate-bricks-for-a-wall";
+import SingleVsDoubleLeafBrickWall from "../content/single-vs-double-leaf-brick-wall";
 
 const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-concrete-volume": ConcreteVolumeGuide,
@@ -25,6 +27,8 @@ const contentMap: Record<string, React.ComponentType> = {
   "how-many-bricks-per-square-metre": HowManyBricksPerSquareMetreGuide,
   "brick-mortar-mix-ratio": BrickMortarMixRatioGuide,
   "standard-brick-sizes-by-country": StandardBrickSizesByCountry,
+  "how-to-calculate-bricks-for-a-wall": HowToCalculateBricksForAWall,
+  "single-vs-double-leaf-brick-wall": SingleVsDoubleLeafBrickWall,
 };
 
 const metaMap: Record<
@@ -155,6 +159,31 @@ const metaMap: Record<
       "brick size us",
       "brick size australia",
       "bricks per m2",
+    ],
+  },
+  "how-to-calculate-bricks-for-a-wall": {
+    title: "How to Calculate Bricks for a Wall | BuildCalc",
+    description:
+      "Step-by-step guide to calculating how many bricks you need — half-brick and full-brick walls, openings, waste factors, and mortar estimates included.",
+    keywords: [
+      "how to calculate bricks",
+      "how many bricks do i need",
+      "brick wall calculation",
+      "bricks per m2",
+      "brick calculator",
+    ],
+  },
+  "single-vs-double-leaf-brick-wall": {
+    title: "Single vs Double Leaf Brick Wall: Key Differences | BuildCalc",
+    description:
+      "Single leaf vs double leaf brick walls — thickness, structural limits, brick counts, bonding patterns, and when to use each. Includes cavity wall comparison.",
+    keywords: [
+      "single leaf brick wall",
+      "double leaf brick wall",
+      "half brick wall",
+      "full brick wall",
+      "cavity wall",
+      "brick wall thickness",
     ],
   },
 };
