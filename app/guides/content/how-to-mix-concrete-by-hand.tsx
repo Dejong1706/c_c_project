@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Breadcrumb, GuideTable, IntroText, NoteBox, formula, link, listItem, paragraph, sectionHeading, td, th } from "./shared";
 
 const faqs = [
   {
@@ -45,75 +46,6 @@ const articleSchema = {
   url: "https://buildcalczone.com/guides/how-to-mix-concrete-by-hand",
 };
 
-const sectionHeading: React.CSSProperties = {
-  fontSize: "20px",
-  fontWeight: 600,
-  color: "var(--text-1)",
-  margin: "32px 0 12px",
-};
-
-const paragraph: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "14px",
-};
-
-const listItem: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "6px",
-};
-
-const formula: React.CSSProperties = {
-  fontFamily: "var(--font-mono)",
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  borderRadius: "8px",
-  padding: "14px 18px",
-  fontSize: "15px",
-  color: "var(--text-1)",
-  margin: "12px 0",
-};
-
-const note: React.CSSProperties = {
-  fontSize: "13px",
-  color: "var(--text-3)",
-  lineHeight: 1.7,
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  borderRadius: "8px",
-  padding: "12px 16px",
-  margin: "12px 0 20px",
-};
-
-const link: React.CSSProperties = {
-  color: "var(--accent)",
-  textDecoration: "underline",
-};
-
-const table: React.CSSProperties = {
-  width: "100%",
-  borderCollapse: "collapse",
-  margin: "12px 0 20px",
-  fontSize: "14px",
-};
-
-const th: React.CSSProperties = {
-  textAlign: "left",
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-1)",
-  fontWeight: 600,
-};
-
-const td: React.CSSProperties = {
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-2)",
-};
-
 export default function HowToMixConcreteByHandGuide() {
   return (
     <>
@@ -127,6 +59,7 @@ export default function HowToMixConcreteByHandGuide() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="How to Mix Concrete by Hand: Ratios, Water, and Technique" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{
@@ -151,19 +84,13 @@ export default function HowToMixConcreteByHandGuide() {
           >
             How to Mix Concrete by Hand: Ratios, Water, and Technique
           </h1>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "var(--text-2)",
-              lineHeight: 1.7,
-            }}
-          >
+          <IntroText>
             For small pours — a fence post, a garden step, a small slab — mixing
             concrete by hand is straightforward and doesn&apos;t require a drum
             mixer. The key variables are the mix ratio, the amount of water, and
             the mixing sequence. Get those right and the result is the same as
             any other method.
-          </p>
+          </IntroText>
         </header>
 
         <h2 style={sectionHeading}>Mix ratios</h2>
@@ -172,7 +99,7 @@ export default function HowToMixConcreteByHandGuide() {
           aggregate (gravel or crushed stone), combined in proportions that
           determine the final strength. The ratios below are by volume:
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Ratio (cement:sand:aggregate)</th>
@@ -195,12 +122,12 @@ export default function HowToMixConcreteByHandGuide() {
               </td>
             </tr>
           </tbody>
-        </table>
-        <div style={note}>
+        </GuideTable>
+        <NoteBox>
           These ratios are for site-mixed concrete using separate materials. If
           you&apos;re using bagged pre-mix concrete, the proportions are already
           set — just add water according to the bag instructions.
-        </div>
+        </NoteBox>
 
         <h2 style={sectionHeading}>How much water to add</h2>
         <p style={paragraph}>
@@ -267,11 +194,11 @@ export default function HowToMixConcreteByHandGuide() {
           is preferable regardless of volume, since plant-mixed concrete has
           tighter quality control than site mixing.
         </p>
-        <div style={note}>
+        <NoteBox>
           For structural work, consult a qualified engineer before specifying
           mix ratios or concrete grades. The ratios above are for general
           guidance on non-structural and lightly loaded applications.
-        </div>
+        </NoteBox>
 
         <h2 style={sectionHeading}>Putting it together</h2>
         <p style={paragraph}>

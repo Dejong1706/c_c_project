@@ -1,3 +1,4 @@
+import { Breadcrumb, IntroText, formula, link, listItem, paragraph, sectionHeading } from "./shared";
 const faqs = [
   {
     question: "How much concrete do I need for a 10x10 slab?",
@@ -38,43 +39,6 @@ const articleSchema = {
   url: "https://buildcalczone.com/guides/how-to-calculate-concrete-volume",
 };
 
-const sectionHeading: React.CSSProperties = {
-  fontSize: "20px",
-  fontWeight: 600,
-  color: "var(--text-1)",
-  margin: "32px 0 12px",
-};
-
-const paragraph: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "14px",
-};
-
-const listItem: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "6px",
-};
-
-const formula: React.CSSProperties = {
-  fontFamily: "var(--font-mono)",
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  borderRadius: "8px",
-  padding: "14px 18px",
-  fontSize: "15px",
-  color: "var(--text-1)",
-  margin: "12px 0",
-};
-
-const link: React.CSSProperties = {
-  color: "var(--accent)",
-  textDecoration: "underline",
-};
-
 export default function ConcreteVolumeGuide() {
   return (
     <>
@@ -88,6 +52,7 @@ export default function ConcreteVolumeGuide() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="How to Calculate Concrete Volume (and How Much You Actually Need)" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{
@@ -112,19 +77,13 @@ export default function ConcreteVolumeGuide() {
           >
             How to Calculate Concrete Volume (and How Much You Actually Need)
           </h1>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "var(--text-2)",
-              lineHeight: 1.7,
-            }}
-          >
+          <IntroText>
             If you&apos;ve ever poured concrete and ended up with three extra
             bags sitting in your driveway — or worse, run short halfway through
             a slab — you know why getting the volume right matters. The good
             news is the math itself is simple. The part people usually get wrong
             isn&apos;t the formula, it&apos;s the inputs.
-          </p>
+          </IntroText>
         </header>
 
         <h2 style={sectionHeading}>The basic formula</h2>

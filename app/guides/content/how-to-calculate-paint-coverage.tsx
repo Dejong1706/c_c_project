@@ -1,3 +1,4 @@
+import { Breadcrumb, GuideTable, IntroText, formula, link, listItem, paragraph, sectionHeading, td, th } from "./shared";
 const faqs = [
   {
     question: "How much paint do I need for a room?",
@@ -43,64 +44,6 @@ const articleSchema = {
   url: "https://buildcalczone.com/guides/how-to-calculate-paint-coverage",
 };
 
-const sectionHeading: React.CSSProperties = {
-  fontSize: "20px",
-  fontWeight: 600,
-  color: "var(--text-1)",
-  margin: "32px 0 12px",
-};
-
-const paragraph: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "14px",
-};
-
-const listItem: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "6px",
-};
-
-const formula: React.CSSProperties = {
-  fontFamily: "var(--font-mono)",
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  borderRadius: "8px",
-  padding: "14px 18px",
-  fontSize: "15px",
-  color: "var(--text-1)",
-  margin: "12px 0",
-};
-
-const link: React.CSSProperties = {
-  color: "var(--accent)",
-  textDecoration: "underline",
-};
-
-const table: React.CSSProperties = {
-  width: "100%",
-  borderCollapse: "collapse",
-  margin: "12px 0 20px",
-  fontSize: "14px",
-};
-
-const th: React.CSSProperties = {
-  textAlign: "left",
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-1)",
-  fontWeight: 600,
-};
-
-const td: React.CSSProperties = {
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-2)",
-};
-
 export default function PaintCoverageGuide() {
   return (
     <>
@@ -114,6 +57,7 @@ export default function PaintCoverageGuide() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="How to Calculate Paint Coverage: Litres Per Room Guide" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{
@@ -138,19 +82,13 @@ export default function PaintCoverageGuide() {
           >
             How to Calculate Paint Coverage: Litres Per Room Guide
           </h1>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "var(--text-2)",
-              lineHeight: 1.7,
-            }}
-          >
+          <IntroText>
             Buying too little paint means a second trip to the store mid-job.
             Buying too much means leftover tins sitting in the garage for years.
             Getting the calculation right isn&apos;t complicated — it mostly
             comes down to measuring your walls accurately and knowing the
             coverage rate of the paint you&apos;re using.
-          </p>
+          </IntroText>
         </header>
 
         <h2 style={sectionHeading}>Step 1 — Calculate your wall area</h2>
@@ -194,7 +132,7 @@ export default function PaintCoverageGuide() {
           cover per coat. It&apos;s printed on every tin, but typical ranges
           are:
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Paint type</th>
@@ -219,7 +157,7 @@ export default function PaintCoverageGuide() {
               <td style={td}>6–10 m²</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <p style={paragraph}>
           When in doubt, use 10 m²/L as a conservative default for interior
           walls — it&apos;s better to slightly overestimate than to run short on

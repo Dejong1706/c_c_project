@@ -1,3 +1,4 @@
+import { Breadcrumb, GuideTable, IntroText, NoteBox, link, paragraph, sectionHeading, td, th } from "./shared";
 const faqs = [
   {
     question: "What PSI concrete should I use for a driveway?",
@@ -43,57 +44,6 @@ const articleSchema = {
   url: "https://buildcalczone.com/guides/concrete-strength-grades",
 };
 
-const sectionHeading: React.CSSProperties = {
-  fontSize: "20px",
-  fontWeight: 600,
-  color: "var(--text-1)",
-  margin: "32px 0 12px",
-};
-
-const paragraph: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "14px",
-};
-
-const link: React.CSSProperties = {
-  color: "var(--accent)",
-  textDecoration: "underline",
-};
-
-const note: React.CSSProperties = {
-  fontSize: "13px",
-  color: "var(--text-3)",
-  lineHeight: 1.7,
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  borderRadius: "8px",
-  padding: "12px 16px",
-  margin: "12px 0 20px",
-};
-
-const table: React.CSSProperties = {
-  width: "100%",
-  borderCollapse: "collapse",
-  margin: "12px 0 20px",
-  fontSize: "14px",
-};
-
-const th: React.CSSProperties = {
-  textAlign: "left",
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-1)",
-  fontWeight: 600,
-};
-
-const td: React.CSSProperties = {
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-2)",
-};
-
 export default function ConcreteStrengthGradesGuide() {
   return (
     <>
@@ -107,6 +57,7 @@ export default function ConcreteStrengthGradesGuide() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="Concrete Strength Grades Explained: PSI, MPa, and What They Mean" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{
@@ -131,19 +82,13 @@ export default function ConcreteStrengthGradesGuide() {
           >
             Concrete Strength Grades Explained: PSI, MPa, and What They Mean
           </h1>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "var(--text-2)",
-              lineHeight: 1.7,
-            }}
-          >
+          <IntroText>
             Order concrete for a project and you&apos;ll be asked what strength you
             need — usually expressed as a PSI number in the US, or an MPa /
             C-grade almost everywhere else. These numbers aren&apos;t arbitrary; they
             correspond to how much load the concrete can handle once cured, and
             choosing the right one matters for both safety and cost.
-          </p>
+          </IntroText>
         </header>
 
         <h2 style={sectionHeading}>What the numbers mean</h2>
@@ -157,7 +102,7 @@ export default function ConcreteStrengthGradesGuide() {
         </p>
 
         <h2 style={sectionHeading}>Common PSI grades (US)</h2>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>PSI</th>
@@ -184,10 +129,10 @@ export default function ConcreteStrengthGradesGuide() {
               </td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         <h2 style={sectionHeading}>Common C-grades (EN 206 / international)</h2>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Grade</th>
@@ -212,7 +157,7 @@ export default function ConcreteStrengthGradesGuide() {
               <td style={td}>High-strength structural and commercial work</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <p style={paragraph}>
           In a C-grade like C25/30, the first number is the cylinder strength
           and the second is the cube strength — two different test specimen
@@ -227,13 +172,13 @@ export default function ConcreteStrengthGradesGuide() {
           So 3000 psi works out to roughly 20.7 MPa, and 4000 psi to roughly
           27.6 MPa.
         </p>
-        <div style={note}>
+        <NoteBox>
           Note: this is a direct unit conversion, not a direct equivalence
           between grading systems. US PSI grades and European C-grades are based
           on similar but not identical testing standards (specimen shape, curing
           conditions, and age can all differ slightly), so treat cross-system
           comparisons as approximate rather than exact substitutions.
-        </div>
+        </NoteBox>
 
         <h2 style={sectionHeading}>Why 28 days?</h2>
         <p style={paragraph}>

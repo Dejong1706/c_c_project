@@ -1,3 +1,4 @@
+import { Breadcrumb, GuideTable, IntroText, link, paragraph, sectionHeading, td, th } from "./shared";
 const faqs = [
   {
     question: "What is the standard grout gap for floor tile?",
@@ -43,46 +44,6 @@ const articleSchema = {
   url: "https://buildcalczone.com/guides/tile-grout-gap-guide",
 };
 
-const sectionHeading: React.CSSProperties = {
-  fontSize: "20px",
-  fontWeight: 600,
-  color: "var(--text-1)",
-  margin: "32px 0 12px",
-};
-
-const paragraph: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "14px",
-};
-
-const link: React.CSSProperties = {
-  color: "var(--accent)",
-  textDecoration: "underline",
-};
-
-const table: React.CSSProperties = {
-  width: "100%",
-  borderCollapse: "collapse",
-  margin: "12px 0 20px",
-  fontSize: "14px",
-};
-
-const th: React.CSSProperties = {
-  textAlign: "left",
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-1)",
-  fontWeight: 600,
-};
-
-const td: React.CSSProperties = {
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-2)",
-};
-
 export default function TileGroutGapGuide() {
   return (
     <>
@@ -96,6 +57,7 @@ export default function TileGroutGapGuide() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="Tile Grout Gap Guide: How Wide Should Your Grout Lines Be?" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{
@@ -120,19 +82,13 @@ export default function TileGroutGapGuide() {
           >
             Tile Grout Gap Guide: How Wide Should Your Grout Lines Be?
           </h1>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "var(--text-2)",
-              lineHeight: 1.7,
-            }}
-          >
+          <IntroText>
             The grout gap is one of those details that&apos;s easy to overlook until
             the tiles are already down — but it affects how the finished floor
             looks, how easy it is to keep clean, and even how many tiles you&apos;ll
             end up needing. Here&apos;s what&apos;s typical, and how to choose the right
             gap for your project.
-          </p>
+          </IntroText>
         </header>
 
         <h2 style={sectionHeading}>Why grout gaps exist at all</h2>
@@ -152,7 +108,7 @@ export default function TileGroutGapGuide() {
           size, and where it&apos;s being installed. That said, here are the ranges
           most commonly used:
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Tile type</th>
@@ -177,7 +133,7 @@ export default function TileGroutGapGuide() {
               <td style={td}>6mm+</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <p style={paragraph}>
           These are general guidelines rather than fixed rules — manufacturer
           recommendations and local building codes can vary, so it&apos;s worth

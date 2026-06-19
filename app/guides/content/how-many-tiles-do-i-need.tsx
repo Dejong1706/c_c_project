@@ -1,3 +1,4 @@
+import { Breadcrumb, GuideTable, IntroText, formula, link, paragraph, sectionHeading, td, th } from "./shared";
 const faqs = [
   {
     question: "How do I calculate how many tiles I need for a room?",
@@ -43,57 +44,6 @@ const articleSchema = {
   url: "https://buildcalczone.com/guides/how-many-tiles-do-i-need",
 };
 
-const sectionHeading: React.CSSProperties = {
-  fontSize: "20px",
-  fontWeight: 600,
-  color: "var(--text-1)",
-  margin: "32px 0 12px",
-};
-
-const paragraph: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "14px",
-};
-
-const formula: React.CSSProperties = {
-  fontFamily: "var(--font-mono)",
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  borderRadius: "8px",
-  padding: "14px 18px",
-  fontSize: "15px",
-  color: "var(--text-1)",
-  margin: "12px 0",
-};
-
-const link: React.CSSProperties = {
-  color: "var(--accent)",
-  textDecoration: "underline",
-};
-
-const table: React.CSSProperties = {
-  width: "100%",
-  borderCollapse: "collapse",
-  margin: "12px 0 20px",
-  fontSize: "14px",
-};
-
-const th: React.CSSProperties = {
-  textAlign: "left",
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-1)",
-  fontWeight: 600,
-};
-
-const td: React.CSSProperties = {
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-2)",
-};
-
 export default function HowManyTilesGuide() {
   return (
     <>
@@ -107,6 +57,7 @@ export default function HowManyTilesGuide() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="How Many Tiles Do I Need? A Practical Calculation Guide" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{
@@ -131,19 +82,13 @@ export default function HowManyTilesGuide() {
           >
             How Many Tiles Do I Need? A Practical Calculation Guide
           </h1>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "var(--text-2)",
-              lineHeight: 1.7,
-            }}
-          >
+          <IntroText>
             The core calculation for tile quantity is simple division — but
             getting an order that&apos;s actually right for your project means
             thinking about layout pattern, cuts, and how tile is packaged and
             sold. Here&apos;s how to go from room dimensions to a number you can
             confidently take to the store.
-          </p>
+          </IntroText>
         </header>
 
         <h2 style={sectionHeading}>The basic calculation</h2>
@@ -170,7 +115,7 @@ export default function HowManyTilesGuide() {
           with zero cuts — which essentially never happens in practice. How much
           extra to add depends largely on your layout pattern:
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Layout</th>
@@ -191,7 +136,7 @@ export default function HowManyTilesGuide() {
               <td style={td}>15-20%</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <p style={paragraph}>
           For our 34-tile example with a 10% allowance, that comes to about
           37.4, rounded up to 38 tiles. Diagonal layouts waste more material

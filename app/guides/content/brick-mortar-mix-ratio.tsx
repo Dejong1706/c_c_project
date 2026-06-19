@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Breadcrumb, GuideTable, IntroText, NoteBox, link, listItem, paragraph, sectionHeading, td, th } from "./shared";
 
 const faqs = [
   {
@@ -45,64 +46,6 @@ const articleSchema = {
   url: "https://buildcalczone.com/guides/brick-mortar-mix-ratio",
 };
 
-const sectionHeading: React.CSSProperties = {
-  fontSize: "20px",
-  fontWeight: 600,
-  color: "var(--text-1)",
-  margin: "32px 0 12px",
-};
-
-const paragraph: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "14px",
-};
-
-const listItem: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "6px",
-};
-
-const note: React.CSSProperties = {
-  fontSize: "13px",
-  color: "var(--text-3)",
-  lineHeight: 1.7,
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  borderRadius: "8px",
-  padding: "12px 16px",
-  margin: "12px 0 20px",
-};
-
-const link: React.CSSProperties = {
-  color: "var(--accent)",
-  textDecoration: "underline",
-};
-
-const table: React.CSSProperties = {
-  width: "100%",
-  borderCollapse: "collapse",
-  margin: "12px 0 20px",
-  fontSize: "14px",
-};
-
-const th: React.CSSProperties = {
-  textAlign: "left",
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-1)",
-  fontWeight: 600,
-};
-
-const td: React.CSSProperties = {
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-2)",
-};
-
 export default function BrickMortarMixRatioGuide() {
   return (
     <>
@@ -116,6 +59,7 @@ export default function BrickMortarMixRatioGuide() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="Brick Mortar Mix Ratio Guide: Which Mix for Which Job?" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{
@@ -140,18 +84,12 @@ export default function BrickMortarMixRatioGuide() {
           >
             Brick Mortar Mix Ratio Guide: Which Mix for Which Job?
           </h1>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "var(--text-2)",
-              lineHeight: 1.7,
-            }}
-          >
+          <IntroText>
             Mortar holds brickwork together, but the right mix depends on where
             the wall is and what it needs to do. Using a mix that&apos;s too
             strong can cause cracking; too weak and it won&apos;t cope with
             moisture or load. Here&apos;s how to match the ratio to the job.
-          </p>
+          </IntroText>
         </header>
 
         <h2 style={sectionHeading}>The basic mix: cement and sand</h2>
@@ -162,7 +100,7 @@ export default function BrickMortarMixRatioGuide() {
           mix. A lower number means more cement — stronger but less forgiving of
           movement.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Mix ratio (cement:sand)</th>
@@ -195,11 +133,11 @@ export default function BrickMortarMixRatioGuide() {
               </td>
             </tr>
           </tbody>
-        </table>
-        <div style={note}>
+        </GuideTable>
+        <NoteBox>
           These ratios are by volume, not weight. Use the same container for
           measuring each material to keep proportions consistent across batches.
-        </div>
+        </NoteBox>
 
         <h2 style={sectionHeading}>Adding lime</h2>
         <p style={paragraph}>
@@ -214,7 +152,7 @@ export default function BrickMortarMixRatioGuide() {
           cement&apos;s stiffness without significantly reducing final strength
           for standard applications.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Mix (cement:lime:sand)</th>
@@ -239,7 +177,7 @@ export default function BrickMortarMixRatioGuide() {
               <td style={td}>Internal walls, low load</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         <h2 style={sectionHeading}>Plasticisers as a lime alternative</h2>
         <p style={paragraph}>
@@ -271,12 +209,12 @@ export default function BrickMortarMixRatioGuide() {
           perpendicular joints (vertical) but not collar joints in cavity walls.
           Add 10% for waste and overfilling.
         </p>
-        <div style={note}>
+        <NoteBox>
           Mortar volume estimates vary with joint width and brick type. The
           figures above apply to standard bricks (215×102.5×65mm) with 10mm
           joints. Maxi or jumbo bricks with larger joints will require more
           mortar per square metre.
-        </div>
+        </NoteBox>
 
         <h2 style={sectionHeading}>Common mistakes</h2>
         <ul style={{ paddingLeft: "20px", marginBottom: "14px" }}>

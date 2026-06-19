@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Breadcrumb, GuideTable, IntroText, NoteBox, formula, link, listItem, paragraph, sectionHeading, td, th } from "./shared";
 
 const faqs = [
   {
@@ -54,67 +55,6 @@ const articleSchema = {
   url: "https://buildcalczone.com/guides/single-vs-double-leaf-brick-wall",
 };
 
-const sectionHeading: React.CSSProperties = {
-  fontSize: "20px",
-  fontWeight: 600,
-  color: "var(--text-1)",
-  margin: "32px 0 12px",
-};
-const paragraph: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "14px",
-};
-const listItem: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "6px",
-};
-const formula: React.CSSProperties = {
-  fontFamily: "var(--font-mono)",
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  borderRadius: "8px",
-  padding: "14px 18px",
-  fontSize: "15px",
-  color: "var(--text-1)",
-  margin: "12px 0",
-};
-const note: React.CSSProperties = {
-  fontSize: "13px",
-  color: "var(--text-3)",
-  lineHeight: 1.7,
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  borderRadius: "8px",
-  padding: "12px 16px",
-  margin: "12px 0 20px",
-};
-const link: React.CSSProperties = {
-  color: "var(--accent)",
-  textDecoration: "underline",
-};
-const table: React.CSSProperties = {
-  width: "100%",
-  borderCollapse: "collapse",
-  margin: "12px 0 20px",
-  fontSize: "14px",
-};
-const th: React.CSSProperties = {
-  textAlign: "left",
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-1)",
-  fontWeight: 600,
-};
-const td: React.CSSProperties = {
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-2)",
-};
-
 export default function SingleVsDoubleLeafBrickWall() {
   return (
     <>
@@ -128,6 +68,7 @@ export default function SingleVsDoubleLeafBrickWall() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="Single vs Double Leaf Brick Wall: Key Differences Explained" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{
@@ -152,20 +93,14 @@ export default function SingleVsDoubleLeafBrickWall() {
           >
             Single vs Double Leaf Brick Wall: Key Differences Explained
           </h1>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "var(--text-2)",
-              lineHeight: 1.7,
-            }}
-          >
+          <IntroText>
             Choosing the wrong wall type is a costly mistake — too thin and the
             wall may fail structurally or thermally; too thick and you&apos;ve
             wasted materials and space. This guide covers the practical
             differences between single and double leaf walls, including
             thickness, structural limits, brick quantities, bonding patterns,
             and when each is appropriate.
-          </p>
+          </IntroText>
         </header>
 
         {/* Definitions */}
@@ -197,7 +132,7 @@ export default function SingleVsDoubleLeafBrickWall() {
 
         {/* Side-by-side comparison */}
         <h2 style={sectionHeading}>Side-by-Side Comparison</h2>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Property</th>
@@ -252,7 +187,7 @@ export default function SingleVsDoubleLeafBrickWall() {
               <td style={td}>~2× higher</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         {/* Single leaf detail */}
         <h2 style={sectionHeading}>Single Leaf Walls in Detail</h2>
@@ -273,12 +208,12 @@ export default function SingleVsDoubleLeafBrickWall() {
           single leaf wall can reach up to 1.8 m in appropriate conditions.
           Always consult a structural engineer for walls above 1 m.
         </p>
-        <div style={note}>
+        <NoteBox>
           Height and stability limits for free-standing walls depend on
           exposure, foundation conditions, and local regulations. The figures
           above are indicative only — a structural engineer should be consulted
           for any wall above 1 m or in exposed locations.
-        </div>
+        </NoteBox>
         <p style={paragraph}>
           <strong>Where single leaf walls are appropriate:</strong>
         </p>
@@ -302,7 +237,7 @@ export default function SingleVsDoubleLeafBrickWall() {
         <p style={paragraph}>
           <strong>Bonding patterns for double leaf walls:</strong>
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Bond</th>
@@ -348,12 +283,12 @@ export default function SingleVsDoubleLeafBrickWall() {
               </td>
             </tr>
           </tbody>
-        </table>
-        <div style={note}>
+        </GuideTable>
+        <NoteBox>
           English bond is generally considered the strongest of these patterns
           due to its higher header frequency and the way loads are transferred
           across the wall thickness.
-        </div>
+        </NoteBox>
         <p style={paragraph}>
           <strong>Where double leaf walls are appropriate:</strong>
         </p>
@@ -385,7 +320,7 @@ export default function SingleVsDoubleLeafBrickWall() {
           50–100 mm wide, tied together with stainless steel wall ties at
           regular intervals.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Property</th>
@@ -420,12 +355,12 @@ export default function SingleVsDoubleLeafBrickWall() {
               <td style={td}>Yes (standard since ~1930s)</td>
             </tr>
           </tbody>
-        </table>
-        <div style={note}>
+        </GuideTable>
+        <NoteBox>
           For new external walls in the UK, cavity construction is the standard.
           Solid double leaf walls are primarily encountered in renovation,
           heritage work, or specific structural applications.
-        </div>
+        </NoteBox>
 
         {/* Brick and mortar quantities */}
         <h2 style={sectionHeading}>Brick and Mortar Quantities</h2>
@@ -433,7 +368,7 @@ export default function SingleVsDoubleLeafBrickWall() {
           For UK standard bricks (215 × 102.5 × 65 mm) with a 10 mm mortar
           joint:
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Wall Type</th>
@@ -456,19 +391,19 @@ export default function SingleVsDoubleLeafBrickWall() {
               <td style={td}>~1.6 bags (25 kg)</td>
             </tr>
           </tbody>
-        </table>
-        <div style={note}>
+        </GuideTable>
+        <NoteBox>
           Mortar quantities assume a standard 1:4 cement-to-sand mix. For a full
           mortar calculation, see our{" "}
           <Link href="/guides/brick-mortar-mix-ratio" style={link}>
             Brick Mortar Mix Ratio Guide
           </Link>
           .
-        </div>
+        </NoteBox>
 
         {/* Which to choose */}
         <h2 style={sectionHeading}>Which Wall Type Should You Use?</h2>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Project</th>
@@ -509,7 +444,7 @@ export default function SingleVsDoubleLeafBrickWall() {
               </td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         {/* Related links */}
         <h2 style={sectionHeading}>Related Guides & Tools</h2>

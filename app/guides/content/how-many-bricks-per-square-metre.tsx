@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Breadcrumb, GuideTable, IntroText, NoteBox, link, paragraph, sectionHeading, td, th } from "./shared";
 
 const faqs = [
   {
@@ -45,57 +46,6 @@ const articleSchema = {
   url: "https://buildcalczone.com/guides/how-many-bricks-per-square-metre",
 };
 
-const sectionHeading: React.CSSProperties = {
-  fontSize: "20px",
-  fontWeight: 600,
-  color: "var(--text-1)",
-  margin: "32px 0 12px",
-};
-
-const paragraph: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "14px",
-};
-
-const note: React.CSSProperties = {
-  fontSize: "13px",
-  color: "var(--text-3)",
-  lineHeight: 1.7,
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  borderRadius: "8px",
-  padding: "12px 16px",
-  margin: "12px 0 20px",
-};
-
-const link: React.CSSProperties = {
-  color: "var(--accent)",
-  textDecoration: "underline",
-};
-
-const table: React.CSSProperties = {
-  width: "100%",
-  borderCollapse: "collapse",
-  margin: "12px 0 20px",
-  fontSize: "14px",
-};
-
-const th: React.CSSProperties = {
-  textAlign: "left",
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-1)",
-  fontWeight: 600,
-};
-
-const td: React.CSSProperties = {
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-2)",
-};
-
 export default function HowManyBricksPerSquareMetreGuide() {
   return (
     <>
@@ -109,6 +59,7 @@ export default function HowManyBricksPerSquareMetreGuide() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="How Many Bricks Per Square Metre? Standard, Maxi & Jumbo" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{
@@ -133,19 +84,13 @@ export default function HowManyBricksPerSquareMetreGuide() {
           >
             How Many Bricks Per Square Metre? Standard, Maxi & Jumbo
           </h1>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "var(--text-2)",
-              lineHeight: 1.7,
-            }}
-          >
+          <IntroText>
             The number of bricks per square metre depends on the brick size and
             the mortar joint thickness used. Standard bricks, maxi bricks, and
             jumbo bricks all give different coverage — and getting this number
             right before ordering prevents both shortfalls and unnecessary
             surplus.
-          </p>
+          </IntroText>
         </header>
 
         <h2 style={sectionHeading}>Bricks per square metre by size</h2>
@@ -155,7 +100,7 @@ export default function HowManyBricksPerSquareMetreGuide() {
           brickwork. Double-leaf or cavity walls require double these
           quantities.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Brick type</th>
@@ -180,13 +125,13 @@ export default function HowManyBricksPerSquareMetreGuide() {
               <td style={td}>~23</td>
             </tr>
           </tbody>
-        </table>
-        <div style={note}>
+        </GuideTable>
+        <NoteBox>
           These figures are calculated from the face dimensions including a 10mm
           mortar joint on each edge. Actual quantities can vary slightly
           depending on the brick manufacturer&apos;s tolerances and the joint
           width used on site.
-        </div>
+        </NoteBox>
 
         <h2 style={sectionHeading}>How the calculation works</h2>
         <p style={paragraph}>
@@ -230,7 +175,7 @@ export default function HowManyBricksPerSquareMetreGuide() {
           Brick estimates should always include a waste allowance to cover cuts,
           breakage, and minor measurement variations:
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Wall type</th>
@@ -249,7 +194,7 @@ export default function HowManyBricksPerSquareMetreGuide() {
               <td style={td}>10–15%</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <p style={paragraph}>
           One additional consideration: bricks are manufactured in batches, and
           colour can vary between batches. If you run short and need to reorder,

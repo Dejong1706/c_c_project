@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Breadcrumb, GuideTable, IntroText, NoteBox, link, paragraph, sectionHeading, td, th } from "./shared";
 
 const faqs = [
   {
@@ -45,57 +46,6 @@ const articleSchema = {
   url: "https://buildcalczone.com/guides/what-size-rebar-do-i-need",
 };
 
-const sectionHeading: React.CSSProperties = {
-  fontSize: "20px",
-  fontWeight: 600,
-  color: "var(--text-1)",
-  margin: "32px 0 12px",
-};
-
-const paragraph: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "14px",
-};
-
-const note: React.CSSProperties = {
-  fontSize: "13px",
-  color: "var(--text-3)",
-  lineHeight: 1.7,
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  borderRadius: "8px",
-  padding: "12px 16px",
-  margin: "12px 0 20px",
-};
-
-const link: React.CSSProperties = {
-  color: "var(--accent)",
-  textDecoration: "underline",
-};
-
-const table: React.CSSProperties = {
-  width: "100%",
-  borderCollapse: "collapse",
-  margin: "12px 0 20px",
-  fontSize: "14px",
-};
-
-const th: React.CSSProperties = {
-  textAlign: "left",
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-1)",
-  fontWeight: 600,
-};
-
-const td: React.CSSProperties = {
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-2)",
-};
-
 export default function WhatSizeRebarDoINeedGuide() {
   return (
     <>
@@ -109,6 +59,7 @@ export default function WhatSizeRebarDoINeedGuide() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="What Size Rebar Do I Need? A Practical Selection Guide" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{
@@ -133,19 +84,13 @@ export default function WhatSizeRebarDoINeedGuide() {
           >
             What Size Rebar Do I Need? A Practical Selection Guide
           </h1>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "var(--text-2)",
-              lineHeight: 1.7,
-            }}
-          >
+          <IntroText>
             Rebar size is one of those decisions that feels technical but mostly
             comes down to what you&apos;re building and how much load it will
             carry. For most residential DIY work, the range of sensible options
             is narrow. For anything structural, the decision belongs with an
             engineer — not a general guide.
-          </p>
+          </IntroText>
         </header>
 
         <h2 style={sectionHeading}>How rebar is sized</h2>
@@ -154,7 +99,7 @@ export default function WhatSizeRebarDoINeedGuide() {
           are metric (diameter in millimetres) and US Imperial (bar numbers,
           where the number refers to the diameter in eighths of an inch).
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>US bar size</th>
@@ -189,12 +134,12 @@ export default function WhatSizeRebarDoINeedGuide() {
               <td style={td}>~25mm</td>
             </tr>
           </tbody>
-        </table>
-        <div style={note}>
+        </GuideTable>
+        <NoteBox>
           US and metric bar sizes are close but not identical. Do not substitute
           one for the other in a design that specifies a particular bar size
           without checking with the engineer of record.
-        </div>
+        </NoteBox>
 
         <h2 style={sectionHeading}>Typical sizes by application</h2>
         <p style={paragraph}>
@@ -202,7 +147,7 @@ export default function WhatSizeRebarDoINeedGuide() {
           applications. These are general starting points, not engineered
           specifications.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Application</th>
@@ -237,7 +182,7 @@ export default function WhatSizeRebarDoINeedGuide() {
               <td style={td}>Engineer required</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         <h2 style={sectionHeading}>Rebar spacing</h2>
         <p style={paragraph}>
@@ -262,10 +207,10 @@ export default function WhatSizeRebarDoINeedGuide() {
           spacing must be designed by a licensed structural engineer. Local
           building codes typically require this for permitted work.
         </p>
-        <div style={note}>
+        <NoteBox>
           This guide covers general residential applications only. It is not a
           substitute for engineering design on structural elements.
-        </div>
+        </NoteBox>
 
         <h2 style={sectionHeading}>Putting it together</h2>
         <p style={paragraph}>

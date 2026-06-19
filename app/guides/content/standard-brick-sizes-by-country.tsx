@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Breadcrumb, GuideTable, IntroText, NoteBox, formula, link, listItem, paragraph, sectionHeading, td, th } from "./shared";
 
 const faqs = [
   {
@@ -52,67 +53,6 @@ const articleSchema = {
   url: "https://buildcalczone.com/guides/standard-brick-sizes-by-country",
 };
 
-const sectionHeading: React.CSSProperties = {
-  fontSize: "20px",
-  fontWeight: 600,
-  color: "var(--text-1)",
-  margin: "32px 0 12px",
-};
-const paragraph: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "14px",
-};
-const listItem: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "6px",
-};
-const formula: React.CSSProperties = {
-  fontFamily: "var(--font-mono)",
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  borderRadius: "8px",
-  padding: "14px 18px",
-  fontSize: "15px",
-  color: "var(--text-1)",
-  margin: "12px 0",
-};
-const note: React.CSSProperties = {
-  fontSize: "13px",
-  color: "var(--text-3)",
-  lineHeight: 1.7,
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  borderRadius: "8px",
-  padding: "12px 16px",
-  margin: "12px 0 20px",
-};
-const link: React.CSSProperties = {
-  color: "var(--accent)",
-  textDecoration: "underline",
-};
-const table: React.CSSProperties = {
-  width: "100%",
-  borderCollapse: "collapse",
-  margin: "12px 0 20px",
-  fontSize: "14px",
-};
-const th: React.CSSProperties = {
-  textAlign: "left",
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-1)",
-  fontWeight: 600,
-};
-const td: React.CSSProperties = {
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-2)",
-};
-
 export default function StandardBrickSizesByCountry() {
   return (
     <>
@@ -126,6 +66,7 @@ export default function StandardBrickSizesByCountry() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="Standard Brick Sizes by Country" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{
@@ -150,19 +91,13 @@ export default function StandardBrickSizesByCountry() {
           >
             Standard Brick Sizes by Country
           </h1>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "var(--text-2)",
-              lineHeight: 1.7,
-            }}
-          >
+          <IntroText>
             Brick dimensions vary significantly between countries. Using the
             wrong size in your calculations leads to incorrect material orders.
             This guide covers the standard work sizes, coordinating sizes (with
             mortar), and approximate brick counts per m² for the most common
             building regions worldwide.
-          </p>
+          </IntroText>
         </header>
 
         {/* What "work size" and "coordinating size" mean */}
@@ -189,10 +124,10 @@ export default function StandardBrickSizesByCountry() {
           Bricks per m² = 1,000 mm ÷ (length + joint) × 1,000 mm ÷ (height +
           joint)
         </div>
-        <div style={note}>
+        <NoteBox>
           The formula above applies to a half-brick (single-leaf) wall. Double
           the count for a full-brick wall.
-        </div>
+        </NoteBox>
 
         {/* UK */}
         <h2 style={sectionHeading}>United Kingdom</h2>
@@ -200,7 +135,7 @@ export default function StandardBrickSizesByCountry() {
           The UK standard is defined by <strong>BS EN 771-1</strong>. The metric
           standard brick replaced the imperial brick in 1969.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Type</th>
@@ -223,12 +158,12 @@ export default function StandardBrickSizesByCountry() {
               <td style={td}>~48</td>
             </tr>
           </tbody>
-        </table>
-        <div style={note}>
+        </GuideTable>
+        <NoteBox>
           Imperial bricks are still found in renovation work on older
           properties. They are not interchangeable with metric bricks in
           coursing — mixing the two changes joint spacing.
-        </div>
+        </NoteBox>
 
         {/* USA */}
         <h2 style={sectionHeading}>United States</h2>
@@ -236,7 +171,7 @@ export default function StandardBrickSizesByCountry() {
           US brick sizes are governed by <strong>ASTM C652</strong> and{" "}
           <strong>ASTM C216</strong>. The most common type is the modular brick.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Type</th>
@@ -277,11 +212,11 @@ export default function StandardBrickSizesByCountry() {
               <td style={td}>~62</td>
             </tr>
           </tbody>
-        </table>
-        <div style={note}>
+        </GuideTable>
+        <NoteBox>
           US bricks use a 3/8 inch (9.5 mm) mortar joint as standard, slightly
           less than the 10 mm used in most other countries.
-        </div>
+        </NoteBox>
 
         {/* Australia */}
         <h2 style={sectionHeading}>Australia & New Zealand</h2>
@@ -290,7 +225,7 @@ export default function StandardBrickSizesByCountry() {
           <strong>AS/NZS 4455</strong>. Australian construction uses a 10 mm
           mortar joint.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Type</th>
@@ -313,13 +248,13 @@ export default function StandardBrickSizesByCountry() {
               <td style={td}>~33</td>
             </tr>
           </tbody>
-        </table>
-        <div style={note}>
+        </GuideTable>
+        <NoteBox>
           The Australian standard brick is larger than UK and US equivalents,
           which is why fewer bricks per m² are needed. Always confirm with your
           supplier — some Australian manufacturers produce slightly non-standard
           sizes.
-        </div>
+        </NoteBox>
 
         {/* Europe */}
         <h2 style={sectionHeading}>Europe (EN Standard)</h2>
@@ -329,7 +264,7 @@ export default function StandardBrickSizesByCountry() {
           most widely used across continental Europe is the DF (Dünnformat /
           thin format) brick.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Format</th>
@@ -364,7 +299,7 @@ export default function StandardBrickSizesByCountry() {
               <td style={td}>~74</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         {/* South Africa */}
         <h2 style={sectionHeading}>South Africa</h2>
@@ -372,7 +307,7 @@ export default function StandardBrickSizesByCountry() {
           South African bricks are governed by <strong>SANS 227</strong>. Two
           sizes dominate the market.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Type</th>
@@ -395,7 +330,7 @@ export default function StandardBrickSizesByCountry() {
               <td style={td}>~33</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         {/* India */}
         <h2 style={sectionHeading}>India</h2>
@@ -403,7 +338,7 @@ export default function StandardBrickSizesByCountry() {
           Indian standard bricks are defined by <strong>IS 1077</strong>. The
           modular brick was introduced to replace older non-modular sizes.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Type</th>
@@ -426,7 +361,7 @@ export default function StandardBrickSizesByCountry() {
               <td style={td}>~52</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         {/* Summary table */}
         <h2 style={sectionHeading}>Quick Reference: Bricks per m²</h2>
@@ -435,7 +370,7 @@ export default function StandardBrickSizesByCountry() {
           of half-brick (single-leaf) wall using each country&apos;s most common
           standard brick and a 10 mm mortar joint.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Country</th>
@@ -488,11 +423,11 @@ export default function StandardBrickSizesByCountry() {
               <td style={td}>~50</td>
             </tr>
           </tbody>
-        </table>
-        <div style={note}>
+        </GuideTable>
+        <NoteBox>
           All bricks/m² figures are for a half-brick (single-leaf) wall with a
           10 mm mortar joint. Add 5–10% for waste and cuts.
-        </div>
+        </NoteBox>
 
         {/* Mortar joint note */}
         <h2 style={sectionHeading}>How Mortar Joint Size Affects Your Count</h2>
@@ -503,7 +438,7 @@ export default function StandardBrickSizesByCountry() {
           change.
         </p>
         <p style={paragraph}>Using UK standard bricks as an example:</p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Joint Size</th>
@@ -528,7 +463,7 @@ export default function StandardBrickSizesByCountry() {
               <td style={td}>~58</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <p style={paragraph}>
           For a precise material estimate, use our{" "}
           <Link href="/brick-calculator" style={link}>

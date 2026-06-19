@@ -1,4 +1,17 @@
 import Link from "next/link";
+import {
+  Breadcrumb,
+  GuideTable,
+  IntroText,
+  NoteBox,
+  formula,
+  link,
+  listItem,
+  paragraph,
+  sectionHeading,
+  td,
+  th,
+} from "./shared";
 
 const faqs = [
   {
@@ -53,67 +66,6 @@ const articleSchema = {
   url: "https://buildcalczone.com/guides/how-to-calculate-bricks-for-a-wall",
 };
 
-const sectionHeading: React.CSSProperties = {
-  fontSize: "20px",
-  fontWeight: 600,
-  color: "var(--text-1)",
-  margin: "32px 0 12px",
-};
-const paragraph: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "14px",
-};
-const listItem: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "6px",
-};
-const formula: React.CSSProperties = {
-  fontFamily: "var(--font-mono)",
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  borderRadius: "8px",
-  padding: "14px 18px",
-  fontSize: "15px",
-  color: "var(--text-1)",
-  margin: "12px 0",
-};
-const note: React.CSSProperties = {
-  fontSize: "13px",
-  color: "var(--text-3)",
-  lineHeight: 1.7,
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  borderRadius: "8px",
-  padding: "12px 16px",
-  margin: "12px 0 20px",
-};
-const link: React.CSSProperties = {
-  color: "var(--accent)",
-  textDecoration: "underline",
-};
-const table: React.CSSProperties = {
-  width: "100%",
-  borderCollapse: "collapse",
-  margin: "12px 0 20px",
-  fontSize: "14px",
-};
-const th: React.CSSProperties = {
-  textAlign: "left",
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-1)",
-  fontWeight: 600,
-};
-const td: React.CSSProperties = {
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-2)",
-};
-
 export default function HowToCalculateBricksForAWall() {
   return (
     <>
@@ -127,6 +79,7 @@ export default function HowToCalculateBricksForAWall() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="How to Calculate Bricks for a Wall" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{
@@ -151,19 +104,13 @@ export default function HowToCalculateBricksForAWall() {
           >
             How to Calculate Bricks for a Wall
           </h1>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "var(--text-2)",
-              lineHeight: 1.7,
-            }}
-          >
+          <IntroText>
             Whether you&apos;re building a garden wall or estimating for a full
             house, the calculation follows the same steps: work out the wall
             area, choose the right brick density for your wall type, subtract
             any openings, then add waste. This guide walks through each step
             with worked examples.
-          </p>
+          </IntroText>
         </header>
 
         {/* Step 1 */}
@@ -172,7 +119,7 @@ export default function HowToCalculateBricksForAWall() {
           The number of bricks you need depends on whether you&apos;re building
           a half-brick or full-brick wall.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Wall Type</th>
@@ -195,15 +142,15 @@ export default function HowToCalculateBricksForAWall() {
               <td style={td}>~120</td>
             </tr>
           </tbody>
-        </table>
-        <div style={note}>
+        </GuideTable>
+        <NoteBox>
           Bricks per m² figures assume UK standard bricks (215 × 102.5 × 65 mm)
           with a 10 mm mortar joint. For other countries, see our{" "}
           <Link href="/guides/standard-brick-sizes-by-country" style={link}>
             Standard Brick Sizes by Country
           </Link>{" "}
           guide.
-        </div>
+        </NoteBox>
 
         {/* Step 2 */}
         <h2 style={sectionHeading}>Step 2 — Calculate the Gross Wall Area</h2>
@@ -235,10 +182,10 @@ export default function HowToCalculateBricksForAWall() {
           m²).
         </p>
         <div style={formula}>Net area = 10 − 1.2 − 1.89 = 6.91 m²</div>
-        <div style={note}>
+        <NoteBox>
           Bricks cut around openings have a higher waste rate. If more than 20%
           of your wall area is openings, use a 10% waste factor rather than 5%.
-        </div>
+        </NoteBox>
 
         {/* Step 4 */}
         <h2 style={sectionHeading}>Step 4 — Calculate Brick Quantity</h2>
@@ -260,7 +207,7 @@ export default function HowToCalculateBricksForAWall() {
           colour variation between batches make it essential to have spares on
           site.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Situation</th>
@@ -285,7 +232,7 @@ export default function HowToCalculateBricksForAWall() {
               <td style={td}>15%</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <div style={formula}>
           Final order quantity = Bricks needed × (1 + waste factor)
         </div>
@@ -295,10 +242,10 @@ export default function HowToCalculateBricksForAWall() {
         <div style={formula}>
           415 × 1.10 = 456.5 → order 457 bricks (round up)
         </div>
-        <div style={note}>
+        <NoteBox>
           Always round up to the nearest full pack. Ordering a partial pack
           later often costs more per brick and risks a dye-lot mismatch.
-        </div>
+        </NoteBox>
 
         {/* Worked examples */}
         <h2 style={sectionHeading}>Worked Examples</h2>
@@ -339,7 +286,7 @@ export default function HowToCalculateBricksForAWall() {
           If you&apos;re not using UK standard bricks, use the correct figure
           for your region.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Country</th>
@@ -379,7 +326,7 @@ export default function HowToCalculateBricksForAWall() {
               <td style={td}>~50</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         {/* Mortar quantity */}
         <h2 style={sectionHeading}>Estimating Mortar Quantity</h2>
@@ -396,14 +343,14 @@ export default function HowToCalculateBricksForAWall() {
           volume. For a full-brick wall, this rises to around 20% due to more
           cross joints.
         </p>
-        <div style={note}>
+        <NoteBox>
           For a full mortar breakdown including cement bags and sand weight, see
           our{" "}
           <Link href="/guides/brick-mortar-mix-ratio" style={link}>
             Brick Mortar Mix Ratio Guide
           </Link>
           .
-        </div>
+        </NoteBox>
 
         {/* Calculator CTA */}
         <h2 style={sectionHeading}>Skip the Maths</h2>

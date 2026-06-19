@@ -1,3 +1,4 @@
+import { Breadcrumb, GuideTable, IntroText, formula, link, paragraph, sectionHeading, td, th } from "./shared";
 const faqs = [
   {
     question: "How do I convert cubic yards to cubic meters?",
@@ -43,58 +44,6 @@ const articleSchema = {
   url: "https://buildcalczone.com/guides/cubic-yards-to-cubic-meters",
 };
 
-const sectionHeading: React.CSSProperties = {
-  fontSize: "20px",
-  fontWeight: 600,
-  color: "var(--text-1)",
-  margin: "32px 0 12px",
-};
-
-const paragraph: React.CSSProperties = {
-  fontSize: "15px",
-  color: "var(--text-2)",
-  lineHeight: 1.8,
-  marginBottom: "14px",
-};
-
-const formula: React.CSSProperties = {
-  fontFamily: "var(--font-mono)",
-  background: "var(--surface-2)",
-  border: "1px solid var(--border)",
-  borderRadius: "8px",
-  padding: "14px 18px",
-  fontSize: "15px",
-  color: "var(--text-1)",
-  margin: "12px 0",
-};
-
-const link: React.CSSProperties = {
-  color: "var(--accent)",
-  textDecoration: "underline",
-};
-
-const table: React.CSSProperties = {
-  width: "100%",
-  borderCollapse: "collapse",
-  margin: "12px 0 20px",
-  fontSize: "14px",
-};
-
-const th: React.CSSProperties = {
-  textAlign: "left",
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-1)",
-  fontWeight: 600,
-};
-
-const td: React.CSSProperties = {
-  padding: "8px 12px",
-  borderBottom: "1px solid var(--border)",
-  color: "var(--text-2)",
-  fontFamily: "var(--font-mono)",
-};
-
 export default function CubicYardsToMetersGuide() {
   return (
     <>
@@ -108,6 +57,7 @@ export default function CubicYardsToMetersGuide() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="Cubic Yards to Cubic Meters: Conversion Guide & Quick Reference" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{
@@ -132,20 +82,14 @@ export default function CubicYardsToMetersGuide() {
           >
             Cubic Yards to Cubic Meters: Conversion Guide & Quick Reference
           </h1>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "var(--text-2)",
-              lineHeight: 1.7,
-            }}
-          >
+          <IntroText>
             If you&apos;ve calculated a volume in one unit and your supplier
             quotes in the other, this mismatch comes up constantly in
             construction — especially with concrete, where US suppliers price by
             the cubic yard but most of the world works in cubic meters.
             Here&apos;s the exact conversion, plus a quick reference table so
             you don&apos;t have to do the math every time.
-          </p>
+          </IntroText>
         </header>
 
         <h2 style={sectionHeading}>The conversion formula</h2>
@@ -165,7 +109,7 @@ export default function CubicYardsToMetersGuide() {
         </p>
 
         <h2 style={sectionHeading}>Quick reference table</h2>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Cubic yards (yd³)</th>
@@ -198,8 +142,8 @@ export default function CubicYardsToMetersGuide() {
               <td style={td}>15.29</td>
             </tr>
           </tbody>
-        </table>
-        <table style={table}>
+        </GuideTable>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Cubic meters (m³)</th>
@@ -232,7 +176,7 @@ export default function CubicYardsToMetersGuide() {
               <td style={td}>26.16</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         <h2 style={sectionHeading}>Why this matters for concrete orders</h2>
         <p style={paragraph}>
