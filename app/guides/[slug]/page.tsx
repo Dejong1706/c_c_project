@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
+import GuideLayout from "./GuideLayout";
 import ConcreteVolumeGuide from "../content/how-to-calculate-concrete-volume";
 import CubicYardsToMetersGuide from "../content/cubic-yards-to-cubic-meters";
 import TileGroutGapGuide from "../content/tile-grout-gap-guide";
@@ -210,5 +211,9 @@ export default async function GuidePage(props: PageProps<"/guides/[slug]">) {
   const { slug } = await props.params;
   const Content = contentMap[slug];
   if (!Content) notFound();
-  return <Content />;
+  return (
+    <GuideLayout>
+      <Content />
+    </GuideLayout>
+  );
 }
