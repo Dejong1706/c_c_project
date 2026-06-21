@@ -1,5 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  IconBuildingFactory2,
+  IconPackage,
+  IconWall,
+  IconTool,
+  IconLayoutGrid,
+  IconPaint,
+  IconWeight,
+  IconShovel,
+  IconArrowsExchange,
+} from "@tabler/icons-react";
+import type { TablerIcon } from "@tabler/icons-react";
 
 export const metadata: Metadata = {
   title: "BuildCalc — Free Construction Calculators",
@@ -8,10 +20,20 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-const calcs = [
+const calcs: {
+  href: string;
+  icon: TablerIcon;
+  iconColor: string;
+  badge?: string;
+  title: string;
+  desc: string;
+  tags: string[];
+  preview: { val: string; unit: string; expr: string };
+}[] = [
   {
     href: "/concrete-calculator",
-    icon: "🏗",
+    icon: IconBuildingFactory2,
+    iconColor: "#6B7280", // 콘크리트 회색
     badge: "Most used",
     title: "Concrete calculator",
     desc: "Volume for slabs, walls, columns and footings",
@@ -20,7 +42,8 @@ const calcs = [
   },
   {
     href: "/concrete-bags",
-    icon: "📦",
+    icon: IconPackage,
+    iconColor: "#8B8378", // 시멘트 자루 베이지-회색
     title: "Concrete bag calculator",
     desc: "40lb, 60lb, 80lb bag count for any pour",
     tags: ["Length", "Width", "Depth"],
@@ -28,7 +51,8 @@ const calcs = [
   },
   {
     href: "/tile-calculator",
-    icon: "⬜",
+    icon: IconLayoutGrid,
+    iconColor: "#1565C0", // 타일 딥블루
     title: "Tile calculator",
     desc: "Tile count, box quantity and grout joints",
     tags: ["Room size", "Tile size", "Grout"],
@@ -36,7 +60,8 @@ const calcs = [
   },
   {
     href: "/brick-calculator",
-    icon: "🧱",
+    icon: IconWall,
+    iconColor: "#BF360C", // 벽돌 레드-오렌지
     title: "Brick calculator",
     desc: "Bricks and pallets for walls and partitions",
     tags: ["Length", "Height", "Waste %"],
@@ -44,7 +69,8 @@ const calcs = [
   },
   {
     href: "/paint-calculator",
-    icon: "🎨",
+    icon: IconPaint,
+    iconColor: "#7B1FA2", // 페인트 보라
     title: "Paint calculator",
     desc: "Litres and tin count for walls and ceilings",
     tags: ["Room size", "Coats", "Coverage"],
@@ -52,7 +78,8 @@ const calcs = [
   },
   {
     href: "/rebar-calculator",
-    icon: "📏",
+    icon: IconWeight,
+    iconColor: "#455A64", // 철근 스틸 다크그레이
     title: "Rebar calculator",
     desc: "Steel bar weight by diameter and length",
     tags: ["Diameter", "Length", "Count"],
@@ -60,7 +87,8 @@ const calcs = [
   },
   {
     href: "/excavation-calculator",
-    icon: "⛏",
+    icon: IconShovel,
+    iconColor: "#5D4037", // 흙 브라운
     title: "Excavation calculator",
     desc: "Pit, trench and sloped-side cut volume",
     tags: ["Length", "Width", "Depth", "Waste %"],
@@ -68,7 +96,8 @@ const calcs = [
   },
   {
     href: "/mortar-calculator",
-    icon: "🪣",
+    icon: IconTool,
+    iconColor: "#757575", // 시멘트 미디엄그레이
     title: "Mortar calculator",
     desc: "Cement bags, sand and water for brickwork",
     tags: ["Length", "Height", "Mix ratio", "Waste %"],
@@ -76,7 +105,8 @@ const calcs = [
   },
   {
     href: "/unit-converter",
-    icon: "⇄",
+    icon: IconArrowsExchange,
+    iconColor: "#00796B", // 측정 틸
     title: "Unit converter",
     desc: "Length, area, volume and weight conversions",
     tags: ["m ↔ ft", "m² ↔ ft²", "m³ ↔ yd³", "평"],
@@ -142,7 +172,7 @@ export default function Home() {
                 justifyContent: "space-between",
               }}
             >
-              <span style={{ fontSize: "22px" }}>{c.icon}</span>
+              <c.icon size={24} color={c.iconColor} stroke={1.5} />
               {c.badge && (
                 <span
                   style={{
