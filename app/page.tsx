@@ -67,6 +67,14 @@ const calcs = [
     preview: { val: "22.5", unit: "m³", expr: "5×3×1.5m" },
   },
   {
+    href: "/mortar-calculator",
+    icon: "🪣",
+    title: "Mortar calculator",
+    desc: "Cement bags, sand and water for brickwork",
+    tags: ["Length", "Height", "Mix ratio", "Waste %"],
+    preview: { val: "8", unit: "bags", expr: "5×2m, 1:5 mix" },
+  },
+  {
     href: "/unit-converter",
     icon: "⇄",
     title: "Unit converter",
