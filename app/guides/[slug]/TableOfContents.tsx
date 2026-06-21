@@ -78,7 +78,7 @@ export default function TableOfContents({
           fontWeight: 600,
           textTransform: "uppercase",
           letterSpacing: "0.08em",
-          color: "var(--text-3)",
+          color: "var(--accent-text)",
           marginBottom: "12px",
         }}
       >
