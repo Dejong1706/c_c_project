@@ -92,6 +92,12 @@ const guides: {
     desc: "Thickness, structural limits, brick counts, and bonding patterns — with cavity wall comparison.",
     category: "Masonry",
   },
+  {
+    title: "How to Calculate Wall Area for Painting",
+    href: "/guides/how-to-calculate-wall-area-for-painting",
+    desc: "Measure walls, subtract openings, pick the right number of coats — with worked examples.",
+    category: "Paint",
+  },
 ];
 
 export default function GuidesPage() {

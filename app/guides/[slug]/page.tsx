@@ -15,6 +15,7 @@ import BrickMortarMixRatioGuide from "../content/brick-mortar-mix-ratio";
 import StandardBrickSizesByCountry from "../content/standard-brick-sizes-by-country";
 import HowToCalculateBricksForAWall from "../content/how-to-calculate-bricks-for-a-wall";
 import SingleVsDoubleLeafBrickWall from "../content/single-vs-double-leaf-brick-wall";
+import HowToCalculateWallAreaForPainting from "../content/how-to-calculate-wall-area-for-painting";
 
 const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-concrete-volume": ConcreteVolumeGuide,
@@ -30,6 +31,7 @@ const contentMap: Record<string, React.ComponentType> = {
   "standard-brick-sizes-by-country": StandardBrickSizesByCountry,
   "how-to-calculate-bricks-for-a-wall": HowToCalculateBricksForAWall,
   "single-vs-double-leaf-brick-wall": SingleVsDoubleLeafBrickWall,
+  "how-to-calculate-wall-area-for-painting": HowToCalculateWallAreaForPainting,
 };
 
 const metaMap: Record<
@@ -187,6 +189,18 @@ const metaMap: Record<
       "brick wall thickness",
     ],
   },
+  "how-to-calculate-wall-area-for-painting": {
+    title: "How to Calculate Wall Area for Painting | BuildCalc",
+    description:
+      "Step-by-step guide to calculating wall area for painting — rooms with doors and windows, number of coats, coverage rates, and how much paint to order.",
+    keywords: [
+      "how to calculate wall area for painting",
+      "paint coverage calculator",
+      "how much paint do i need",
+      "wall area painting",
+      "paint coverage per litre",
+    ],
+  },
 };
 
 export function generateStaticParams() {
@@ -194,7 +208,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata(
-  props: PageProps<"/guides/[slug]">
+  props: PageProps<"/guides/[slug]">,
 ): Promise<Metadata> {
   const { slug } = await props.params;
   const meta = metaMap[slug];
