@@ -16,7 +16,7 @@ export default function GuideLayout({ children }: { children: ReactNode }) {
         margin: "0 auto",
       }}
     >
-      <div ref={contentRef} style={{ flex: 1, minWidth: 0, maxWidth: "680px", paddingBottom: "60vh" }}>
+      <div ref={contentRef} style={{ flex: 1, minWidth: 0, maxWidth: "680px", paddingBottom: "40px" }}>
         {children}
       </div>
       <aside

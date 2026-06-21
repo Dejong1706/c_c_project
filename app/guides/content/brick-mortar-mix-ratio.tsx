@@ -148,7 +148,7 @@ export default function BrickMortarMixRatioGuide() {
         </p>
         <p style={paragraph}>
           A typical lime-modified mix for external brickwork is cement:lime:sand
-          in a 1:1:6 ratio. The lime partially replaces some of the
+          in a 1:1:5 to 1:1:6 ratio. The lime partially replaces some of the
           cement&apos;s stiffness without significantly reducing final strength
           for standard applications.
         </p>

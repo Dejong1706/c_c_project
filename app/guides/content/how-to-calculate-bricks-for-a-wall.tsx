@@ -313,7 +313,7 @@ export default function HowToCalculateBricksForAWall() {
             <tr>
               <td style={td}>Germany (DF)</td>
               <td style={td}>240 × 115 × 52</td>
-              <td style={td}>~79</td>
+              <td style={td}>~65</td>
             </tr>
             <tr>
               <td style={td}>South Africa</td>

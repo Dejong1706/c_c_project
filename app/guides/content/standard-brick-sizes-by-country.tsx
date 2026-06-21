@@ -30,7 +30,7 @@ const faqs = [
   {
     question: "How does brick size affect how many bricks I need?",
     answer:
-      "Directly — a larger brick covers more wall area per unit, so you need fewer bricks per square metre. For example, UK standard bricks require about 60 bricks/m² (half-brick wall), while Australian standard bricks require about 50 bricks/m². Always use the correct brick size for your region when calculating quantities.",
+      "Directly — a larger brick covers more wall area per unit, so you need fewer bricks per square metre. For example, UK standard bricks require about 60 bricks/m² (half-brick wall), while Australian standard bricks require about 48 bricks/m². Always use the correct brick size for your region when calculating quantities.",
   },
 ];
 
@@ -278,7 +278,7 @@ export default function StandardBrickSizesByCountry() {
               <td style={td}>DF (Dünnformat)</td>
               <td style={td}>Germany, Austria, CH</td>
               <td style={td}>240 × 115 × 52 mm</td>
-              <td style={td}>~79</td>
+              <td style={td}>~65</td>
             </tr>
             <tr>
               <td style={td}>NF (Normalformat)</td>
@@ -290,13 +290,13 @@ export default function StandardBrickSizesByCountry() {
               <td style={td}>WDF (Waalformat)</td>
               <td style={td}>Netherlands, Belgium</td>
               <td style={td}>210 × 100 × 50 mm</td>
-              <td style={td}>~88</td>
+              <td style={td}>~76</td>
             </tr>
             <tr>
               <td style={td}>Standard</td>
               <td style={td}>France</td>
               <td style={td}>220 × 105 × 57 mm</td>
-              <td style={td}>~74</td>
+              <td style={td}>~65</td>
             </tr>
           </tbody>
         </GuideTable>
@@ -402,13 +402,13 @@ export default function StandardBrickSizesByCountry() {
               <td style={td}>Germany (DF)</td>
               <td style={td}>EN 771-1</td>
               <td style={td}>240 × 115 × 52</td>
-              <td style={td}>~79</td>
+              <td style={td}>~65</td>
             </tr>
             <tr>
               <td style={td}>Netherlands</td>
               <td style={td}>EN 771-1</td>
               <td style={td}>210 × 100 × 50</td>
-              <td style={td}>~88</td>
+              <td style={td}>~76</td>
             </tr>
             <tr>
               <td style={td}>South Africa</td>

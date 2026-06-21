@@ -117,7 +117,7 @@ export default function HowManyBricksPerSquareMetreGuide() {
             <tr>
               <td style={td}>Maxi</td>
               <td style={td}>290×140×90mm</td>
-              <td style={td}>~34</td>
+              <td style={td}>~33</td>
             </tr>
             <tr>
               <td style={td}>Jumbo</td>
