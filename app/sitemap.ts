@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tile-calculator",
     "/brick-calculator",
     "/paint-calculator",
+    "/flooring-calculator",
     "/rebar-calculator",
     "/excavation-calculator",
     "/fence-calculator",

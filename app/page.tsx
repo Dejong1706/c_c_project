@@ -11,6 +11,7 @@ import {
   IconShovel,
   IconArrowsExchange,
   IconFence,
+  IconWood,
 } from "@tabler/icons-react";
 import type { TablerIcon } from "@tabler/icons-react";
 
@@ -76,6 +77,15 @@ const calcs: {
     desc: "Litres and tin count for walls and ceilings",
     tags: ["Room size", "Coats", "Coverage"],
     preview: { val: "9", unit: "litres", expr: "5×4m, 2 coats" },
+  },
+  {
+    href: "/flooring-calculator",
+    icon: IconWood,
+    iconColor: "#8D6E47", // 바닥재 우드 브라운
+    title: "Flooring calculator",
+    desc: "Sq ft, boxes and waste for LVP, wood, tile or carpet",
+    tags: ["Room size", "Layout", "Waste %"],
+    preview: { val: "11", unit: "boxes", expr: "200 sqft, 7% waste" },
   },
   {
     href: "/rebar-calculator",

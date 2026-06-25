@@ -26,6 +26,11 @@ const calculators = [
     group: "Masonry",
   },
   {
+    href: "/mortar-calculator",
+    label: "Mortar calculator",
+    group: "Masonry",
+  },
+  {
     href: "/tile-calculator",
     label: "Tile calculator",
     group: "Finishing",
@@ -33,6 +38,11 @@ const calculators = [
   {
     href: "/paint-calculator",
     label: "Paint calculator",
+    group: "Finishing",
+  },
+  {
+    href: "/flooring-calculator",
+    label: "Flooring calculator",
     group: "Finishing",
   },
   {
