@@ -104,6 +104,12 @@ const guides: {
     desc: "Exact conversion formula, quick reference tables, and tips for ordering ready-mix concrete in the right unit.",
     category: "Conversion",
   },
+  {
+    title: "How to Calculate Fence Post Spacing",
+    href: "/guides/how-to-calculate-fence-post-spacing",
+    desc: "Post count formula, even spacing layout, burial depth, rails, and concrete per post.",
+    category: "Fencing",
+  },
 ];
 
 export default function GuidesPage() {

@@ -16,6 +16,7 @@ import StandardBrickSizesByCountry from "../content/standard-brick-sizes-by-coun
 import HowToCalculateBricksForAWall from "../content/how-to-calculate-bricks-for-a-wall";
 import SingleVsDoubleLeafBrickWall from "../content/single-vs-double-leaf-brick-wall";
 import HowToCalculateWallAreaForPainting from "../content/how-to-calculate-wall-area-for-painting";
+import FencePostSpacingGuide from "../content/how-to-calculate-fence-post-spacing";
 
 const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-concrete-volume": ConcreteVolumeGuide,
@@ -32,6 +33,7 @@ const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-bricks-for-a-wall": HowToCalculateBricksForAWall,
   "single-vs-double-leaf-brick-wall": SingleVsDoubleLeafBrickWall,
   "how-to-calculate-wall-area-for-painting": HowToCalculateWallAreaForPainting,
+  "how-to-calculate-fence-post-spacing": FencePostSpacingGuide,
 };
 
 const metaMap: Record<
@@ -201,6 +203,17 @@ const metaMap: Record<
       "paint coverage per litre",
     ],
   },
+  "how-to-calculate-fence-post-spacing": {
+    title: "How to Calculate Fence Post Spacing | BuildCalc",
+    description:
+      "Step-by-step guide to calculating fence post spacing, post count, burial depth, rails, and concrete for wood, vinyl, and chain-link fences.",
+    keywords: [
+      "fence post spacing",
+      "how many fence posts",
+      "fence post calculator",
+      "fence post depth",
+    ],
+  },
 };
 
 export function generateStaticParams() {
@@ -208,7 +221,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata(
-  props: PageProps<"/guides/[slug]">,
+  props: PageProps<"/guides/[slug]">
 ): Promise<Metadata> {
   const { slug } = await props.params;
   const meta = metaMap[slug];
