@@ -45,6 +45,11 @@ const calculators = [
     label: "Unit converter",
     group: "Tools",
   },
+  {
+    href: "/fence-calculator",
+    label: "Fence calculator",
+    group: "Earthworks",
+  },
 ];
 
 const groups = [

@@ -10,6 +10,7 @@ import {
   IconWeight,
   IconShovel,
   IconArrowsExchange,
+  IconFence,
 } from "@tabler/icons-react";
 import type { TablerIcon } from "@tabler/icons-react";
 
@@ -93,6 +94,15 @@ const calcs: {
     desc: "Pit, trench and sloped-side cut volume",
     tags: ["Length", "Width", "Depth", "Waste %"],
     preview: { val: "22.5", unit: "m³", expr: "5×3×1.5m" },
+  },
+  {
+    href: "/fence-calculator",
+    icon: IconFence,
+    iconColor: "#6D4C41", // 목재 펜스 브라운
+    title: "Fence calculator",
+    desc: "Posts, rails, concrete and pickets for any fence",
+    tags: ["Length", "Height", "Spacing", "Gates"],
+    preview: { val: "14", unit: "posts", expr: "100ft @ 8ft spacing" },
   },
   {
     href: "/mortar-calculator",

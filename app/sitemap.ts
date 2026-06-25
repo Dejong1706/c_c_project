@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/paint-calculator",
     "/rebar-calculator",
     "/excavation-calculator",
+    "/fence-calculator",
     "/mortar-calculator",
     "/unit-converter",
     "/guides",
