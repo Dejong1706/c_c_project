@@ -17,6 +17,8 @@ import HowToCalculateBricksForAWall from "../content/how-to-calculate-bricks-for
 import SingleVsDoubleLeafBrickWall from "../content/single-vs-double-leaf-brick-wall";
 import HowToCalculateWallAreaForPainting from "../content/how-to-calculate-wall-area-for-painting";
 import FencePostSpacingGuide from "../content/how-to-calculate-fence-post-spacing";
+import ConcreteCuringTimeGuide from "../content/concrete-curing-time-guide";
+import HowToLayTileStepByStep from "../content/how-to-lay-tile-step-by-step";
 
 const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-concrete-volume": ConcreteVolumeGuide,
@@ -34,6 +36,8 @@ const contentMap: Record<string, React.ComponentType> = {
   "single-vs-double-leaf-brick-wall": SingleVsDoubleLeafBrickWall,
   "how-to-calculate-wall-area-for-painting": HowToCalculateWallAreaForPainting,
   "how-to-calculate-fence-post-spacing": FencePostSpacingGuide,
+  "concrete-curing-time-guide": ConcreteCuringTimeGuide,
+  "how-to-lay-tile-step-by-step": HowToLayTileStepByStep,
 };
 
 const metaMap: Record<
@@ -212,6 +216,28 @@ const metaMap: Record<
       "how many fence posts",
       "fence post calculator",
       "fence post depth",
+    ],
+  },
+  "concrete-curing-time-guide": {
+    title: "Concrete Curing Time Guide | BuildCalc",
+    description:
+      "How long concrete takes to cure at every stage — 24 hours, 7 days, 28 days — and how temperature affects strength gain.",
+    keywords: [
+      "concrete curing time",
+      "how long does concrete take to cure",
+      "concrete cure time chart",
+      "concrete strength gain",
+    ],
+  },
+  "how-to-lay-tile-step-by-step": {
+    title: "How to Lay Tile Step by Step | BuildCalc",
+    description:
+      "Complete step-by-step guide to laying floor and wall tiles — substrate prep, layout, thinset, setting, grouting, and sealing.",
+    keywords: [
+      "how to lay tile",
+      "tile installation guide",
+      "how to install tile",
+      "tile laying steps",
     ],
   },
 };

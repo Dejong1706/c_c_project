@@ -33,6 +33,12 @@ const guides: {
     desc: "Mix ratios, water quantity, mixing sequence, and when hand mixing stops being practical.",
     category: "Concrete",
   },
+  {
+    title: "Concrete Curing Time Guide",
+    href: "/guides/concrete-curing-time-guide",
+    desc: "How long concrete takes to cure at every stage — 24 hours, 7 days, 28 days — and how temperature affects strength gain.",
+    category: "Concrete",
+  },
   // Structural
   {
     title: "What Size Rebar Do I Need?",
@@ -82,6 +88,12 @@ const guides: {
     title: "Tile Grout Gap Guide",
     href: "/guides/tile-grout-gap-guide",
     desc: "Recommended grout gap widths for floor, wall and large-format tile, and how joint size affects appearance and tile count.",
+    category: "Tile",
+  },
+  {
+    title: "How to Lay Tile Step by Step",
+    href: "/guides/how-to-lay-tile-step-by-step",
+    desc: "Substrate prep, layout, thinset, setting, grouting, and sealing — the full process from bare floor to finished tile.",
     category: "Tile",
   },
   // Paint

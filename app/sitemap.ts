@@ -31,6 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/guides/single-vs-double-leaf-brick-wall",
     "/guides/how-to-calculate-wall-area-for-painting",
     "/guides/how-to-calculate-fence-post-spacing",
+    "/guides/concrete-curing-time-guide",
+    "/guides/how-to-lay-tile-step-by-step",
   ];
   return routes.map((r) => ({
     url: `${base}${r}`,
