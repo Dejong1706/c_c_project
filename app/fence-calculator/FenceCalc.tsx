@@ -58,16 +58,16 @@ export default function FenceCalc() {
       (parseFloat(spacing) || fenceType.defaultSpacing) * toFt[spacingUnit];
     const G = parseInt(gates) || 0;
 
-    if (L <= 0 || H <= 0 || S <= 0) return [];
+    const valid = L > 0 && H > 0 && S > 0;
 
     // Posts = ⌈length ÷ spacing⌉ + 1 + (gates × 2)
-    const linePosts = Math.ceil(L / S) + 1;
+    const linePosts = valid ? Math.ceil(L / S) + 1 : 0;
     const gatePosts = G * 2;
-    const totalPosts = linePosts + gatePosts;
+    const totalPosts = valid ? linePosts + gatePosts : 0;
 
     // Adjusted equal spacing
     const bays = linePosts - 1;
-    const adjustedSpacing = bays > 0 ? L / bays : S;
+    const adjustedSpacing = valid && bays > 0 ? L / bays : S;
 
     // Post length: above ground (H) + burial (H/3, min 2ft)
     const burial = Math.max(H / 3, 2);
@@ -75,7 +75,7 @@ export default function FenceCalc() {
 
     // Rails
     const railsPerSection = fenceType.railsPerSection(H);
-    const totalRails = bays * railsPerSection;
+    const totalRails = valid ? bays * railsPerSection : 0;
 
     // Concrete: 2 bags per post (80lb, 12" diameter hole, ~24" deep)
     const concreteBags = totalPosts * 2;
@@ -83,7 +83,7 @@ export default function FenceCalc() {
     // Pickets (wood only, 5.5" wide, 0" gap for privacy)
     const picketWidthFt = 5.5 / 12;
     const pickets =
-      fenceKey === "wood"
+      valid && fenceKey === "wood"
         ? Math.ceil((L / picketWidthFt) * (1 + waste / 100))
         : 0;
 
@@ -95,31 +95,31 @@ export default function FenceCalc() {
     }[] = [
       {
         label: "Total posts needed",
-        value: totalPosts,
+        value: valid ? totalPosts : "—",
         unit: "posts",
         tier: 1 as const,
       },
       {
         label: "Adjusted post spacing",
-        value: adjustedSpacing.toFixed(2),
+        value: valid ? adjustedSpacing.toFixed(2) : "—",
         unit: "ft on centre",
         tier: 1 as const,
       },
       {
         label: "Post length (incl. burial)",
-        value: postLength.toFixed(1),
+        value: valid ? postLength.toFixed(1) : "—",
         unit: "ft per post",
         tier: 2 as const,
       },
       {
         label: "Horizontal rails",
-        value: totalRails,
+        value: valid ? totalRails : "—",
         unit: `rails (${railsPerSection}/section)`,
         tier: 2 as const,
       },
       {
         label: "Concrete (80 lb bags)",
-        value: concreteBags,
+        value: valid ? concreteBags : "—",
         unit: "bags",
         tier: 2 as const,
       },
@@ -128,7 +128,7 @@ export default function FenceCalc() {
     if (fenceKey === "wood") {
       rows.push({
         label: "Pickets / boards",
-        value: pickets,
+        value: valid ? pickets : "—",
         unit: 'pcs (5.5" wide, privacy)',
         tier: 3 as const,
       });
