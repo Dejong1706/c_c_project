@@ -9,7 +9,7 @@ export default function Image() {
     (
       <div
         style={{
-          background: "#0f172a",
+          background: "#ffffff",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -28,14 +28,14 @@ export default function Image() {
             left: 0,
             width: "100%",
             height: "6px",
-            background: "#3b82f6",
+            background: "#2d6a4f",
             display: "flex",
           }}
         />
         <div
           style={{
             fontSize: "28px",
-            color: "#3b82f6",
+            color: "#2d6a4f",
             fontWeight: 700,
             marginBottom: "32px",
             display: "flex",
@@ -46,7 +46,7 @@ export default function Image() {
         <div
           style={{
             fontSize: "58px",
-            color: "#f1f5f9",
+            color: "#2d6a4f",
             fontWeight: 700,
             lineHeight: 1.1,
             marginBottom: "28px",
@@ -58,7 +58,7 @@ export default function Image() {
         <div
           style={{
             fontSize: "26px",
-            color: "#64748b",
+            color: "#5c5a54",
             fontWeight: 400,
             display: "flex",
           }}
@@ -71,7 +71,7 @@ export default function Image() {
             bottom: "60px",
             right: "80px",
             fontSize: "20px",
-            color: "#475569",
+            color: "#9b9890",
             display: "flex",
           }}
         >
