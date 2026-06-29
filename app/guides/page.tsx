@@ -122,6 +122,19 @@ const guides: {
     desc: "Post count formula, even spacing layout, burial depth, rails, and concrete per post.",
     category: "Fencing",
   },
+  // Landscaping
+  {
+    title: "How Much Mulch Do I Need?",
+    href: "/guides/how-much-mulch-do-i-need",
+    desc: "Quick reference tables for mulch by area and depth, bags vs bulk comparison, and recommended depths by application.",
+    category: "Landscaping",
+  },
+  {
+    title: "How to Calculate Mulch",
+    href: "/guides/how-to-calculate-mulch",
+    desc: "Step-by-step formula for cubic yards and bags — rectangular beds, circular beds, and waste allowance explained.",
+    category: "Landscaping",
+  },
 ];
 
 export default function GuidesPage() {

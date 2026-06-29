@@ -21,6 +21,16 @@ export const listItem: React.CSSProperties = {
   lineHeight: 1.8,
   marginBottom: "6px",
 };
+export const note: React.CSSProperties = {
+  fontSize: "13px",
+  color: "var(--text-3)",
+  lineHeight: 1.7,
+  background: "var(--surface-2)",
+  border: "1px solid var(--border)",
+  borderRadius: "8px",
+  padding: "12px 16px",
+  margin: "12px 0 20px",
+};
 export const formula: React.CSSProperties = {
   fontFamily: "var(--font-mono)",
   background: "var(--surface-2)",

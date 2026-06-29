@@ -34,6 +34,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/guides/how-to-calculate-fence-post-spacing",
     "/guides/concrete-curing-time-guide",
     "/guides/how-to-lay-tile-step-by-step",
+    "/guides/how-much-mulch-do-i-need",
+    "/guides/how-to-calculate-mulch",
   ];
   return routes.map((r) => ({
     url: `${base}${r}`,

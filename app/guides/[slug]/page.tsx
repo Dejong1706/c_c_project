@@ -19,6 +19,8 @@ import HowToCalculateWallAreaForPainting from "../content/how-to-calculate-wall-
 import FencePostSpacingGuide from "../content/how-to-calculate-fence-post-spacing";
 import ConcreteCuringTimeGuide from "../content/concrete-curing-time-guide";
 import HowToLayTileStepByStep from "../content/how-to-lay-tile-step-by-step";
+import HowMuchMulchDoINeed from "../content/how-much-mulch-do-i-need";
+import HowToCalculateMulch from "../content/how-to-calculate-mulch";
 
 const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-concrete-volume": ConcreteVolumeGuide,
@@ -38,6 +40,8 @@ const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-fence-post-spacing": FencePostSpacingGuide,
   "concrete-curing-time-guide": ConcreteCuringTimeGuide,
   "how-to-lay-tile-step-by-step": HowToLayTileStepByStep,
+  "how-much-mulch-do-i-need": HowMuchMulchDoINeed,
+  "how-to-calculate-mulch": HowToCalculateMulch,
 };
 
 const metaMap: Record<
@@ -238,6 +242,28 @@ const metaMap: Record<
       "tile installation guide",
       "how to install tile",
       "tile laying steps",
+    ],
+  },
+  "how-much-mulch-do-i-need": {
+    title: "How Much Mulch Do I Need? Quick Reference Guide | BuildCalc",
+    description:
+      "Quick reference for mulch quantities by area and depth. Includes coverage tables, bags vs bulk comparison, and recommended depths by application.",
+    keywords: [
+      "how much mulch do i need",
+      "mulch quantity calculator",
+      "cubic yards of mulch",
+      "how many bags of mulch",
+    ],
+  },
+  "how-to-calculate-mulch": {
+    title: "How to Calculate Mulch — Cubic Yards & Bags | BuildCalc",
+    description:
+      "Step-by-step guide to calculating how much mulch you need in cubic yards and bags for rectangular and circular garden beds.",
+    keywords: [
+      "how to calculate mulch",
+      "mulch calculation formula",
+      "cubic yards mulch calculator",
+      "mulch bags per cubic yard",
     ],
   },
 };
