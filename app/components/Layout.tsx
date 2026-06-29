@@ -60,6 +60,11 @@ const calculators = [
     label: "Fence calculator",
     group: "Earthworks",
   },
+  {
+    href: "/mulch-calculator",
+    label: "Mulch calculator",
+    group: "Earthworks",
+  },
 ];
 
 const groups = [

@@ -12,6 +12,7 @@ import {
   IconArrowsExchange,
   IconFence,
   IconWood,
+  IconPlant2,
 } from "@tabler/icons-react";
 import type { TablerIcon } from "@tabler/icons-react";
 
@@ -122,6 +123,15 @@ const calcs: {
     desc: "Cement bags, sand and water for brickwork",
     tags: ["Length", "Height", "Mix ratio", "Waste %"],
     preview: { val: "8", unit: "bags", expr: "5×2m, 1:5 mix" },
+  },
+  {
+    href: "/mulch-calculator",
+    icon: IconPlant2,
+    iconColor: "#558B2F", // 멀치/조경 그린
+    title: "Mulch calculator",
+    desc: "Cubic yards and bags for garden beds and borders",
+    tags: ["Bed shape", "Area", "Depth", "Waste %"],
+    preview: { val: "1.85", unit: "yd³", expr: "200 sqft, 3in" },
   },
   {
     href: "/unit-converter",

@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/excavation-calculator",
     "/fence-calculator",
     "/mortar-calculator",
+    "/mulch-calculator",
     "/unit-converter",
     "/guides",
     "/guides/how-to-calculate-concrete-volume",
