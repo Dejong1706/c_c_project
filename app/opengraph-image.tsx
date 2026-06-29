@@ -21,6 +21,7 @@ export default function Image() {
           position: "relative",
         }}
       >
+        {/* 상단 초록 바 */}
         <div
           style={{
             position: "absolute",
@@ -32,21 +33,64 @@ export default function Image() {
             display: "flex",
           }}
         />
+
+        {/* 로고 + BuildCalc */}
         <div
           style={{
-            fontSize: "28px",
-            color: "#2d6a4f",
-            fontWeight: 700,
-            marginBottom: "32px",
             display: "flex",
+            alignItems: "center",
+            gap: "20px",
+            marginBottom: "36px",
           }}
         >
-          BuildCalc
+          {/* 초록 박스 로고 */}
+          <div
+            style={{
+              width: "72px",
+              height: "72px",
+              background: "#2d6a4f",
+              borderRadius: "16px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z" />
+              <path d="m14.5 12.5 2-2" />
+              <path d="m11.5 9.5 2-2" />
+              <path d="m8.5 6.5 2-2" />
+              <path d="m17.5 15.5 2-2" />
+            </svg>
+          </div>
+
+          {/* BuildCalc 텍스트 */}
+          <span
+            style={{
+              fontSize: "48px",
+              color: "#2d6a4f",
+              fontWeight: 700,
+              display: "flex",
+            }}
+          >
+            BuildCalc
+          </span>
         </div>
+
+        {/* 메인 제목 */}
         <div
           style={{
             fontSize: "58px",
-            color: "#2d6a4f",
+            color: "#1a1917",
             fontWeight: 700,
             lineHeight: 1.1,
             marginBottom: "28px",
@@ -55,6 +99,8 @@ export default function Image() {
         >
           Free Construction Calculators
         </div>
+
+        {/* 서브타이틀 */}
         <div
           style={{
             fontSize: "26px",
@@ -65,6 +111,8 @@ export default function Image() {
         >
           Concrete · Tiles · Bricks · Rebar · Paint · More
         </div>
+
+        {/* URL */}
         <div
           style={{
             position: "absolute",
