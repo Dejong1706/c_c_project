@@ -14,6 +14,13 @@ export const metadata: Metadata = {
     "how many boxes of flooring do i need",
   ],
   alternates: { canonical: "/flooring-calculator" },
+  openGraph: {
+    type: "website",
+    title: "Flooring Calculator — Sq Ft, Boxes & Waste | BuildCalc",
+    description:
+      "Calculate how much flooring you need for LVP, hardwood, laminate, tile, or carpet. Get square footage, box count, and waste-adjusted totals instantly.",
+    url: "https://buildcalczone.com/flooring-calculator",
+  },
 };
 
 const faqs = [

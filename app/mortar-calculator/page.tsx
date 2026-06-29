@@ -14,6 +14,13 @@ export const metadata: Metadata = {
     "mortar bags calculator",
   ],
   alternates: { canonical: "/mortar-calculator" },
+  openGraph: {
+    type: "website",
+    title: "Mortar Calculator — Cement, Sand & Bags Estimator | BuildCalc",
+    description:
+      "Calculate how much mortar you need for brick, block, or stone projects. Get cement, sand, and pre-mixed bag estimates for Type M, S, N, and O mortars.",
+    url: "https://buildcalczone.com/mortar-calculator",
+  },
 };
 
 const faqs = [

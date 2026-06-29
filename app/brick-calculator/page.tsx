@@ -13,6 +13,13 @@ export const metadata: Metadata = {
     "bricks per square meter",
   ],
   alternates: { canonical: "/brick-calculator" },
+  openGraph: {
+    type: "website",
+    title: "Brick Calculator — How Many Bricks Do I Need? | BuildCalc",
+    description:
+      "Free brick calculator. Enter wall length and height to get brick count with waste allowance and pallet estimate. Based on standard brick (215×102×65mm) with 10mm mortar joints.",
+    url: "https://buildcalczone.com/brick-calculator",
+  },
 };
 
 const faqs = [

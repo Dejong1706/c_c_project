@@ -9,6 +9,17 @@ export const metadata: Metadata = {
   description:
     "Free construction calculators for concrete, tiles, bricks, rebar, paint and more.",
   alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: "BuildCalc",
+    title: "BuildCalc — Free Construction Calculators",
+    description:
+      "Free construction calculators for concrete, tiles, bricks, rebar, paint and more.",
+    url: "https://buildcalczone.com",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({

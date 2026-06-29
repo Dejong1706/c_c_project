@@ -6,6 +6,13 @@ export const metadata: Metadata = {
   description:
     "Free construction guides covering concrete, tiles, rebar, paint and more. Learn how to calculate material quantities and understand industry standards.",
   alternates: { canonical: "/guides" },
+  openGraph: {
+    type: "website",
+    title: "Construction Guides — How-To & Reference | BuildCalc",
+    description:
+      "Free construction guides covering concrete, tiles, rebar, paint and more. Learn how to calculate material quantities and understand industry standards.",
+    url: "https://buildcalczone.com/guides",
+  },
 };
 
 const guides: {

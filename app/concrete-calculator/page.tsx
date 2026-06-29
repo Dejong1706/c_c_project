@@ -14,6 +14,14 @@ export const metadata: Metadata = {
     "ready mix concrete calculator",
   ],
   alternates: { canonical: "/concrete-calculator" },
+  openGraph: {
+    type: "website",
+    title:
+      "Concrete Calculator — Volume, Cubic Yards & Ready-Mix Trucks | BuildCalc",
+    description:
+      "Free concrete calculator. Enter length, width and depth to get exact volume in m³ and cubic yards, plus ready-mix truck count. Works for slabs, footings, and columns.",
+    url: "https://buildcalczone.com/concrete-calculator",
+  },
 };
 
 const faqs = [

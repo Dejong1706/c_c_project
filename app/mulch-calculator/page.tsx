@@ -14,6 +14,13 @@ export const metadata: Metadata = {
     "how many bags of mulch do i need",
   ],
   alternates: { canonical: "/mulch-calculator" },
+  openGraph: {
+    type: "website",
+    title: "Mulch Calculator — Cubic Yards & Bags Estimator | BuildCalc",
+    description:
+      "Calculate how much mulch you need in cubic yards or bags for any garden bed. Enter your area and depth to get an instant estimate with waste allowance.",
+    url: "https://buildcalczone.com/mulch-calculator",
+  },
 };
 
 const faqs = [

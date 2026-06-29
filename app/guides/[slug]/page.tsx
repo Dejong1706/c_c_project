@@ -283,6 +283,12 @@ export async function generateMetadata(
     description: meta.description,
     keywords: meta.keywords,
     alternates: { canonical: `/guides/${slug}` },
+    openGraph: {
+      type: "article",
+      title: meta.title,
+      description: meta.description,
+      url: `https://buildcalczone.com/guides/${slug}`,
+    },
   };
 }
 

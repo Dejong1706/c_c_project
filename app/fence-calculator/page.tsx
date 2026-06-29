@@ -14,6 +14,13 @@ export const metadata: Metadata = {
     "fence materials calculator",
   ],
   alternates: { canonical: "/fence-calculator" },
+  openGraph: {
+    type: "website",
+    title: "Fence Calculator — Posts, Rails & Concrete Estimator | BuildCalc",
+    description:
+      "Calculate how many fence posts, rails, and concrete bags you need for wood, vinyl, or chain-link fences. Get even post spacing and a full materials list.",
+    url: "https://buildcalczone.com/fence-calculator",
+  },
 };
 
 const faqs = [

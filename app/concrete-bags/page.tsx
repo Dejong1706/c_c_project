@@ -13,6 +13,13 @@ export const metadata: Metadata = {
     "80lb bag calculator",
   ],
   alternates: { canonical: "/concrete-bags" },
+  openGraph: {
+    type: "website",
+    title: "Concrete Bag Calculator — How Many Bags of Concrete? | BuildCalc",
+    description:
+      "Free concrete bag calculator. Enter slab dimensions and select bag size — 40lb, 60lb or 80lb — to get exact bag count. Includes adjustable waste buffer. Instant results, no sign-up.",
+    url: "https://buildcalczone.com/concrete-bags",
+  },
 };
 
 const faqs = [

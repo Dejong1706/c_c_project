@@ -13,6 +13,13 @@ export const metadata: Metadata = {
     "tile estimator",
   ],
   alternates: { canonical: "/tile-calculator" },
+  openGraph: {
+    type: "website",
+    title: "Tile Calculator — How Many Tiles Do I Need? | BuildCalc",
+    description:
+      "Free tile calculator. Enter room dimensions and tile size to find exact tile count and boxes needed. Grout joint and waste factor included. Instant results.",
+    url: "https://buildcalczone.com/tile-calculator",
+  },
 };
 
 const faqs = [

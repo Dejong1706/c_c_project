@@ -13,6 +13,13 @@ export const metadata: Metadata = {
     "wall paint calculator",
   ],
   alternates: { canonical: "/paint-calculator" },
+  openGraph: {
+    type: "website",
+    title: "Paint Calculator — How Much Paint Do I Need? | BuildCalc",
+    description:
+      "Free paint calculator. Enter room dimensions and get litres needed plus tin count. Covers walls, ceilings and exterior. Adjustable for 2-coat coverage.",
+    url: "https://buildcalczone.com/paint-calculator",
+  },
 };
 
 const faqs = [

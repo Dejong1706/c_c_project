@@ -13,6 +13,13 @@ export const metadata: Metadata = {
     "steel bar weight",
   ],
   alternates: { canonical: "/rebar-calculator" },
+  openGraph: {
+    type: "website",
+    title: "Rebar Weight Calculator — Steel Bar Weight & Length | BuildCalc",
+    description:
+      "Free rebar weight calculator. Enter bar diameter, length and quantity to get total weight in kg and tonnes. Unit weight formula included. Metric and imperial.",
+    url: "https://buildcalczone.com/rebar-calculator",
+  },
 };
 
 const faqs = [

@@ -21,6 +21,13 @@ export const metadata: Metadata = {
   description:
     "Free construction calculators for concrete volume, tile quantity, rebar weight, brick count and more. Instant results in metric and imperial.",
   alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    title: "BuildCalc — Free Construction Calculators",
+    description:
+      "Free construction calculators for concrete volume, tile quantity, rebar weight, brick count and more. Instant results in metric and imperial.",
+    url: "https://buildcalczone.com",
+  },
 };
 
 const calcs: {

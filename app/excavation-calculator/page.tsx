@@ -14,6 +14,14 @@ export const metadata: Metadata = {
     "cubic yards excavation",
   ],
   alternates: { canonical: "/excavation-calculator" },
+  openGraph: {
+    type: "website",
+    title:
+      "Excavation Calculator — Volume in m³, Cubic Yards & Truck Loads | BuildCalc",
+    description:
+      "Free excavation calculator. Enter pit or trench dimensions to get exact excavation volume in m³ and cubic yards, plus how many trucks to remove the soil.",
+    url: "https://buildcalczone.com/excavation-calculator",
+  },
 };
 
 const faqs = [
