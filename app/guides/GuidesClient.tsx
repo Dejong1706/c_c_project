@@ -44,7 +44,7 @@ export default function GuidesClient({ guides }: { guides: Guide[] }) {
             lineHeight: 1.3,
           }}
         >
-          Construction guides
+          Construction Guides
         </h1>
         <p
           style={{
