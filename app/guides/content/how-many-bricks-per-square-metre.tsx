@@ -43,7 +43,12 @@ const articleSchema = {
   headline: "How Many Bricks Per Square Metre? Standard, Maxi & Jumbo",
   description:
     "Brick quantities per square metre for standard, maxi and jumbo bricks. Includes waste allowance guidance and pallet quantity notes.",
-  url: "https://buildcalczone.com/guides/how-many-bricks-per-square-metre",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-many-bricks-per-square-metre" },
+  datePublished: "2026-06-16",
+  dateModified: "2026-06-16",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 export default function HowManyBricksPerSquareMetreGuide() {

@@ -41,7 +41,12 @@ const articleSchema = {
   headline: "How to Calculate Paint Coverage: Litres Per Room Guide",
   description:
     "Learn how to calculate how much paint you need for a room. Includes coverage rates, coat counts, wall area formulas and tips for buying the right amount.",
-  url: "https://buildcalczone.com/guides/how-to-calculate-paint-coverage",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-paint-coverage" },
+  datePublished: "2026-06-15",
+  dateModified: "2026-06-15",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 export default function PaintCoverageGuide() {

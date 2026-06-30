@@ -43,7 +43,12 @@ const articleSchema = {
   headline: "How to Mix Concrete by Hand: Ratios, Water, and Technique",
   description:
     "Step-by-step guide to mixing concrete by hand. Covers mix ratios, water amount, tools, and when hand mixing stops being practical.",
-  url: "https://buildcalczone.com/guides/how-to-mix-concrete-by-hand",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-mix-concrete-by-hand" },
+  datePublished: "2026-06-12",
+  dateModified: "2026-06-12",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 export default function HowToMixConcreteByHandGuide() {

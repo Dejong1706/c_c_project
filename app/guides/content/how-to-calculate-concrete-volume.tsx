@@ -36,7 +36,12 @@ const articleSchema = {
   headline: "How to Calculate Concrete Volume (and How Much You Actually Need)",
   description:
     "Learn how to calculate concrete volume for slabs, footings and columns. Includes waste percentage tips, unit conversions, and bag vs ready-mix guidance.",
-  url: "https://buildcalczone.com/guides/how-to-calculate-concrete-volume",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-concrete-volume" },
+  datePublished: "2026-06-12",
+  dateModified: "2026-06-12",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 export default function ConcreteVolumeGuide() {

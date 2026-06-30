@@ -41,7 +41,12 @@ const articleSchema = {
   headline: "Concrete Strength Grades Explained: PSI, MPa, and What They Mean",
   description:
     "Understand concrete strength grades in PSI and MPa, what they're used for, and how US and international (EN 206) classifications compare.",
-  url: "https://buildcalczone.com/guides/concrete-strength-grades",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/concrete-strength-grades" },
+  datePublished: "2026-06-12",
+  dateModified: "2026-06-12",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 export default function ConcreteStrengthGradesGuide() {

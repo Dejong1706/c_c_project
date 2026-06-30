@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
 import GuideLayout from "./GuideLayout";
-import GuideSchema from "../../../app/components/GuideSchema";
 import ConcreteVolumeGuide from "../content/how-to-calculate-concrete-volume";
 import CubicYardsToMetersGuide from "../content/cubic-yards-to-cubic-meters";
 import TileGroutGapGuide from "../content/tile-grout-gap-guide";
@@ -297,19 +296,9 @@ export default async function GuidePage(props: PageProps<"/guides/[slug]">) {
   const { slug } = await props.params;
   const Content = contentMap[slug];
   if (!Content) notFound();
-  const meta = metaMap[slug];
   return (
-    <>
-      {meta && (
-        <GuideSchema
-          title={meta.title}
-          description={meta.description}
-          url={`https://buildcalczone.com/guides/${slug}`}
-        />
-      )}
-      <GuideLayout>
-        <Content />
-      </GuideLayout>
-    </>
+    <GuideLayout>
+      <Content />
+    </GuideLayout>
   );
 }

@@ -41,7 +41,12 @@ const articleSchema = {
   headline: "How Many Tiles Do I Need? A Practical Calculation Guide",
   description:
     "Learn how to calculate the number of tiles needed for a room, including waste percentage by layout pattern, box quantities, and common mistakes to avoid.",
-  url: "https://buildcalczone.com/guides/how-many-tiles-do-i-need",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-many-tiles-do-i-need" },
+  datePublished: "2026-06-12",
+  dateModified: "2026-06-12",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 export default function HowManyTilesGuide() {

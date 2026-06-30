@@ -50,7 +50,12 @@ const articleSchema = {
   headline: "How to Calculate Wall Area for Painting",
   description:
     "Step-by-step guide to calculating wall area for painting — including rooms with doors and windows, ceilings, number of coats, and how much paint to order.",
-  url: "https://buildcalczone.com/guides/how-to-calculate-wall-area-for-painting",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-wall-area-for-painting" },
+  datePublished: "2026-06-21",
+  dateModified: "2026-06-21",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 const sectionHeading: React.CSSProperties = {

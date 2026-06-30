@@ -50,7 +50,12 @@ const articleSchema = {
   headline: "Standard Brick Sizes by Country",
   description:
     "A complete reference guide to standard brick dimensions in the UK, US, Australia, Europe, and beyond — with coordinating sizes, mortar joints, and bricks per m².",
-  url: "https://buildcalczone.com/guides/standard-brick-sizes-by-country",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/standard-brick-sizes-by-country" },
+  datePublished: "2026-06-16",
+  dateModified: "2026-06-16",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 export default function StandardBrickSizesByCountry() {

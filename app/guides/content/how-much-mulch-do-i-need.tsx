@@ -45,7 +45,12 @@ const articleSchema = {
   headline: "How Much Mulch Do I Need?",
   description:
     "Quick reference guide for mulch quantities by area and depth, plus tips on depth, timing, and choosing between bags and bulk delivery.",
-  url: "https://buildcalczone.com/guides/how-much-mulch-do-i-need",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-much-mulch-do-i-need" },
+  datePublished: "2026-06-29",
+  dateModified: "2026-06-29",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 export default function HowMuchMulchDoINeed() {

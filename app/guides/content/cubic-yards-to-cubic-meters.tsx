@@ -41,7 +41,12 @@ const articleSchema = {
   headline: "Cubic Yards to Cubic Meters: Conversion Guide & Quick Reference",
   description:
     "Convert cubic yards to cubic meters and back. Includes the exact formula, a quick reference table, and tips for ordering ready-mix concrete.",
-  url: "https://buildcalczone.com/guides/cubic-yards-to-cubic-meters",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/cubic-yards-to-cubic-meters" },
+  datePublished: "2026-06-12",
+  dateModified: "2026-06-12",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 export default function CubicYardsToMetersGuide() {

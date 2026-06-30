@@ -63,7 +63,12 @@ const articleSchema = {
   headline: "How to Calculate Bricks for a Wall",
   description:
     "Step-by-step guide to calculating how many bricks you need for any wall — including half-brick and full-brick walls, openings, waste factors, and mortar quantities.",
-  url: "https://buildcalczone.com/guides/how-to-calculate-bricks-for-a-wall",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-bricks-for-a-wall" },
+  datePublished: "2026-06-18",
+  dateModified: "2026-06-18",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 export default function HowToCalculateBricksForAWall() {

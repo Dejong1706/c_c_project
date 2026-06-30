@@ -52,7 +52,12 @@ const articleSchema = {
   headline: "How to Calculate Mulch",
   description:
     "Step-by-step guide to calculating how much mulch you need in cubic yards and bags for any garden bed shape.",
-  url: "https://buildcalczone.com/guides/how-to-calculate-mulch",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-mulch" },
+  datePublished: "2026-06-29",
+  dateModified: "2026-06-29",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 export default function HowToCalculateMulch() {
