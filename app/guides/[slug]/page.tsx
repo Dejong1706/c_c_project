@@ -296,9 +296,25 @@ export default async function GuidePage(props: PageProps<"/guides/[slug]">) {
   const { slug } = await props.params;
   const Content = contentMap[slug];
   if (!Content) notFound();
+  const meta = metaMap[slug];
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://buildcalczone.com" },
+      { "@type": "ListItem", position: 2, name: "Guides", item: "https://buildcalczone.com/guides" },
+      ...(meta ? [{ "@type": "ListItem", position: 3, name: meta.title, item: `https://buildcalczone.com/guides/${slug}` }] : []),
+    ],
+  };
   return (
-    <GuideLayout>
-      <Content />
-    </GuideLayout>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <GuideLayout>
+        <Content />
+      </GuideLayout>
+    </>
   );
 }

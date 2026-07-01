@@ -151,8 +151,29 @@ const calcs: {
   },
 ];
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "BuildCalc",
+  url: "https://buildcalczone.com",
+  description: "Free construction calculators for concrete, tiles, bricks, rebar, paint and more.",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://buildcalczone.com/?q={search_term_string}",
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export default function Home() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
     <div>
       <div style={{ marginBottom: "32px" }}>
         <h1
@@ -305,5 +326,6 @@ export default function Home() {
         ))}
       </div>
     </div>
+    </>
   );
 }
