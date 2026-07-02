@@ -356,7 +356,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         }}
       >
         <span>© 2026 BuildCalc — Free construction calculators</span>
-        <span>Results are estimates for planning purposes only.</span>
+        <span style={{ display: "flex", gap: "16px", alignItems: "center", flexWrap: "wrap" }}>
+          <span>Results are estimates for planning purposes only.</span>
+          <Link href="/privacy-policy" style={{ color: "var(--text-3)", textDecoration: "underline" }}>
+            Privacy Policy
+          </Link>
+        </span>
       </footer>
 
       <style>{`
