@@ -260,13 +260,7 @@ export default function PrivacyPolicyPage() {
         <h2 style={h2Style}>9. Contact us</h2>
         <p style={p}>
           If you have any questions about this Privacy Policy, please contact
-          us at:{" "}
-          <a
-            href="mailto:ppk0320@gmail.com"
-            style={{ color: "var(--accent)", textDecoration: "underline" }}
-          >
-            ppk0320@gmail.com
-          </a>
+          us through the site.
         </p>
       </div>
     </>
