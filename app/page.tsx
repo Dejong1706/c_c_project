@@ -13,6 +13,7 @@ import {
   IconFence,
   IconWood,
   IconPlant2,
+  IconStairs,
 } from "@tabler/icons-react";
 import type { TablerIcon } from "@tabler/icons-react";
 
@@ -94,6 +95,15 @@ const calcs: {
     desc: "Sq ft, boxes and waste for LVP, wood, tile or carpet",
     tags: ["Room size", "Layout", "Waste %"],
     preview: { val: "11", unit: "boxes", expr: "200 sqft, 7% waste" },
+  },
+  {
+    href: "/stair-calculator",
+    icon: IconStairs,
+    iconColor: "#6D4C41",
+    title: "Stair calculator",
+    desc: "Risers, treads and stringer length for any floor height",
+    tags: ["Rise", "Run", "Stringer", "IRC check"],
+    preview: { val: "15", unit: "risers", expr: "9 ft ceiling" },
   },
   {
     href: "/rebar-calculator",

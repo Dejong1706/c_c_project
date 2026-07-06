@@ -46,6 +46,11 @@ const calculators = [
     group: "Finishing",
   },
   {
+    href: "/stair-calculator",
+    label: "Stair calculator",
+    group: "Finishing",
+  },
+  {
     href: "/excavation-calculator",
     label: "Excavation calculator",
     group: "Earthworks",
