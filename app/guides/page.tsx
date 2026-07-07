@@ -53,6 +53,12 @@ const guides: {
     desc: "Bar size and spacing guide for slabs, footings and driveways. Covers metric and US Imperial sizes.",
     category: "Structural",
   },
+  {
+    title: "How to Calculate Stair Rise and Run",
+    href: "/guides/how-to-calculate-stair-rise-and-run",
+    desc: "Step-by-step formula for riser count, tread depth, total run, and stringer length — with IRC code check.",
+    category: "Structural",
+  },
   // Masonry
   {
     title: "How to Calculate Bricks for a Wall",

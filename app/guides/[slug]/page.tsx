@@ -21,6 +21,7 @@ import ConcreteCuringTimeGuide from "../content/concrete-curing-time-guide";
 import HowToLayTileStepByStep from "../content/how-to-lay-tile-step-by-step";
 import HowMuchMulchDoINeed from "../content/how-much-mulch-do-i-need";
 import HowToCalculateMulch from "../content/how-to-calculate-mulch";
+import HowToCalculateStairRiseAndRun from "../content/how-to-calculate-stair-rise-and-run";
 
 const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-concrete-volume": ConcreteVolumeGuide,
@@ -42,6 +43,7 @@ const contentMap: Record<string, React.ComponentType> = {
   "how-to-lay-tile-step-by-step": HowToLayTileStepByStep,
   "how-much-mulch-do-i-need": HowMuchMulchDoINeed,
   "how-to-calculate-mulch": HowToCalculateMulch,
+  "how-to-calculate-stair-rise-and-run": HowToCalculateStairRiseAndRun,
 };
 
 const metaMap: Record<
@@ -264,6 +266,18 @@ const metaMap: Record<
       "mulch calculation formula",
       "cubic yards mulch calculator",
       "mulch bags per cubic yard",
+    ],
+  },
+  "how-to-calculate-stair-rise-and-run": {
+    title: "How to Calculate Stair Rise and Run — Step-by-Step Formula | BuildCalc",
+    description:
+      "Step-by-step guide to calculating stair rise, run, riser count, tread count, and stringer length for IRC-compliant residential stairs.",
+    keywords: [
+      "stair rise and run",
+      "how to calculate stairs",
+      "stair riser height",
+      "stringer length calculator",
+      "stair calculation formula",
     ],
   },
 };

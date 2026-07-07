@@ -38,6 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/guides/how-to-lay-tile-step-by-step", date: "2026-06-25", priority: 0.7 },
     { route: "/guides/how-much-mulch-do-i-need", date: "2026-06-29", priority: 0.7 },
     { route: "/guides/how-to-calculate-mulch", date: "2026-06-29", priority: 0.7 },
+    { route: "/guides/how-to-calculate-stair-rise-and-run", date: "2026-07-07", priority: 0.7 },
     { route: "/privacy-policy", date: "2026-07-02", priority: 0.3 },
   ];
 
