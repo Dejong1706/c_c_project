@@ -59,6 +59,12 @@ const guides: {
     desc: "Step-by-step formula for riser count, tread depth, total run, and stringer length — with IRC code check.",
     category: "Structural",
   },
+  {
+    title: "Stair Building Code Requirements (IRC R311.7)",
+    href: "/guides/stair-building-code-requirements",
+    desc: "Complete reference for IRC residential stair code — riser height, tread depth, width, headroom, handrails, and landings.",
+    category: "Structural",
+  },
   // Masonry
   {
     title: "How to Calculate Bricks for a Wall",
