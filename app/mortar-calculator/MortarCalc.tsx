@@ -84,7 +84,7 @@ export default function MortarCalc() {
     const mortarFraction = (grossAreaM2 - netAreaM2) / grossAreaM2;
 
     // Bed/perpend joints run the full depth of the masonry unit, not just the joint thickness
-    const jointDepthM = (unit.d + unit.jointMm) / 1000;
+    const jointDepthM = unit.d / 1000;
     const mortarVolumeRaw = wallArea * mortarFraction * jointDepthM * 1000; // litres
     const mortarVolumeLitres = mortarVolumeRaw * (1 + waste / 100);
 

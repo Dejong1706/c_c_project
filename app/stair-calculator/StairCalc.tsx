@@ -66,7 +66,7 @@ export default function StairCalc() {
     const stringerLengthFt = stringerLengthIn / 12;
 
     // Stair angle
-    const angleRad = valid ? Math.atan(totalRiseIn / totalRun) : 0;
+    const angleRad = valid ? Math.atan(stringerRise / totalRun) : 0;
     const angleDeg = (angleRad * 180) / Math.PI;
 
     // Comfort check: Rise + Run should be 17–18"
