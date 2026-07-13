@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/fence-calculator", date: "2026-06-25", priority: 0.9 },
     { route: "/mulch-calculator", date: "2026-06-29", priority: 0.9 },
     { route: "/stair-calculator", date: "2026-07-06", priority: 0.9 },
+    { route: "/drywall-calculator", date: "2026-07-13", priority: 0.9 },
     { route: "/unit-converter", date: "2026-06-02", priority: 0.8 },
     { route: "/guides", date: "2026-06-29", priority: 0.8 },
     { route: "/guides/how-to-calculate-concrete-volume", date: "2026-06-12", priority: 0.7 },

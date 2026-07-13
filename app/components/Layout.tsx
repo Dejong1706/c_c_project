@@ -46,6 +46,11 @@ const calculators = [
     group: "Finishing",
   },
   {
+    href: "/drywall-calculator",
+    label: "Drywall calculator",
+    group: "Finishing",
+  },
+  {
     href: "/stair-calculator",
     label: "Stair calculator",
     group: "Finishing",

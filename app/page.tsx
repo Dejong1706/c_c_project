@@ -14,6 +14,7 @@ import {
   IconWood,
   IconPlant2,
   IconStairs,
+  IconWallpaper,
 } from "@tabler/icons-react";
 import type { TablerIcon } from "@tabler/icons-react";
 
@@ -95,6 +96,15 @@ const calcs: {
     desc: "Sq ft, boxes and waste for LVP, wood, tile or carpet",
     tags: ["Room size", "Layout", "Waste %"],
     preview: { val: "11", unit: "boxes", expr: "200 sqft, 7% waste" },
+  },
+  {
+    href: "/drywall-calculator",
+    icon: IconWallpaper,
+    iconColor: "#78909C",
+    title: "Drywall calculator",
+    desc: "Sheets, compound, tape and screws for walls and ceilings",
+    tags: ["Room size", "Sheet size", "Doors", "Waste %"],
+    preview: { val: "18", unit: "sheets", expr: "12×10×9 ft" },
   },
   {
     href: "/stair-calculator",
