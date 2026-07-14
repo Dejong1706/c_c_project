@@ -154,6 +154,13 @@ const guides: {
     desc: "Step-by-step formula for cubic yards and bags — rectangular beds, circular beds, and waste allowance explained.",
     category: "Landscaping",
   },
+  // Finishing
+  {
+    title: "How to Calculate Drywall Sheets",
+    href: "/guides/how-to-calculate-drywall-sheets",
+    desc: "Formula, worked examples, and waste factor guide for walls and ceiling.",
+    category: "Finishing",
+  },
 ];
 
 export default function GuidesPage() {

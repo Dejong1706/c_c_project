@@ -23,6 +23,7 @@ import HowMuchMulchDoINeed from "../content/how-much-mulch-do-i-need";
 import HowToCalculateMulch from "../content/how-to-calculate-mulch";
 import HowToCalculateStairRiseAndRun from "../content/how-to-calculate-stair-rise-and-run";
 import StairBuildingCodeRequirements from "../content/stair-building-code-requirements";
+import HowToCalculateDrywallSheets from "../content/how-to-calculate-drywall-sheets";
 
 const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-concrete-volume": ConcreteVolumeGuide,
@@ -46,6 +47,7 @@ const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-mulch": HowToCalculateMulch,
   "how-to-calculate-stair-rise-and-run": HowToCalculateStairRiseAndRun,
   "stair-building-code-requirements": StairBuildingCodeRequirements,
+  "how-to-calculate-drywall-sheets": HowToCalculateDrywallSheets,
 };
 
 const metaMap: Record<
@@ -292,6 +294,17 @@ const metaMap: Record<
       "stair riser height",
       "stringer length calculator",
       "stair calculation formula",
+    ],
+  },
+  "how-to-calculate-drywall-sheets": {
+    title: "How to Calculate Drywall Sheets | BuildCalc",
+    description:
+      "Step-by-step guide to calculating drywall sheet count for walls and ceiling — formula, worked examples, and sheet size comparison.",
+    keywords: [
+      "how to calculate drywall sheets",
+      "drywall sheet calculation",
+      "how many sheets of drywall",
+      "drywall formula",
     ],
   },
 };

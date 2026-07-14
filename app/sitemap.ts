@@ -41,6 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/guides/how-to-calculate-mulch", date: "2026-06-29", priority: 0.7 },
     { route: "/guides/how-to-calculate-stair-rise-and-run", date: "2026-07-07", priority: 0.7 },
     { route: "/guides/stair-building-code-requirements", date: "2026-07-08", priority: 0.7 },
+    { route: "/guides/how-to-calculate-drywall-sheets", date: "2026-07-14", priority: 0.7 },
     { route: "/privacy-policy", date: "2026-07-02", priority: 0.3 },
   ];
 
