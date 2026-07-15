@@ -24,6 +24,7 @@ import HowToCalculateMulch from "../content/how-to-calculate-mulch";
 import HowToCalculateStairRiseAndRun from "../content/how-to-calculate-stair-rise-and-run";
 import StairBuildingCodeRequirements from "../content/stair-building-code-requirements";
 import HowToCalculateDrywallSheets from "../content/how-to-calculate-drywall-sheets";
+import DrywallScrewSpacingGuide from "../content/drywall-screw-spacing-guide";
 
 const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-concrete-volume": ConcreteVolumeGuide,
@@ -48,6 +49,7 @@ const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-stair-rise-and-run": HowToCalculateStairRiseAndRun,
   "stair-building-code-requirements": StairBuildingCodeRequirements,
   "how-to-calculate-drywall-sheets": HowToCalculateDrywallSheets,
+  "drywall-screw-spacing-guide": DrywallScrewSpacingGuide,
 };
 
 const metaMap: Record<
@@ -305,6 +307,17 @@ const metaMap: Record<
       "drywall sheet calculation",
       "how many sheets of drywall",
       "drywall formula",
+    ],
+  },
+  "drywall-screw-spacing-guide": {
+    title: "Drywall Screw Spacing Guide (Walls & Ceilings) | BuildCalc",
+    description:
+      "Complete reference for drywall screw spacing on walls and ceilings — field spacing, edge spacing, screw sizes, and how many screws per sheet.",
+    keywords: [
+      "drywall screw spacing",
+      "drywall screw pattern",
+      "how far apart drywall screws",
+      "screws per sheet of drywall",
     ],
   },
 };

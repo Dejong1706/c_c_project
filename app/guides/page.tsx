@@ -161,6 +161,12 @@ const guides: {
     desc: "Formula, worked examples, and waste factor guide for walls and ceiling.",
     category: "Finishing",
   },
+  {
+    title: "Drywall Screw Spacing Guide",
+    href: "/guides/drywall-screw-spacing-guide",
+    desc: "Field and edge screw spacing for walls and ceilings, screw size reference, and how many screws per sheet.",
+    category: "Finishing",
+  },
 ];
 
 export default function GuidesPage() {
