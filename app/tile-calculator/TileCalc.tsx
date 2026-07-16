@@ -12,9 +12,66 @@ const toM: Record<string, number> = {
   in: 0.0254,
   mm: 0.001,
 };
-const TYPES = ["Floor", "Wall", "Backsplash"];
+
+type TileApp = "floor" | "wall" | "backsplash";
+
+// Waste and surface defaults differ by application: floors are mostly
+// straight cuts along the perimeter, wall tiling adds corner/fixture cuts,
+// and backsplashes need the most cuts (outlets, cabinets, small runs).
+const TILE_APPS: Record<
+  TileApp,
+  {
+    label: string;
+    sectionLabel: string;
+    dim1Label: string;
+    dim2Label: string;
+    dim1Placeholder: string;
+    dim2Placeholder: string;
+    areaLabel: string;
+    defaultWaste: number;
+    defaultGroutMm: number;
+  }
+> = {
+  floor: {
+    label: "Floor",
+    sectionLabel: "Room size",
+    dim1Label: "Room length",
+    dim2Label: "Room width",
+    dim1Placeholder: "e.g. 4",
+    dim2Placeholder: "e.g. 3",
+    areaLabel: "Room area",
+    defaultWaste: 10,
+    defaultGroutMm: 3,
+  },
+  wall: {
+    label: "Wall",
+    sectionLabel: "Wall size",
+    dim1Label: "Wall length",
+    dim2Label: "Wall height",
+    dim1Placeholder: "e.g. 3",
+    dim2Placeholder: "e.g. 2.4",
+    areaLabel: "Wall area",
+    defaultWaste: 12,
+    defaultGroutMm: 2,
+  },
+  backsplash: {
+    label: "Backsplash",
+    sectionLabel: "Backsplash size",
+    dim1Label: "Counter length",
+    dim2Label: "Backsplash height",
+    dim1Placeholder: "e.g. 3",
+    dim2Placeholder: "e.g. 0.6",
+    areaLabel: "Backsplash area",
+    defaultWaste: 18,
+    defaultGroutMm: 2,
+  },
+};
+
+const APP_ORDER: TileApp[] = ["floor", "wall", "backsplash"];
+const TYPES = APP_ORDER.map((k) => TILE_APPS[k].label);
 
 export default function TileCalc() {
+  const [appIdx, setAppIdx] = useState(0);
   const [roomL, setRoomL] = useState("");
   const [rlUnit, setRlUnit] = useState("m");
   const [roomW, setRoomW] = useState("");
@@ -23,8 +80,20 @@ export default function TileCalc() {
   const [tlUnit, setTlUnit] = useState("cm");
   const [tileW, setTileW] = useState("");
   const [twUnit, setTwUnit] = useState("cm");
-  const [grout, setGrout] = useState("3");
-  const [waste, setWaste] = useState(10);
+  const [grout, setGrout] = useState(String(TILE_APPS.floor.defaultGroutMm));
+  const [waste, setWaste] = useState(TILE_APPS.floor.defaultWaste);
+
+  const appKey = APP_ORDER[appIdx];
+  const app = TILE_APPS[appKey];
+
+  // Switching application resets waste/grout to that use case's typical
+  // defaults; the user can still fine-tune both afterwards.
+  const handleAppChange = (idx: number) => {
+    setAppIdx(idx);
+    const next = TILE_APPS[APP_ORDER[idx]];
+    setWaste(next.defaultWaste);
+    setGrout(String(next.defaultGroutMm));
+  };
 
   const results = useMemo(() => {
     const RL = (parseFloat(roomL) || 0) * toM[rlUnit];
@@ -38,7 +107,7 @@ export default function TileCalc() {
     const total = Math.ceil(net * (1 + waste / 100));
     return [
       {
-        label: "Room area",
+        label: app.areaLabel,
         value: area > 0 ? area.toFixed(2) : "—",
         unit: "square metres (m²)",
         tier: 1 as const,
@@ -69,6 +138,7 @@ export default function TileCalc() {
       },
     ];
   }, [
+    app.areaLabel,
     roomL,
     rlUnit,
     roomW,
@@ -93,24 +163,24 @@ export default function TileCalc() {
           marginBottom: "10px",
         }}
       >
-        Room size
+        {app.sectionLabel}
       </p>
       <Field
-        label="Length"
+        label={app.dim1Label}
         id="roomL"
         value={roomL}
         onChange={setRoomL}
-        placeholder="e.g. 4"
+        placeholder={app.dim1Placeholder}
         units={["m", "ft"]}
         selectedUnit={rlUnit}
         onUnitChange={setRlUnit}
       />
       <Field
-        label="Width"
+        label={app.dim2Label}
         id="roomW"
         value={roomW}
         onChange={setRoomW}
-        placeholder="e.g. 3"
+        placeholder={app.dim2Placeholder}
         units={["m", "ft"]}
         selectedUnit={rwUnit}
         onUnitChange={setRwUnit}
@@ -152,9 +222,9 @@ export default function TileCalc() {
         id="grout"
         value={grout}
         onChange={setGrout}
-        placeholder="3"
+        placeholder={String(app.defaultGroutMm)}
         units={["mm"]}
-        hint="typical 3 mm"
+        hint={`typical ${app.defaultGroutMm} mm`}
       />
       <WasteSlider value={waste} onChange={setWaste} label="Waste / cuts" />
     </>
@@ -163,11 +233,18 @@ export default function TileCalc() {
   return (
     <CalcShell
       title="Tile calculator"
-      description="Find out exactly how many tiles you need for floors, walls, or backsplashes. Enter room dimensions and tile size — we'll account for grout joints and waste."
+      description="Find out exactly how many tiles you need for floors, walls, or backsplashes. Enter surface dimensions and tile size — we'll account for grout joints and waste."
       types={TYPES}
+      onTypeChange={handleAppChange}
       inputs={inputs}
       results={results}
-      notice="Always buy 10–15% extra for herringbone or diagonal patterns."
+      notice={`${app.label} tiling — default ${app.defaultWaste}% waste (${
+        appKey === "backsplash"
+          ? "backsplashes need the most cuts around outlets and cabinets"
+          : appKey === "wall"
+          ? "wall tiling needs extra cuts around corners and fixtures"
+          : "floor tiling is mostly straight cuts along the perimeter"
+      }). Add 10–15% more on top for herringbone or diagonal patterns.`}
       related={[
         {
           href: "/concrete-calculator",
