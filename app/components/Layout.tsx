@@ -75,6 +75,11 @@ const calculators = [
     label: "Mulch calculator",
     group: "Earthworks",
   },
+  {
+    href: "/roof-pitch-calculator",
+    label: "Roof pitch calculator",
+    group: "Concrete",
+  },
 ];
 
 const groups = [

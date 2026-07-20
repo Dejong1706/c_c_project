@@ -15,6 +15,7 @@ import {
   IconPlant2,
   IconStairs,
   IconWallpaper,
+  IconBuildingCottage,
 } from "@tabler/icons-react";
 import type { TablerIcon } from "@tabler/icons-react";
 
@@ -159,6 +160,15 @@ const calcs: {
     desc: "Cubic yards and bags for garden beds and borders",
     tags: ["Bed shape", "Area", "Depth", "Waste %"],
     preview: { val: "1.85", unit: "yd³", expr: "200 sqft, 3in" },
+  },
+  {
+    href: "/roof-pitch-calculator",
+    icon: IconBuildingCottage,
+    iconColor: "#A0522D", // 지붕 테라코타 브라운
+    title: "Roof pitch calculator",
+    desc: "Degrees, ratio & rafter length",
+    tags: ["Pitch ratio", "Angle", "Run", "Rafter length"],
+    preview: { val: "26.57", unit: "°", expr: "6:12 pitch, 24ft span" },
   },
   {
     href: "/unit-converter",
