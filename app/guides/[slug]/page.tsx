@@ -25,6 +25,7 @@ import HowToCalculateStairRiseAndRun from "../content/how-to-calculate-stair-ris
 import StairBuildingCodeRequirements from "../content/stair-building-code-requirements";
 import HowToCalculateDrywallSheets from "../content/how-to-calculate-drywall-sheets";
 import DrywallScrewSpacingGuide from "../content/drywall-screw-spacing-guide";
+import HowToCalculateRoofPitch from "../content/how-to-calculate-roof-pitch";
 
 const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-concrete-volume": ConcreteVolumeGuide,
@@ -50,6 +51,7 @@ const contentMap: Record<string, React.ComponentType> = {
   "stair-building-code-requirements": StairBuildingCodeRequirements,
   "how-to-calculate-drywall-sheets": HowToCalculateDrywallSheets,
   "drywall-screw-spacing-guide": DrywallScrewSpacingGuide,
+  "how-to-calculate-roof-pitch": HowToCalculateRoofPitch,
 };
 
 const metaMap: Record<
@@ -318,6 +320,17 @@ const metaMap: Record<
       "drywall screw pattern",
       "how far apart drywall screws",
       "screws per sheet of drywall",
+    ],
+  },
+  "how-to-calculate-roof-pitch": {
+    title: "How to Calculate Roof Pitch | BuildCalc",
+    description:
+      "Step-by-step guide to measuring and calculating roof pitch — rise over run, x:12 ratio, degrees conversion, rafter length, and pitch factor.",
+    keywords: [
+      "how to calculate roof pitch",
+      "roof pitch formula",
+      "roof pitch measurement",
+      "rafter length calculation",
     ],
   },
 };

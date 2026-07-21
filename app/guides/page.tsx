@@ -167,6 +167,12 @@ const guides: {
     desc: "Field and edge screw spacing for walls and ceilings, screw size reference, and how many screws per sheet.",
     category: "Finishing",
   },
+  {
+    title: "How to Calculate Roof Pitch",
+    href: "/guides/how-to-calculate-roof-pitch",
+    desc: "Measure and calculate roof pitch from rise/run, convert to degrees, and estimate rafter length.",
+    category: "Roofing",
+  },
 ];
 
 export default function GuidesPage() {

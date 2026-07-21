@@ -20,6 +20,7 @@ const CATEGORY_ORDER = [
   "Fencing",
   "Landscaping",
   "Finishing",
+  "Roofing",
 ];
 
 export default function GuidesClient({ guides }: { guides: Guide[] }) {
