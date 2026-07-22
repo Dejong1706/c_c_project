@@ -173,6 +173,12 @@ const guides: {
     desc: "Measure and calculate roof pitch from rise/run, convert to degrees, and estimate rafter length.",
     category: "Roofing",
   },
+  {
+    title: "Roof Pitch to Degrees Conversion Chart",
+    href: "/guides/roof-pitch-to-degrees-conversion",
+    desc: "Complete x:12 to degrees conversion table with pitch factor and roofing material guide.",
+    category: "Conversion",
+  },
 ];
 
 export default function GuidesPage() {

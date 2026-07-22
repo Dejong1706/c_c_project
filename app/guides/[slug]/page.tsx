@@ -26,6 +26,7 @@ import StairBuildingCodeRequirements from "../content/stair-building-code-requir
 import HowToCalculateDrywallSheets from "../content/how-to-calculate-drywall-sheets";
 import DrywallScrewSpacingGuide from "../content/drywall-screw-spacing-guide";
 import HowToCalculateRoofPitch from "../content/how-to-calculate-roof-pitch";
+import RoofPitchToDegreesConversion from "../content/roof-pitch-to-degrees-conversion";
 
 const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-concrete-volume": ConcreteVolumeGuide,
@@ -52,6 +53,7 @@ const contentMap: Record<string, React.ComponentType> = {
   "how-to-calculate-drywall-sheets": HowToCalculateDrywallSheets,
   "drywall-screw-spacing-guide": DrywallScrewSpacingGuide,
   "how-to-calculate-roof-pitch": HowToCalculateRoofPitch,
+  "roof-pitch-to-degrees-conversion": RoofPitchToDegreesConversion,
 };
 
 const metaMap: Record<
@@ -289,7 +291,8 @@ const metaMap: Record<
     ],
   },
   "how-to-calculate-stair-rise-and-run": {
-    title: "How to Calculate Stair Rise and Run — Step-by-Step Formula | BuildCalc",
+    title:
+      "How to Calculate Stair Rise and Run — Step-by-Step Formula | BuildCalc",
     description:
       "Step-by-step guide to calculating stair rise, run, riser count, tread count, and stringer length for IRC-compliant residential stairs.",
     keywords: [
@@ -333,6 +336,17 @@ const metaMap: Record<
       "rafter length calculation",
     ],
   },
+  "roof-pitch-to-degrees-conversion": {
+    title: "Roof Pitch to Degrees Conversion Chart | BuildCalc",
+    description:
+      "Complete conversion table for roof pitch x:12 to degrees and percentage slope, plus the formula to convert any pitch instantly.",
+    keywords: [
+      "roof pitch to degrees",
+      "roof pitch conversion chart",
+      "4 12 pitch in degrees",
+      "6 12 pitch in degrees",
+    ],
+  },
 };
 
 export function generateStaticParams() {
@@ -368,9 +382,28 @@ export default async function GuidePage(props: PageProps<"/guides/[slug]">) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://buildcalczone.com" },
-      { "@type": "ListItem", position: 2, name: "Guides", item: "https://buildcalczone.com/guides" },
-      ...(meta ? [{ "@type": "ListItem", position: 3, name: meta.title, item: `https://buildcalczone.com/guides/${slug}` }] : []),
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://buildcalczone.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Guides",
+        item: "https://buildcalczone.com/guides",
+      },
+      ...(meta
+        ? [
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: meta.title,
+              item: `https://buildcalczone.com/guides/${slug}`,
+            },
+          ]
+        : []),
     ],
   };
   return (
