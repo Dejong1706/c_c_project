@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { sectionHeading, paragraph, formula, note, th, td } from "./shared";
+import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td } from "./shared";
 
 const faqs = [
   {
@@ -69,6 +69,7 @@ export default function StairBuildingCodeRequirements() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="Stair Building Code Requirements (IRC R311.7)" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{

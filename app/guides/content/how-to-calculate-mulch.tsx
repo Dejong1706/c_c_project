@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {
+  Breadcrumb,
   sectionHeading,
   paragraph,
   formula,
@@ -73,6 +74,7 @@ export default function HowToCalculateMulch() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="How to Calculate Mulch" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{

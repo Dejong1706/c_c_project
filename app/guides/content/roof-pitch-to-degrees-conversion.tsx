@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { sectionHeading, paragraph, formula, note, th, td } from "./shared";
+import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td } from "./shared";
 
 const faqs = [
   {
@@ -61,6 +61,7 @@ export default function RoofPitchToDegreesConversion() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="Roof Pitch to Degrees Conversion Chart" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{

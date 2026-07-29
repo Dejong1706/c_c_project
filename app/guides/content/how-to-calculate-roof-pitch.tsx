@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {
+  Breadcrumb,
   sectionHeading,
   paragraph,
   formula,
@@ -68,6 +69,7 @@ export default function HowToCalculateRoofPitch() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="How to Calculate Roof Pitch" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{

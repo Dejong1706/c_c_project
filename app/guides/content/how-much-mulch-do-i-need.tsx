@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { sectionHeading, paragraph, formula, note, th, td } from "./shared";
+import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td } from "./shared";
 
 const faqs = [
   {
@@ -66,6 +66,7 @@ export default function HowMuchMulchDoINeed() {
       />
 
       <article style={{ maxWidth: "680px" }}>
+        <Breadcrumb current="How Much Mulch Do I Need?" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{
