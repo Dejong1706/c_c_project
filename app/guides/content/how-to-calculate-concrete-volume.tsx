@@ -15,6 +15,11 @@ const faqs = [
     answer:
       "One cubic yard requires roughly 45 bags of 80lb concrete mix, since each bag yields about 0.022 cubic yards of mixed concrete, though this can vary slightly by brand.",
   },
+  {
+    question: "How do I calculate concrete volume for a round footing or column?",
+    answer:
+      "Use Volume = π × radius² × height instead of length × width × depth. Measure the diameter and divide by 2 to get the radius. For example, a column with a 0.3m diameter (0.15m radius) and 2m height needs about 0.14 cubic meters: 3.1416 × 0.15² × 2 ≈ 0.14 m³. Add your usual waste margin on top of this figure, just like a rectangular pour.",
+  },
 ];
 
 const faqSchema = {
