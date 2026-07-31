@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Breadcrumb, GuideTable, IntroText, formula, link, paragraph, sectionHeading, td, th } from "./shared";
 const faqs = [
   {
@@ -181,9 +182,9 @@ export default function HowManyTilesGuide() {
           marginally affect tile count on larger jobs. For most residential
           rooms this effect is small enough to be covered by your waste
           percentage — see our{" "}
-          <a href="/guides/tile-grout-gap-guide" style={link}>
+          <Link href="/guides/tile-grout-gap-guide" style={link}>
             tile grout gap guide
-          </a>{" "}
+          </Link>{" "}
           for more on choosing a joint width.
         </p>
 
@@ -193,9 +194,9 @@ export default function HowManyTilesGuide() {
           then add a waste percentage based on your layout pattern before
           rounding up again to full boxes. If you&apos;d rather not do this by hand,
           our{" "}
-          <a href="/tile-calculator" style={link}>
+          <Link href="/tile-calculator" style={link}>
             tile calculator
-          </a>{" "}
+          </Link>{" "}
           takes your room dimensions and tile size and handles the area, waste,
           and rounding for you.
         </p>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Breadcrumb, GuideTable, IntroText, formula, link, paragraph, sectionHeading, td, th } from "./shared";
 const faqs = [
   {
@@ -222,13 +223,13 @@ export default function CubicYardsToMetersGuide() {
           accurate enough — the conversion factor itself is exact, but
           measurement tolerances on a real pour will dwarf any rounding error.
           If you&apos;d rather skip manual conversion entirely, our{" "}
-          <a href="/unit-converter" style={link}>
+          <Link href="/unit-converter" style={link}>
             unit converter
-          </a>{" "}
+          </Link>{" "}
           handles cubic yards, cubic meters, cubic feet and more, and our{" "}
-          <a href="/concrete-calculator" style={link}>
+          <Link href="/concrete-calculator" style={link}>
             concrete calculator
-          </a>{" "}
+          </Link>{" "}
           gives results in both units automatically.
         </p>
 

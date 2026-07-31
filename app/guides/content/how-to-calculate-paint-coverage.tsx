@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Breadcrumb, GuideTable, IntroText, formula, link, listItem, paragraph, sectionHeading, td, th } from "./shared";
 const faqs = [
   {
@@ -216,9 +217,9 @@ export default function PaintCoverageGuide() {
           most common mistake is forgetting to multiply by the number of coats,
           which can leave you with half the paint you actually need. If
           you&apos;d rather skip the manual calculation, our{" "}
-          <a href="/paint-calculator" style={link}>
+          <Link href="/paint-calculator" style={link}>
             paint calculator
-          </a>{" "}
+          </Link>{" "}
           takes your room dimensions and coat count and works out the litres and
           tin quantity automatically.
         </p>

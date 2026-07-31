@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Breadcrumb, GuideTable, IntroText, NoteBox, link, paragraph, sectionHeading, td, th } from "./shared";
 const faqs = [
   {
@@ -215,13 +216,13 @@ export default function ConcreteStrengthGradesGuide() {
           performance and price, so it&apos;s worth matching the grade to the job
           rather than defaulting to &ldquo;whatever&apos;s standard.&rdquo; Once you&apos;ve picked a
           grade, your{" "}
-          <a href="/concrete-calculator" style={link}>
+          <Link href="/concrete-calculator" style={link}>
             concrete calculator
-          </a>{" "}
+          </Link>{" "}
           and{" "}
-          <a href="/concrete-bags" style={link}>
+          <Link href="/concrete-bags" style={link}>
             concrete bag calculator
-          </a>{" "}
+          </Link>{" "}
           can help you figure out exactly how much you need to order.
         </p>
 

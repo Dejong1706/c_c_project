@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Breadcrumb, IntroText, formula, link, listItem, paragraph, sectionHeading } from "./shared";
 const faqs = [
   {
@@ -175,9 +176,9 @@ export default function ConcreteVolumeGuide() {
           minimum order (commonly around 1 yard), so it&apos;s worth checking
           with your supplier before finalizing quantities. For a full conversion
           table and more detail on working between units, see our{" "}
-          <a href="/guides/cubic-yards-to-cubic-meters" style={link}>
+          <Link href="/guides/cubic-yards-to-cubic-meters" style={link}>
             cubic yards to cubic meters guide
-          </a>
+          </Link>
           .
         </p>
 
@@ -213,13 +214,13 @@ export default function ConcreteVolumeGuide() {
           numbers in — but the waste margin and unit conversions are where most
           estimating errors happen. If you&apos;d rather skip the manual math,
           our{" "}
-          <a href="/concrete-calculator" style={link}>
+          <Link href="/concrete-calculator" style={link}>
             concrete calculator
-          </a>{" "}
+          </Link>{" "}
           handles the volume calculation with waste percentage built in, and our{" "}
-          <a href="/concrete-bags" style={link}>
+          <Link href="/concrete-bags" style={link}>
             concrete bag calculator
-          </a>{" "}
+          </Link>{" "}
           converts that volume directly into bag counts for 40lb, 60lb, and 80lb
           bags.
         </p>

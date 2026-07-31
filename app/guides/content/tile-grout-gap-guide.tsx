@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Breadcrumb, GuideTable, IntroText, link, paragraph, sectionHeading, td, th } from "./shared";
 const faqs = [
   {
@@ -184,9 +185,9 @@ export default function TileGroutGapGuide() {
           safe, widely-used default. Step up to 6mm or more for large-format
           tile or outdoor applications, and down to 1.5-2mm for small mosaic
           work. Once you&apos;ve settled on a gap size, our{" "}
-          <a href="/tile-calculator" style={link}>
+          <Link href="/tile-calculator" style={link}>
             tile calculator
-          </a>{" "}
+          </Link>{" "}
           can help estimate how many tiles and boxes you&apos;ll need for your room,
           including a waste margin to cover cuts and breakage.
         </p>
