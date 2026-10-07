@@ -1,11 +1,21 @@
 import Link from "next/link";
-import { Breadcrumb, GuideTable, IntroText, NoteBox, link, listItem, paragraph, sectionHeading, td, th } from "./shared";
+import { Breadcrumb, GuideTable, IntroText, NoteBox, formula, link, listItem, paragraph, sectionHeading, td, th } from "./shared";
 
 const faqs = [
   {
+    question: "What is the difference between Type N, Type S and Type M mortar?",
+    answer:
+      "They are strength grades defined by ASTM C270. Type M (1:¼:3 cement:lime:sand, 2,500 psi) is the strongest and is used below grade and for heavy loads. Type S (1:½:4½, 1,800 psi) is used for foundations, retaining walls, patios and areas with high wind or seismic loads. Type N (1:1:6, 750 psi) is the general-purpose mortar for above-ground exterior and interior walls. Type O (1:2:9, 350 psi) is a soft mortar for interior non-load-bearing walls and repointing old, soft brick.",
+  },
+  {
+    question: "Which is stronger, Type S or Type N mortar?",
+    answer:
+      "Type S is stronger — a minimum of 1,800 psi compressive strength versus 750 psi for Type N. But stronger is not automatically better. For ordinary above-ground brick walls, Type N is preferred because it is more flexible, easier to work and less likely to crack or damage the brick. Use Type S where the wall is below grade, retaining soil, or carrying significant structural load.",
+  },
+  {
     question: "What is the correct mortar mix ratio for bricklaying?",
     answer:
-      "For most external brickwork, a 1:5 ratio (1 part cement to 5 parts sand) by volume is standard. For internal non-structural walls, a weaker 1:6 mix is common. For below-ground or high-moisture areas, a stronger 1:3 or 1:4 mix is used. Adding a small amount of hydrated lime (typically 1 part lime to the cement) improves workability without significantly reducing strength.",
+      "For most above-ground brickwork, Type N mortar is standard: 1 part cement, 1 part hydrated lime and 6 parts sand by volume. Without lime, a 1:5 cement to sand ratio is the usual general-purpose mix. For internal non-structural walls, a weaker 1:6 mix is common. For below-ground or high-moisture areas, a stronger 1:3 or 1:4 mix is used. Adding a small amount of hydrated lime (typically 1 part lime to the cement) improves workability without significantly reducing strength.",
   },
   {
     question: "Can I use the same mortar mix for all brickwork?",
@@ -21,6 +31,11 @@ const faqs = [
     question: "How much mortar do I need per square metre of brickwork?",
     answer:
       "As a rough guide, standard brickwork with 10mm joints uses approximately 0.5 to 0.7 litres of mortar per brick, depending on whether joints are on all faces or only the bed and perpendicular joints. For a single-leaf wall using approximately 60 bricks per square metre, that works out to around 30 to 40 litres of mixed mortar per square metre.",
+  },
+  {
+    question: "Can I use concrete mix instead of mortar for bricks?",
+    answer:
+      "No. Concrete mix contains gravel, which prevents thin, even mortar joints and gives a poor bond to the brick. Mortar uses only cement, lime and fine sand. If you are buying bags, look for products labelled mortar mix or masonry cement (Type N or Type S), not concrete mix.",
   },
 ];
 
@@ -40,12 +55,12 @@ const faqSchema = {
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Brick Mortar Mix Ratio Guide: Which Mix for Which Job?",
+  headline: "Mortar Mix Ratio for Bricks: Type N, S, M and Which Mix to Use",
   description:
-    "Mortar mix ratios for bricklaying by application. Covers cement to sand ratios for external walls, internal walls, below-ground work, and the role of lime.",
+    "Mortar mix ratios for bricklaying. Covers Type N, S, M and O mortar (ASTM C270), cement to lime to sand ratios, which type to use for each job, and how much water to add.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/brick-mortar-mix-ratio" },
   datePublished: "2026-06-16",
-  dateModified: "2026-06-16",
+  dateModified: "2026-10-07",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -64,7 +79,7 @@ export default function BrickMortarMixRatioGuide() {
       />
 
       <article style={{ maxWidth: "680px" }}>
-        <Breadcrumb current="Brick Mortar Mix Ratio Guide: Which Mix for Which Job?" />
+        <Breadcrumb current="Mortar Mix Ratio for Bricks: Type N, S, M and Which Mix to Use" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{
@@ -87,7 +102,7 @@ export default function BrickMortarMixRatioGuide() {
               color: "var(--text-1)",
             }}
           >
-            Brick Mortar Mix Ratio Guide: Which Mix for Which Job?
+            Mortar Mix Ratio for Bricks: Type N, S, M and Which Mix to Use
           </h1>
           <IntroText>
             Mortar holds brickwork together, but the right mix depends on where
@@ -96,6 +111,119 @@ export default function BrickMortarMixRatioGuide() {
             moisture or load. Here&apos;s how to match the ratio to the job.
           </IntroText>
         </header>
+
+        <NoteBox>
+          <strong>Quick answer:</strong> for most brick walls above ground, use
+          Type N mortar — 1 part cement, 1 part hydrated lime, 6 parts sand. For
+          foundations, retaining walls and anything below grade, use the
+          stronger Type S — 1 part cement, ½ part lime, 4½ parts sand.
+        </NoteBox>
+
+        <h2 style={sectionHeading}>Mortar types: N, S, M and O</h2>
+        <p style={paragraph}>
+          In the US, mortar is specified by type under ASTM C270. Each type has
+          a set proportion of Portland cement, hydrated lime and sand, and a
+          minimum compressive strength. Bagged mortar mix and masonry cement
+          are sold labelled with these letters, so this is the first thing to
+          decide before you buy or mix anything.
+        </p>
+        <GuideTable>
+          <thead>
+            <tr>
+              <th style={th}>Type</th>
+              <th style={th}>Cement:lime:sand</th>
+              <th style={th}>Min. strength</th>
+              <th style={th}>Typical use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style={td}>
+                <strong>M</strong>
+              </td>
+              <td style={td}>1 : ¼ : 3</td>
+              <td style={td}>2,500 psi (17.2 MPa)</td>
+              <td style={td}>
+                Below grade, foundations, heavy loads, retaining walls
+              </td>
+            </tr>
+            <tr>
+              <td style={td}>
+                <strong>S</strong>
+              </td>
+              <td style={td}>1 : ½ : 4½</td>
+              <td style={td}>1,800 psi (12.4 MPa)</td>
+              <td style={td}>
+                Foundations, retaining walls, patios, high wind or seismic areas
+              </td>
+            </tr>
+            <tr>
+              <td style={td}>
+                <strong>N</strong>
+              </td>
+              <td style={td}>1 : 1 : 6</td>
+              <td style={td}>750 psi (5.2 MPa)</td>
+              <td style={td}>
+                Above-grade exterior and interior walls, brick veneer — the
+                general-purpose choice
+              </td>
+            </tr>
+            <tr>
+              <td style={td}>
+                <strong>O</strong>
+              </td>
+              <td style={td}>1 : 2 : 9</td>
+              <td style={td}>350 psi (2.4 MPa)</td>
+              <td style={td}>
+                Interior non-load-bearing walls, repointing soft historic brick
+              </td>
+            </tr>
+          </tbody>
+        </GuideTable>
+        <p style={paragraph}>
+          The letters come from the phrase MaSoN wOrK — every other letter, in
+          order from strongest (M) to weakest (O).
+        </p>
+
+        <h2 style={sectionHeading}>Stronger isn&apos;t always better</h2>
+        <p style={paragraph}>
+          If you&apos;re looking for a &quot;strong mortar mix&quot;, it&apos;s
+          worth knowing that mortar should be weaker than the bricks it joins.
+          A softer mortar flexes slightly as the wall expands, contracts and
+          settles, so any cracking happens in the joint — which is easy to
+          repoint — rather than through the bricks themselves.
+        </p>
+        <p style={paragraph}>
+          Using Type M or Type S on an ordinary above-ground wall gives you no
+          real benefit and makes the wall more brittle. It is also harder to
+          work with, because less lime means a stiffer, less sticky mix. Save
+          the strong mixes for below-grade and structural work where the extra
+          strength and water resistance are actually needed.
+        </p>
+
+        <h2 style={sectionHeading}>Bagged mortar: mortar mix vs masonry cement</h2>
+        <p style={paragraph}>
+          Most people don&apos;t batch mortar from separate cement, lime and
+          sand. There are two common bagged options, and they are easy to
+          confuse:
+        </p>
+        <ul style={{ paddingLeft: "20px", marginBottom: "14px" }}>
+          <li style={listItem}>
+            <strong>Mortar mix (pre-blended)</strong> — cement, lime and sand
+            already combined. Just add water. Sold as Type N or Type S, usually
+            in 60 or 80 lb bags. Best for small jobs and repairs.
+          </li>
+          <li style={listItem}>
+            <strong>Masonry cement</strong> — cement and lime (or
+            plasticiser) only, with no sand. You add sand on site, typically
+            around 1 part masonry cement to 3 parts sand by volume. Cheaper per
+            cubic foot for larger jobs.
+          </li>
+        </ul>
+        <NoteBox>
+          Don&apos;t use concrete mix as mortar. Concrete contains gravel, which
+          makes thin, even joints impossible and gives a weak bond to the brick.
+        </NoteBox>
 
         <h2 style={sectionHeading}>The basic mix: cement and sand</h2>
         <p style={paragraph}>
@@ -183,6 +311,12 @@ export default function BrickMortarMixRatioGuide() {
             </tr>
           </tbody>
         </GuideTable>
+        <p style={paragraph}>
+          These four lime mixes line up roughly with the US mortar types:
+        </p>
+        <div style={formula}>
+          1:¼:3 ≈ Type M · 1:½:4½ ≈ Type S · 1:1:6 ≈ Type N · 1:2:9 ≈ Type O
+        </div>
 
         <h2 style={sectionHeading}>Plasticisers as a lime alternative</h2>
         <p style={paragraph}>
@@ -250,7 +384,12 @@ export default function BrickMortarMixRatioGuide() {
           <Link href="/brick-calculator" style={link}>
             brick calculator
           </Link>{" "}
-          gives brick count and pallet estimates for any wall size, and the{" "}
+          gives brick count and pallet estimates for any wall size, our{" "}
+          <Link href="/mortar-calculator" style={link}>
+            mortar calculator
+          </Link>{" "}
+          works out cement, lime, sand and bag counts for Type N, S, M or O,
+          and the{" "}
           <Link href="/guides/how-many-bricks-per-square-metre" style={link}>
             bricks per square metre guide
           </Link>{" "}

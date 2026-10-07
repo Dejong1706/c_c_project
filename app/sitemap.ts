@@ -73,7 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/brick-mortar-mix-ratio",
-      date: "2026-06-16",
+      date: "2026-10-07",
       priority: 0.7,
     },
     {

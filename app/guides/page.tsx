@@ -85,9 +85,9 @@ const guides: {
     category: "Masonry",
   },
   {
-    title: "Brick Mortar Mix Ratio Guide",
+    title: "Mortar Mix Ratio for Bricks: Type N, S, M",
     href: "/guides/brick-mortar-mix-ratio",
-    desc: "Cement to sand ratios for external walls, internal walls and below-ground work, plus the role of lime and how much mortar per m².",
+    desc: "Type N, S, M and O mortar ratios and when to use each, plus cement to sand mixes, the role of lime and how much mortar per m².",
     category: "Masonry",
   },
   {
