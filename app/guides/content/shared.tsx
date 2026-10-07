@@ -105,7 +105,7 @@ export function NoteBox({ children }: { children: ReactNode }) {
         gap: "8px",
         alignItems: "flex-start",
         fontSize: "13px",
-        color: "var(--text-3)",
+        color: "var(--text-2)",
         lineHeight: 1.7,
         background: "var(--surface-2)",
         border: "1px solid var(--border)",

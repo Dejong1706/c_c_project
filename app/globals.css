@@ -13,7 +13,7 @@
 
   --text-1: #1a1917;
   --text-2: #5c5a54;
-  --text-3: #9b9890;
+  --text-3: #706d65;
 
   --accent: #2d6a4f;
   --accent-light: #eaf4ee;
@@ -28,6 +28,14 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Tailwind preflight strips list markers; restore them for prose lists */
+article ul {
+  list-style-type: disc;
+}
+article ol {
+  list-style-type: decimal;
 }
 
 body {

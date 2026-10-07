@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CalcSchema from "../components/CalcSchema";
+import CalcFaq from "../components/CalcFaq";
 import FlooringCalc from "./FlooringCalc";
 
 export const metadata: Metadata = {
@@ -56,6 +57,7 @@ export default function FlooringCalculatorPage() {
         faqs={faqs}
       />
       <FlooringCalc />
+      <CalcFaq faqs={faqs} />
     </>
   );
 }

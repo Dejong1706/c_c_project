@@ -46,6 +46,11 @@ export default function CalcShell({
   const tertiary = results.filter((r) => r.tier === 3).length
     ? results.filter((r) => r.tier === 3)
     : results.slice(3);
+  const primaryEmpty =
+    primary.value === 0 ||
+    primary.value === "0" ||
+    primary.value === "" ||
+    primary.value === "—";
 
   return (
     <div>
@@ -168,22 +173,34 @@ export default function CalcShell({
             >
               {primary.label}
             </p>
-            <p
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "48px",
-                fontWeight: 600,
-                color: "white",
-                lineHeight: 1,
-                letterSpacing: "0.01em",
-              }}
-            >
-              {primary.value === 0 ||
-              primary.value === "0" ||
-              primary.value === ""
-                ? "—"
-                : primary.value}
-            </p>
+            {primaryEmpty ? (
+              <p
+                style={{
+                  fontSize: "15px",
+                  fontWeight: 500,
+                  color: "rgba(255,255,255,0.9)",
+                  lineHeight: 1.4,
+                  minHeight: "48px",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                Enter your measurements to see the result
+              </p>
+            ) : (
+              <p
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "48px",
+                  fontWeight: 600,
+                  color: "white",
+                  lineHeight: 1,
+                  letterSpacing: "0.01em",
+                }}
+              >
+                {primary.value}
+              </p>
+            )}
             <p
               style={{
                 fontSize: "13px",

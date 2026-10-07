@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ExcavationCalc from "./ExcavationCalc";
 import CalcSchema from "../components/CalcSchema";
+import CalcFaq from "../components/CalcFaq";
 
 export const metadata: Metadata = {
   title:
@@ -57,6 +58,7 @@ export default function Page() {
         faqs={faqs}
       />
       <ExcavationCalc />
+      <CalcFaq faqs={faqs} />
     </>
   );
 }

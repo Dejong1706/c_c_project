@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CalcSchema from "../components/CalcSchema";
+import CalcFaq from "../components/CalcFaq";
 import Link from "next/link";
 import { BookOpen } from "lucide-react";
 import FenceCalc from "./FenceCalc";
@@ -73,6 +74,7 @@ export default function FenceCalculatorPage() {
           ))}
         </div>
       </div>
+      <CalcFaq faqs={faqs} />
     </>
   );
 }

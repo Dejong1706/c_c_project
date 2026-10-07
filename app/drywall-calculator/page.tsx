@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CalcSchema from "../components/CalcSchema";
+import CalcFaq from "../components/CalcFaq";
 import DrywallCalc from "./DrywallCalc";
 
 export const metadata: Metadata = {
@@ -55,6 +56,7 @@ export default function DrywallCalculatorPage() {
         faqs={faqs}
       />
       <DrywallCalc />
+      <CalcFaq faqs={faqs} />
     </>
   );
 }

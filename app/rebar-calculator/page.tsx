@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import RebarCalc from "./RebarCalc";
 import CalcSchema from "../components/CalcSchema";
+import CalcFaq from "../components/CalcFaq";
 import Link from "next/link";
 import { BookOpen } from "lucide-react";
 
@@ -72,6 +73,7 @@ export default function Page() {
           ))}
         </div>
       </div>
+      <CalcFaq faqs={faqs} />
     </>
   );
 }

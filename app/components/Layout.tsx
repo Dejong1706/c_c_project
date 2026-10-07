@@ -53,7 +53,7 @@ const calculators = [
   {
     href: "/stair-calculator",
     label: "Stair calculator",
-    group: "Finishing",
+    group: "Framing",
   },
   {
     href: "/excavation-calculator",
@@ -78,7 +78,7 @@ const calculators = [
   {
     href: "/roof-pitch-calculator",
     label: "Roof pitch calculator",
-    group: "Concrete",
+    group: "Framing",
   },
 ];
 
@@ -86,6 +86,7 @@ const groups = [
   "Concrete",
   "Reinforcement",
   "Masonry",
+  "Framing",
   "Finishing",
   "Earthworks",
   "Tools",

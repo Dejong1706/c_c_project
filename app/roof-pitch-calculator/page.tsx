@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CalcSchema from "../components/CalcSchema";
+import CalcFaq from "../components/CalcFaq";
 import RoofPitchCalc from "./RoofPitchCalc";
 
 export const metadata: Metadata = {
@@ -54,6 +55,7 @@ export default function RoofPitchCalculatorPage() {
         faqs={faqs}
       />
       <RoofPitchCalc />
+      <CalcFaq faqs={faqs} />
     </>
   );
 }

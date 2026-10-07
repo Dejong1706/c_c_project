@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CalcSchema from "../components/CalcSchema";
+import CalcFaq from "../components/CalcFaq";
 import Link from "next/link";
 import { BookOpen } from "lucide-react";
 import MortarCalc from "./MortarCalc";
@@ -74,6 +75,7 @@ export default function MortarCalculatorPage() {
           ))}
         </div>
       </div>
+      <CalcFaq faqs={faqs} />
     </>
   );
 }
