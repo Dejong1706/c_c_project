@@ -16,8 +16,11 @@ import {
   IconStairs,
   IconWallpaper,
   IconBuildingCottage,
+  IconCheck,
+  IconBook2,
 } from "@tabler/icons-react";
 import type { TablerIcon } from "@tabler/icons-react";
+import QuickCalc from "./components/QuickCalc";
 
 export const metadata: Metadata = {
   title: "BuildCalc — Free Construction Calculators",
@@ -33,152 +36,106 @@ export const metadata: Metadata = {
   },
 };
 
-const calcs: {
-  href: string;
-  icon: TablerIcon;
-  iconColor: string;
-  badge?: string;
+// 작업(프로젝트) 단위로 계산기 + 가이드를 묶어서 보여줌
+const projects: {
   title: string;
-  desc: string;
-  tags: string[];
-  preview: { val: string; unit: string; expr: string };
+  icon: TablerIcon;
+  calcs: { href: string; label: string }[];
+  guides: { href: string; label: string }[];
 }[] = [
   {
-    href: "/concrete-calculator",
+    title: "Pour a concrete slab",
     icon: IconBuildingFactory2,
-    iconColor: "#6B7280", // 콘크리트 회색
-    badge: "Most used",
-    title: "Concrete calculator",
-    desc: "Volume for slabs, walls, columns and footings",
-    tags: ["Length", "Width", "Depth", "Waste %"],
-    preview: { val: "3.0", unit: "m³", expr: "5×4×0.15m" },
+    calcs: [
+      { href: "/concrete-calculator", label: "Concrete" },
+      { href: "/concrete-bags", label: "Concrete bags" },
+      { href: "/rebar-calculator", label: "Rebar" },
+    ],
+    guides: [
+      { href: "/guides/how-to-calculate-concrete-volume", label: "How to Calculate Concrete Volume" },
+      { href: "/guides/how-to-mix-concrete-by-hand", label: "How to Mix Concrete by Hand" },
+      { href: "/guides/concrete-curing-time-guide", label: "Concrete Curing Time Guide" },
+    ],
   },
   {
-    href: "/concrete-bags",
-    icon: IconPackage,
-    iconColor: "#8B8378", // 시멘트 자루 베이지-회색
-    title: "Concrete bag calculator",
-    desc: "40lb, 60lb, 80lb bag count for any pour",
-    tags: ["Length", "Width", "Depth"],
-    preview: { val: "45", unit: "bags", expr: "80lb @ 10×10ft" },
-  },
-  {
-    href: "/tile-calculator",
-    icon: IconLayoutGrid,
-    iconColor: "#1565C0", // 타일 딥블루
-    title: "Tile calculator",
-    desc: "Tile count, box quantity and grout joints",
-    tags: ["Room size", "Tile size", "Grout"],
-    preview: { val: "112", unit: "tiles", expr: "4×3m, 60×60cm" },
-  },
-  {
-    href: "/brick-calculator",
+    title: "Build a brick wall",
     icon: IconWall,
-    iconColor: "#BF360C", // 벽돌 레드-오렌지
-    title: "Brick calculator",
-    desc: "Bricks and pallets for walls and partitions",
-    tags: ["Length", "Height", "Waste %"],
-    preview: { val: "1,320", unit: "bricks", expr: "8×2.5m wall" },
+    calcs: [
+      { href: "/brick-calculator", label: "Brick" },
+      { href: "/mortar-calculator", label: "Mortar" },
+    ],
+    guides: [
+      { href: "/guides/brick-mortar-mix-ratio", label: "Mortar Mix Ratio: Type N, S, M" },
+      { href: "/guides/how-to-calculate-bricks-for-a-wall", label: "How to Calculate Bricks for a Wall" },
+      { href: "/guides/single-vs-double-leaf-brick-wall", label: "Single vs Double Leaf Brick Wall" },
+    ],
   },
   {
-    href: "/paint-calculator",
-    icon: IconPaint,
-    iconColor: "#7B1FA2", // 페인트 보라
-    title: "Paint calculator",
-    desc: "Litres and tin count for walls and ceilings",
-    tags: ["Room size", "Coats", "Coverage"],
-    preview: { val: "9", unit: "litres", expr: "5×4m, 2 coats" },
-  },
-  {
-    href: "/flooring-calculator",
-    icon: IconWood,
-    iconColor: "#8D6E47", // 바닥재 우드 브라운
-    title: "Flooring calculator",
-    desc: "Sq ft, boxes and waste for LVP, wood, tile or carpet",
-    tags: ["Room size", "Layout", "Waste %"],
-    preview: { val: "11", unit: "boxes", expr: "200 sqft, 7% waste" },
-  },
-  {
-    href: "/drywall-calculator",
-    icon: IconWallpaper,
-    iconColor: "#78909C",
-    title: "Drywall calculator",
-    desc: "Sheets, compound, tape and screws for walls and ceilings",
-    tags: ["Room size", "Sheet size", "Doors", "Waste %"],
-    preview: { val: "18", unit: "sheets", expr: "12×10×9 ft" },
-  },
-  {
-    href: "/stair-calculator",
+    title: "Build stairs",
     icon: IconStairs,
-    iconColor: "#6D4C41",
-    title: "Stair calculator",
-    desc: "Risers, treads and stringer length for any floor height",
-    tags: ["Rise", "Run", "Stringer", "IRC check"],
-    preview: { val: "15", unit: "risers", expr: "9 ft ceiling" },
+    calcs: [{ href: "/stair-calculator", label: "Stair" }],
+    guides: [
+      { href: "/guides/stair-building-code-requirements", label: "Stair Building Code Requirements (IRC)" },
+      { href: "/guides/how-to-calculate-stair-rise-and-run", label: "How to Calculate Stair Rise and Run" },
+    ],
   },
   {
-    href: "/rebar-calculator",
-    icon: IconWeight,
-    iconColor: "#455A64", // 철근 스틸 다크그레이
-    title: "Rebar calculator",
-    desc: "Steel bar weight by diameter and length",
-    tags: ["Diameter", "Length", "Count"],
-    preview: { val: "74.4", unit: "kg", expr: "13mm × 6m × 20" },
+    title: "Tile or floor a room",
+    icon: IconLayoutGrid,
+    calcs: [
+      { href: "/tile-calculator", label: "Tile" },
+      { href: "/flooring-calculator", label: "Flooring" },
+    ],
+    guides: [
+      { href: "/guides/how-many-tiles-do-i-need", label: "How Many Tiles Do I Need?" },
+      { href: "/guides/tile-grout-gap-guide", label: "Tile Grout Gap Guide" },
+      { href: "/guides/how-to-lay-tile-step-by-step", label: "How to Lay Tile Step by Step" },
+    ],
   },
   {
-    href: "/excavation-calculator",
-    icon: IconShovel,
-    iconColor: "#5D4037", // 흙 브라운
-    title: "Excavation calculator",
-    desc: "Pit, trench and sloped-side cut volume",
-    tags: ["Length", "Width", "Depth", "Waste %"],
-    preview: { val: "22.5", unit: "m³", expr: "5×3×1.5m" },
+    title: "Drywall and paint",
+    icon: IconPaint,
+    calcs: [
+      { href: "/drywall-calculator", label: "Drywall" },
+      { href: "/paint-calculator", label: "Paint" },
+    ],
+    guides: [
+      { href: "/guides/how-to-calculate-drywall-sheets", label: "How to Calculate Drywall Sheets" },
+      { href: "/guides/how-to-calculate-wall-area-for-painting", label: "Wall Area for Painting" },
+      { href: "/guides/how-to-calculate-paint-coverage", label: "How to Calculate Paint Coverage" },
+    ],
   },
   {
-    href: "/fence-calculator",
+    title: "Fence and yard",
     icon: IconFence,
-    iconColor: "#6D4C41", // 목재 펜스 브라운
-    title: "Fence calculator",
-    desc: "Posts, rails, concrete and pickets for any fence",
-    tags: ["Length", "Height", "Spacing", "Gates"],
-    preview: { val: "14", unit: "posts", expr: "100ft @ 8ft spacing" },
+    calcs: [
+      { href: "/fence-calculator", label: "Fence" },
+      { href: "/mulch-calculator", label: "Mulch" },
+      { href: "/excavation-calculator", label: "Excavation" },
+    ],
+    guides: [
+      { href: "/guides/how-to-calculate-fence-post-spacing", label: "How to Calculate Fence Post Spacing" },
+      { href: "/guides/how-much-mulch-do-i-need", label: "How Much Mulch Do I Need?" },
+    ],
   },
-  {
-    href: "/mortar-calculator",
-    icon: IconTool,
-    iconColor: "#757575", // 시멘트 미디엄그레이
-    title: "Mortar calculator",
-    desc: "Cement bags, sand and water for brickwork",
-    tags: ["Length", "Height", "Mix ratio", "Waste %"],
-    preview: { val: "8", unit: "bags", expr: "5×2m, 1:5 mix" },
-  },
-  {
-    href: "/mulch-calculator",
-    icon: IconPlant2,
-    iconColor: "#558B2F", // 멀치/조경 그린
-    title: "Mulch calculator",
-    desc: "Cubic yards and bags for garden beds and borders",
-    tags: ["Bed shape", "Area", "Depth", "Waste %"],
-    preview: { val: "1.85", unit: "yd³", expr: "200 sqft, 3in" },
-  },
-  {
-    href: "/roof-pitch-calculator",
-    icon: IconBuildingCottage,
-    iconColor: "#A0522D", // 지붕 테라코타 브라운
-    title: "Roof pitch calculator",
-    desc: "Degrees, ratio & rafter length",
-    tags: ["Pitch ratio", "Angle", "Run", "Rafter length"],
-    preview: { val: "26.57", unit: "°", expr: "6:12 pitch, 24ft span" },
-  },
-  {
-    href: "/unit-converter",
-    icon: IconArrowsExchange,
-    iconColor: "#00796B", // 측정 틸
-    title: "Unit converter",
-    desc: "Length, area, volume and weight conversions",
-    tags: ["m ↔ ft", "m² ↔ ft²", "m³ ↔ yd³", "평"],
-    preview: { val: "3.281", unit: "ft", expr: "1 m =" },
-  },
+];
+
+const allCalcs: { href: string; icon: TablerIcon; title: string }[] = [
+  { href: "/concrete-calculator", icon: IconBuildingFactory2, title: "Concrete" },
+  { href: "/concrete-bags", icon: IconPackage, title: "Concrete bags" },
+  { href: "/rebar-calculator", icon: IconWeight, title: "Rebar" },
+  { href: "/brick-calculator", icon: IconWall, title: "Brick" },
+  { href: "/mortar-calculator", icon: IconTool, title: "Mortar" },
+  { href: "/stair-calculator", icon: IconStairs, title: "Stair" },
+  { href: "/roof-pitch-calculator", icon: IconBuildingCottage, title: "Roof pitch" },
+  { href: "/tile-calculator", icon: IconLayoutGrid, title: "Tile" },
+  { href: "/flooring-calculator", icon: IconWood, title: "Flooring" },
+  { href: "/paint-calculator", icon: IconPaint, title: "Paint" },
+  { href: "/drywall-calculator", icon: IconWallpaper, title: "Drywall" },
+  { href: "/fence-calculator", icon: IconFence, title: "Fence" },
+  { href: "/mulch-calculator", icon: IconPlant2, title: "Mulch" },
+  { href: "/excavation-calculator", icon: IconShovel, title: "Excavation" },
+  { href: "/unit-converter", icon: IconArrowsExchange, title: "Unit converter" },
 ];
 
 const websiteSchema = {
@@ -197,6 +154,12 @@ const websiteSchema = {
   },
 };
 
+const sectionTitle: React.CSSProperties = {
+  fontSize: "20px",
+  fontWeight: 600,
+  color: "var(--text-1)",
+};
+
 export default function Home() {
   return (
     <>
@@ -204,158 +167,147 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
-    <div>
-      <div style={{ marginBottom: "32px" }}>
-        <h1
-          style={{
-            fontSize: "28px",
-            fontWeight: 600,
-            marginBottom: "10px",
-            lineHeight: 1.3,
-          }}
-        >
-          Free construction calculators
-        </h1>
-        <p
-          style={{
-            fontSize: "15px",
-            color: "var(--text-2)",
-            lineHeight: 1.7,
-            maxWidth: "540px",
-          }}
-        >
-          Instant material estimates for concrete, tiles, bricks, rebar and
-          more. Metric and imperial, no sign-up needed.
-        </p>
-      </div>
-
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(210px, 1fr))",
-          gap: "12px",
-        }}
-      >
-        {calcs.map((c) => (
-          <Link
-            key={c.href}
-            href={c.href}
-            style={{
-              background: "var(--surface)",
-              border: "1px solid var(--border)",
-              borderRadius: "12px",
-              padding: "18px 20px",
-              textDecoration: "none",
-              display: "flex",
-              flexDirection: "column",
-              gap: "10px",
-              transition: "border-color 0.15s, box-shadow 0.15s",
-            }}
-          >
-            {/* 상단 아이콘 + 뱃지 */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-              }}
-            >
-              <c.icon size={24} color={c.iconColor} stroke={1.5} />
-              {c.badge && (
-                <span
-                  style={{
-                    fontSize: "10px",
-                    fontWeight: 600,
-                    color: "var(--accent)",
-                    background: "var(--accent-light)",
-                    padding: "2px 7px",
-                    borderRadius: "20px",
-                  }}
-                >
-                  {c.badge}
-                </span>
-              )}
-            </div>
-
-            {/* 제목 + 설명 */}
-            <div>
-              <p
-                style={{
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  color: "var(--text-1)",
-                  marginBottom: "4px",
-                }}
-              >
-                {c.title}
-              </p>
-              <p
-                style={{
-                  fontSize: "12px",
-                  color: "var(--text-2)",
-                  lineHeight: 1.5,
-                }}
-              >
-                {c.desc}
-              </p>
-            </div>
-
-            {/* 입력 태그 */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
-              {c.tags.map((tag) => (
-                <span
-                  key={tag}
-                  style={{
-                    fontSize: "10px",
-                    color: "var(--text-3)",
-                    background: "var(--surface-2)",
-                    borderRadius: "4px",
-                    padding: "2px 6px",
-                  }}
-                >
-                  {tag}
-                </span>
+      <div style={{ maxWidth: "1160px", display: "flex", flexDirection: "column", gap: "48px" }}>
+        {/* Hero — 홈에서 바로 계산 */}
+        <section style={{ display: "flex", gap: "32px", flexWrap: "wrap", alignItems: "center" }}>
+          <div style={{ flex: "1 1 320px", minWidth: 0, display: "flex", flexDirection: "column", gap: "14px" }}>
+            <h1 style={{ fontSize: "36px", fontWeight: 600, lineHeight: 1.15, letterSpacing: "-0.01em" }}>
+              Free construction calculators
+            </h1>
+            <p style={{ fontSize: "16px", color: "var(--text-2)", lineHeight: 1.65 }}>
+              Get material quantities in seconds — try it right here, or open a
+              full calculator for more shapes, metric units and waste options.
+            </p>
+            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "8px", marginTop: "4px" }}>
+              {["Free, no sign-up", "Metric and imperial", "Every formula explained in a guide"].map((t) => (
+                <li key={t} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "var(--text-2)" }}>
+                  <IconCheck size={16} color="var(--accent)" stroke={2.4} />
+                  {t}
+                </li>
               ))}
-            </div>
+            </ul>
+          </div>
+          <div style={{ flex: "1.3 1 440px", minWidth: 0 }}>
+            <QuickCalc />
+          </div>
+        </section>
 
-            {/* 미리보기 결과 */}
-            <div
-              style={{
-                background: "var(--surface-2)",
-                borderRadius: "8px",
-                padding: "8px 10px",
-                display: "flex",
-                alignItems: "baseline",
-                gap: "5px",
-              }}
-            >
-              <span
+        {/* Projects — 계산기 + 가이드 묶음 */}
+        <section style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          <div>
+            <h2 style={sectionTitle}>What are you building?</h2>
+            <p style={{ fontSize: "14px", color: "var(--text-2)", marginTop: "4px" }}>
+              The calculators and guides for each job, together in one place.
+            </p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "14px" }}>
+            {projects.map((p) => (
+              <div
+                key={p.title}
                 style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "20px",
-                  fontWeight: 600,
-                  color: "var(--accent)",
+                  background: "var(--surface)",
+                  border: "1px solid var(--border)",
+                  borderRadius: "14px",
+                  padding: "20px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "14px",
                 }}
               >
-                {c.preview.val}
-              </span>
-              <span style={{ fontSize: "11px", color: "var(--text-3)" }}>
-                {c.preview.unit}
-              </span>
-              <span
-                style={{
-                  fontSize: "10px",
-                  color: "var(--text-3)",
-                  marginLeft: "auto",
-                }}
-              >
-                {c.preview.expr}
-              </span>
-            </div>
-          </Link>
-        ))}
+                <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                  <span
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      borderRadius: "10px",
+                      background: "var(--accent-light)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <p.icon size={22} color="var(--accent)" stroke={1.6} />
+                  </span>
+                  <h3 style={{ fontSize: "17px", fontWeight: 600 }}>{p.title}</h3>
+                </div>
+                <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+                  {p.calcs.map((c) => (
+                    <Link key={c.href} href={c.href} className="home-calc-pill">
+                      {c.label}
+                    </Link>
+                  ))}
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", borderTop: "1px solid var(--surface-2)", paddingTop: "8px" }}>
+                  {p.guides.map((g) => (
+                    <Link key={g.href} href={g.href} className="home-guide-link">
+                      <IconBook2 size={14} color="var(--accent)" stroke={1.8} style={{ flexShrink: 0 }} />
+                      {g.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* All calculators */}
+        <section style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: "12px", flexWrap: "wrap" }}>
+            <h2 style={sectionTitle}>All calculators</h2>
+            <Link href="/guides" style={{ fontSize: "14px", fontWeight: 600, color: "var(--accent)", textDecoration: "none" }}>
+              Browse all guides →
+            </Link>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(190px, 1fr))", gap: "10px" }}>
+            {allCalcs.map((c) => (
+              <Link key={c.href} href={c.href} className="home-calc-tile">
+                <c.icon size={20} color="var(--accent)" stroke={1.6} style={{ flexShrink: 0 }} />
+                {c.title}
+              </Link>
+            ))}
+          </div>
+        </section>
       </div>
-    </div>
+
+      <style>{`
+        .home-calc-pill {
+          font-size: 14px;
+          font-weight: 600;
+          color: white;
+          background: var(--accent);
+          padding: 8px 14px;
+          border-radius: 8px;
+          text-decoration: none;
+          transition: background 0.15s;
+        }
+        .home-calc-pill:hover { background: var(--accent-text); }
+        .home-guide-link {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 14px;
+          color: var(--accent-text);
+          padding: 6px 0;
+          text-decoration: none;
+        }
+        .home-guide-link:hover { text-decoration: underline; }
+        .home-calc-tile {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          background: var(--surface);
+          border: 1px solid var(--border);
+          border-radius: 10px;
+          padding: 12px 14px;
+          font-size: 14px;
+          font-weight: 600;
+          color: var(--text-1);
+          text-decoration: none;
+          transition: border-color 0.15s;
+        }
+        .home-calc-tile:hover { border-color: var(--accent); }
+      `}</style>
     </>
   );
 }
