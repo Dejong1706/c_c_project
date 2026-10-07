@@ -73,7 +73,8 @@ export default function StairCalc() {
     const comfortSum = actualRiser + treadDepthIn;
 
     // IRC code checks
-    const riserOk = actualRiser <= IRC_MAX_RISER_IN && actualRiser >= 4;
+    // IRC sets only a maximum riser height (the 4" minimum is IBC, not IRC)
+    const riserOk = actualRiser <= IRC_MAX_RISER_IN;
     const treadOk = treadDepthIn >= IRC_MIN_TREAD_IN;
     const widthOk = stairWidthIn >= IRC_MIN_WIDTH_IN;
     const comfortOk = comfortSum >= 17 && comfortSum <= 18;

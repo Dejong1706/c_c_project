@@ -62,7 +62,7 @@ const guides: {
   {
     title: "Stair Building Code Requirements (IRC R311.7)",
     href: "/guides/stair-building-code-requirements",
-    desc: "Complete reference for IRC residential stair code — riser height, tread depth, width, headroom, handrails, and landings.",
+    desc: "IRC residential stair code — risers, treads, width, headroom, handrails, guards and landings, plus winder, spiral and deck stairs.",
     category: "Structural",
   },
   // Masonry

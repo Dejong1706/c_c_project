@@ -282,15 +282,18 @@ const metaMap: Record<
     ],
   },
   "stair-building-code-requirements": {
-    title: "Stair Building Code Requirements (IRC R311.7) | BuildCalc",
+    title: "IRC Stair Code Requirements: Risers, Treads, Handrails (R311.7) | BuildCalc",
     description:
-      "Complete reference for IRC residential stair code requirements — riser height, tread depth, width, headroom, handrails, and landings.",
+      "IRC stair code explained: 7¾\" max riser, 10\" min tread, 36\" width, 6'8\" headroom, handrails, guards and landings — plus winder, spiral and deck stair rules with a worked example.",
     keywords: [
+      "irc stair code",
       "stair building code",
-      "IRC stair requirements",
+      "stair riser code",
       "stair riser height code",
       "minimum tread depth",
       "stair handrail requirements",
+      "deck stair code",
+      "spiral stair code",
     ],
   },
   "how-to-calculate-stair-rise-and-run": {
