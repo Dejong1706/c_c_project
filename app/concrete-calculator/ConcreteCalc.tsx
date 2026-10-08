@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import CalcShell from "../components/CalcShell";
 import Field from "../components/Field";
 import WasteSlider from "../components/WasteSlider";
+import { ceilCount } from "../components/calcMath";
 
 type UnitLen = "m" | "ft" | "cm" | "in";
 const toM: Record<UnitLen, number> = { m: 1, ft: 0.3048, cm: 0.01, in: 0.0254 };
@@ -54,7 +55,7 @@ export default function ConcreteCalc() {
       },
       {
         label: "Ready-mix trucks",
-        value: withWaste > 0 ? Math.ceil(withWaste / 6) : "—",
+        value: withWaste > 0 ? ceilCount(withWaste / 6) : "—",
         unit: "@ 6m³ / truck",
         tier: 3 as const,
       },

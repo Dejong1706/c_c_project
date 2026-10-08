@@ -30,7 +30,7 @@ const faqs = [
   {
     question: "How much mortar do I need per square metre of brickwork?",
     answer:
-      "A standard single-leaf brick wall (215×65mm bricks, 10mm joints) uses roughly 20–25 litres of wet mortar per square metre. This calculator works it out from your exact wall size, masonry unit, and mortar type.",
+      "The joints alone in a single-leaf wall of 215×65mm bricks with 10mm joints hold about 18 litres of mortar per square metre. Real use is higher — frogged bricks, buttering and droppings add to it — so allow extra. This calculator shows the joint volume plus your waste allowance, and bases the bag count on real-world coverage.",
   },
   {
     question: "What's the difference between Type M, S, N, and O mortar?",
@@ -40,7 +40,7 @@ const faqs = [
   {
     question: "How many 80 lb bags of pre-mixed mortar do I need?",
     answer:
-      "Each 80 lb (~36 kg) bag of pre-mixed mortar yields about 10.5 litres of wet mortar. Divide your total mortar volume by 10.5 to get the bag count — this calculator does that for you automatically, including your waste allowance.",
+      "An 80 lb (~36 kg) bag makes roughly 0.6 cubic feet (about 17 litres) of mortar, but on a real job it typically lays only 35–40 standard bricks once frogs, buttering and droppings are counted. This calculator uses that real-world coverage — about 10.5 litres of joint volume per bag — so the bag count matches what you'll actually use.",
   },
   {
     question: "Should I use sharp sand or builder's sand for mortar?",

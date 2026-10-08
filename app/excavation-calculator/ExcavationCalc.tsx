@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import CalcShell from "../components/CalcShell";
 import Field from "../components/Field";
 import WasteSlider from "../components/WasteSlider";
+import { ceilCount } from "../components/calcMath";
 
 type UnitLen = "m" | "ft" | "cm" | "in";
 const toM: Record<UnitLen, number> = { m: 1, ft: 0.3048, cm: 0.01, in: 0.0254 };
@@ -29,15 +30,16 @@ export default function ExcavationCalc() {
 
     let netVol = 0;
     if (type === 2) {
-      // sloped: average of top and bottom width
-      netVol = ((W + Wb) / 2) * L * D;
+      // sloped: average of top and bottom width (a blank bottom width would
+      // silently halve the volume, so require it)
+      netVol = Wb > 0 ? ((W + Wb) / 2) * L * D : 0;
     } else {
       // rectangular pit or trench
       netVol = L * W * D;
     }
 
     const withWaste = netVol * (1 + waste / 100);
-    const trucks = withWaste > 0 ? Math.ceil(withWaste / 6) : "—";
+    const trucks = withWaste > 0 ? ceilCount(withWaste / 6) : "—";
 
     return [
       {
@@ -53,7 +55,7 @@ export default function ExcavationCalc() {
         tier: 2 as const,
       },
       {
-        label: "Cubic yards",
+        label: `Cubic yards (incl. ${waste}% buffer)`,
         value: withWaste > 0 ? (withWaste * 1.30795).toFixed(2) : "—",
         unit: "yd³",
         tier: 2 as const,

@@ -40,12 +40,12 @@ const faqs = [
   {
     question: "How deep should I apply mulch?",
     answer:
-      "For flower beds and garden borders, 2–3 inches is ideal. For weed suppression in paths or utility areas, use 3–4 inches. Playground areas need a minimum of 6 inches per CPSC guidelines. Keep mulch 2–3 inches away from plant stems and tree trunks to prevent rot.",
+      "For flower beds and garden borders, 2–3 inches is ideal. For weed suppression in paths or utility areas, use 3–4 inches. For playgrounds, the CPSC recommends 9 inches of wood mulch or chips — install about 12 inches, since it compacts. Keep mulch 2–3 inches away from plant stems and tree trunks to prevent rot.",
   },
   {
     question: "How many cubic yards of mulch do I need for 1,000 square feet?",
     answer:
-      "At 2 inches deep: 1,000 × 2 ÷ 324 = 6.17 cubic yards. At 3 inches deep: 1,000 × 3 ÷ 324 = 9.26 cubic yards. Add 10% for waste and settling, so order 7 or 10 cubic yards respectively.",
+      "At 2 inches deep: 1,000 × 2 ÷ 324 = 6.17 cubic yards. At 3 inches deep: 1,000 × 3 ÷ 324 = 9.26 cubic yards. Add 10% for waste and settling (6.79 and 10.19 cubic yards), so order 7 or 11 cubic yards respectively.",
   },
   {
     question: "Should I buy mulch by the bag or in bulk?",

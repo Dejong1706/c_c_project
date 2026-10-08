@@ -2,16 +2,18 @@
 import { useState, useMemo } from "react";
 import CalcShell from "../components/CalcShell";
 import Field from "../components/Field";
+import { ceilCount } from "../components/calcMath";
 
 type HeightUnit = "in" | "cm" | "ft";
 type MountType = "standard" | "flush";
 
-// IRC R311.7.5 limits
-const IRC_MAX_RISER_IN = 7.75;
-const IRC_MIN_TREAD_IN = 10;
-const IRC_MIN_WIDTH_IN = 36;
+// IRC R311.7 limits
+const IRC_MAX_RISER_IN = 7.75; // R311.7.5.1
+const IRC_MIN_TREAD_IN = 10; // R311.7.5.2
+const IRC_MIN_WIDTH_IN = 36; // R311.7.1
+const IRC_MAX_FLIGHT_RISE_IN = 151; // R311.7.3 — landing required above this
 
-const toIn: Record<HeightUnit, number> = { in: 1, cm: 0.393701, ft: 12 };
+const toIn: Record<HeightUnit, number> = { in: 1, cm: 1 / 2.54, ft: 12 };
 
 const MOUNT_TYPES: Record<MountType, { label: string; desc: string }> = {
   standard: {
@@ -47,7 +49,7 @@ export default function StairCalc() {
     const valid = totalRiseIn > 0;
 
     // Risers = ⌈Total Rise ÷ Target Riser⌉
-    const numRisers = valid ? Math.ceil(totalRiseIn / targetRiserIn) : 0;
+    const numRisers = valid ? ceilCount(totalRiseIn / targetRiserIn) : 0;
     // Back-derive actual riser so all risers are equal
     const actualRiser = valid ? totalRiseIn / numRisers : 0;
     // Treads = Risers − 1 (top landing counts as last tread in standard mount)
@@ -65,8 +67,8 @@ export default function StairCalc() {
       : 0;
     const stringerLengthFt = stringerLengthIn / 12;
 
-    // Stair angle
-    const angleRad = valid ? Math.atan(stringerRise / totalRun) : 0;
+    // Stair angle = slope of the nosing line, the same for either mount type
+    const angleRad = valid ? Math.atan(actualRiser / treadDepthIn) : 0;
     const angleDeg = (angleRad * 180) / Math.PI;
 
     // Comfort check: Rise + Run should be 17–18"
@@ -77,11 +79,14 @@ export default function StairCalc() {
     const riserOk = actualRiser <= IRC_MAX_RISER_IN;
     const treadOk = treadDepthIn >= IRC_MIN_TREAD_IN;
     const widthOk = stairWidthIn >= IRC_MIN_WIDTH_IN;
+    const flightOk = totalRiseIn <= IRC_MAX_FLIGHT_RISE_IN;
     const comfortOk = comfortSum >= 17 && comfortSum <= 18;
     const angleOk = angleDeg >= 30 && angleDeg <= 37;
 
     const codeStatus =
-      riserOk && treadOk && widthOk ? "✓ IRC compliant" : "✗ Check code";
+      riserOk && treadOk && widthOk && flightOk
+        ? "✓ IRC compliant"
+        : "✗ Check code";
 
     return [
       {
@@ -146,7 +151,9 @@ export default function StairCalc() {
         unit: valid
           ? `riser ${riserOk ? "✓" : "✗"} · tread ${
               treadOk ? "✓" : "✗"
-            } · width ${widthOk ? "✓" : "✗"}`
+            } · width ${widthOk ? "✓" : "✗"}${
+              flightOk ? "" : ' · ✗ over 151" — add a landing'
+            }`
           : "riser · tread · width",
         tier: 3,
       },
@@ -249,7 +256,7 @@ export default function StairCalc() {
       onTypeChange={setMountIdx}
       inputs={inputs}
       results={results}
-      notice={`Risers = ⌈Total Rise ÷ Target Riser⌉. Actual riser = Total Rise ÷ Risers (equal distribution per IRC §R311.7.5.1 ⅜" uniformity rule). Stringer = √(Rise² + Run²). IRC R311.7.5: max riser 7¾", min tread 10", min width 36". Comfort formula: Rise + Run = 17–18" (Blondel). Measure finished floor to finished floor — include flooring thickness on both ends. Always verify with your local building department before cutting stringers.`}
+      notice={`Risers = ⌈Total Rise ÷ Target Riser⌉. Actual riser = Total Rise ÷ Risers (equal distribution per IRC §R311.7.5.1 ⅜" uniformity rule). Stringer = √(Rise² + Run²). IRC: max riser 7¾" and min tread 10" (R311.7.5), min width 36" (R311.7.1), max 151" rise per flight (R311.7.3). Comfort rule of thumb: Rise + Run = 17–18". Measure finished floor to finished floor — include flooring thickness on both ends. Always verify with your local building department before cutting stringers.`}
       related={[
         {
           href: "/concrete-calculator",

@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import CalcShell from "../components/CalcShell";
 import Field from "../components/Field";
 import WasteSlider from "../components/WasteSlider";
+import { ceilCount } from "../components/calcMath";
 
 type UnitLen = "ft" | "m" | "in" | "cm";
 const toFt: Record<UnitLen, number> = {
@@ -29,19 +30,19 @@ export default function BagCalc() {
     return [
       {
         label: "80 lb bags",
-        value: yd3 > 0 ? Math.ceil(yd3 * 45) : "—",
+        value: yd3 > 0 ? ceilCount(yd3 * 45) : "—",
         unit: "bags needed",
         tier: 1 as const,
       },
       {
         label: "60 lb bags",
-        value: yd3 > 0 ? Math.ceil(yd3 * 60) : "—",
+        value: yd3 > 0 ? ceilCount(yd3 * 60) : "—",
         unit: "bags needed",
         tier: 2 as const,
       },
       {
         label: "40 lb bags",
-        value: yd3 > 0 ? Math.ceil(yd3 * 90) : "—",
+        value: yd3 > 0 ? ceilCount(yd3 * 90) : "—",
         unit: "bags needed",
         tier: 2 as const,
       },

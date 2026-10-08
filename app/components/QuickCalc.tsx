@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { ceilCount } from "./calcMath";
 
 type Tab = "slab" | "brick" | "stair";
 
@@ -96,15 +97,15 @@ export default function QuickCalc() {
   // Slab — includes 10% waste, matching the concrete calculator default
   const ft3 = num(slab.l) * num(slab.w) * (num(slab.d) / 12) * 1.1;
   const slabYd = ft3 > 0 ? (ft3 / 27).toFixed(2) : "—";
-  const slabBags = ft3 > 0 ? Math.ceil(ft3 / BAG_80LB_FT3).toLocaleString("en-US") : "—";
+  const slabBags = ft3 > 0 ? ceilCount(ft3 / BAG_80LB_FT3).toLocaleString("en-US") : "—";
 
   // Brick wall — includes 5% waste
   const area = num(wall.l) * num(wall.h);
-  const bricks = area > 0 ? Math.ceil(area * BRICKS_PER_FT2 * 1.05).toLocaleString("en-US") : "—";
+  const bricks = area > 0 ? ceilCount(area * BRICKS_PER_FT2 * 1.05).toLocaleString("en-US") : "—";
 
   // Stairs
   const totalRise = num(rise);
-  const risers = totalRise > 0 ? Math.ceil(totalRise / MAX_RISER_IN) : 0;
+  const risers = totalRise > 0 ? ceilCount(totalRise / MAX_RISER_IN) : 0;
   const treads = Math.max(risers - 1, 0);
 
   const resultGrid: React.CSSProperties = {
@@ -201,14 +202,14 @@ export default function QuickCalc() {
           <div style={resultGrid}>
             <Result
               primary
-              label="Risers"
+              label="Fewest risers allowed"
               value={risers > 0 ? String(risers) : "—"}
               unit={risers > 0 ? `at ${(totalRise / risers).toFixed(2)} in each (IRC max 7¾ in)` : "IRC max 7¾ in each"}
             />
             <Result
-              label="Total run"
+              label="Shortest total run"
               value={treads > 0 ? String(treads * MIN_TREAD_IN) : "—"}
-              unit={`in, with ${treads} treads at ${MIN_TREAD_IN} in`}
+              unit={treads > 0 ? `in, with ${treads} treads at the ${MIN_TREAD_IN} in minimum` : "in"}
             />
           </div>
           <Link href="/stair-calculator" style={fullLink}>

@@ -2,6 +2,7 @@
 import { useState, useMemo } from "react";
 import CalcShell from "../components/CalcShell";
 import Field from "../components/Field";
+import { ceilCount } from "../components/calcMath";
 
 type UnitLen = "ft" | "m";
 const toFt: Record<UnitLen, number> = { ft: 1, m: 3.28084 };
@@ -94,7 +95,7 @@ export default function FlooringCalc() {
     const isCarpet = flooringKey === "carpet";
     const totalSqyd = totalSqft / 9;
 
-    const boxes = Math.ceil(isCarpet ? totalSqyd : totalSqft / coveragePerBox);
+    const boxes = ceilCount(isCarpet ? totalSqyd : totalSqft / coveragePerBox);
 
     const rows = [
       {

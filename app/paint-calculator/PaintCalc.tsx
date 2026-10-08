@@ -2,6 +2,7 @@
 import { useState, useMemo } from "react";
 import CalcShell from "../components/CalcShell";
 import Field from "../components/Field";
+import { ceilCount } from "../components/calcMath";
 
 type UnitLen = "m" | "ft";
 const toM: Record<UnitLen, number> = { m: 1, ft: 0.3048 };
@@ -39,13 +40,13 @@ export default function PaintCalc() {
       },
       {
         label: "4 L tins",
-        value: litres > 0 ? Math.ceil(litres / 4) : "—",
+        value: litres > 0 ? ceilCount(litres / 4) : "—",
         unit: "tins",
         tier: 2 as const,
       },
       {
         label: "10 L tins",
-        value: litres > 0 ? Math.ceil(litres / 10) : "—",
+        value: litres > 0 ? ceilCount(litres / 10) : "—",
         unit: "tins",
         tier: 3 as const,
       },
@@ -144,7 +145,7 @@ export default function PaintCalc() {
       onTypeChange={setType}
       inputs={inputs}
       results={results}
-      notice="Based on 10 m²/L coverage. Rough or porous surfaces may need 20% more. Excludes windows and doors."
+      notice="Based on 10 m²/L coverage. Rough or porous surfaces may need 20% more. Windows and doors are not deducted, which leaves a small margin for waste."
       related={[
         {
           href: "/tile-calculator",

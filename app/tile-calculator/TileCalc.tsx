@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import CalcShell from "../components/CalcShell";
 import Field from "../components/Field";
 import WasteSlider from "../components/WasteSlider";
+import { ceilCount } from "../components/calcMath";
 
 type UnitLen = "m" | "ft" | "cm" | "in" | "mm";
 const toM: Record<string, number> = {
@@ -103,8 +104,8 @@ export default function TileCalc() {
     const G = (parseFloat(grout) || 0) * 0.001;
     const area = RL * RW;
     const tileArea = (TL + G) * (TW + G);
-    const net = tileArea > 0 ? Math.ceil(area / tileArea) : 0;
-    const total = Math.ceil(net * (1 + waste / 100));
+    const net = tileArea > 0 ? ceilCount(area / tileArea) : 0;
+    const total = ceilCount(net * (1 + waste / 100));
     return [
       {
         label: app.areaLabel,
@@ -120,7 +121,7 @@ export default function TileCalc() {
       },
       {
         label: `Boxes (10 tiles/box)`,
-        value: total > 0 ? Math.ceil(total / 10) : "—",
+        value: total > 0 ? ceilCount(total / 10) : "—",
         unit: "boxes",
         tier: 2 as const,
       },

@@ -24,7 +24,9 @@ export default function Field({ label, id, value, onChange, placeholder, units, 
           type="number"
           id={id}
           value={value}
-          onChange={e => onChange(e.target.value)}
+          // Measurements are never negative; min={0} alone doesn't stop typed minus signs
+          onChange={e => { if (!e.target.value.startsWith('-')) onChange(e.target.value) }}
+          onKeyDown={e => { if (e.key === '-') e.preventDefault() }}
           placeholder={placeholder || '0'}
           min={0}
           step="any"

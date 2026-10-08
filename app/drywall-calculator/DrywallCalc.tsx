@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import CalcShell from "../components/CalcShell";
 import Field from "../components/Field";
 import WasteSlider from "../components/WasteSlider";
+import { ceilCount } from "../components/calcMath";
 
 type UnitLen = "ft" | "m";
 type SheetSize = "4x8" | "4x10" | "4x12";
@@ -57,16 +58,16 @@ export default function DrywallCalc() {
 
     // Sheets = ⌈total area × (1 + waste%) ÷ sheet area⌉
     const sheets = valid
-      ? Math.ceil((totalArea * (1 + waste / 100)) / sheet.sqft)
+      ? ceilCount((totalArea * (1 + waste / 100)) / sheet.sqft)
       : 0;
 
     // Ancillary materials
     // Joint compound: 1 gallon per 100 sq ft
-    const jointCompoundGal = valid ? Math.ceil(totalArea / 100) : 0;
+    const jointCompoundGal = valid ? ceilCount(totalArea / 100) : 0;
     // Screws: ~32–40 per 4×8 sheet at 16" OC — use 36 as midpoint
-    const screws = valid ? Math.ceil(sheets * (sheet.sqft / 32) * 36) : 0;
+    const screws = valid ? ceilCount(sheets * (sheet.sqft / 32) * 36) : 0;
     // Tape: 1 roll per ~150 sq ft
-    const tapeRolls = valid ? Math.ceil(totalArea / 150) : 0;
+    const tapeRolls = valid ? ceilCount(totalArea / 150) : 0;
 
     return [
       {

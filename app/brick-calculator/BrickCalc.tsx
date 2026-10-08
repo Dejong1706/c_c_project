@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import CalcShell from "../components/CalcShell";
 import Field from "../components/Field";
 import WasteSlider from "../components/WasteSlider";
+import { ceilCount } from "../components/calcMath";
 
 type UnitLen = "m" | "ft";
 const toM: Record<UnitLen, number> = { m: 1, ft: 0.3048 };
@@ -21,8 +22,8 @@ export default function BrickCalc() {
     const L = (parseFloat(len) || 0) * toM[lUnit];
     const H = (parseFloat(h) || 0) * toM[hUnit];
     const area = L * H;
-    const net = Math.ceil(area * density);
-    const total = Math.ceil(net * (1 + waste / 100));
+    const net = ceilCount(area * density);
+    const total = ceilCount(net * (1 + waste / 100));
     return [
       {
         label: "Bricks needed",
@@ -38,7 +39,7 @@ export default function BrickCalc() {
       },
       {
         label: "Pallets",
-        value: total > 0 ? Math.ceil(total / 500) : "—",
+        value: total > 0 ? ceilCount(total / 500) : "—",
         unit: "~500 bricks/pallet",
         tier: 2 as const,
       },

@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import CalcShell from "../components/CalcShell";
 import Field from "../components/Field";
 import WasteSlider from "../components/WasteSlider";
+import { ceilCount } from "../components/calcMath";
 
 type UnitLen = "ft" | "m";
 type DepthUnit = "in" | "cm";
@@ -61,7 +62,7 @@ export default function MulchCalc() {
       ? (areaSqFt * depthIn * (1 + waste / 100)) / CU_YD_DIVISOR
       : 0;
     const cubicFeet = cubicYards * CU_FT_PER_YD;
-    const bags = valid ? Math.ceil(cubicFeet / bag.cuFt) : 0;
+    const bags = valid ? ceilCount(cubicFeet / bag.cuFt) : 0;
 
     return [
       {
@@ -214,7 +215,7 @@ export default function MulchCalc() {
         BAG_SIZES["2"].cuFt === bag.cuFt
           ? "13.5 × 2 cu ft bags"
           : "9 × 3 cu ft bags"
-      }. Includes ${waste}% for waste and settling. Recommended depth: 2–3 in for flower beds, 3–4 in for weed suppression, 6 in for playgrounds (CPSC). Keep mulch 2–3 inches away from plant stems and tree trunks.`}
+      }. Includes ${waste}% for waste and settling. Recommended depth: 2–3 in for flower beds, 3–4 in for weed suppression, 9 in for playgrounds (CPSC — install about 12 in, it compacts). Keep mulch 2–3 inches away from plant stems and tree trunks.`}
       related={[
         {
           href: "/excavation-calculator",

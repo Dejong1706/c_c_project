@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import CalcShell from "../components/CalcShell";
 import Field from "../components/Field";
 import WasteSlider from "../components/WasteSlider";
+import { ceilCount } from "../components/calcMath";
 
 type UnitLen = "m" | "ft";
 const toM: Record<UnitLen, number> = { m: 1, ft: 0.3048 };
@@ -54,7 +55,10 @@ const MASONRY_UNITS: Record<
   stone: { label: "Stone (approx.)", l: 300, h: 100, d: 100, jointMm: 12 },
 };
 
-// 80 lb (~36.3 kg) pre-mixed bag yields ~10.5 L of wet mortar
+// An 80 lb (~36.3 kg) bag physically makes ~17 L of mortar, but frog filling,
+// buttering and droppings mean real jobs get only ~35–40 standard bricks per bag
+// (manufacturer coverage). That is ~10.5 L of geometric joint volume per bag,
+// so the bag count reflects what is actually used on site.
 const BAG_LITRES = 10.5;
 // Dry materials compact on mixing — ~1.3 m³ dry yields 1 m³ finished mortar
 const DRY_FACTOR = 1.3;
@@ -95,9 +99,9 @@ export default function MortarCalc() {
     const limeLitres = (limeRatio / totalParts) * dryVolumeLitres;
     const sandLitres = (sandRatio / totalParts) * dryVolumeLitres;
 
-    const bags = mortarVolumeLitres > 0 ? Math.ceil(mortarVolumeLitres / BAG_LITRES) : 0;
-    // 25 kg cement bag, ~1.28 kg/L loose bulk density
-    const cementBags25kg = Math.ceil((cementLitres * 1.28) / 25);
+    const bags = mortarVolumeLitres > 0 ? ceilCount(mortarVolumeLitres / BAG_LITRES) : 0;
+    // 25 kg cement bag, ~1.44 kg/L loose bulk density
+    const cementBags25kg = ceilCount((cementLitres * 1.44) / 25);
     // Dry sand bulk density ~1,600 kg/m³
     const sandKg = Math.round((sandLitres / 1000) * 1600);
 

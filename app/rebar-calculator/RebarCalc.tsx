@@ -58,13 +58,13 @@ export default function RebarCalc() {
   const inputs = (
     <>
       <Field
-        label="Bar diameter"
+        label="Bar diameter (nominal)"
         id="diam"
         value={diam}
         onChange={setDiam}
-        placeholder="e.g. 13"
+        placeholder="e.g. 12.7"
         units={["mm"]}
-        hint="e.g. 10, 13, 16, 19 mm"
+        hint='#3 = 9.5, #4 = 12.7, #5 = 15.9, #6 = 19.1 mm'
       />
       <Field
         label="Bar length"

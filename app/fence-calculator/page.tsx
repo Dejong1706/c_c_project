@@ -40,12 +40,12 @@ const faqs = [
   {
     question: "How deep should fence posts be buried?",
     answer:
-      "At least 1/3 of the total post length, with a minimum of 2 feet for a 6 ft fence. In cold climates, posts must go below the frost line — typically 36–48 inches in northern regions.",
+      "A common rule is one-third of the above-ground height, with a 2 ft minimum — so a 6 ft fence needs 2 ft buried and an 8 ft post. In cold climates, set posts below the local frost line (often 48 inches or more in northern states) to prevent frost heave, and check your local requirements.",
   },
   {
     question: "How many bags of concrete do I need per fence post?",
     answer:
-      "For a standard 4×4 post in a 12-inch diameter hole about 24 inches deep, use 2 bags of 80 lb quick-setting concrete. Deeper holes (36+ inches) require 3–4 bags.",
+      "A 12-inch diameter hole 24 inches deep holds about 1.4 cubic feet of concrete around a 4×4 post. At 0.6 cubic feet per 80 lb bag, that's 3 bags per post. A 36-inch-deep hole needs about 4 bags. This calculator works it out from your fence height.",
   },
 ];
 

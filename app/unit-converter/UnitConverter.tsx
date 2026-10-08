@@ -16,19 +16,30 @@ const categories: Category[] = [
   {
     label: 'Area',
     units: ['mm²','cm²','m²','km²','in²','ft²','yd²','acre','평'],
-    toBase: { 'mm²':1e-6,'cm²':1e-4,'m²':1,'km²':1e6,'in²':6.4516e-4,'ft²':0.092903,'yd²':0.836127,'acre':4046.86,'평':3.30579 },
+    // Exact definitions (1 in = 25.4 mm; 1 acre = 43,560 ft²; 1 평 = 400/121 m²)
+    toBase: { 'mm²':1e-6,'cm²':1e-4,'m²':1,'km²':1e6,'in²':6.4516e-4,'ft²':0.09290304,'yd²':0.83612736,'acre':4046.8564224,'평':400/121 },
   },
   {
     label: 'Volume',
     units: ['cm³','m³','litre','ml','in³','ft³','yd³','gallon(US)'],
-    toBase: { 'cm³':1e-6,'m³':1,'litre':0.001,'ml':1e-6,'in³':1.6387e-5,'ft³':0.028317,'yd³':0.764555,'gallon(US)':0.003785 },
+    // Exact definitions (1 US gal = 231 in³)
+    toBase: { 'cm³':1e-6,'m³':1,'litre':0.001,'ml':1e-6,'in³':1.6387064e-5,'ft³':0.028316846592,'yd³':0.764554857984,'gallon(US)':0.003785411784 },
   },
   {
     label: 'Weight',
     units: ['g','kg','tonne','lb','oz','ton(US)'],
-    toBase: { g:0.001, kg:1, tonne:1000, lb:0.453592, oz:0.028350, 'ton(US)':907.185 },
+    // Exact definitions (1 lb = 0.45359237 kg; 1 US ton = 2,000 lb)
+    toBase: { g:0.001, kg:1, tonne:1000, lb:0.45359237, oz:0.028349523125, 'ton(US)':907.18474 },
   },
 ]
+
+// Default [from, to] pair shown when a category tab is opened
+const DEFAULT_PAIRS: Record<string, [string, string]> = {
+  Length: ['m', 'ft'],
+  Area: ['m²', 'ft²'],
+  Volume: ['m³', 'yd³'],
+  Weight: ['kg', 'lb'],
+}
 
 export default function UnitConverter() {
   const [catIdx, setCatIdx] = useState(0)
@@ -44,6 +55,7 @@ export default function UnitConverter() {
     if (isNaN(v)) return '—'
     const inBase = v * (tb[fromUnit] ?? 1)
     const out = inBase / (tb[toUnit] ?? 1)
+    if (out === 0) return '0'
     if (Math.abs(out) < 0.001 || Math.abs(out) > 1e9) return out.toExponential(4)
     return parseFloat(out.toPrecision(8)).toString()
   })()
@@ -60,7 +72,7 @@ export default function UnitConverter() {
       {/* Category tabs */}
       <div style={{ display: 'flex', gap: '6px', marginBottom: '20px', flexWrap: 'wrap' }}>
         {categories.map((c, i) => (
-          <button key={c.label} onClick={() => { setCatIdx(i); setFromUnit(c.units[2]); setToUnit(c.units[i===1?4:5] ?? c.units[1]) }}
+          <button key={c.label} onClick={() => { setCatIdx(i); setFromUnit(DEFAULT_PAIRS[c.label][0]); setToUnit(DEFAULT_PAIRS[c.label][1]) }}
             style={{ padding: '6px 16px', borderRadius: '20px', fontSize: '13px', cursor: 'pointer', border: catIdx === i ? 'none' : '1px solid var(--border)', background: catIdx === i ? 'var(--accent)' : 'var(--surface)', color: catIdx === i ? 'white' : 'var(--text-2)', fontFamily: 'var(--font-sans)', fontWeight: catIdx === i ? 500 : 400, transition: 'all 0.15s' }}>
             {c.label}
           </button>

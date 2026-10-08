@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import CalcShell from "../components/CalcShell";
 import Field from "../components/Field";
 import WasteSlider from "../components/WasteSlider";
+import { ceilCount } from "../components/calcMath";
 
 type UnitLen = "ft" | "m";
 const toFt: Record<UnitLen, number> = { ft: 1, m: 3.28084 };
@@ -13,26 +14,36 @@ const FENCE_TYPES: Record<
   FenceType,
   {
     label: string;
-    defaultSpacing: number;
+    defaultSpacing: number; // ft
     railsPerSection: (h: number) => number;
+    holeDiaIn: number; // typical post-hole diameter
+    postAreaSqFt: number; // post cross-section displaced from the hole
   }
 > = {
   wood: {
     label: "Wood",
     defaultSpacing: 8,
     railsPerSection: (h) => (h < 5 ? 2 : h <= 7 ? 3 : 4),
+    holeDiaIn: 12,
+    postAreaSqFt: (3.5 / 12) ** 2, // 4×4 post (3.5" actual)
   },
   vinyl: {
     label: "Vinyl",
     defaultSpacing: 8,
     railsPerSection: (h) => (h < 5 ? 2 : h <= 7 ? 3 : 4),
+    holeDiaIn: 12,
+    postAreaSqFt: (5 / 12) ** 2, // 5×5 post
   },
   chainlink: {
     label: "Chain Link",
     defaultSpacing: 10,
     railsPerSection: () => 2,
+    holeDiaIn: 8,
+    postAreaSqFt: Math.PI * (2.375 / 24) ** 2, // 2⅜" round post
   },
 };
+
+const BAG_80LB_FT3 = 0.6;
 
 const FENCE_TYPES_ORDER: FenceType[] = ["wood", "vinyl", "chainlink"];
 const TYPES = FENCE_TYPES_ORDER.map((k) => FENCE_TYPES[k].label);
@@ -54,14 +65,15 @@ export default function FenceCalc() {
   const results = useMemo(() => {
     const L = (parseFloat(length) || 0) * toFt[lengthUnit];
     const H = (parseFloat(height) || 0) * toFt[heightUnit];
-    const S =
-      (parseFloat(spacing) || fenceType.defaultSpacing) * toFt[spacingUnit];
+    // A blank spacing falls back to the default, which is already in ft
+    const spacingVal = parseFloat(spacing);
+    const S = spacingVal > 0 ? spacingVal * toFt[spacingUnit] : fenceType.defaultSpacing;
     const G = parseInt(gates) || 0;
 
     const valid = L > 0 && H > 0 && S > 0;
 
     // Posts = ⌈length ÷ spacing⌉ + 1 + (gates × 2)
-    const linePosts = valid ? Math.ceil(L / S) + 1 : 0;
+    const linePosts = valid ? ceilCount(L / S) + 1 : 0;
     const gatePosts = G * 2;
     const totalPosts = valid ? linePosts + gatePosts : 0;
 
@@ -77,14 +89,17 @@ export default function FenceCalc() {
     const railsPerSection = fenceType.railsPerSection(H);
     const totalRails = valid ? bays * railsPerSection : 0;
 
-    // Concrete: 2 bags per post (80lb, 12" diameter hole, ~24" deep)
-    const concreteBags = totalPosts * 2;
+    // Concrete: fill the hole to burial depth, minus the post itself
+    const holeAreaSqFt = Math.PI * (fenceType.holeDiaIn / 24) ** 2;
+    const concretePerPostFt3 = (holeAreaSqFt - fenceType.postAreaSqFt) * burial;
+    const bagsPerPost = ceilCount(concretePerPostFt3 / BAG_80LB_FT3);
+    const concreteBags = totalPosts * bagsPerPost;
 
     // Pickets (wood only, 5.5" wide, 0" gap for privacy)
     const picketWidthFt = 5.5 / 12;
     const pickets =
       valid && fenceKey === "wood"
-        ? Math.ceil((L / picketWidthFt) * (1 + waste / 100))
+        ? ceilCount((L / picketWidthFt) * (1 + waste / 100))
         : 0;
 
     const rows: {
@@ -120,7 +135,7 @@ export default function FenceCalc() {
       {
         label: "Concrete (80 lb bags)",
         value: valid ? concreteBags : "—",
-        unit: "bags",
+        unit: valid ? `bags (${bagsPerPost} per post)` : "bags",
         tier: 2 as const,
       },
     ];
@@ -205,8 +220,8 @@ export default function FenceCalc() {
       notice={`Posts = ⌈length ÷ spacing⌉ + 1. Burial depth = max(height ÷ 3, 2 ft). Rails per section: ${FENCE_TYPES[
         fenceKey2
       ].railsPerSection(
-        parseFloat(height) || 6
-      )}. Concrete: 2 × 80 lb bags per post (12″ hole, ~24″ deep). Includes ${waste}% waste on pickets. Always check local building codes for height limits and permit requirements.`}
+        (parseFloat(height) || 6) * toFt[heightUnit]
+      )}. Concrete: a ${FENCE_TYPES[fenceKey2].holeDiaIn}″ hole filled to burial depth, minus the post, at 0.6 ft³ per 80 lb bag. Includes ${waste}% waste on pickets. Always check local building codes for height limits and permit requirements.`}
       related={[
         {
           href: "/concrete-bags",
