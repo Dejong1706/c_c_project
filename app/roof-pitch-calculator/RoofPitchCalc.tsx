@@ -143,11 +143,11 @@ export default function RoofPitchCalc() {
       {mode === "riseRun" && (
         <>
           <Field
-            label='Rise (inches per 12" of run)'
+            label="Total rise (inches, eave to ridge)"
             id="rise"
             value={rise}
             onChange={setRise}
-            placeholder="e.g. 6"
+            placeholder="e.g. 72"
           />
           <Field
             label="Horizontal run (eave to ridge)"

@@ -93,7 +93,9 @@ export default function StairCalc() {
       {
         label: "Actual riser height",
         value: valid ? actualRiser.toFixed(3) : "—",
-        unit: `in ${riserOk ? "✓" : '✗ exceeds 7¾" max'}`,
+        unit: valid
+          ? `in ${riserOk ? "✓" : '✗ exceeds 7¾" max'}`
+          : 'in — IRC max 7¾"',
         tier: 1,
       },
       {
@@ -123,23 +125,29 @@ export default function StairCalc() {
       {
         label: "Stair angle",
         value: valid ? `${angleDeg.toFixed(1)}°` : "—",
-        unit: `${
-          angleOk ? "✓ 30–37° comfort range" : "✗ outside comfort range"
-        }`,
+        unit: valid
+          ? angleOk
+            ? "✓ 30–37° comfort range"
+            : "✗ outside comfort range"
+          : "30–37° is comfortable",
         tier: 3,
       },
       {
         label: "Comfort formula (R + T)",
         value: valid ? comfortSum.toFixed(1) : "—",
-        unit: `in ${comfortOk ? '✓ 17–18" ideal' : '⚠ outside 17–18" ideal'}`,
+        unit: valid
+          ? `in ${comfortOk ? '✓ 17–18" ideal' : '⚠ outside 17–18" ideal'}`
+          : 'in — 17–18" is ideal',
         tier: 3,
       },
       {
         label: "IRC code check",
         value: valid ? codeStatus : "—",
-        unit: `riser ${riserOk ? "✓" : "✗"} · tread ${
-          treadOk ? "✓" : "✗"
-        } · width ${widthOk ? "✓" : "✗"}`,
+        unit: valid
+          ? `riser ${riserOk ? "✓" : "✗"} · tread ${
+              treadOk ? "✓" : "✗"
+            } · width ${widthOk ? "✓" : "✗"}`
+          : "riser · tread · width",
         tier: 3,
       },
     ];

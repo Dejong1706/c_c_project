@@ -39,10 +39,15 @@ export default function CalcShell({
 }: CalcShellProps) {
   const [activeType, setActiveType] = useState(0);
 
-  const primary = results.find((r) => r.tier === 1) ?? results[0];
-  const secondary = results.filter((r) => r.tier === 2).length
-    ? results.filter((r) => r.tier === 2)
-    : results.slice(1, 3);
+  const tier1 = results.filter((r) => r.tier === 1);
+  const tier2 = results.filter((r) => r.tier === 2);
+  const primary = tier1[0] ?? results[0];
+  // Only one result fits the primary box; extra tier-1 results lead the
+  // secondary row instead of being dropped.
+  const secondary =
+    tier1.length > 1 || tier2.length
+      ? [...tier1.slice(1), ...tier2]
+      : results.slice(1, 3);
   const tertiary = results.filter((r) => r.tier === 3).length
     ? results.filter((r) => r.tier === 3)
     : results.slice(3);
