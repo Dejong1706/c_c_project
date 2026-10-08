@@ -48,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-to-mix-concrete-by-hand",
-      date: "2026-06-12",
+      date: "2026-10-08",
       priority: 0.7,
     },
     {

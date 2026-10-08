@@ -37,7 +37,7 @@ const guides: {
   {
     title: "How to Mix Concrete by Hand",
     href: "/guides/how-to-mix-concrete-by-hand",
-    desc: "Mix ratios, water quantity, mixing sequence, and when hand mixing stops being practical.",
+    desc: "Cement vs concrete, mix ratios, bagged premix yields, how much water to add, and when hand mixing stops being practical.",
     category: "Concrete",
   },
   {

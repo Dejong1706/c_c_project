@@ -5,17 +5,27 @@ const faqs = [
   {
     question: "What is the correct mix ratio for concrete by hand?",
     answer:
-      "For general purpose work such as slabs and footings, a 1:2:3 ratio by volume (1 part cement, 2 parts sand, 3 parts coarse aggregate) is widely used. For lighter, non-structural work, a 1:2:4 ratio is common. Always add water gradually — the mix should hold its shape when squeezed without being wet or crumbly.",
+      "For general purpose work such as slabs and footings, a 1:2:3 ratio by volume (1 part cement, 2 parts sand, 3 parts gravel) is widely used. For lighter, non-structural work, a 1:2:4 ratio is common. Add water gradually until the mix holds a ridge when you draw a shovel through it.",
   },
   {
-    question: "How much water should I add to concrete?",
+    question: "Is it mixing cement or mixing concrete?",
     answer:
-      "Water is added gradually until the mix holds its shape when squeezed and releases no free water. Adding too much water weakens the final concrete significantly. A water-to-cement ratio of 0.45 to 0.55 by weight is typical for hand-mixed concrete, but in practice the squeeze test is the most reliable guide on site.",
+      "Cement is only the grey powder that binds everything together — it is never used on its own. Mix cement with sand, gravel and water and you get concrete (for slabs, posts and footings). Mix cement with lime and sand and you get mortar (for laying bricks and blocks). 'Mixing cement by hand' almost always means mixing concrete.",
+  },
+  {
+    question: "How much water do I add to an 80 lb bag of concrete?",
+    answer:
+      "Most 80 lb bags of premixed concrete call for roughly 3 quarts (about 2.8 litres) of water — always follow the instructions printed on your bag. Start with about two-thirds of that, mix, then add the rest a little at a time until the mix is workable.",
+  },
+  {
+    question: "How much water should I add to site-mixed concrete?",
+    answer:
+      "Add water gradually until the mix holds its shape and releases no free water. Too much water weakens the final concrete significantly. A water-to-cement ratio of 0.45 to 0.55 by weight is typical, but on site the shovel ridge test is the most practical guide.",
   },
   {
     question: "How much concrete can I mix by hand?",
     answer:
-      "Hand mixing becomes impractical above roughly 0.1 cubic meters (about 100 litres) per batch. Beyond that volume, consistency suffers and the physical effort becomes excessive. For larger pours, a drum mixer or ready-mix delivery is more practical.",
+      "Hand mixing becomes impractical above roughly 0.1 cubic meters (about 3.5 cubic feet, or six 80 lb bags) per batch. Beyond that, consistency suffers and the physical effort becomes excessive. For larger pours, a drum mixer or ready-mix delivery is more practical.",
   },
   {
     question: "How long does hand-mixed concrete take to set?",
@@ -42,10 +52,10 @@ const articleSchema = {
   "@type": "Article",
   headline: "How to Mix Concrete by Hand: Ratios, Water, and Technique",
   description:
-    "Step-by-step guide to mixing concrete by hand. Covers mix ratios, water amount, tools, and when hand mixing stops being practical.",
+    "Step-by-step guide to mixing concrete by hand. Covers cement vs concrete vs mortar, mix ratios, bagged premix, water amount, safety, and when hand mixing stops being practical.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-mix-concrete-by-hand" },
   datePublished: "2026-06-12",
-  dateModified: "2026-06-12",
+  dateModified: "2026-10-08",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -98,6 +108,80 @@ export default function HowToMixConcreteByHandGuide() {
           </IntroText>
         </header>
 
+        <NoteBox>
+          <strong>Quick answer:</strong> mix 1 part cement, 2 parts sand and 3
+          parts gravel by volume, dry, until the colour is even. Then add water a
+          little at a time until a shovel drawn through the mix leaves a clean
+          ridge that holds its shape. Using bagged premix? Just add the water
+          printed on the bag — roughly 3 quarts per 80 lb bag. Wear gloves.
+        </NoteBox>
+
+        <h2 style={sectionHeading}>Cement, concrete or mortar?</h2>
+        <p style={paragraph}>
+          These words get used interchangeably, but they are different
+          materials. Buying the wrong one is the most common beginner mistake:
+        </p>
+        <GuideTable>
+          <thead>
+            <tr>
+              <th style={th}>Material</th>
+              <th style={th}>What&apos;s in it</th>
+              <th style={th}>Used for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style={td}>
+                <strong>Cement</strong>
+              </td>
+              <td style={td}>Portland cement powder only</td>
+              <td style={td}>An ingredient — never used on its own</td>
+            </tr>
+            <tr>
+              <td style={td}>
+                <strong>Concrete</strong>
+              </td>
+              <td style={td}>Cement + sand + gravel + water</td>
+              <td style={td}>Slabs, footings, fence posts, steps</td>
+            </tr>
+            <tr>
+              <td style={td}>
+                <strong>Mortar</strong>
+              </td>
+              <td style={td}>Cement + lime + sand + water</td>
+              <td style={td}>Laying bricks and blocks</td>
+            </tr>
+          </tbody>
+        </GuideTable>
+        <p style={paragraph}>
+          So if you&apos;re &quot;mixing cement by hand&quot; for a slab or post,
+          what you actually want is concrete — this guide. For brickwork, see
+          our{" "}
+          <Link href="/guides/brick-mortar-mix-ratio" style={link}>
+            mortar mix ratio guide
+          </Link>
+          .
+        </p>
+
+        <h2 style={sectionHeading}>Safety first</h2>
+        <p style={paragraph}>
+          Wet cement is strongly alkaline. Left on skin it causes chemical burns
+          that often don&apos;t hurt until hours later. Before you open a bag:
+        </p>
+        <ul style={{ paddingLeft: "20px", marginBottom: "14px" }}>
+          <li style={listItem}>
+            Wear waterproof gloves, long sleeves and safety glasses
+          </li>
+          <li style={listItem}>
+            Wear a dust mask when emptying bags — the dry powder is irritating
+            to breathe
+          </li>
+          <li style={listItem}>
+            Never test the mix with bare hands; if it gets on your skin, wash it
+            off with clean water straight away
+          </li>
+        </ul>
+
         <h2 style={sectionHeading}>Mix ratios</h2>
         <p style={paragraph}>
           Concrete is made from cement, sand (fine aggregate), and coarse
@@ -128,10 +212,56 @@ export default function HowToMixConcreteByHandGuide() {
             </tr>
           </tbody>
         </GuideTable>
+        <p style={paragraph}>
+          Measure with the same container for every material. With a 5-gallon
+          bucket, a 1:2:3 batch is 1 bucket of cement, 2 of sand and 3 of
+          gravel. The dry materials pack together once wet, so the batch makes
+          noticeably less concrete than the dry volume suggests:
+        </p>
+        <div style={formula}>
+          6 buckets dry (≈ 4 ft³) → about 2.6 ft³ of concrete
+        </div>
+        <p style={paragraph}>
+          That&apos;s roughly the same as four 80 lb bags of premix — a
+          comfortable batch for one wheelbarrow.
+        </p>
+
+        <h2 style={sectionHeading}>Using bagged premix instead</h2>
+        <p style={paragraph}>
+          For most small jobs, bagged concrete mix is easier: the cement, sand
+          and gravel are already proportioned, so you only add water. Yields are
+          printed on the bag; typical figures are:
+        </p>
+        <GuideTable>
+          <thead>
+            <tr>
+              <th style={th}>Bag size</th>
+              <th style={th}>Yield per bag</th>
+              <th style={th}>Bags per cubic yard</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style={td}>40 lb</td>
+              <td style={td}>0.30 ft³</td>
+              <td style={td}>90</td>
+            </tr>
+            <tr>
+              <td style={td}>60 lb</td>
+              <td style={td}>0.45 ft³</td>
+              <td style={td}>60</td>
+            </tr>
+            <tr>
+              <td style={td}>80 lb</td>
+              <td style={td}>0.60 ft³</td>
+              <td style={td}>45</td>
+            </tr>
+          </tbody>
+        </GuideTable>
         <NoteBox>
-          These ratios are for site-mixed concrete using separate materials. If
-          you&apos;re using bagged pre-mix concrete, the proportions are already
-          set — just add water according to the bag instructions.
+          Most 80 lb bags call for about 3 quarts (2.8 L) of water, but brands
+          differ — always use the amount printed on your bag, and add the last
+          part of it gradually.
         </NoteBox>
 
         <h2 style={sectionHeading}>How much water to add</h2>
@@ -142,10 +272,12 @@ export default function HowToMixConcreteByHandGuide() {
           together.
         </p>
         <p style={paragraph}>
-          The practical test on site: squeeze a handful of mixed concrete. It
-          should hold its shape clearly and feel firm, with no water bleeding
-          out. If it crumbles, it needs a little more water. If water appears on
-          the surface when squeezed, it&apos;s too wet.
+          The practical test on site: draw the back of your shovel or hoe
+          across the mix in a series of ridges. In a good mix the ridges stay
+          crisp and hold their shape, and the surface looks damp but not shiny
+          with water. If the ridges crumble, add a little more water. If they
+          slump flat or water pools in the grooves, it&apos;s too wet — add a
+          little more dry material in the same ratio.
         </p>
         <p style={paragraph}>
           Add water in small amounts and mix thoroughly between additions.
@@ -171,39 +303,53 @@ export default function HowToMixConcreteByHandGuide() {
             Work from the outside in, folding dry material into the water
           </li>
           <li style={listItem}>
-            Add remaining water gradually until the mix passes the squeeze test
+            Add remaining water gradually until the mix passes the ridge test
           </li>
           <li style={listItem}>
-            Mix for at least 3 to 5 minutes after the last water addition to
-            ensure full hydration
+            Keep mixing for another 3 to 5 minutes so every stone is coated and
+            there are no dry pockets
           </li>
         </ul>
 
         <h2 style={sectionHeading}>Tools</h2>
         <p style={paragraph}>
-          For small batches under about 50 litres, a mixing board (a sheet of
-          plywood works) and a square-ended spade or mortar hoe are sufficient.
-          For batches up to around 100 litres, a large wheelbarrow and a mixing
-          hoe give more room to work. Beyond that volume, hand mixing becomes
-          inconsistent and physically demanding — a drum mixer is worth hiring
-          for anything larger.
+          For small batches under about 50 litres (roughly 2 ft³), a mixing
+          board (a sheet of plywood works) and a square-ended spade or mortar
+          hoe are sufficient. For batches up to around 100 litres, a large
+          wheelbarrow or mixing tub and a mixing hoe give more room to work.
+          Beyond that volume, hand mixing becomes inconsistent and physically
+          demanding — a drum mixer is worth hiring for anything larger.
         </p>
 
         <h2 style={sectionHeading}>When hand mixing stops being practical</h2>
         <p style={paragraph}>
           Hand mixing is generally practical up to around 0.1 cubic meters (100
-          litres) per batch. Above that, maintaining a consistent mix becomes
-          difficult and the time and effort required outweigh the cost of hiring
-          a drum mixer or ordering ready-mix. For any structural element — a
-          foundation, a load-bearing column — ready-mix concrete from a supplier
-          is preferable regardless of volume, since plant-mixed concrete has
-          tighter quality control than site mixing.
+          litres, about 3.5 ft³) per batch. Above that, maintaining a consistent
+          mix becomes difficult and the time and effort required outweigh the
+          cost of hiring a drum mixer or ordering ready-mix. For any structural
+          element — a foundation, a load-bearing column — ready-mix concrete
+          from a supplier is preferable regardless of volume, since
+          plant-mixed concrete has tighter quality control than site mixing.
         </p>
         <NoteBox>
           For structural work, consult a qualified engineer before specifying
           mix ratios or concrete grades. The ratios above are for general
           guidance on non-structural and lightly loaded applications.
         </NoteBox>
+
+        <h2 style={sectionHeading}>After the pour</h2>
+        <p style={paragraph}>
+          Concrete hardens by a chemical reaction with water, not by drying
+          out, so keep it damp for the first several days — cover it with
+          plastic sheeting or mist it with water, especially in hot or windy
+          weather. Avoid pouring when frost is expected unless you can protect
+          the concrete, since freezing before it has gained strength damages it
+          permanently. Our{" "}
+          <Link href="/guides/concrete-curing-time-guide" style={link}>
+            concrete curing time guide
+          </Link>{" "}
+          covers when you can walk, build or drive on it.
+        </p>
 
         <h2 style={sectionHeading}>Putting it together</h2>
         <p style={paragraph}>
@@ -212,7 +358,7 @@ export default function HowToMixConcreteByHandGuide() {
           <Link href="/concrete-calculator" style={link}>
             concrete calculator
           </Link>{" "}
-          gives volume in m³ with waste percentage included, and our{" "}
+          gives volume in m³ and cubic yards with waste included, and our{" "}
           <Link href="/concrete-bags" style={link}>
             concrete bag calculator
           </Link>{" "}
