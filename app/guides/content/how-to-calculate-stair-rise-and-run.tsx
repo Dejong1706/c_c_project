@@ -18,7 +18,7 @@ const faqs = [
       "Use the Pythagorean theorem: stringer length = √(total rise² + total run²). For 108-inch rise and 154-inch run: √(11,664 + 23,716) = √35,380 = 188 inches (15.7 ft). Buy the next standard lumber length up and add 6–12 inches for cuts.",
   },
   {
-    question: "Why can&apos;t I just make the bottom step a different height?",
+    question: "Why can't I just make the bottom step a different height?",
     answer:
       "IRC §R311.7.5.1 requires all risers in a flight to be within ⅜ inch of each other. An uneven bottom or top step is both a code violation and the leading cause of stair falls — the foot expects a consistent rhythm and misjudges the last step.",
   },
@@ -81,7 +81,7 @@ export default function HowToCalculateStairRiseAndRun() {
               borderRadius: "20px",
             }}
           >
-            Concrete
+            Structural
           </span>
           <h1
             style={{

@@ -28,7 +28,7 @@ const faqs = [
   {
     question: "What is a pitch factor and why does it matter?",
     answer:
-      "The pitch factor is √((rise/12)² + 1). Multiply your roof&apos;s flat footprint area by this number to get the true sloped surface area. A 6:12 pitch has a factor of 1.118 — so a 1,000 sq ft footprint needs 1,118 sq ft of shingles or roofing material.",
+      "The pitch factor is √((rise/12)² + 1). Multiply your roof's flat footprint area by this number to get the true sloped surface area. A 6:12 pitch has a factor of 1.118 — so a 1,000 sq ft footprint needs 1,118 sq ft of shingles or roofing material.",
   },
   {
     question: "What roof pitch requires special equipment to walk on?",
@@ -81,7 +81,7 @@ export default function HowToCalculateRoofPitch() {
               borderRadius: "20px",
             }}
           >
-            Concrete
+            Roofing
           </span>
           <h1
             style={{
@@ -188,7 +188,7 @@ export default function HowToCalculateRoofPitch() {
             "Place a level flat on the roof surface, bubble centred.",
             "Hold one end of the level at the roof surface.",
             "Measure 12 inches along the level from that end.",
-            "Measure straight down from the 12-inch mark to the roof — that&apos;s your rise.",
+            "Measure straight down from the 12-inch mark to the roof — that's your rise.",
           ].map((step, i) => (
             <li
               key={i}

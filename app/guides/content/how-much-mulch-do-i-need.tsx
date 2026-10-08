@@ -5,7 +5,7 @@ const faqs = [
   {
     question: "How much mulch do I need for 100 square feet?",
     answer:
-      "At 2 inches deep: 100 × 2 ÷ 324 = 0.62 cubic yards (about 8–9 bags of 2 cu ft). At 3 inches deep: 100 × 3 ÷ 324 = 0.93 cubic yards (about 13 bags). Always round up.",
+      "At 2 inches deep: 100 × 2 ÷ 324 = 0.62 cubic yards (9 bags of 2 cu ft). At 3 inches deep: 100 × 3 ÷ 324 = 0.93 cubic yards (about 13 bags). Always round up.",
   },
   {
     question: "How many cubic yards of mulch do I need for a typical garden?",
@@ -276,7 +276,9 @@ export default function HowMuchMulchDoINeed() {
               marginBottom: "6px",
             }}
           >
-            <strong>6 inches minimum</strong> — playgrounds (CPSC requirement)
+            <strong>9 inches</strong> — playgrounds (CPSC recommends a 9-inch
+            depth of wood mulch or chips, installed about 12 inches deep so it
+            compacts to 9)
           </li>
         </ul>
         <div style={note}>

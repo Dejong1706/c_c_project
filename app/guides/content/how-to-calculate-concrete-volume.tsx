@@ -4,7 +4,7 @@ const faqs = [
   {
     question: "How much concrete do I need for a 10x10 slab?",
     answer:
-      "At a standard 4-inch (10cm) thickness, a 10x10 ft slab needs about 1.23 cubic yards before waste. Adding a 10% waste margin brings that to roughly 1.35 cubic yards, or about 36.5 cubic feet.",
+      "At a standard 4-inch (10cm) thickness, a 10x10 ft slab needs about 1.23 cubic yards before waste. Adding a 10% waste margin brings that to about 1.36 cubic yards, or 36.7 cubic feet.",
   },
   {
     question: "Do I need to add extra concrete for waste?",

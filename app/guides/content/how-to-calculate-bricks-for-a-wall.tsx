@@ -337,16 +337,19 @@ export default function HowToCalculateBricksForAWall() {
         <h2 style={sectionHeading}>Estimating Mortar Quantity</h2>
         <p style={paragraph}>
           As a rule of thumb, one bag of cement (25 kg) mixed at a 1:4
-          cement-to-sand ratio will lay approximately 60–70 UK standard bricks.
-          For a more accurate estimate, use the following:
+          cement-to-sand ratio will lay roughly 150–200 UK standard bricks,
+          depending on how much goes into frogs and waste. For a more accurate
+          estimate, use the following:
         </p>
         <div style={formula}>
-          Mortar volume (m³) ≈ 0.25 × wall volume (m³) × mortar fraction
+          Mortar volume (m³) ≈ wall volume (m³) × mortar fraction
         </div>
         <p style={paragraph}>
           For a half-brick wall, mortar makes up roughly 17% of total wall
           volume. For a full-brick wall, this rises to around 20% due to more
-          cross joints.
+          cross joints. So 1 m² of half-brick wall (0.1025 m³) holds about
+          0.1025 × 0.17 ≈ 0.017 m³ — 17 litres — of mortar in its joints, before
+          frogs and waste.
         </p>
         <NoteBox>
           For a full mortar breakdown including cement bags and sand weight, see

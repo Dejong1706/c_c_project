@@ -15,7 +15,7 @@ const faqs = [
   {
     question: "Should I subtract doors and windows from drywall calculations?",
     answer:
-      "You can, but many pros don&apos;t — drywall is hung over openings and cut out, so the cutoffs become waste. If you do subtract, use 21 sq ft per standard door and 15 sq ft per standard window, then increase your waste factor to 15%.",
+      "You can, but many pros don't — drywall is hung over openings and cut out, so the cutoffs become waste. If you do subtract, use 21 sq ft per standard door and 15 sq ft per standard window, then increase your waste factor to 15%.",
   },
   {
     question: "How many sheets of drywall do I need for a 12×12 room?",
@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "What waste factor should I use for drywall?",
     answer:
-      "Use 10% for simple rectangular rooms with few openings. Use 15% for rooms with many corners, closets, or angled walls. Use 20% for complex spaces with vaulted ceilings or unusual geometry. It&apos;s always cheaper to have 1–2 extra sheets than to make a second trip.",
+      "Use 10% for simple rectangular rooms with few openings. Use 15% for rooms with many corners, closets, or angled walls. Use 20% for complex spaces with vaulted ceilings or unusual geometry. It's always cheaper to have 1–2 extra sheets than to make a second trip.",
   },
 ];
 
@@ -299,14 +299,14 @@ export default function HowToCalculateDrywallSheets() {
             <tr>
               <td style={td}>10&times;10, 8 ft ceiling</td>
               <td style={td}>Walls only</td>
-              <td style={td}>11 sheets</td>
-              <td style={td}>8 sheets</td>
+              <td style={td}>10 sheets</td>
+              <td style={td}>7 sheets</td>
             </tr>
             <tr>
               <td style={td}>12&times;12, 9 ft ceiling</td>
               <td style={td}>Walls + ceiling</td>
-              <td style={td}>20 sheets</td>
-              <td style={td}>14 sheets</td>
+              <td style={td}>19 sheets</td>
+              <td style={td}>13 sheets</td>
             </tr>
             <tr>
               <td style={td}>15&times;12, 9 ft ceiling</td>

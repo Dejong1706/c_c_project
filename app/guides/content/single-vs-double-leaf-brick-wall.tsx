@@ -387,18 +387,20 @@ export default function SingleVsDoubleLeafBrickWall() {
               <td style={td}>Single leaf (half-brick)</td>
               <td style={td}>~60</td>
               <td style={td}>~0.018 m³</td>
-              <td style={td}>~0.7 bags (25 kg)</td>
+              <td style={td}>~0.3 bags (25 kg)</td>
             </tr>
             <tr>
               <td style={td}>Double leaf (full-brick)</td>
               <td style={td}>~120</td>
               <td style={td}>~0.043 m³</td>
-              <td style={td}>~1.6 bags (25 kg)</td>
+              <td style={td}>~0.65 bags (25 kg)</td>
             </tr>
           </tbody>
         </GuideTable>
         <NoteBox>
-          Mortar quantities assume a standard 1:4 cement-to-sand mix. For a full
+          Mortar quantities assume a standard 1:4 cement-to-sand mix and are
+          the volume of the joints themselves — frogged bricks and site waste
+          will use noticeably more, so round up when ordering. For a full
           mortar calculation, see our{" "}
           <Link href="/guides/brick-mortar-mix-ratio" style={link}>
             Brick Mortar Mix Ratio Guide

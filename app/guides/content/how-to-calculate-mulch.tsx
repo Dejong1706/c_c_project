@@ -217,8 +217,8 @@ export default function HowToCalculateMulch() {
               <td style={td}>1–2 inches on top</td>
             </tr>
             <tr>
-              <td style={td}>Playgrounds (CPSC requirement)</td>
-              <td style={td}>6 inches minimum</td>
+              <td style={td}>Playgrounds (CPSC recommendation)</td>
+              <td style={td}>9 inches (install ~12 inches, compacts to 9)</td>
             </tr>
           </tbody>
         </table>
