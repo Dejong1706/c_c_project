@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import CalcSchema from "../components/CalcSchema";
 import CalcFaq from "../components/CalcFaq";
+import Link from "next/link";
+import { BookOpen } from "lucide-react";
 import DrywallCalc from "./DrywallCalc";
 
 export const metadata: Metadata = {
@@ -56,6 +58,22 @@ export default function DrywallCalculatorPage() {
         faqs={faqs}
       />
       <DrywallCalc />
+      <div style={{ marginTop: "40px", paddingTop: "24px", borderTop: "1px solid var(--border)", maxWidth: "560px" }}>
+        <p style={{ fontSize: "11px", fontWeight: 600, color: "var(--text-3)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "12px" }}>
+          Related guides
+        </p>
+        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+          {[
+            { href: "/guides/how-to-calculate-drywall-sheets", label: "How to Calculate Drywall Sheets" },
+            { href: "/guides/drywall-screw-spacing-guide", label: "Drywall Screw Spacing Guide" },
+          ].map((g) => (
+            <Link key={g.href} href={g.href} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", color: "var(--accent-text)", background: "var(--accent-light)", padding: "8px 14px", borderRadius: "8px", textDecoration: "none" }}>
+              <BookOpen size={13} color="var(--accent)" />
+              {g.label}
+            </Link>
+          ))}
+        </div>
+      </div>
       <CalcFaq faqs={faqs} />
     </>
   );
