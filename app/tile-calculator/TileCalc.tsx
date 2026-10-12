@@ -5,7 +5,6 @@ import Field from "../components/Field";
 import WasteSlider from "../components/WasteSlider";
 import { ceilCount } from "../components/calcMath";
 
-type UnitLen = "m" | "ft" | "cm" | "in" | "mm";
 const toM: Record<string, number> = {
   m: 1,
   ft: 0.3048,

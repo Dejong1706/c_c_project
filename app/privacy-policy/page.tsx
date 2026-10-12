@@ -103,8 +103,8 @@ export default function PrivacyPolicyPage() {
         </header>
 
         <p style={p}>
-          BuildCalc ("we", "us", or "our") operates the website{" "}
-          <strong>buildcalczone.com</strong> (the "Site"). This Privacy Policy
+          BuildCalc (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) operates the website{" "}
+          <strong>buildcalczone.com</strong> (the &ldquo;Site&rdquo;). This Privacy Policy
           explains what information we collect when you visit the Site, how we
           use it, and your choices regarding that information. By using the
           Site, you agree to the practices described in this policy.
@@ -251,7 +251,7 @@ export default function PrivacyPolicyPage() {
         <h2 style={h2Style}>8. Changes to this policy</h2>
         <p style={p}>
           We may update this Privacy Policy from time to time. Any changes
-          will be posted on this page with an updated "Last updated" date. We
+          will be posted on this page with an updated &ldquo;Last updated&rdquo; date. We
           encourage you to review this page periodically. Continued use of the
           Site after any changes constitutes acceptance of the updated policy.
         </p>

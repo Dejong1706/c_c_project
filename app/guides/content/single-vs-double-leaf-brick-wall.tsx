@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, GuideTable, IntroText, NoteBox, formula, link, listItem, paragraph, sectionHeading, td, th } from "./shared";
+import { Breadcrumb, GuideTable, IntroText, NoteBox, link, listItem, paragraph, sectionHeading, td, th } from "./shared";
 
 const faqs = [
   {
