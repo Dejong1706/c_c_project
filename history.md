@@ -348,6 +348,12 @@
 - [ ] `how-to-calculate-bricks-for-a-wall.tsx:39` "Do mortar joint thickness" → "Does"
 - [ ] paint 가이드 2개 동일 FAQ("How many coats") 중복 제거
 
+### 2026-10-13 IndexNow 설정 (Bing 권장 사항)
+
+- 키 파일 `public/fdb6be067a045eeece1178dd45eb4061.txt`, 스크립트 `scripts/indexnow.mjs`
+- **배포 후 실행:** `npm run indexnow -- /guides/<slug> ...` (바뀐 경로만) 또는 `npm run indexnow -- --all` (사이트맵 전체)
+- Bing 사이트맵 경고("Missing or undiscovered sitemap")는 오탐: robots.txt에 등록돼 있고 Bing에서도 10/13 처리 중. www 사이트맵은 apex로 308 리다이렉트
+
 ### 결정 필요 (평일 작업에서 제외)
 - 개인정보처리방침 연락 수단 / EEA 동의 배너
 - 지붕 면적 (건물 길이 입력 추가 vs 결과 삭제)
