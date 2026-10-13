@@ -123,7 +123,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/stair-building-code-requirements",
-      date: "2026-10-07",
+      date: "2026-10-13",
       priority: 0.7,
     },
     {

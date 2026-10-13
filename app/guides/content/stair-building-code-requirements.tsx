@@ -42,7 +42,7 @@ const faqs = [
   {
     question: "Are open risers allowed on residential stairs?",
     answer:
-      "Yes. The IRC allows open risers as long as the gap between treads will not let a 4-inch sphere pass through. If the total rise of the stair is 30 inches or less, the openings do not need to meet this limit at all.",
+      "Yes. The IRC allows open risers as long as the gap between treads will not let a 4-inch sphere pass through. The limit only applies to openings more than 30 inches above the floor or grade below, so the gaps on the lowest steps are not restricted. Spiral stairs are exempt entirely.",
   },
   {
     question: "Do deck stairs have to meet the same code?",
@@ -72,7 +72,7 @@ const articleSchema = {
     "@id": "https://buildcalczone.com/guides/stair-building-code-requirements",
   },
   datePublished: "2026-07-08",
-  dateModified: "2026-10-07",
+  dateModified: "2026-10-13",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -232,9 +232,10 @@ export default function StairBuildingCodeRequirements() {
         </p>
         <p style={paragraph}>
           <strong>Open risers</strong>{" "}(no riser board) are allowed, as long as
-          the gap between treads will not let a 4-inch sphere pass through. If
-          the stair&apos;s total rise is 30 inches or less, that limit does not
-          apply.
+          the gap between treads will not let a 4-inch sphere pass through. The
+          limit applies only to openings more than 30 inches above the floor or
+          grade below — gaps on the lowest few steps are not restricted — and
+          spiral stairs are exempt.
         </p>
         <NoteBox>
           Always measure finished floor to finished floor, including flooring
@@ -370,13 +371,18 @@ export default function StairBuildingCodeRequirements() {
           </li>
         </ul>
 
-        <h2 style={sectionHeading}>Lighting — IRC R303.7</h2>
+        <h2 style={sectionHeading}>Lighting — IRC R303.7 and R303.8</h2>
         <p style={paragraph}>
-          Interior stairs need a light that illuminates the treads and
-          landings. If the stair has 6 or more risers, the light must be
-          switchable from both the top and bottom floor levels (unless it is
-          always on or automatic). Exterior stairs need a light at the top
-          landing.
+          <strong>Interior stairs (R303.7):</strong> a light must illuminate
+          the treads and landings to at least 1 foot-candle. If the stair has 6
+          or more risers, it must be switchable from both the top and bottom
+          floor levels (unless it is always on or automatic).
+        </p>
+        <p style={paragraph}>
+          <strong>Exterior stairs (R303.8):</strong> a light is required at the
+          top landing — and at the bottom landing for outdoor stairs down to a
+          basement. The switch must be inside the house, unless the light is
+          always on or automatic (for example, a motion sensor).
         </p>
 
         <h2 style={sectionHeading}>Spiral stairs — IRC R311.7.10.1</h2>
@@ -398,7 +404,11 @@ export default function StairBuildingCodeRequirements() {
             </tr>
             <tr>
               <td style={td}>Min tread depth</td>
-              <td style={td}>6¾&quot; at the walkline (12&quot; from the narrow edge)</td>
+              <td style={td}>6¾&quot; at the walkline</td>
+            </tr>
+            <tr>
+              <td style={td}>Max walkline radius</td>
+              <td style={td}>24½&quot; from the center column</td>
             </tr>
             <tr>
               <td style={td}>Max riser height</td>
@@ -427,7 +437,8 @@ export default function StairBuildingCodeRequirements() {
             grade needs a guard (see R312 above)
           </li>
           <li style={listItem}>
-            <strong>Lighting:</strong> a light source at the top landing
+            <strong>Lighting:</strong> a light source at the top landing, switched
+            from inside the house (R303.8)
           </li>
           <li style={listItem}>
             <strong>Bottom riser:</strong> measure total rise to the finished

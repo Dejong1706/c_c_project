@@ -284,9 +284,9 @@ const metaMap: Record<
     ],
   },
   "stair-building-code-requirements": {
-    title: "IRC Stair Code Requirements: Risers, Treads, Handrails (R311.7) | BuildCalc",
+    title: "IRC Stair Code: Risers, Treads & Handrails | BuildCalc",
     description:
-      "IRC stair code explained: 7¾\" max riser, 10\" min tread, 36\" width, 6'8\" headroom, handrails, guards and landings — plus winder, spiral and deck stair rules with a worked example.",
+      "IRC stair code explained: 7¾\" max riser, 10\" min tread, 36\" width, 6'8\" headroom, plus handrail, guard, landing, spiral and deck stair rules.",
     keywords: [
       "irc stair code",
       "stair building code",
