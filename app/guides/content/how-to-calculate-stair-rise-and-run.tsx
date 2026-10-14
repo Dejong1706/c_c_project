@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td } from "./shared";
+import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td, link } from "./shared";
 
 const faqs = [
   {
@@ -10,17 +10,17 @@ const faqs = [
   {
     question: "What is the ideal stair rise and run?",
     answer:
-      "The most comfortable combination is a 7-inch rise with an 11-inch run (sum = 18). The IRC allows up to 7¾-inch rise and requires a minimum 10-inch run. The comfort formula is Rise + Run = 17–18 inches.",
+      "The most comfortable combination is a 7-inch rise with an 11-inch run (sum = 18). The IRC allows up to 7¾-inch rise and requires a minimum 10-inch run. A common carpenter's rule of thumb is Rise + Run = 17–18 inches.",
   },
   {
     question: "How do I calculate stringer length?",
     answer:
-      "Use the Pythagorean theorem: stringer length = √(total rise² + total run²). For 108-inch rise and 154-inch run: √(11,664 + 23,716) = √35,380 = 188 inches (15.7 ft). Buy the next standard lumber length up and add 6–12 inches for cuts.",
+      "Use the Pythagorean theorem: stringer length = √(rise² + run²). In a standard mount stair the deck face is the top tread, so the rise is total rise minus one riser. For a 108-inch total rise with 16 risers of 6.75 inches and 15 treads of 11 inches (165-inch run): √(101.25² + 165²) = √37,476.6 ≈ 193.6 inches (16.1 ft). Add 6–12 inches for cuts and buy the next standard lumber length up — 18 ft here.",
   },
   {
     question: "Why can't I just make the bottom step a different height?",
     answer:
-      "IRC §R311.7.5.1 requires all risers in a flight to be within ⅜ inch of each other. An uneven bottom or top step is both a code violation and the leading cause of stair falls — the foot expects a consistent rhythm and misjudges the last step.",
+      "IRC §R311.7.5.1 requires all risers in a flight to be within ⅜ inch of each other. An uneven bottom or top step is both a code violation and a classic trip hazard — the foot expects a consistent rhythm and misjudges the odd step.",
   },
   {
     question: "Does the deck or landing count as a tread?",
@@ -50,7 +50,7 @@ const articleSchema = {
     "@id": "https://buildcalczone.com/guides/how-to-calculate-stair-rise-and-run",
   },
   datePublished: "2026-07-07",
-  dateModified: "2026-07-07",
+  dateModified: "2026-10-14",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -179,8 +179,11 @@ export default function HowToCalculateStairRiseAndRun() {
         <h2 style={sectionHeading}>Step 2 — Calculate riser count</h2>
         <p style={paragraph}>
           Divide total rise by your target riser height and round{" "}
-          <strong>up</strong>. Never round down — it produces a riser that
-          exceeds the IRC maximum.
+          <strong>up</strong>. Rounding down gives fewer, taller risers — taller
+          than your target, and over the 7¾-inch IRC maximum if your target
+          was already close to it. For example, 108 &divide; 7 rounded down is
+          15 risers at 7.2 inches: still legal, but steeper than planned.
+          Whichever way you round, check the actual riser height in Step 3.
         </p>
         <div style={formula}>
           Risers = ⌈Total Rise &divide; Target Riser Height⌉
@@ -194,8 +197,13 @@ export default function HowToCalculateStairRiseAndRun() {
         <h2 style={sectionHeading}>Step 3 — Back-derive actual riser height</h2>
         <p style={paragraph}>
           Once you have the riser count, divide total rise by that number to get
-          the actual uniform riser height. This ensures every step is identical
-          — required by IRC §R311.7.5.1.
+          the actual uniform riser height. This keeps every step the same height
+          — IRC §R311.7.5.1 allows no more than ⅜ inch of variation within a
+          flight. See{" "}
+          <Link href="/guides/stair-building-code-requirements" style={link}>
+            stair building code requirements
+          </Link>{" "}
+          for the full set of IRC limits.
         </p>
         <div style={formula}>
           Actual Riser = Total Rise &divide; Number of Risers
@@ -235,32 +243,38 @@ export default function HowToCalculateStairRiseAndRun() {
         <div style={formula}>
           Stringer = &radic;(Total Rise&sup2; + Total Run&sup2;)
         </div>
-        <p style={paragraph}>
-          <strong>Example:</strong> 108-inch rise, 165-inch run:
-        </p>
-        <div style={formula}>
-          &radic;(108&sup2; + 165&sup2;) = &radic;(11,664 + 27,225) =
-          &radic;38,889 = 197.2 in (16.4 ft)
-        </div>
-        <p style={paragraph}>
-          Buy the next standard lumber length up — in this case 18-foot
-          2&times;12 stringers. Add 6–12 inches to your calculated length for
-          the top plumb cut and bottom seat cut.
-        </p>
         <div style={note}>
           For standard mount decks, use total rise minus one riser height as the
           vertical leg of the triangle — the deck face is the top tread, so the
           stringer doesn&apos;t span the full rise.
         </div>
+        <p style={paragraph}>
+          <strong>Example:</strong> 108-inch total rise minus one 6.75-inch
+          riser = 101.25-inch stringer rise, with a 165-inch run:
+        </p>
+        <div style={formula}>
+          &radic;(101.25&sup2; + 165&sup2;) = &radic;(10,251.6 + 27,225) =
+          &radic;37,476.6 = 193.6 in (16.1 ft)
+        </div>
+        <p style={paragraph}>
+          Add 6–12 inches to your calculated length for the top plumb cut and
+          bottom seat cut, then buy the next standard lumber length up — in
+          this case 18-foot 2&times;12 stringers.
+        </p>
 
         {/* Comfort formula */}
         <h2 style={sectionHeading}>The comfort formula</h2>
         <p style={paragraph}>
-          A stair that passes code isn&apos;t always comfortable. The ergonomic
-          standard, documented by Nicolas-François Blondel in 1672 and restated
-          in AWC DCA-6, is:
+          A stair that passes code isn&apos;t always comfortable. The usual
+          carpenter&apos;s rule of thumb is:
         </p>
         <div style={formula}>Rise + Run = 17 to 18 inches</div>
+        <p style={paragraph}>
+          A related, older formula comes from the French architect
+          Nicolas-François Blondel in the 1670s: 2 &times; Rise + Run &asymp;
+          24–25 inches, roughly one walking stride. Both favour similar
+          combinations — a 7-inch rise with an 11-inch run satisfies each.
+        </p>
         <table
           style={{
             width: "100%",
@@ -352,8 +366,8 @@ export default function HowToCalculateStairRiseAndRun() {
               <td style={td}>17.75&quot; ✓</td>
             </tr>
             <tr>
-              <td style={td}>Stringer = &radic;(108&sup2; + 165&sup2;)</td>
-              <td style={td}>197.2&quot; (16.4 ft) → buy 18 ft 2&times;12</td>
+              <td style={td}>Stringer = &radic;((108 &minus; 6.75)&sup2; + 165&sup2;)</td>
+              <td style={td}>193.6&quot; (16.1 ft) → buy 18 ft 2&times;12</td>
             </tr>
           </tbody>
         </table>

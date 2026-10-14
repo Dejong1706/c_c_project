@@ -118,7 +118,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-to-calculate-stair-rise-and-run",
-      date: "2026-07-07",
+      date: "2026-10-14",
       priority: 0.7,
     },
     {

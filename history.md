@@ -48,17 +48,17 @@
   - [x] (2026-10-13) 나선 계단 표 (~401행): 2021 R311.7.10.1 보행선 정의(반지름 24½″ 상한) 반영
   - [x] (2026-10-13) 조명 (~373–379행): 외부 계단은 R303.8. 실내에서 스위치로 켤 수 있어야 함.
 - `how-to-calculate-stair-rise-and-run.tsx`
-  - [ ] 사판 예시 (~239–244, ~355–356행)
+  - [x] (2026-10-14) 사판 예시 (~239–244, ~355–356행)
     - √(108²+165²)=197.2″로 되어 있다.
     - 계산기(standard)와 본문 메모(전체 높이 − 단 하나)는 √(101.25²+165²)=193.6″이다.
-  - [ ] FAQ (~18행): 154″ run(15단 기준)이 본문의 16단 예시와 불일치
-  - [ ] Blondel/DCA 6 인용 (~260–263행)
+  - [x] (2026-10-14) FAQ (~18행): 154″ run(15단 기준)이 본문의 16단 예시와 불일치
+  - [x] (2026-10-14) Blondel/DCA 6 인용 (~260–263행)
     - Blondel은 2R+T≈24–25″이다.
     - R+T=17–18″은 목수들의 경험칙이다.
-  - [ ] "Never round down — IRC 최대를 넘는다" (~182–183행)
+  - [x] (2026-10-14) "Never round down — IRC 최대를 넘는다" (~182–183행)
     - 내림 시 목표 단높이를 넘을 뿐, 코드 위반은 아닐 수 있다.
     - 예: 108÷7 → 15단 × 7.2″는 합법.
-  - [ ] "leading cause of stair falls" (~23행): 근거 없음, 완화
+  - [x] (2026-10-14) "leading cause of stair falls" (~23행): 근거 없음, 완화
 - 지붕 안전 기준 (여러 곳이 서로 모순되고 OSHA와도 다름)
   - 해당 위치:
     - `roof-pitch-calculator/RoofPitchCalc.tsx` 안내문(~217행), `pitchCategory`(~18–25행)
@@ -313,7 +313,7 @@
 **1주차: 노출 상위 가이드**
 - [x] 월 (2026-10-12): lint 에러 0 (privacy-policy `"` 이스케이프, 미사용 import `formula`, `UnitLen`)
 - [x] 화 (2026-10-13): 계단 코드 가이드 (오픈 라이저, 나선 보행선, 조명 R303.8) + title(75자)/description(178자) 축소
-- [ ] 수: rise-and-run 가이드 (사판 193.6″, FAQ, 내림 문구, Blondel, "leading cause") + ~198행 IRC 언급에 계단 코드 가이드 링크
+- [x] 수 (2026-10-14): rise-and-run 가이드 (사판 193.6″, FAQ, 내림 문구, Blondel, "leading cause") + ~198행 IRC 언급에 계단 코드 가이드 링크
 - [ ] 목: 모르타르 가이드 (sharp sand, 2°C, 4배합, L/m²) + title/description 축소 + `how-many-bricks-per-square-metre`에서 모르타르 가이드·계산기 링크
 - [ ] 금: 손비빔 가이드 1.8 ft³ + title(73자)/description 축소 + 콘크리트 가이드 5곳에서 링크 (concrete-volume 185–193, strength-grades ~204, curing, fence 250–255, mortar FAQ)
 
