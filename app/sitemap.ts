@@ -68,12 +68,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-many-bricks-per-square-metre",
-      date: "2026-06-16",
+      date: "2026-10-15",
       priority: 0.7,
     },
     {
       route: "/guides/brick-mortar-mix-ratio",
-      date: "2026-10-07",
+      date: "2026-10-15",
       priority: 0.7,
     },
     {

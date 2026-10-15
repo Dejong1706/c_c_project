@@ -15,7 +15,7 @@ const faqs = [
   {
     question: "What is the correct mortar mix ratio for bricklaying?",
     answer:
-      "For most above-ground brickwork, Type N mortar is standard: 1 part cement, 1 part hydrated lime and 6 parts sand by volume. Without lime, a 1:5 cement to sand ratio is the usual general-purpose mix. For internal non-structural walls, a weaker 1:6 mix is common. For below-ground or high-moisture areas, a stronger 1:3 or 1:4 mix is used. Adding a small amount of hydrated lime (typically 1 part lime to the cement) improves workability without significantly reducing strength.",
+      "For most above-ground brickwork, Type N mortar is standard: 1 part cement, 1 part hydrated lime and 6 parts sand by volume. Without lime, a 1:5 cement to sand ratio is the usual general-purpose mix. For internal non-structural walls, a weaker 1:6 mix is common. For below-ground or high-moisture areas, a stronger 1:3 or 1:4 mix is used. Hydrated lime improves workability and water retention, but more lime means lower strength — that is the difference between Type M (¼ part lime) and Type N (1 part lime).",
   },
   {
     question: "Can I use the same mortar mix for all brickwork?",
@@ -30,7 +30,7 @@ const faqs = [
   {
     question: "How much mortar do I need per square metre of brickwork?",
     answer:
-      "As a rough guide, standard brickwork with 10mm joints uses approximately 0.5 to 0.7 litres of mortar per brick, depending on whether joints are on all faces or only the bed and perpendicular joints. For a single-leaf wall using approximately 60 bricks per square metre, that works out to around 30 to 40 litres of mixed mortar per square metre.",
+      "The joints alone in a single-leaf wall of standard 215×65mm bricks with 10mm joints hold about 18 litres of mortar per square metre (roughly 0.3 litres per brick at 60 bricks per m²). Real use is higher, typically around 25 to 30 litres per square metre, because frogs are filled, joints are buttered and some mortar is dropped. Buy for real use, not just joint volume.",
   },
   {
     question: "Can I use concrete mix instead of mortar for bricks?",
@@ -60,7 +60,7 @@ const articleSchema = {
     "Mortar mix ratios for bricklaying. Covers Type N, S, M and O mortar (ASTM C270), cement to lime to sand ratios, which type to use for each job, and how much water to add.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/brick-mortar-mix-ratio" },
   datePublished: "2026-06-16",
-  dateModified: "2026-10-07",
+  dateModified: "2026-10-15",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -227,8 +227,10 @@ export default function BrickMortarMixRatioGuide() {
 
         <h2 style={sectionHeading}>The basic mix: cement and sand</h2>
         <p style={paragraph}>
-          Standard bricklaying mortar is a mix of Portland cement and sharp
-          sand, combined by volume. The ratio describes how many parts sand per
+          Standard bricklaying mortar is a mix of Portland cement and soft
+          building sand (masonry sand, ASTM C144), combined by volume. Sharp
+          sand is too coarse for mortar joints; keep it for concrete and
+          screeds. The ratio describes how many parts sand per
           part cement. A higher number means more sand — a weaker, more flexible
           mix. A lower number means more cement — stronger but less forgiving of
           movement.
@@ -281,9 +283,11 @@ export default function BrickMortarMixRatioGuide() {
         </p>
         <p style={paragraph}>
           A typical lime-modified mix for external brickwork is cement:lime:sand
-          in a 1:1:5 to 1:1:6 ratio. The lime partially replaces some of the
-          cement&apos;s stiffness without significantly reducing final strength
-          for standard applications.
+          in a 1:1:5 to 1:1:6 ratio. The trade-off is strength: lime replaces
+          some of the cement, so each step up in lime lowers the mortar&apos;s
+          compressive strength. That is fine, and usually preferable, for
+          ordinary above-ground walls, but not where you need a Type S or M
+          mortar.
         </p>
         <GuideTable>
           <thead>
@@ -312,7 +316,9 @@ export default function BrickMortarMixRatioGuide() {
           </tbody>
         </GuideTable>
         <p style={paragraph}>
-          These four lime mixes line up roughly with the US mortar types:
+          The first row has no lime at all. The ASTM C270 types follow the same
+          cement:lime:sand pattern, with a little lime even in the strongest
+          mix:
         </p>
         <div style={formula}>
           1:¼:3 ≈ Type M · 1:½:4½ ≈ Type S · 1:1:6 ≈ Type N · 1:2:9 ≈ Type O
@@ -342,11 +348,21 @@ export default function BrickMortarMixRatioGuide() {
 
         <h2 style={sectionHeading}>How much mortar per square metre</h2>
         <p style={paragraph}>
-          As a rough guide for standard brickwork with 10mm mortar joints, allow
-          approximately 30 to 40 litres of mixed mortar per square metre of
-          single-leaf wall. This accounts for bed joints (horizontal) and
-          perpendicular joints (vertical) but not collar joints in cavity walls.
-          Add 10% for waste and overfilling.
+          In a single-leaf wall of standard bricks with 10mm joints, the bed
+          joints (horizontal) and perpendicular joints (vertical) hold about 18
+          litres of mortar per square metre. That is the joint volume only. On
+          site you will use more, typically around 25 to 30 litres per square
+          metre, because bricks laid frog-up have their frogs filled, joints
+          are buttered and some mortar is dropped. Collar joints in cavity walls
+          are extra.
+        </p>
+        <p style={paragraph}>
+          The{" "}
+          <Link href="/mortar-calculator" style={link}>
+            mortar calculator
+          </Link>{" "}
+          shows the joint volume plus your waste allowance, and bases its bag
+          count on real-world coverage, so you don&apos;t buy short.
         </p>
         <NoteBox>
           Mortar volume estimates vary with joint width and brick type. The
@@ -372,8 +388,9 @@ export default function BrickMortarMixRatioGuide() {
           </li>
           <li style={listItem}>
             <strong>Working in cold conditions without precautions</strong> —
-            mortar should not be mixed or applied when temperatures are at or
-            below 2°C, as freezing before curing destroys the bond
+            in the US, TMS 602 requires cold-weather measures once the air
+            drops below 40°F (4°C); UK practice is to stop when it is 3°C and
+            falling. Mortar that freezes before it sets loses its bond
           </li>
         </ul>
 

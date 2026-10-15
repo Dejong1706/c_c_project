@@ -45,7 +45,7 @@ const articleSchema = {
     "Brick quantities per square metre for standard, maxi and jumbo bricks. Includes waste allowance guidance and pallet quantity notes.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-many-bricks-per-square-metre" },
   datePublished: "2026-06-16",
-  dateModified: "2026-06-16",
+  dateModified: "2026-10-15",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -227,6 +227,18 @@ export default function HowManyBricksPerSquareMetreGuide() {
           </Link>{" "}
           handles this automatically — enter your wall dimensions and it returns
           brick count and pallet estimate with adjustable waste.
+        </p>
+        <p style={paragraph}>
+          For the mortar to lay them, the{" "}
+          <Link href="/mortar-calculator" style={link}>
+            mortar calculator
+          </Link>{" "}
+          works out cement, lime, sand and bag counts from your wall area, and
+          the{" "}
+          <Link href="/guides/brick-mortar-mix-ratio" style={link}>
+            mortar mix ratio guide
+          </Link>{" "}
+          explains which mix (Type N, S, M or O) to use for each job.
         </p>
 
         <h2 style={sectionHeading}>FAQ</h2>

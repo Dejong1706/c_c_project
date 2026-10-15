@@ -165,9 +165,9 @@ const metaMap: Record<
     ],
   },
   "brick-mortar-mix-ratio": {
-    title: "Mortar Mix Ratio for Bricks: Type N, S, M Explained | BuildCalc",
+    title: "Mortar Mix Ratio for Bricks: Type N, S & M | BuildCalc",
     description:
-      "Which mortar mix to use for bricks: Type N, S, M and O ratios (cement:lime:sand), strengths, and uses. Plus bagged mortar vs masonry cement and why stronger isn't always better.",
+      "Mortar mix ratios for bricks: Type N, S, M and O (cement:lime:sand), strengths and uses, bagged mortar vs masonry cement, and mortar needed per m².",
     keywords: [
       "mortar mix ratio",
       "brick mortar ratio",

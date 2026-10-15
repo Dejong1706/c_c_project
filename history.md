@@ -122,7 +122,7 @@
 
 ### 석공
 
-- [ ] `brick-mortar-mix-ratio.tsx`
+- [x] (2026-10-15) `brick-mortar-mix-ratio.tsx`
   - ~230행: "Portland cement and **sharp sand**" → soft/building sand (ASTM C144). 계산기 FAQ와 모순.
   - ~18, ~283–286행: "석회 소량 추가해도 강도 크게 안 줄어듦" 오해 소지 (1:1 석회면 Type M→N 수준)
   - ~33, ~345–349행: 벽돌당 0.5–0.7 L / m²당 30–40 L + 10%
@@ -314,7 +314,7 @@
 - [x] 월 (2026-10-12): lint 에러 0 (privacy-policy `"` 이스케이프, 미사용 import `formula`, `UnitLen`)
 - [x] 화 (2026-10-13): 계단 코드 가이드 (오픈 라이저, 나선 보행선, 조명 R303.8) + title(75자)/description(178자) 축소
 - [x] 수 (2026-10-14): rise-and-run 가이드 (사판 193.6″, FAQ, 내림 문구, Blondel, "leading cause") + ~198행 IRC 언급에 계단 코드 가이드 링크
-- [ ] 목: 모르타르 가이드 (sharp sand, 2°C, 4배합, L/m²) + title/description 축소 + `how-many-bricks-per-square-metre`에서 모르타르 가이드·계산기 링크
+- [x] 목 (2026-10-15): 모르타르 가이드 (sharp sand, 2°C, 4배합, L/m²) + title/description 축소 + `how-many-bricks-per-square-metre`에서 모르타르 가이드·계산기 링크
 - [ ] 금: 손비빔 가이드 1.8 ft³ + title(73자)/description 축소 + 콘크리트 가이드 5곳에서 링크 (concrete-volume 185–193, strength-grades ~204, curing, fence 250–255, mortar FAQ)
 
 **2주차: 안전·시공 오류**
