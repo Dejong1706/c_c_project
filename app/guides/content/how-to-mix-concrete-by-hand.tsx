@@ -55,7 +55,7 @@ const articleSchema = {
     "Step-by-step guide to mixing concrete by hand. Covers cement vs concrete vs mortar, mix ratios, bagged premix, water amount, safety, and when hand mixing stops being practical.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-mix-concrete-by-hand" },
   datePublished: "2026-06-12",
-  dateModified: "2026-10-08",
+  dateModified: "2026-10-16",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -313,7 +313,7 @@ export default function HowToMixConcreteByHandGuide() {
 
         <h2 style={sectionHeading}>Tools</h2>
         <p style={paragraph}>
-          For small batches under about 50 litres (roughly 2 ft³), a mixing
+          For small batches under about 50 litres (roughly 1.8 ft³), a mixing
           board (a sheet of plywood works) and a square-ended spade or mortar
           hoe are sufficient. For batches up to around 100 litres, a large
           wheelbarrow or mixing tub and a mixing hoe give more room to work.

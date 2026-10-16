@@ -128,10 +128,9 @@ const metaMap: Record<
     ],
   },
   "how-to-mix-concrete-by-hand": {
-    title:
-      "How to Mix Concrete (or Cement) by Hand: Ratios, Water & Bags | BuildCalc",
+    title: "How to Mix Concrete by Hand: Ratio, Water & Bags | BuildCalc",
     description:
-      "How to mix concrete by hand: 1:2:3 ratio, how much water to add (about 3 quarts per 80 lb bag), cement vs concrete vs mortar, bagged premix yields, safety and mixing steps.",
+      "How to mix concrete by hand: the 1:2:3 ratio, how much water per 80 lb bag (about 3 quarts), bagged premix yields, tools and step-by-step mixing.",
     keywords: [
       "how to mix concrete by hand",
       "mixing cement by hand",

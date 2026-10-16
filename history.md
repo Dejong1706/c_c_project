@@ -116,7 +116,7 @@
   - ~204행: "C15–C20" → 2500–3000 psi는 **C16/20–C20/25** (C15는 EN 206 등급 아님)
   - ~124–129행: 표 구간 겹침. "기초 4000–4500 psi"는 IRC R402.2 최소(2500 psi) 및 본문 C25/30과 모순
 - [ ] `concrete-bags/page.tsx` ~11, ~23행: 없는 "bag size 선택" 기능을 약속. `BagCalc.tsx` ~102행 "post hole" 언급 (원형 모드 없음, 27% 과다)
-- [ ] `how-to-mix-concrete-by-hand.tsx`: "50 litres (roughly 2 ft³)" → 1.8 ft³
+- [x] (2026-10-16) `how-to-mix-concrete-by-hand.tsx`: "50 litres (roughly 2 ft³)" → 1.8 ft³
 - [ ] `guides/[slug]/page.tsx` cubic-yards-to-cubic-meters 메타 title의 "Converter" (페이지에 변환기 없음)
 - [ ] `RebarCalc.tsx` ~102행: "±3%" → ASTM A615은 최대 6% 미달 허용, EN 10080 ±4.5%. "Weight per bar"는 이음 여유 포함임을 명시
 
@@ -315,7 +315,7 @@
 - [x] 화 (2026-10-13): 계단 코드 가이드 (오픈 라이저, 나선 보행선, 조명 R303.8) + title(75자)/description(178자) 축소
 - [x] 수 (2026-10-14): rise-and-run 가이드 (사판 193.6″, FAQ, 내림 문구, Blondel, "leading cause") + ~198행 IRC 언급에 계단 코드 가이드 링크
 - [x] 목 (2026-10-15): 모르타르 가이드 (sharp sand, 2°C, 4배합, L/m²) + title/description 축소 + `how-many-bricks-per-square-metre`에서 모르타르 가이드·계산기 링크
-- [ ] 금: 손비빔 가이드 1.8 ft³ + title(73자)/description 축소 + 콘크리트 가이드 5곳에서 링크 (concrete-volume 185–193, strength-grades ~204, curing, fence 250–255, mortar FAQ)
+- [x] 금 (2026-10-16): 손비빔 가이드 1.8 ft³ + title(60자)/description(145자) 축소 + 콘크리트 가이드 5곳에서 링크 (concrete-volume 백 수 문단, strength-grades 마무리, curing 습윤양생 목록 뒤, fence Step 6, mortar "콘크리트 대신" NoteBox — FAQ 답은 JSON-LD 문자열이라 본문에 링크)
 
 **2주차: 안전·시공 오류**
 - [ ] 월: drywall-screw-spacing-guide (2단계 항목 전체)

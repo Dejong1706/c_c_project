@@ -44,7 +44,7 @@ const articleSchema = {
     "Understand concrete strength grades in PSI and MPa, what they're used for, and how US and international (EN 206) classifications compare.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/concrete-strength-grades" },
   datePublished: "2026-06-12",
-  dateModified: "2026-06-12",
+  dateModified: "2026-10-16",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -223,7 +223,13 @@ export default function ConcreteStrengthGradesGuide() {
           <Link href="/concrete-bags" style={link}>
             concrete bag calculator
           </Link>{" "}
-          can help you figure out exactly how much you need to order.
+          can help you figure out exactly how much you need to order. If
+          you&apos;re mixing small batches yourself rather than ordering, see{" "}
+          <Link href="/guides/how-to-mix-concrete-by-hand" style={link}>
+            how to mix concrete by hand
+          </Link>{" "}
+          — the amount of water you add has a big effect on the strength you
+          actually get.
         </p>
 
         <h2 style={sectionHeading}>FAQ</h2>

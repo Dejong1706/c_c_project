@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/guides", date: "2026-06-29", priority: 0.8 },
     {
       route: "/guides/how-to-calculate-concrete-volume",
-      date: "2026-06-12",
+      date: "2026-10-16",
       priority: 0.7,
     },
     {
@@ -38,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/concrete-strength-grades",
-      date: "2026-06-12",
+      date: "2026-10-16",
       priority: 0.7,
     },
     {
@@ -48,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-to-mix-concrete-by-hand",
-      date: "2026-10-08",
+      date: "2026-10-16",
       priority: 0.7,
     },
     {
@@ -73,7 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/brick-mortar-mix-ratio",
-      date: "2026-10-15",
+      date: "2026-10-16",
       priority: 0.7,
     },
     {
@@ -93,12 +93,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-to-calculate-fence-post-spacing",
-      date: "2026-06-25",
+      date: "2026-10-16",
       priority: 0.7,
     },
     {
       route: "/guides/concrete-curing-time-guide",
-      date: "2026-06-25",
+      date: "2026-10-16",
       priority: 0.7,
     },
     {

@@ -44,7 +44,7 @@ const articleSchema = {
     "Learn how to calculate concrete volume for slabs, footings and columns. Includes waste percentage tips, unit conversions, and bag vs ready-mix guidance.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-concrete-volume" },
   datePublished: "2026-06-12",
-  dateModified: "2026-06-12",
+  dateModified: "2026-10-16",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -206,6 +206,11 @@ export default function ConcreteVolumeGuide() {
           So for that 1.32 cubic meter (≈1.73 cubic yard) patio, you&apos;d need
           roughly 78 × 80lb bags (1.73 × 45 ≈ 78) — though buying a few
           extra is wise in case of spillage or a thicker pour than planned.
+          Mixing that many bags by hand is a long day; for small batches, the{" "}
+          <Link href="/guides/how-to-mix-concrete-by-hand" style={link}>
+            guide to mixing concrete by hand
+          </Link>{" "}
+          covers water per bag, ratios and when a mixer makes more sense.
         </p>
 
         <h2 style={sectionHeading}>Putting it together</h2>

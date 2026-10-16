@@ -60,7 +60,7 @@ const articleSchema = {
     "Mortar mix ratios for bricklaying. Covers Type N, S, M and O mortar (ASTM C270), cement to lime to sand ratios, which type to use for each job, and how much water to add.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/brick-mortar-mix-ratio" },
   datePublished: "2026-06-16",
-  dateModified: "2026-10-15",
+  dateModified: "2026-10-16",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -223,6 +223,11 @@ export default function BrickMortarMixRatioGuide() {
         <NoteBox>
           Don&apos;t use concrete mix as mortar. Concrete contains gravel, which
           makes thin, even joints impossible and gives a weak bond to the brick.
+          (For footings and slabs, where you do want concrete, see{" "}
+          <Link href="/guides/how-to-mix-concrete-by-hand" style={link}>
+            how to mix concrete by hand
+          </Link>
+          .)
         </NoteBox>
 
         <h2 style={sectionHeading}>The basic mix: cement and sand</h2>

@@ -4,6 +4,7 @@ import {
   GuideTable,
   NoteBox,
   formula,
+  link,
   paragraph,
   sectionHeading,
   td,
@@ -56,7 +57,7 @@ const articleSchema = {
     "Step-by-step guide to calculating fence post spacing, post count, burial depth, rail count, and concrete needs for wood, vinyl, and chain-link fences.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-fence-post-spacing" },
   datePublished: "2026-06-25",
-  dateModified: "2026-06-25",
+  dateModified: "2026-10-16",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -252,7 +253,11 @@ export default function FencePostSpacingGuide() {
           Each post needs a concrete footing. For a standard 4×4 post in a
           12-inch diameter hole about 24 inches deep, use 2 bags of 80 lb
           quick-setting concrete per post. Deeper holes (36+ inches) need 3–4
-          bags.
+          bags. If you&apos;re using standard (not fast-setting) mix, see{" "}
+          <Link href="/guides/how-to-mix-concrete-by-hand" style={link}>
+            how to mix concrete by hand
+          </Link>{" "}
+          for water amounts and mixing steps.
         </p>
         <div style={formula}>Concrete bags = Total posts × 2</div>
         <NoteBox>

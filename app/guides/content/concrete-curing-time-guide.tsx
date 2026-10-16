@@ -4,6 +4,7 @@ import {
   GuideTable,
   NoteBox,
   formula,
+  link,
   listItem,
   paragraph,
   sectionHeading,
@@ -57,7 +58,7 @@ const articleSchema = {
     "How long concrete takes to cure at every stage — 24 hours, 7 days, 28 days — and how temperature affects strength gain.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/concrete-curing-time-guide" },
   datePublished: "2026-06-25",
-  dateModified: "2026-06-25",
+  dateModified: "2026-10-16",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -247,6 +248,14 @@ export default function ConcreteCuringTimeGuide() {
             weather
           </li>
         </ul>
+        <p style={paragraph}>
+          Good curing can&apos;t make up for a mix that was too wet to begin
+          with. If you&apos;re mixing small batches yourself, the{" "}
+          <Link href="/guides/how-to-mix-concrete-by-hand" style={link}>
+            guide to mixing concrete by hand
+          </Link>{" "}
+          explains how much water to add per bag.
+        </p>
 
         <h2 style={sectionHeading}>When to apply loads</h2>
         <GuideTable>
