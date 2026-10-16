@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "How deep should fence posts be set?",
     answer:
-      "At least 1/3 of the total post length — so a 6 ft fence needs 8 ft posts with 2 ft buried. In cold climates, always go below the local frost line (36–48 inches in northern regions).",
+      "Quikrete says to dig the hole 1/3 of the overall post length deep — half the above-ground height. So a 6 ft fence needs 3 ft buried and a 9 ft post (cut from a 10 ft length). In cold climates, always go below the local frost line (36–48 inches in northern regions).",
   },
   {
     question: "Why do I get an uneven last bay?",
@@ -202,15 +202,17 @@ export default function FencePostSpacingGuide() {
         <p style={paragraph}>
           Every post needs to be buried deep enough to stay rigid. The rule is:
         </p>
-        <div style={formula}>Burial depth = max(Fence height ÷ 3, 2 ft)</div>
+        <div style={formula}>Burial depth = 1/3 of post length = Fence height ÷ 2</div>
         <p style={paragraph}>
-          So a 6 ft fence needs posts buried at least 2 ft (6 ÷ 3 = 2). Total
-          post length = fence height + burial depth. A 6 ft fence uses 8 ft
-          posts.
+          Quikrete&apos;s post-setting instructions put the hole depth at 1/3 of
+          the overall post length. If a third of the post is underground, the
+          two-thirds above ground is the fence height — so burial depth is half
+          the fence height. A 6 ft fence needs posts buried 3 ft, and a 9 ft
+          post (cut from a 10 ft length).
         </p>
         <p style={paragraph}>
           In cold climates, burial depth must go below the local frost line
-          regardless of the 1/3 rule. Frost lines range from 24 inches in mild
+          even if that is deeper than the 1/3 rule. Frost lines range from 24 inches in mild
           regions to 48+ inches in northern states and Canada. Check your local
           building code.
         </p>
@@ -250,21 +252,70 @@ export default function FencePostSpacingGuide() {
         {/* Step 6 */}
         <h2 style={sectionHeading}>Step 6 — Estimate concrete</h2>
         <p style={paragraph}>
-          Each post needs a concrete footing. For a standard 4×4 post in a
-          12-inch diameter hole about 24 inches deep, use 2 bags of 80 lb
-          quick-setting concrete per post. Deeper holes (36+ inches) need 3–4
-          bags. If you&apos;re using standard (not fast-setting) mix, see{" "}
+          Each post needs a concrete footing. Work out the concrete volume
+          around the post, then divide by the yield printed on the bag and
+          round up:
+        </p>
+        <div style={formula}>
+          Concrete per post = (π × (hole diameter ÷ 2)² − post area) × concrete
+          depth
+        </div>
+        <div style={formula}>
+          Concrete bags = Total posts × ⌈Concrete per post ÷ bag yield⌉
+        </div>
+        <p style={paragraph}>
+          Example: a 4×4 post (3½ × 3½ in actual) in a 12-inch hole with 24
+          inches of concrete around it needs (π × 0.5² − 0.292²) × 2 ≈ 1.40 ft³
+          per post. Using the yields on Quikrete&apos;s data sheets:
+        </p>
+        <GuideTable>
+          <thead>
+            <tr>
+              <th style={th}>Product (yield per bag)</th>
+              <th style={th}>24 in of concrete (1.40 ft³)</th>
+              <th style={th}>36 in of concrete (2.10 ft³)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style={td}>Concrete Mix, 80 lb (0.60 ft³)</td>
+              <td style={td}>3 bags</td>
+              <td style={td}>4 bags</td>
+            </tr>
+            <tr>
+              <td style={td}>Fast-Setting Concrete Mix, 50 lb (0.375 ft³)</td>
+              <td style={td}>4 bags</td>
+              <td style={td}>6 bags</td>
+            </tr>
+            <tr>
+              <td style={td}>Fast-Setting Concrete Mix, 60 lb (0.45 ft³)</td>
+              <td style={td}>4 bags</td>
+              <td style={td}>5 bags</td>
+            </tr>
+          </tbody>
+        </GuideTable>
+        <p style={paragraph}>
+          Concrete depth is not always the same as hole depth. With
+          Fast-Setting mix, leave out the gravel layer at the bottom and the
+          top 3–4 inches that Quikrete says to fill with soil. With standard
+          Concrete Mix, add the 6-inch layer of dry mix that Quikrete puts in
+          the bottom of the hole (see below). As a cross-check, Quikrete
+          says two 50 lb bags of Fast-Setting mix set a 3-inch square post in a
+          9-inch hole 30 inches deep. If you&apos;re using standard (not
+          fast-setting) mix, see{" "}
           <Link href="/guides/how-to-mix-concrete-by-hand" style={link}>
             how to mix concrete by hand
           </Link>{" "}
           for water amounts and mixing steps.
         </p>
-        <div style={formula}>Concrete bags = Total posts × 2</div>
         <NoteBox>
-          Dig holes 3× the post width in diameter — so 12 inches for a 4×4 post.
-          Add 4–6 inches of gravel at the bottom for drainage before setting the
-          post. Crown the concrete above grade to shed water away from the post
-          base.
+          Quikrete says to dig the hole about 3 times the post&apos;s width in
+          diameter (about 10½–12 inches for a 4×4). For Fast-Setting mix, its Setting Posts guide adds 6
+          inches to that depth for a tamped gravel base, then fills the hole
+          with mix to 3–4 inches from the top and finishes with soil. For
+          standard Concrete Mix, its data sheet puts 6 inches of dry mix in the
+          bottom instead, fills the hole with mixed concrete and tapers the top
+          away from the post so rain runs off.
         </NoteBox>
 
         {/* Calculator CTA */}

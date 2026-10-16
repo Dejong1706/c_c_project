@@ -17,27 +17,27 @@ const faqs = [
   {
     question: "What is the maximum riser height for residential stairs?",
     answer:
-      'The IRC sets a maximum riser height of 7¾ inches (7.75"). There is no minimum riser height in the IRC. All risers in a single flight must be within ⅜ inch of each other — this uniformity rule is the most commonly failed inspection point.',
+      'The 2024 IRC (R318.7.5.1) sets a maximum riser height of 7¾ inches (7.75"). There is no minimum riser height in the IRC. Within a flight, the tallest riser may not exceed the shortest by more than ⅜ inch.',
   },
   {
     question: "What is the minimum tread depth per building code?",
     answer:
-      "IRC R311.7.5.2 requires a minimum tread depth of 10 inches, measured horizontally between the leading edges of adjacent treads. As with risers, the deepest and shallowest tread in a flight may differ by no more than ⅜ inch. Commercial stairs under the IBC need 11 inches.",
+      "IRC R318.7.5.2 requires a minimum tread depth of 10 inches, measured horizontally between the vertical planes of the foremost projection of adjacent treads. As with risers, the deepest and shallowest tread in a flight may differ by no more than ⅜ inch. Stairs under the IBC need 11 inches (IBC 1011.5.2).",
   },
   {
     question: "How wide do stairs need to be?",
     answer:
-      "IRC R311.7.1 requires a minimum clear width of 36 inches above the handrail. At and below the handrail, the clear width can drop to 31½ inches with a handrail on one side, or 27 inches with handrails on both sides.",
+      "IRC R318.7.1 requires a minimum clear width of 36 inches above the permitted handrail height. At and below the handrail, the clear width can drop to 31½ inches with a handrail on one side, or 27 inches with handrails on both sides.",
   },
   {
     question: "How many steps before a handrail is required?",
     answer:
-      "IRC R311.7.8 requires a handrail on at least one side of any flight with 4 or more risers. Handrail height must be 34–38 inches, measured vertically from the line connecting the tread nosings, and it must run continuously for the full length of the flight.",
+      "IRC R318.7.8 requires a handrail on at least one side of each flight with 4 or more risers. Under R320, handrail height must be 34–38 inches, measured vertically from the sloped plane adjoining the tread nosings, and it must be continuous for the full length of the flight.",
   },
   {
     question: "What is the minimum headroom for stairs?",
     answer:
-      "IRC R311.7.2 requires a minimum headroom of 6 feet 8 inches (80 inches), measured vertically from the sloped line connecting the tread nosings to the ceiling or soffit above. Spiral stairs are allowed 6 feet 6 inches.",
+      "IRC R318.7.2 requires a minimum headroom of 6 feet 8 inches (80 inches), measured vertically from the sloped line adjoining the tread nosings, or from the landing surface. Spiral stairs are allowed 6 feet 6 inches.",
   },
   {
     question: "Are open risers allowed on residential stairs?",
@@ -47,7 +47,7 @@ const faqs = [
   {
     question: "Do deck stairs have to meet the same code?",
     answer:
-      "Yes. Stairs serving a deck are regulated by the same IRC R311.7 rules as interior stairs — 7¾-inch maximum risers, 10-inch minimum treads, 36-inch width, handrails at 4 or more risers — plus guards on open sides more than 30 inches above grade and a light at the top landing.",
+      "Yes. Stairs serving a deck are regulated by the same IRC R318.7 rules as interior stairs — 7¾-inch maximum risers, 10-inch minimum treads, 36-inch width, handrails at 4 or more risers — plus guards on open sides more than 30 inches above grade (R321) and a light at the top landing (R325.7).",
   },
 ];
 
@@ -64,15 +64,15 @@ const faqSchema = {
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Stair Building Code Requirements (IRC R311.7)",
+  headline: "Stair Building Code Requirements (IRC R318.7)",
   description:
-    "IRC residential stair code explained — riser height, tread depth, width, headroom, handrails, guards, landings, winders, spiral and deck stairs, with a worked example.",
+    "2024 IRC residential stair code explained — riser height, tread depth, width, headroom, handrails, guards, landings, winders, spiral and deck stairs, with a worked example.",
   mainEntityOfPage: {
     "@type": "WebPage",
     "@id": "https://buildcalczone.com/guides/stair-building-code-requirements",
   },
   datePublished: "2026-07-08",
-  dateModified: "2026-10-13",
+  dateModified: "2026-10-16",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -91,7 +91,7 @@ export default function StairBuildingCodeRequirements() {
       />
 
       <article style={{ maxWidth: "680px" }}>
-        <Breadcrumb current="Stair Building Code Requirements (IRC R311.7)" />
+        <Breadcrumb current="Stair Building Code Requirements (IRC R318.7)" />
         <header style={{ marginBottom: "24px" }}>
           <span
             style={{
@@ -114,23 +114,25 @@ export default function StairBuildingCodeRequirements() {
               color: "var(--text-1)",
             }}
           >
-            Stair Building Code Requirements (IRC R311.7)
+            Stair Building Code Requirements (IRC R318.7)
           </h1>
           <IntroText>
-            Stairs are one of the most code-intensive elements in residential
-            construction. Every dimension is regulated — riser height, tread
-            depth, width, headroom, handrails, guards and landings. This is a
-            complete reference for the IRC residential stair rules, with a
-            worked example and the special cases: winders, spiral stairs and
-            deck stairs.
+            The IRC regulates riser height, tread depth, width, headroom,
+            handrails, guards, landings and lighting for residential stairs.
+            This is a reference for those rules, with a worked example and the
+            special cases: winders, spiral stairs and deck stairs.
           </IntroText>
         </header>
 
         <NoteBox>
-          This guide covers the 2021 IRC (International Residential Code).
-          Local jurisdictions may adopt a different edition or add amendments —
-          always confirm with your local building department before cutting
-          stringers. Commercial stairs follow IBC §1011, which is stricter.
+          This guide follows the 2024 IRC (International Residential Code), the
+          current edition — the 2027 edition has not been released yet. The
+          2024 edition renumbered the stair rules: stairways moved from R311.7
+          to R318.7, handrail details to R320, guards to R321 and stair
+          lighting to R325.6–R325.7. Each state or city adopts its own edition
+          and may amend it, so confirm the code in force with your local
+          building department before cutting stringers. Stairs in buildings
+          outside the IRC follow 2024 IBC Section 1011.
         </NoteBox>
 
         <h2 style={sectionHeading}>Quick reference — IRC vs IBC</h2>
@@ -190,8 +192,8 @@ export default function StairBuildingCodeRequirements() {
             </tr>
             <tr>
               <td style={td}>Min landing depth</td>
-              <td style={td}>36&quot;</td>
-              <td style={td}>Stair width (need not exceed 48&quot; on a straight run)</td>
+              <td style={td}>36&quot; on a straight run</td>
+              <td style={td}>Stair width or 48&quot;, whichever is less</td>
             </tr>
           </tbody>
         </GuideTable>
@@ -206,20 +208,18 @@ export default function StairBuildingCodeRequirements() {
         <p style={paragraph}>
           A straight flight has one fewer tread than risers, so 13 treads. At
           the 10-inch minimum that is a total run of 130 inches (10&apos;10&quot;).
-          The rise + run check — 7.5 + 10 = 17.5 inches — falls in the
-          comfortable 17–18 inch range. Our{" "}
+          Our{" "}
           <Link href="/stair-calculator" style={link}>
             stair calculator
           </Link>{" "}
           does this, plus stringer length, for any height.
         </p>
 
-        <h2 style={sectionHeading}>Riser height — IRC R311.7.5.1</h2>
+        <h2 style={sectionHeading}>Riser height — IRC R318.7.5.1</h2>
         <p style={paragraph}>
           Maximum riser height is 7¾ inches, measured vertically between the
-          leading edges of adjacent treads. The IRC sets no minimum. The most
-          important rule — and the most commonly failed at inspection — is
-          uniformity:
+          leading edges of adjacent treads. The IRC sets no minimum. Risers
+          must also be uniform within a flight:
         </p>
         <div style={formula}>
           Tallest riser − shortest riser in a flight ≤ ⅜ inch
@@ -228,7 +228,7 @@ export default function StairBuildingCodeRequirements() {
           You cannot make the bottom or top step a different height to absorb
           rounding. Divide the total rise evenly across all risers so every
           step is identical. A stair with 13 risers at 7¼ inches and one at 7¾
-          inches fails — inspectors measure every riser.
+          inches fails, because the difference is ½ inch.
         </p>
         <p style={paragraph}>
           <strong>Open risers</strong>{" "}(no riser board) are allowed, as long as
@@ -238,105 +238,109 @@ export default function StairBuildingCodeRequirements() {
           spiral stairs are exempt.
         </p>
         <NoteBox>
-          Always measure finished floor to finished floor, including flooring
-          on both levels. A ½-inch error in total rise ends up on one riser —
-          enough to push it outside the ⅜-inch tolerance.
+          Lay out the stair from the finished floor surfaces on both levels.
+          The IRC measures stair dimensions exclusive of carpets, rugs or
+          runners (R318.7.5), but hard flooring counts. If the total rise is
+          off by ½ inch and that error lands on one riser, it differs from the
+          others by ½ inch — more than the ⅜-inch limit.
         </NoteBox>
 
-        <h2 style={sectionHeading}>Tread depth — IRC R311.7.5.2</h2>
+        <h2 style={sectionHeading}>Tread depth — IRC R318.7.5.2</h2>
         <p style={paragraph}>
           Minimum tread depth is 10 inches, measured horizontally between the
-          leading edges of adjacent treads. The same ⅜-inch uniformity rule
-          applies to treads. Tread depth and riser height work together — the
-          long-standing comfort rule of thumb is:
-        </p>
-        <div style={formula}>Rise + Run = 17 to 18 inches</div>
-        <p style={paragraph}>
-          A 7-inch rise with an 11-inch run (sum 18) is the most comfortable
-          combination. The IRC limit of a 7¾-inch rise with a 10-inch run (sum
-          17¾) is legal but feels noticeably steep going down.
+          vertical planes of the foremost projection of adjacent treads, at a
+          right angle to the tread&apos;s leading edge. The same ⅜-inch
+          uniformity rule applies to treads.
         </p>
 
-        <h2 style={sectionHeading}>Winder treads — IRC R311.7.5.2.1</h2>
+        <h2 style={sectionHeading}>Winder treads — IRC R318.7.5.2.1</h2>
         <p style={paragraph}>
           Winders are the wedge-shaped treads used to turn a stair without a
           landing. Because they are narrow at one end, the IRC measures them
-          along a <strong>walkline</strong> 12 inches in from the narrow side:
+          along a <strong>walkline</strong> located 12 inches from the inside
+          of the turn (R318.7.4):
         </p>
         <ul style={{ paddingLeft: "20px", marginBottom: "14px" }}>
           <li style={listItem}>At least 10 inches deep at the walkline</li>
-          <li style={listItem}>At least 6 inches deep at any point</li>
           <li style={listItem}>
-            Winder depths at the walkline within ⅜ inch of each other
+            At least 6 inches deep at any point within the clear width
+          </li>
+          <li style={listItem}>
+            Winder depths at the walkline within ⅜ inch of each other; they do
+            not have to be within ⅜ inch of the rectangular treads in the same
+            flight
           </li>
         </ul>
 
-        <h2 style={sectionHeading}>Nosing — IRC R311.7.5.3</h2>
+        <h2 style={sectionHeading}>Nosing — IRC R318.7.5.3</h2>
         <p style={paragraph}>
-          On stairs with solid risers, each tread needs a nosing that projects
-          ¾ inch to 1¼ inches past the riser below, with no more than ⅜ inch
-          variation in a flight. The nosing radius may not exceed 9⁄16 inch. A
-          nosing is not required when treads are at least 11 inches deep.
+          Stairways need a nosing projection of ¾ inch to 1¼ inches. The
+          largest and smallest projection may differ by no more than ⅜ inch
+          within a flight, including the landing at the top of the flight.
+          Treads, landings and floors need a nosing radius of no more than
+          9⁄16 inch or a bevel of no more than ½ inch. A nosing projection is
+          not required when treads are at least 11 inches deep, and with open
+          risers the projection may exceed 1¼ inches.
         </p>
 
-        <h2 style={sectionHeading}>Stair width — IRC R311.7.1</h2>
+        <h2 style={sectionHeading}>Stair width — IRC R318.7.1</h2>
         <p style={paragraph}>
-          Minimum clear width is 36 inches above the handrail. Handrails may
-          project up to 4½ inches into that width, so at and below handrail
-          height the minimum is 31½ inches with a handrail on one side, or 27
-          inches with handrails on both sides. Most residential stairs are
-          built 36–42 inches wide.
+          Minimum clear width is 36 inches at all points above the permitted
+          handrail height and below the required headroom height. Handrails may
+          project up to 4½ inches (R320.3), so at and below handrail height the
+          minimum is 31½ inches with a handrail on one side, or 27 inches with
+          handrails on both sides.
         </p>
 
-        <h2 style={sectionHeading}>Headroom — IRC R311.7.2</h2>
+        <h2 style={sectionHeading}>Headroom — IRC R318.7.2</h2>
         <p style={paragraph}>
           Minimum headroom is 6 feet 8 inches (80 inches), measured vertically
-          from the sloped line connecting the tread nosings to the ceiling or
-          soffit above, along the full length of the stair.
+          from the sloped line adjoining the tread nosings, or from the landing
+          surface. Where the side of a flight passes under the edge of a floor
+          opening, the floor opening may project into the required headroom by
+          up to 4¾ inches.
         </p>
-        <NoteBox>
-          Headroom is frequently a problem at the top of basement stairs where
-          a beam or duct crosses. Check this before finalizing the stair
-          location — moving a stair after framing is expensive.
-        </NoteBox>
 
-        <h2 style={sectionHeading}>Handrails — IRC R311.7.8</h2>
+        <h2 style={sectionHeading}>Handrails — IRC R318.7.8 and R320</h2>
         <p style={paragraph}>
-          A handrail is required on at least one side of any flight with 4 or
+          A handrail is required on at least one side of each flight with 4 or
           more risers. Key requirements:
         </p>
         <ul style={{ paddingLeft: "20px", marginBottom: "14px" }}>
           <li style={listItem}>
             <strong>Height:</strong> 34–38 inches, measured vertically from the
-            line connecting the tread nosings
+            sloped plane adjoining the tread nosings (R320.2)
           </li>
           <li style={listItem}>
-            <strong>Continuity:</strong> runs the full flight, from above the
-            top riser to above the bottom riser; ends return to the wall or
-            finish at a newel post
+            <strong>Continuity:</strong> runs the full flight, from directly
+            above the top landing nosing to directly above the lowest nosing.
+            Ends return continuous to themselves or toward a wall, guard or
+            walking surface, with no more than a ¼-inch gap at a wall. A newel
+            post may interrupt the rail at a winder turn, at a landing or over
+            the lowest tread (R320.5)
           </li>
           <li style={listItem}>
             <strong>Graspable profile:</strong> round rails 1¼–2 inches in
             diameter; other shapes need a 4–6¼ inch perimeter and a cross-section
-            no wider than 2¼ inches
+            no wider than 2¼ inches. Larger profiles need a finger recess on
+            both sides (Type II, R320.6)
           </li>
           <li style={listItem}>
             <strong>Wall clearance:</strong> at least 1½ inches between the rail
-            and the wall
+            and the wall (R320.4)
           </li>
           <li style={listItem}>
-            <strong>Strength:</strong> must resist a 200 lb load in any
-            direction — bracket spacing comes from the bracket manufacturer,
-            commonly 4 feet or less
+            <strong>Strength:</strong> must resist a 200 lb concentrated load
+            applied in any direction at any point along the top (Table R301.5)
           </li>
         </ul>
 
-        <h2 style={sectionHeading}>Guards on open sides — IRC R312</h2>
+        <h2 style={sectionHeading}>Guards on open sides — IRC R321</h2>
         <p style={paragraph}>
           A handrail is for gripping; a <strong>guard</strong> stops people
-          falling off the side. Guards are required on the open side of a
-          stair or landing that is more than 30 inches above the floor or
-          grade below.
+          falling off the side. Guards are required on open-sided stairs and
+          landings more than 30 inches above the floor or grade below, measured
+          at any point within 36 inches horizontally of the open edge.
         </p>
         <ul style={{ paddingLeft: "20px", marginBottom: "14px" }}>
           <li style={listItem}>
@@ -353,39 +357,47 @@ export default function StairBuildingCodeRequirements() {
           </li>
         </ul>
 
-        <h2 style={sectionHeading}>Landings — IRC R311.7.6</h2>
+        <h2 style={sectionHeading}>Landings — IRC R318.7.6</h2>
         <p style={paragraph}>
-          A landing or floor is required at the top and bottom of every
-          stairway. Key rules:
+          A landing or floor is required at the top and bottom of each flight.
+          Key rules:
         </p>
         <ul style={{ paddingLeft: "20px", marginBottom: "14px" }}>
-          <li style={listItem}>At least 36 inches deep in the direction of travel</li>
-          <li style={listItem}>At least as wide as the stair it serves</li>
+          <li style={listItem}>At least as wide as the flight it serves</li>
           <li style={listItem}>
-            No flight may rise more than 151 inches (12&apos;7&quot;) between
-            floors or landings (R311.7.3)
+            On a straight run, at least 36 inches deep in the direction of
+            travel
           </li>
           <li style={listItem}>
-            A top landing is not needed on an interior stair if the door at the
-            top does not swing over the stairs
+            Landings that are not square or rectangular need a depth at the
+            walkline and a total area at least equal to a quarter circle with a
+            radius equal to the required landing width
+          </li>
+          <li style={listItem}>
+            No flight may rise more than 12&apos;7&quot; (151 inches) between
+            floors or landings (R318.7.3)
+          </li>
+          <li style={listItem}>
+            On an interior stair, the top landing may be on the other side of a
+            door at the top, as long as the door does not swing over the stairs
           </li>
         </ul>
 
-        <h2 style={sectionHeading}>Lighting — IRC R303.7 and R303.8</h2>
+        <h2 style={sectionHeading}>Lighting — IRC R325.6 and R325.7</h2>
         <p style={paragraph}>
-          <strong>Interior stairs (R303.7):</strong> a light must illuminate
-          the treads and landings to at least 1 foot-candle. If the stair has 6
-          or more risers, it must be switchable from both the top and bottom
-          floor levels (unless it is always on or automatic).
+          <strong>Interior stairs (R325.6):</strong> a light must be able to
+          illuminate the treads and landings to at least 1 foot-candle,
+          measured at the center of treads and landings. If the stair has 6 or
+          more risers, there must be a wall switch at each floor level — unless
+          remote, central or automatic control of the lighting is provided.
         </p>
         <p style={paragraph}>
-          <strong>Exterior stairs (R303.8):</strong> a light is required at the
+          <strong>Exterior stairs (R325.7):</strong> a light is required at the
           top landing — and at the bottom landing for outdoor stairs down to a
-          basement. The switch must be inside the house, unless the light is
-          always on or automatic (for example, a motion sensor).
+          basement.
         </p>
 
-        <h2 style={sectionHeading}>Spiral stairs — IRC R311.7.10.1</h2>
+        <h2 style={sectionHeading}>Spiral stairs — IRC R318.7.11.1</h2>
         <p style={paragraph}>
           Spiral stairs get their own, looser rules because of their compact
           geometry:
@@ -427,65 +439,83 @@ export default function StairBuildingCodeRequirements() {
 
         <h2 style={sectionHeading}>Deck and exterior stairs</h2>
         <p style={paragraph}>
-          There is no separate, looser code for deck stairs — they follow the
-          same R311.7 rules for risers, treads, width and handrails. Outdoors,
-          three more items catch people out:
+          There is no separate, looser code for deck stairs — stairways serving
+          a building, porch or deck follow the same R318.7 rules for risers,
+          treads, width and handrails. Outdoors, three more items apply:
         </p>
         <ul style={{ paddingLeft: "20px", marginBottom: "14px" }}>
           <li style={listItem}>
             <strong>Guards:</strong> any open side more than 30 inches above
-            grade needs a guard (see R312 above)
+            grade needs a guard (see R321 above)
           </li>
           <li style={listItem}>
-            <strong>Lighting:</strong> a light source at the top landing, switched
-            from inside the house (R303.8)
+            <strong>Lighting:</strong> a light source at the top landing
+            (R325.7)
           </li>
           <li style={listItem}>
-            <strong>Bottom riser:</strong> measure total rise to the finished
-            surface the stair lands on — patio, pad or grade — not to the
-            ground before it is levelled
+            <strong>Bottom riser:</strong> risers are measured to the landing
+            or floor the stair lands on, so measure total rise to the finished
+            surface — patio, pad or grade — not to the ground before it is
+            levelled
           </li>
         </ul>
         <p style={paragraph}>
-          Many jurisdictions also reference the American Wood Council&apos;s
-          DCA 6 prescriptive deck guide for stringer sizing and footing
-          details — ask your building department which they enforce.
+          The IRC&apos;s deck construction rules are in Section R507. The
+          American Wood Council&apos;s DCA 6 prescriptive deck guide is based
+          on the 2015 IRC — ask your building department whether it is
+          accepted where you build.
         </p>
 
-        <h2 style={sectionHeading}>Most common inspection failures</h2>
+        <h2 style={sectionHeading}>Pre-inspection checklist</h2>
         <GuideTable>
           <thead>
             <tr>
-              <th style={th}>Failure</th>
-              <th style={th}>Root cause</th>
+              <th style={th}>Check</th>
+              <th style={th}>2024 IRC requirement</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style={td}>Riser variation &gt; ⅜&quot;</td>
+              <td style={td}>Riser heights</td>
               <td style={td}>
-                Measured rough-to-rough instead of finished-to-finished
+                ≤ 7¾&quot;, tallest − shortest ≤ ⅜&quot; in a flight (R318.7.5.1)
               </td>
             </tr>
             <tr>
-              <td style={td}>Bottom riser too tall</td>
-              <td style={td}>Flooring thickness not factored in at lower level</td>
+              <td style={td}>Tread depths</td>
+              <td style={td}>
+                ≥ 10&quot;, deepest − shallowest ≤ ⅜&quot; in a flight (R318.7.5.2)
+              </td>
             </tr>
             <tr>
-              <td style={td}>Headroom too low</td>
-              <td style={td}>Beam or duct not accounted for in stair layout</td>
+              <td style={td}>Headroom</td>
+              <td style={td}>≥ 6&apos;8&quot; along the full stair (R318.7.2)</td>
             </tr>
             <tr>
-              <td style={td}>Handrail not graspable</td>
-              <td style={td}>Decorative wide-profile rail without a finger recess</td>
+              <td style={td}>Handrail</td>
+              <td style={td}>
+                34–38&quot; high, continuous, Type I or Type II grip (R320)
+              </td>
             </tr>
             <tr>
-              <td style={td}>Baluster gaps too wide</td>
-              <td style={td}>Spacing set by eye, or the bottom-rail triangle left open</td>
+              <td style={td}>Guard openings</td>
+              <td style={td}>
+                4⅜&quot; sphere on stairs, 4&quot; on landings, 6&quot; at the
+                bottom-rail triangle (R321.1.3)
+              </td>
             </tr>
             <tr>
-              <td style={td}>Landing too short</td>
-              <td style={td}>Door swing reduces effective landing depth</td>
+              <td style={td}>Landings</td>
+              <td style={td}>
+                Flight width wide, 36&quot; deep on a straight run (R318.7.6)
+              </td>
+            </tr>
+            <tr>
+              <td style={td}>Lighting</td>
+              <td style={td}>
+                Interior light and switching (R325.6); exterior top-landing
+                light (R325.7)
+              </td>
             </tr>
           </tbody>
         </GuideTable>

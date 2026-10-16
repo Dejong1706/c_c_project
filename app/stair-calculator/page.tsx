@@ -8,7 +8,7 @@ import StairCalc from "./StairCalc";
 export const metadata: Metadata = {
   title: "Stair Calculator — Rise, Run & Stringer Length | BuildCalc",
   description:
-    "Calculate stair risers, treads, total run, and stringer length for IRC-compliant residential stairs. Includes code check for riser height, tread depth, and comfort angle.",
+    "Calculate stair risers, treads, total run, and stringer length for IRC-compliant residential stairs. Includes code check for riser height, tread depth, and stair angle.",
   keywords: [
     "stair calculator",
     "stair rise and run calculator",
@@ -28,17 +28,17 @@ const faqs = [
   {
     question: "What is the maximum riser height per building code?",
     answer:
-      'The IRC (International Residential Code) sets a maximum riser height of 7¾ inches (7.75") and a minimum tread depth of 10 inches for residential stairs. All risers in a single flight must be within ⅜ inch of each other.',
+      'The 2024 IRC (International Residential Code, R318.7.5) sets a maximum riser height of 7¾ inches (7.75") and a minimum tread depth of 10 inches for residential stairs. All risers in a single flight must be within ⅜ inch of each other.',
   },
   {
     question: "How do I calculate stringer length?",
     answer:
-      "Use the Pythagorean theorem: stringer length = √(total rise² + total run²). For a standard mount stair, the rise used is total rise minus one riser height (because the deck face acts as the top tread). Add 6–12 inches when purchasing lumber to allow for the top plumb cut and bottom seat cut.",
+      "Use the Pythagorean theorem. For a standard mount stair, stringer length = √((total rise − one riser)² + total run²), because the deck face acts as the top step; for a flush mount, use the full total rise. Add 6–12 inches when purchasing lumber to allow for the top plumb cut and bottom seat cut.",
   },
   {
-    question: "What is the comfortable stair angle?",
+    question: "How steep can residential stairs be?",
     answer:
-      "Residential stairs should be between 30° and 37° for comfortable use. The ergonomic comfort formula is: Rise + Run = 17–18 inches. A 7-inch rise with 11-inch run (sum = 18) is widely considered the most comfortable combination.",
+      "The IRC limits the dimensions, not the angle: a riser of no more than 7¾ inches and a tread of at least 10 inches (2024 IRC R318.7.5). At those limits the stair angle is about 37.8°; a 7-inch rise with an 11-inch run is about 32.5°. A common carpenter's rule of thumb (not a code requirement) is Rise + Run ≈ 17–18 inches.",
   },
   {
     question: "How many steps do I need for a 9-foot ceiling?",
@@ -63,7 +63,7 @@ export default function StairCalculatorPage() {
         </p>
         <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
           {[
-            { href: "/guides/stair-building-code-requirements", label: "Stair Building Code Requirements (IRC R311.7)" },
+            { href: "/guides/stair-building-code-requirements", label: "Stair Building Code Requirements (IRC R318.7)" },
             { href: "/guides/how-to-calculate-stair-rise-and-run", label: "How to Calculate Stair Rise and Run" },
           ].map((g) => (
             <Link key={g.href} href={g.href} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", color: "var(--accent-text)", background: "var(--accent-light)", padding: "8px 14px", borderRadius: "8px", textDecoration: "none" }}>

@@ -228,8 +228,10 @@ export default function ConcreteStrengthGradesGuide() {
           <Link href="/guides/how-to-mix-concrete-by-hand" style={link}>
             how to mix concrete by hand
           </Link>{" "}
-          — the amount of water you add has a big effect on the strength you
-          actually get.
+          — the amount of water you add affects the strength you actually get.
+          In ACI&apos;s table of typical values (ACI PRC-211.1-22, Table 5.3.4),
+          a water-cement ratio of 0.57 gives about 4,000 psi at 28 days and
+          0.68 about 3,000 psi, for concrete without air entrainment.
         </p>
 
         <h2 style={sectionHeading}>FAQ</h2>

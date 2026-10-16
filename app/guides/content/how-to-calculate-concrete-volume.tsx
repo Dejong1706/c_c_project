@@ -206,11 +206,12 @@ export default function ConcreteVolumeGuide() {
           So for that 1.32 cubic meter (≈1.73 cubic yard) patio, you&apos;d need
           roughly 78 × 80lb bags (1.73 × 45 ≈ 78) — though buying a few
           extra is wise in case of spillage or a thicker pour than planned.
-          Mixing that many bags by hand is a long day; for small batches, the{" "}
+          That is about 6,240 lb (2,800 kg) of dry mix, every bag of which has
+          to be lifted, mixed and placed; for smaller pours, the{" "}
           <Link href="/guides/how-to-mix-concrete-by-hand" style={link}>
             guide to mixing concrete by hand
           </Link>{" "}
-          covers water per bag, ratios and when a mixer makes more sense.
+          covers water per bag, small-job mixtures and mixer sizing.
         </p>
 
         <h2 style={sectionHeading}>Putting it together</h2>

@@ -249,8 +249,11 @@ export default function ConcreteCuringTimeGuide() {
           </li>
         </ul>
         <p style={paragraph}>
-          Good curing can&apos;t make up for a mix that was too wet to begin
-          with. If you&apos;re mixing small batches yourself, the{" "}
+          The water added at mixing matters too: ACI&apos;s proportioning
+          guide (ACI PRC-211.1-22) says its small-job mixtures give adequate
+          strength and durability only if not so much water is added that the
+          slump becomes excessively high. If you&apos;re mixing small batches
+          yourself, the{" "}
           <Link href="/guides/how-to-mix-concrete-by-hand" style={link}>
             guide to mixing concrete by hand
           </Link>{" "}

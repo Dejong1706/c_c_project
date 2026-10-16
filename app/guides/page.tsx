@@ -37,7 +37,7 @@ const guides: {
   {
     title: "How to Mix Concrete by Hand",
     href: "/guides/how-to-mix-concrete-by-hand",
-    desc: "Cement vs concrete, mix ratios, bagged premix yields, how much water to add, and when hand mixing stops being practical.",
+    desc: "Cement vs concrete, mix ratios, bagged premix yields, how much water to add, safety and curing.",
     category: "Concrete",
   },
   {
@@ -60,9 +60,9 @@ const guides: {
     category: "Structural",
   },
   {
-    title: "Stair Building Code Requirements (IRC R311.7)",
+    title: "Stair Building Code Requirements (IRC R318.7)",
     href: "/guides/stair-building-code-requirements",
-    desc: "IRC residential stair code — risers, treads, width, headroom, handrails, guards and landings, plus winder, spiral and deck stairs.",
+    desc: "2024 IRC residential stair code — risers, treads, width, headroom, handrails, guards and landings, plus winder, spiral and deck stairs.",
     category: "Structural",
   },
   // Masonry
@@ -87,7 +87,7 @@ const guides: {
   {
     title: "Mortar Mix Ratio for Bricks: Type N, S, M",
     href: "/guides/brick-mortar-mix-ratio",
-    desc: "Type N, S, M and O mortar ratios and when to use each, plus cement to sand mixes, the role of lime and how much mortar per m².",
+    desc: "Type N, S, M and O mortar ratios and when to use each, plus UK designations (i)–(iv), the role of lime and how much mortar per m².",
     category: "Masonry",
   },
   {

@@ -1,36 +1,36 @@
 import Link from "next/link";
-import { Breadcrumb, GuideTable, IntroText, NoteBox, formula, link, listItem, paragraph, sectionHeading, td, th } from "./shared";
+import { Breadcrumb, GuideTable, IntroText, NoteBox, link, listItem, paragraph, sectionHeading, td, th } from "./shared";
 
 const faqs = [
   {
     question: "What is the correct mix ratio for concrete by hand?",
     answer:
-      "For general purpose work such as slabs and footings, a 1:2:3 ratio by volume (1 part cement, 2 parts sand, 3 parts gravel) is widely used. For lighter, non-structural work, a 1:2:4 ratio is common. Add water gradually until the mix holds a ridge when you draw a shovel through it.",
+      "There is no single correct ratio. The American Concrete Institute's guide to proportioning concrete (ACI PRC-211.1-22, Table A.7.1) gives starting mixtures for small jobs by weight. For 3/4-inch gravel and concrete without air entrainment, its Mixture B is 23 lb cement, 47 lb sand and 64 lb gravel per cubic foot of concrete — about 1 : 2 : 2¾ by weight. On site this is commonly simplified to 1 part cement, 2 parts sand and 3 parts gravel by volume (the 1:2:3 rule of thumb), which is fine for small non-structural pours. Add just enough water for a workable consistency; ACI describes a good consistency as concrete that slides, not runs, off a shovel. For structural work, follow your local building code or an engineer's specification.",
   },
   {
     question: "Is it mixing cement or mixing concrete?",
     answer:
-      "Cement is only the grey powder that binds everything together — it is never used on its own. Mix cement with sand, gravel and water and you get concrete (for slabs, posts and footings). Mix cement with lime and sand and you get mortar (for laying bricks and blocks). 'Mixing cement by hand' almost always means mixing concrete.",
+      "Cement is only the grey powder that binds everything together — it is never used on its own. Mix cement with sand, gravel and water and you get concrete (for slabs, posts and footings). Mix sand and water with a mortar binder — portland cement and lime, or a masonry or mortar cement — and you get mortar (for laying bricks and blocks). 'Mixing cement by hand' almost always means mixing concrete.",
   },
   {
     question: "How much water do I add to an 80 lb bag of concrete?",
     answer:
-      "Most 80 lb bags of premixed concrete call for roughly 3 quarts (about 2.8 litres) of water — always follow the instructions printed on your bag. Start with about two-thirds of that, mix, then add the rest a little at a time until the mix is workable.",
+      "Quikrete's data sheet for its Concrete Mix calls for about 6 pints (3 quarts, 2.8 litres) of water per 80 lb bag to start, then more as needed until the mix is stiff and moldable. The final amount should be about 6 to 9 pints (2.8 to 4.3 litres) per 80 lb bag. Other brands and products differ — always follow the instructions printed on your bag.",
   },
   {
     question: "How much water should I add to site-mixed concrete?",
     answer:
-      "Add water gradually until the mix holds its shape and releases no free water. Too much water weakens the final concrete significantly. A water-to-cement ratio of 0.45 to 0.55 by weight is typical, but on site the shovel ridge test is the most practical guide.",
+      "ACI's procedure for small jobs is to add just enough water to produce a workable consistency — concrete that slides, not runs, off a shovel. Extra water costs strength: in ACI's table of typical values (ACI PRC-211.1-22, Table 5.3.4), a water-cement ratio of 0.57 by weight corresponds to about 4,000 psi at 28 days, while 0.68 gives about 3,000 psi (concrete without air entrainment).",
   },
   {
     question: "How much concrete can I mix by hand?",
     answer:
-      "Hand mixing becomes impractical above roughly 0.1 cubic meters (about 3.5 cubic feet, or six 80 lb bags) per batch. Beyond that, consistency suffers and the physical effort becomes excessive. For larger pours, a drum mixer or ready-mix delivery is more practical.",
+      "No code or manufacturer sets a maximum. Quikrete's hand-mixing instructions work bag by bag, and each 80 lb bag of its Concrete Mix makes only about 0.60 cubic feet — so one cubic yard is 45 bags, or 3,600 lb of dry mix. If you hire a drum mixer instead, Quikrete says to allow at least 1 cubic foot of mixer capacity for each 80 lb bag mixed at one time.",
   },
   {
     question: "How long does hand-mixed concrete take to set?",
     answer:
-      "Initial set typically occurs within 2 to 4 hours depending on temperature, humidity, and cement type. Concrete reaches most of its design strength at 28 days, though it continues to gain strength slowly after that. Avoid loading or disturbing the pour for at least 24 hours.",
+      "It depends on the product and the weather. Quikrete's Fast-Setting Concrete Mix sets in 20 to 40 minutes; for its standard Concrete Mix, Quikrete says to wait 24 hours before a post set in it is put under any strain. Strength keeps rising for weeks: Quikrete's Concrete Mix reaches a typical 2,500 psi at 7 days and 4,000 psi at 28 days. The 28-day result is the conventional value accepted as concrete's compressive strength (ACI PRC-211.1-22).",
   },
 ];
 
@@ -52,7 +52,7 @@ const articleSchema = {
   "@type": "Article",
   headline: "How to Mix Concrete by Hand: Ratios, Water, and Technique",
   description:
-    "Step-by-step guide to mixing concrete by hand. Covers cement vs concrete vs mortar, mix ratios, bagged premix, water amount, safety, and when hand mixing stops being practical.",
+    "Step-by-step guide to mixing concrete by hand. Covers cement vs concrete vs mortar, ACI small-job mixtures, bagged premix yields, water per bag, safety, and curing.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-mix-concrete-by-hand" },
   datePublished: "2026-06-12",
   dateModified: "2026-10-16",
@@ -102,24 +102,27 @@ export default function HowToMixConcreteByHandGuide() {
           <IntroText>
             For small pours — a fence post, a garden step, a small slab — mixing
             concrete by hand is straightforward and doesn&apos;t require a drum
-            mixer. The key variables are the mix ratio, the amount of water, and
-            the mixing sequence. Get those right and the result is the same as
-            any other method.
+            mixer. The key variables are the proportions, the amount of water,
+            and mixing until there are no dry pockets.
           </IntroText>
         </header>
 
         <NoteBox>
-          <strong>Quick answer:</strong> mix 1 part cement, 2 parts sand and 3
-          parts gravel by volume, dry, until the colour is even. Then add water a
-          little at a time until a shovel drawn through the mix leaves a clean
-          ridge that holds its shape. Using bagged premix? Just add the water
-          printed on the bag — roughly 3 quarts per 80 lb bag. Wear gloves.
+          <strong>Quick answer:</strong> for most small jobs, use bagged
+          concrete mix and the water printed on the bag — Quikrete&apos;s 80 lb
+          Concrete Mix starts at about 6 pints (3 quarts, 2.8 L) and should end
+          up at no more than about 9 pints (4.3 L). Mixing from separate
+          materials? ACI&apos;s starting mixture for small jobs with 3/4-inch
+          gravel is about 1 part cement, 2 parts sand and 2¾ parts gravel by
+          weight, with just enough water that the concrete slides, not runs, off
+          a shovel — on site this is usually simplified to 1:2:3 by volume. Wear nitrile gloves and eye protection, and an N95
+          respirator when dust is a problem.
         </NoteBox>
 
         <h2 style={sectionHeading}>Cement, concrete or mortar?</h2>
         <p style={paragraph}>
           These words get used interchangeably, but they are different
-          materials. Buying the wrong one is the most common beginner mistake:
+          materials:
         </p>
         <GuideTable>
           <thead>
@@ -135,7 +138,7 @@ export default function HowToMixConcreteByHandGuide() {
                 <strong>Cement</strong>
               </td>
               <td style={td}>Portland cement powder only</td>
-              <td style={td}>An ingredient — never used on its own</td>
+              <td style={td}>The binder in concrete and mortar</td>
             </tr>
             <tr>
               <td style={td}>
@@ -148,7 +151,9 @@ export default function HowToMixConcreteByHandGuide() {
               <td style={td}>
                 <strong>Mortar</strong>
               </td>
-              <td style={td}>Cement + lime + sand + water</td>
+              <td style={td}>
+                Cement and lime, or masonry/mortar cement + sand + water
+              </td>
               <td style={td}>Laying bricks and blocks</td>
             </tr>
           </tbody>
@@ -165,72 +170,110 @@ export default function HowToMixConcreteByHandGuide() {
 
         <h2 style={sectionHeading}>Safety first</h2>
         <p style={paragraph}>
-          Wet cement is strongly alkaline. Left on skin it causes chemical burns
-          that often don&apos;t hurt until hours later. Before you open a bag:
+          Bagged concrete carries a DANGER label. Quikrete&apos;s safety data
+          sheet warns that it &quot;causes severe skin burns and serious eye
+          damage&quot;, that cement burns &quot;may not cause immediate pain or
+          discomfort&quot;, and that the dust contains crystalline silica, which
+          can cause silicosis and cancer through prolonged or repeated
+          inhalation. Before you open a bag:
         </p>
         <ul style={{ paddingLeft: "20px", marginBottom: "14px" }}>
           <li style={listItem}>
-            Wear waterproof gloves, long sleeves and safety glasses
+            Wear impervious gloves such as nitrile, eye protection, protective
+            clothing and rubber boots
           </li>
           <li style={listItem}>
-            Wear a dust mask when emptying bags — the dry powder is irritating
-            to breathe
+            Don&apos;t breathe the dust. The SDS calls for a NIOSH-approved
+            respirator such as an N95 in poorly ventilated areas, for extended
+            or frequent use, or where exposure limits may be exceeded
           </li>
           <li style={listItem}>
-            Never test the mix with bare hands; if it gets on your skin, wash it
-            off with clean water straight away
+            On skin: remove contaminated clothing and wash the skin with cool
+            water and pH-neutral soap. See a doctor if you suspect a burn or a
+            rash develops
+          </li>
+          <li style={listItem}>
+            In eyes: rinse cautiously with water for several minutes, remove
+            contact lenses if easy to do, and keep rinsing. Get medical help if
+            symptoms are significant or persist
           </li>
         </ul>
 
         <h2 style={sectionHeading}>Mix ratios</h2>
         <p style={paragraph}>
           Concrete is made from cement, sand (fine aggregate), and coarse
-          aggregate (gravel or crushed stone), combined in proportions that
-          determine the final strength. The ratios below are by volume:
+          aggregate (gravel or crushed stone). For small jobs where nobody is
+          designing a mix, the American Concrete Institute&apos;s proportioning
+          guide (ACI PRC-211.1-22, Table A.7.1) lists starting mixtures by
+          weight. These are its &quot;Mixture B&quot; figures for concrete
+          without air entrainment, per cubic foot of finished concrete:
         </p>
         <GuideTable>
           <thead>
             <tr>
-              <th style={th}>Ratio (cement:sand:aggregate)</th>
-              <th style={th}>Typical use</th>
+              <th style={th}>Max. gravel size</th>
+              <th style={th}>Cement</th>
+              <th style={th}>Sand</th>
+              <th style={th}>Gravel</th>
+              <th style={th}>Ratio by weight</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style={td}>1:2:3</td>
-              <td style={td}>General slabs, footings, driveways</td>
+              <td style={td}>1/2 in</td>
+              <td style={td}>25 lb</td>
+              <td style={td}>49 lb</td>
+              <td style={td}>56 lb</td>
+              <td style={td}>about 1 : 2 : 2¼</td>
             </tr>
             <tr>
-              <td style={td}>1:2:4</td>
-              <td style={td}>Non-structural work, garden paths, fence posts</td>
+              <td style={td}>3/4 in</td>
+              <td style={td}>23 lb</td>
+              <td style={td}>47 lb</td>
+              <td style={td}>64 lb</td>
+              <td style={td}>about 1 : 2 : 2¾</td>
             </tr>
             <tr>
-              <td style={td}>1:3:6</td>
-              <td style={td}>
-                Mass fill, blinding layers, very low-load applications
-              </td>
+              <td style={td}>1 in</td>
+              <td style={td}>22 lb</td>
+              <td style={td}>43 lb</td>
+              <td style={td}>72 lb</td>
+              <td style={td}>about 1 : 2 : 3¼</td>
             </tr>
           </tbody>
         </GuideTable>
         <p style={paragraph}>
-          Measure with the same container for every material. With a 5-gallon
-          bucket, a 1:2:3 batch is 1 bucket of cement, 2 of sand and 3 of
-          gravel. The dry materials pack together once wet, so the batch makes
-          noticeably less concrete than the dry volume suggests:
+          ACI&apos;s procedure: start with Mixture B, adding just enough water
+          for a workable consistency. If the concrete looks short of sand,
+          switch to its Mixture A (a little more sand); if it looks oversanded,
+          switch to Mixture C (a little less). The figures assume surface-dry
+          sand — ACI says to add 2 lb of sand per cubic foot if it is damp and
+          4 lb if it is very wet. ACI also says air-entrained concrete should be
+          used in all structures exposed to freezing and thawing; that needs an
+          air-entraining cement or admixture, and slightly less sand (43 lb
+          instead of 47 lb for 3/4-inch gravel).
         </p>
-        <div style={formula}>
-          6 buckets dry (≈ 4 ft³) → about 2.6 ft³ of concrete
-        </div>
         <p style={paragraph}>
-          That&apos;s roughly the same as four 80 lb bags of premix — a
-          comfortable batch for one wheelbarrow.
+          For example, a 2 ft³ batch with 3/4-inch gravel is 46 lb of cement,
+          94 lb of sand and 128 lb of gravel.
+        </p>
+        <p style={paragraph}>
+          <strong>The 1:2:3 rule.</strong> On site, the most widely used
+          shortcut is 1 part cement, 2 parts sand and 3 parts gravel by volume,
+          measured with the same bucket or shovel for each material. It is a
+          rule of thumb rather than a figure from a standard, but it lands in
+          the same range as ACI&apos;s mixtures above, and it is fine for small
+          non-structural pours such as paths, steps and post footings. For
+          anything structural, use a specified mix or ready-mix.
         </p>
 
         <h2 style={sectionHeading}>Using bagged premix instead</h2>
         <p style={paragraph}>
           For most small jobs, bagged concrete mix is easier: the cement, sand
-          and gravel are already proportioned, so you only add water. Yields are
-          printed on the bag; typical figures are:
+          and gravel are already proportioned, so you only add water. Yields and
+          water amounts are printed on the bag. These are the figures from
+          Quikrete&apos;s data sheet for its standard Concrete Mix (No. 1101);
+          bags per cubic yard is 27 ft³ ÷ yield:
         </p>
         <GuideTable>
           <thead>
@@ -238,6 +281,8 @@ export default function HowToMixConcreteByHandGuide() {
               <th style={th}>Bag size</th>
               <th style={th}>Yield per bag</th>
               <th style={th}>Bags per cubic yard</th>
+              <th style={th}>Starting water</th>
+              <th style={th}>Maximum water</th>
             </tr>
           </thead>
           <tbody>
@@ -245,106 +290,110 @@ export default function HowToMixConcreteByHandGuide() {
               <td style={td}>40 lb</td>
               <td style={td}>0.30 ft³</td>
               <td style={td}>90</td>
+              <td style={td}>3 pt (1.4 L)</td>
+              <td style={td}>4½ pt (2.1 L)</td>
+            </tr>
+            <tr>
+              <td style={td}>50 lb</td>
+              <td style={td}>0.375 ft³</td>
+              <td style={td}>72</td>
+              <td style={td}>3½ pt (1.7 L)</td>
+              <td style={td}>5½ pt (2.6 L)</td>
             </tr>
             <tr>
               <td style={td}>60 lb</td>
               <td style={td}>0.45 ft³</td>
               <td style={td}>60</td>
+              <td style={td}>4 pt (1.9 L)</td>
+              <td style={td}>7 pt (3.3 L)</td>
             </tr>
             <tr>
               <td style={td}>80 lb</td>
               <td style={td}>0.60 ft³</td>
               <td style={td}>45</td>
+              <td style={td}>6 pt (2.8 L)</td>
+              <td style={td}>9 pt (4.3 L)</td>
             </tr>
           </tbody>
         </GuideTable>
         <NoteBox>
-          Most 80 lb bags call for about 3 quarts (2.8 L) of water, but brands
-          differ — always use the amount printed on your bag, and add the last
-          part of it gradually.
+          6 pints is 3 quarts. Other products differ — Quikrete&apos;s
+          Fast-Setting Concrete Mix, for example, takes about 4 pints (1.9 L)
+          of water per 50 lb bag when mixed. Always use the amounts printed on
+          your bag.
         </NoteBox>
 
         <h2 style={sectionHeading}>How much water to add</h2>
         <p style={paragraph}>
-          Water is the most common point of failure in hand-mixed concrete. Too
-          much water makes the mix easier to work but significantly reduces
-          final strength — water dilutes the cement paste that binds everything
-          together.
+          More water makes the mix easier to work but lowers its strength. In
+          ACI&apos;s table of typical values (ACI PRC-211.1-22, Table 5.3.4), a
+          water-cement ratio of 0.57 by weight gives about 4,000 psi at 28
+          days, 0.68 about 3,000 psi and 0.82 about 2,000 psi (concrete without
+          air entrainment).
         </p>
         <p style={paragraph}>
-          The practical test on site: draw the back of your shovel or hoe
-          across the mix in a series of ridges. In a good mix the ridges stay
-          crisp and hold their shape, and the surface looks damp but not shiny
-          with water. If the ridges crumble, add a little more water. If they
-          slump flat or water pools in the grooves, it&apos;s too wet — add a
-          little more dry material in the same ratio.
-        </p>
-        <p style={paragraph}>
-          Add water in small amounts and mix thoroughly between additions.
-          It&apos;s much easier to add more water than to fix an over-watered
-          mix.
+          What to aim for: Quikrete&apos;s instructions say to add water as
+          needed until &quot;a stiff, moldable consistency is achieved&quot;,
+          with no dry pockets of material and no standing puddles of water.
+          ACI&apos;s test for small jobs is that good concrete &quot;slides, not
+          runs, off a shovel&quot;. With bagged mix, stay within the maximum
+          water printed on the bag.
         </p>
 
         <h2 style={sectionHeading}>Mixing sequence</h2>
         <p style={paragraph}>
-          Mixing in the right order ensures the cement distributes evenly before
-          water is introduced:
+          Quikrete&apos;s hand-mixing steps for bagged concrete mix:
         </p>
         <ul style={{ paddingLeft: "20px", marginBottom: "14px" }}>
           <li style={listItem}>
-            Combine the dry materials first — cement, sand, and aggregate —
-            until the colour is uniform with no streaks
-          </li>
-          <li style={listItem}>Make a well in the centre of the dry mix</li>
-          <li style={listItem}>
-            Add roughly two-thirds of your estimated water into the well
+            Empty the bag into a suitable mixing container
           </li>
           <li style={listItem}>
-            Work from the outside in, folding dry material into the water
+            Add the starting water for your bag size (about 6 pints for an 80
+            lb bag)
           </li>
           <li style={listItem}>
-            Add remaining water gradually until the mix passes the ridge test
+            Work the mix with a shovel, rake or hoe, adding water as needed
+            until it reaches a stiff, moldable consistency
           </li>
           <li style={listItem}>
-            Keep mixing for another 3 to 5 minutes so every stone is coated and
-            there are no dry pockets
+            Make sure there are no dry pockets of material and no standing
+            puddles of water
           </li>
         </ul>
-
-        <h2 style={sectionHeading}>Tools</h2>
         <p style={paragraph}>
-          For small batches under about 50 litres (roughly 1.8 ft³), a mixing
-          board (a sheet of plywood works) and a square-ended spade or mortar
-          hoe are sufficient. For batches up to around 100 litres, a large
-          wheelbarrow or mixing tub and a mixing hoe give more room to work.
-          Beyond that volume, hand mixing becomes inconsistent and physically
-          demanding — a drum mixer is worth hiring for anything larger.
+          With Fast-Setting Concrete Mix, Quikrete says to mix only as much as
+          you can place in 20 minutes.
         </p>
 
-        <h2 style={sectionHeading}>When hand mixing stops being practical</h2>
+        <h2 style={sectionHeading}>Sizing up the job</h2>
         <p style={paragraph}>
-          Hand mixing is generally practical up to around 0.1 cubic meters (100
-          litres, about 3.5 ft³) per batch. Above that, maintaining a consistent
-          mix becomes difficult and the time and effort required outweigh the
-          cost of hiring a drum mixer or ordering ready-mix. For any structural
-          element — a foundation, a load-bearing column — ready-mix concrete
-          from a supplier is preferable regardless of volume, since
-          plant-mixed concrete has tighter quality control than site mixing.
+          No code or manufacturer sets a maximum volume for hand mixing, so
+          judge it by the numbers. Each 80 lb bag of Quikrete Concrete Mix
+          makes only about 0.60 ft³, so a cubic yard takes 45 bags — 3,600 lb
+          of dry mix to lift and mix. If you hire a drum mixer instead,
+          Quikrete says to allow at least 1 ft³ of mixer capacity for each 80
+          lb bag mixed at one time.
         </p>
         <NoteBox>
-          For structural work, consult a qualified engineer before specifying
-          mix ratios or concrete grades. The ratios above are for general
-          guidance on non-structural and lightly loaded applications.
+          For structural work — a foundation, a load-bearing column — follow
+          your local building code and consult a qualified engineer before
+          choosing a mix or concrete grade. The ACI mixtures above are starting
+          points for small jobs, not a substitute for a specified design.
         </NoteBox>
 
         <h2 style={sectionHeading}>After the pour</h2>
         <p style={paragraph}>
-          Concrete hardens by a chemical reaction with water, not by drying
-          out, so keep it damp for the first several days — cover it with
-          plastic sheeting or mist it with water, especially in hot or windy
-          weather. Avoid pouring when frost is expected unless you can protect
-          the concrete, since freezing before it has gained strength damages it
-          permanently. Our{" "}
+          Concrete hardens by a chemical reaction with water (hydration), not
+          by drying out. Quikrete&apos;s data sheet says curing should start as
+          soon as possible and continue for 5 days in warm weather (70 °F / 21
+          °C or higher) or 7 days in cooler weather (50–70 °F / 10–21 °C).
+          Methods it lists include a cure-and-seal compound, wet burlap,
+          plastic sheeting or waterproof paper, or keeping the surface wet with
+          a lawn sprinkler. It also says to protect the concrete from freezing
+          for the first 48 hours, using plastic sheeting and insulation
+          blankets if temperatures are expected to fall below 32 °F (0 °C).
+          Our{" "}
           <Link href="/guides/concrete-curing-time-guide" style={link}>
             concrete curing time guide
           </Link>{" "}
@@ -353,8 +402,7 @@ export default function HowToMixConcreteByHandGuide() {
 
         <h2 style={sectionHeading}>Putting it together</h2>
         <p style={paragraph}>
-          Before mixing, work out how much concrete you actually need —
-          it&apos;s easy to under-estimate and run short mid-pour. Our{" "}
+          Before mixing, work out how much concrete you actually need. Our{" "}
           <Link href="/concrete-calculator" style={link}>
             concrete calculator
           </Link>{" "}

@@ -30,17 +30,17 @@ const faqs = [
   {
     question: "How much mortar do I need per square metre of brickwork?",
     answer:
-      "The joints alone in a single-leaf wall of 215×65mm bricks with 10mm joints hold about 18 litres of mortar per square metre. Real use is higher — frogged bricks, buttering and droppings add to it — so allow extra. This calculator shows the joint volume plus your waste allowance, and bases the bag count on real-world coverage.",
+      "The joints alone in a single-leaf wall of 215×65mm bricks with 10mm joints hold about 18 litres of mortar per square metre. Real use is higher — frogged bricks, buttering and droppings add to it — so allow extra. This calculator shows the joint volume plus your waste allowance, and allows extra headroom in the pre-mixed bag count.",
   },
   {
     question: "What's the difference between Type M, S, N, and O mortar?",
     answer:
-      "Per ASTM C270, Type M (1:0.25:3) is strongest at 2,500 psi for foundations and below-grade work. Type S (1:0.5:4.5) at 1,800 psi suits structural walls. Type N (1:1:6) at 750 psi is the most common choice for above-grade residential brickwork. Type O (1:2:9) at 350 psi is for interior, non-load-bearing walls only.",
+      "They are the four ASTM C270 mortar types, strongest to weakest. Typical cement:lime:sand mixes are Type M 1:¼:3¾, Type S 1:½:4½, Type N 1:1:6 and Type O 1:2:9, with lab-tested 28-day minimums of 2,500, 1,800, 750 and 350 psi. The Brick Industry Association recommends Type N for most above-grade brickwork, Type S for reinforced or loadbearing exterior walls, Type M for foundation and retaining walls, and Type O as an alternate for interior partitions and repointing.",
   },
   {
     question: "How many 80 lb bags of pre-mixed mortar do I need?",
     answer:
-      "An 80 lb (~36 kg) bag makes roughly 0.6 cubic feet (about 17 litres) of mortar, but on a real job it typically lays only 35–40 standard bricks once frogs, buttering and droppings are counted. This calculator uses that real-world coverage — about 10.5 litres of joint volume per bag — so the bag count matches what you'll actually use.",
+      "Quikrete states that each 80 lb bag of its Mortar Mix will lay up to 37 standard bricks or 13 standard 8×8×16 in blocks. This calculator allows about 10.5 litres of joint volume per bag — roughly 35 UK-size bricks at 10 mm joints — so treat the bag count as an estimate and check the coverage printed on your product.",
   },
   {
     question: "Should I use sharp sand or builder's sand for mortar?",

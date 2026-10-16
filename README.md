@@ -74,7 +74,7 @@ DIY 시공자와 현장 작업자를 위한 **재료량 계산기 + 시공 가�
 
 - What Size Rebar Do I Need?
 - How to Calculate Stair Rise and Run
-- Stair Building Code Requirements (IRC R311.7)
+- Stair Building Code Requirements (IRC R318.7)
 
 </details>
 

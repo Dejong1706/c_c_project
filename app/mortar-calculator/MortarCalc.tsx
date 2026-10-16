@@ -20,25 +20,25 @@ const MORTAR_TYPES: Record<
     label: "Type N",
     ratio: [1, 1, 6],
     psi: 750,
-    use: "above-grade exterior, chimneys, veneer",
+    use: "above-grade veneer, chimneys, non-loadbearing and interior walls",
   },
   S: {
     label: "Type S",
     ratio: [1, 0.5, 4.5],
     psi: 1800,
-    use: "structural walls, below & above-grade, exterior",
+    use: "reinforced or loadbearing exterior walls",
   },
   M: {
     label: "Type M",
-    ratio: [1, 0.25, 3],
+    ratio: [1, 0.25, 3.75],
     psi: 2500,
-    use: "foundations, below-grade, retaining walls",
+    use: "foundation and retaining walls",
   },
   O: {
     label: "Type O",
     ratio: [1, 2, 9],
     psi: 350,
-    use: "interior non-load-bearing walls, low-exposure",
+    use: "interior partitions and repointing",
   },
 };
 // Type N first — most common choice for residential above-grade brickwork
@@ -227,7 +227,7 @@ export default function MortarCalc() {
       onTypeChange={setMortarTypeIdx}
       inputs={inputs}
       results={results}
-      notice={`${type.label} mix ratio ${type.ratio[0]}:${type.ratio[1]}:${type.ratio[2]} (cement:lime:sand) — ${type.psi.toLocaleString()} psi, for ${type.use}. Includes ${waste}% waste and a 1.3 dry-yield factor. Use builder's (soft) sand, not sharp sand, and place mortar within 2 hours of mixing.`}
+      notice={`${type.label} mix ratio ${type.ratio[0]}:${type.ratio[1]}:${type.ratio[2]} (cement:lime:sand) — ${type.psi.toLocaleString()} psi lab-tested minimum (ASTM C270 property spec); BIA-recommended for ${type.use}. Includes ${waste}% waste and a 1.3 dry-yield factor. Use builder's (soft) sand, not sharp sand, and use mortar within 2½ hours of mixing (2 hours in hot weather, BIA TN 8).`}
       related={[
         {
           href: "/brick-calculator",

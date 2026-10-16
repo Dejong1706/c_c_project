@@ -130,7 +130,7 @@ const metaMap: Record<
   "how-to-mix-concrete-by-hand": {
     title: "How to Mix Concrete by Hand: Ratio, Water & Bags | BuildCalc",
     description:
-      "How to mix concrete by hand: the 1:2:3 ratio, how much water per 80 lb bag (about 3 quarts), bagged premix yields, tools and step-by-step mixing.",
+      "How to mix concrete by hand: the common 1:2:3 ratio and ACI small-job mixes, water per 80 lb bag, bag yields, safety and curing.",
     keywords: [
       "how to mix concrete by hand",
       "mixing cement by hand",
@@ -166,7 +166,7 @@ const metaMap: Record<
   "brick-mortar-mix-ratio": {
     title: "Mortar Mix Ratio for Bricks: Type N, S & M | BuildCalc",
     description:
-      "Mortar mix ratios for bricks: Type N, S, M and O (cement:lime:sand), strengths and uses, bagged mortar vs masonry cement, and mortar needed per m².",
+      "Mortar mix ratios for bricks: ASTM C270 Type N, S, M and O, UK designations (i)–(iv), cement:lime:sand by volume, which mix to use, and mortar per m².",
     keywords: [
       "mortar mix ratio",
       "brick mortar ratio",
@@ -285,7 +285,7 @@ const metaMap: Record<
   "stair-building-code-requirements": {
     title: "IRC Stair Code: Risers, Treads & Handrails | BuildCalc",
     description:
-      "IRC stair code explained: 7¾\" max riser, 10\" min tread, 36\" width, 6'8\" headroom, plus handrail, guard, landing, spiral and deck stair rules.",
+      "2024 IRC stair code (R318.7) explained: 7¾\" max riser, 10\" min tread, 36\" width, 6'8\" headroom, plus handrail, guard, landing, spiral and deck stair rules.",
     keywords: [
       "irc stair code",
       "stair building code",

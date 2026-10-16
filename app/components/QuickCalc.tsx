@@ -14,8 +14,8 @@ const TABS: { id: Tab; label: string }[] = [
 // 80 lb premix bag yields ~0.6 ft³; US modular brick with 3/8" joints ≈ 6.75 per ft²
 const BAG_80LB_FT3 = 0.6;
 const BRICKS_PER_FT2 = 6.75;
-const MAX_RISER_IN = 7.75; // IRC R311.7.5.1
-const MIN_TREAD_IN = 10; // IRC R311.7.5.2
+const MAX_RISER_IN = 7.75; // 2024 IRC R318.7.5.1
+const MIN_TREAD_IN = 10; // 2024 IRC R318.7.5.2
 
 const num = (v: string) => {
   const n = parseFloat(v);

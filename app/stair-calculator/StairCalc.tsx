@@ -7,11 +7,11 @@ import { ceilCount } from "../components/calcMath";
 type HeightUnit = "in" | "cm" | "ft";
 type MountType = "standard" | "flush";
 
-// IRC R311.7 limits
-const IRC_MAX_RISER_IN = 7.75; // R311.7.5.1
-const IRC_MIN_TREAD_IN = 10; // R311.7.5.2
-const IRC_MIN_WIDTH_IN = 36; // R311.7.1
-const IRC_MAX_FLIGHT_RISE_IN = 151; // R311.7.3 — landing required above this
+// 2024 IRC R318.7 limits
+const IRC_MAX_RISER_IN = 7.75; // R318.7.5.1
+const IRC_MIN_TREAD_IN = 10; // R318.7.5.2
+const IRC_MIN_WIDTH_IN = 36; // R318.7.1
+const IRC_MAX_FLIGHT_RISE_IN = 151; // R318.7.3 — landing required above this
 
 const toIn: Record<HeightUnit, number> = { in: 1, cm: 1 / 2.54, ft: 12 };
 
@@ -71,7 +71,7 @@ export default function StairCalc() {
     const angleRad = valid ? Math.atan(actualRiser / treadDepthIn) : 0;
     const angleDeg = (angleRad * 180) / Math.PI;
 
-    // Comfort check: Rise + Run should be 17–18"
+    // Carpenter's rule of thumb (not a code requirement): Rise + Run ≈ 17–18"
     const comfortSum = actualRiser + treadDepthIn;
 
     // IRC code checks
@@ -81,7 +81,6 @@ export default function StairCalc() {
     const widthOk = stairWidthIn >= IRC_MIN_WIDTH_IN;
     const flightOk = totalRiseIn <= IRC_MAX_FLIGHT_RISE_IN;
     const comfortOk = comfortSum >= 17 && comfortSum <= 18;
-    const angleOk = angleDeg >= 30 && angleDeg <= 37;
 
     const codeStatus =
       riserOk && treadOk && widthOk && flightOk
@@ -130,19 +129,15 @@ export default function StairCalc() {
       {
         label: "Stair angle",
         value: valid ? `${angleDeg.toFixed(1)}°` : "—",
-        unit: valid
-          ? angleOk
-            ? "✓ 30–37° comfort range"
-            : "✗ outside comfort range"
-          : "30–37° is comfortable",
+        unit: "",
         tier: 3,
       },
       {
-        label: "Comfort formula (R + T)",
+        label: "Rule of thumb (R + T)",
         value: valid ? comfortSum.toFixed(1) : "—",
         unit: valid
-          ? `in ${comfortOk ? '✓ 17–18" ideal' : '⚠ outside 17–18" ideal'}`
-          : 'in — 17–18" is ideal',
+          ? `in ${comfortOk ? '✓ within 17–18"' : '⚠ outside 17–18"'}`
+          : 'in — 17–18" rule of thumb',
         tier: 3,
       },
       {
@@ -256,7 +251,7 @@ export default function StairCalc() {
       onTypeChange={setMountIdx}
       inputs={inputs}
       results={results}
-      notice={`Risers = ⌈Total Rise ÷ Target Riser⌉. Actual riser = Total Rise ÷ Risers (equal distribution per IRC §R311.7.5.1 ⅜" uniformity rule). Stringer = √(Rise² + Run²). IRC: max riser 7¾" and min tread 10" (R311.7.5), min width 36" (R311.7.1), max 151" rise per flight (R311.7.3). Comfort rule of thumb: Rise + Run = 17–18". Measure finished floor to finished floor — include flooring thickness on both ends. Always verify with your local building department before cutting stringers.`}
+      notice={`Risers = ⌈Total Rise ÷ Target Riser⌉. Actual riser = Total Rise ÷ Risers (equal distribution per 2024 IRC §R318.7.5.1 ⅜" uniformity rule). Stringer = √((Rise − one riser)² + Run²) for standard mount, √(Rise² + Run²) for flush mount. 2024 IRC: max riser 7¾" and min tread 10" (R318.7.5), min width 36" (R318.7.1), max 151" rise per flight (R318.7.3). Carpenter's rule of thumb (not code): Rise + Run ≈ 17–18". A cut 2×12 stringer spans at most 6'-0" horizontally without a support post or landing (AWC DCA 6). Measure finished floor to finished floor — include flooring thickness on both ends. Always verify with your local building department before cutting stringers.`}
       related={[
         {
           href: "/concrete-calculator",

@@ -31,7 +31,7 @@ const FENCE_TYPES: Record<
     label: "Vinyl",
     defaultSpacing: 8,
     railsPerSection: (h) => (h < 5 ? 2 : h <= 7 ? 3 : 4),
-    holeDiaIn: 12,
+    holeDiaIn: 15, // Quikrete: hole ≈ 3× post width
     postAreaSqFt: (5 / 12) ** 2, // 5×5 post
   },
   chainlink: {
@@ -81,8 +81,9 @@ export default function FenceCalc() {
     const bays = linePosts - 1;
     const adjustedSpacing = valid && bays > 0 ? L / bays : S;
 
-    // Post length: above ground (H) + burial (H/3, min 2ft)
-    const burial = Math.max(H / 3, 2);
+    // Post length: above ground (H) + burial. Quikrete: hole depth = 1/3 of the
+    // overall post length, so burial = (H + burial) / 3 → burial = H / 2
+    const burial = H / 2;
     const postLength = H + burial;
 
     // Rails
