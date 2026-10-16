@@ -1,5 +1,7 @@
 # 가이드(콘텐츠) 페이지 추가 가이드
 
+> 시작 전에 [`docs/content-rules.md`](content-rules.md)(출처·표현·일관성 규칙)를 먼저 확인할 것.
+
 `/guides/<slug>` 형태의 글(How-to, 레퍼런스) 추가 시 따라야 하는 패턴. 기존 가이드 15개 중 13개가 이미 이 구조를 쓰고 있음 (`how-to-mix-concrete-by-hand.tsx`, `brick-mortar-mix-ratio.tsx` 등 참고).
 
 ## 1. 파일 위치

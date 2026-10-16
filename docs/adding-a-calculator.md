@@ -1,5 +1,7 @@
 # 계산기 페이지 추가 가이드
 
+> 시작 전에 [`docs/content-rules.md`](content-rules.md)(출처·표현·일관성 규칙)를 먼저 확인할 것.
+
 새 계산기를 추가할 때 따라야 하는 패턴. 기존 계산기들(`mortar-calculator`, `excavation-calculator`, `brick-calculator` 등)이 전부 이 구조를 따르고 있으니, 헷갈리면 그 파일들을 참고할 것.
 
 ## 1. 파일 구조
