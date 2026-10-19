@@ -13,27 +13,27 @@ const faqs = [
   {
     question: "How far apart should drywall screws be?",
     answer:
-      "For walls, space screws 16 inches apart on studs in the field and 8 inches apart on edges. For ceilings, use 12 inches in the field and 8 inches on edges. These are the IRC and GA-216 standard intervals for ½-inch drywall on 16-inch OC framing.",
+      "Under 2024 IRC Table R702.3.5 (no adhesive), the maximum screw spacing along each framing member is 16 inches on walls framed 16 inches on center, 12 inches on walls framed 24 inches on center, and 12 inches on ceilings. The same spacing applies at sheet edges and in the field — 8 inches is the nail spacing for walls, not a screw edge spacing.",
   },
   {
     question: "How many screws do I need per sheet of drywall?",
     answer:
-      "A standard 4×8 sheet on walls at 16-inch OC framing needs approximately 32–36 screws. On ceilings at 12-inch spacing, expect 40–45 screws per sheet. Use these as planning estimates — actual count depends on stud spacing and sheet placement.",
+      "At the IRC maximum spacing, with a screw at each end of every framing member, a 4×8 sheet needs 28 screws on a wall framed 16 inches on center and 35 screws on a ceiling framed 16 inches on center (sheet perpendicular to framing). A 4×12 sheet needs 40 and 50. These are code-minimum counts; closer spacing is allowed.",
   },
   {
     question: "What size screws should I use for drywall?",
     answer:
-      "Use 1¼-inch coarse-thread screws for ½-inch drywall into wood studs. Use 1⅝-inch screws for ⅝-inch Type X drywall. For metal studs, use fine-thread drywall screws of the same lengths. Never use nails for ceiling drywall — screws are required to prevent nail pops.",
-  },
-  {
-    question: "How deep should drywall screws be set?",
-    answer:
-      "Drive screws so the head dimples the paper surface slightly without breaking through it. The screw should penetrate at least ⅝ inch into wood studs. A broken paper surface weakens the hold and must be filled with an additional screw nearby.",
+      "The 2024 IRC (R702.3.5.1) requires Type W or Type S screws (ASTM C1002) that penetrate wood framing at least ⅝ inch, so screw length must be at least board thickness + ⅝ inch: 1⅛ inch for ½-inch board and 1¼ inch for ⅝-inch board. 1¼-inch screws meet both. For steel studs thinner than 0.033 inch, use Type S screws that penetrate the steel at least ⅜ inch.",
   },
   {
     question: "Can I use nails instead of screws for drywall?",
     answer:
-      "Nails are permitted for walls by code but not recommended — they are prone to popping as lumber dries and shrinks. Screws grip better and are required for ceiling installations. Most professionals use screws exclusively.",
+      "Yes. 2024 IRC Table R702.3.5 permits nails on both walls and ceilings, at closer spacing than screws: 7 inches maximum on ceilings and 8 inches on walls (no adhesive), using the nail sizes listed in the table. Screws are not required by the IRC for ceilings.",
+  },
+  {
+    question: "Can I use ½-inch drywall on a ceiling with joists 24 inches on center?",
+    answer:
+      "Yes, if the board runs perpendicular to the joists — 2024 IRC Table R702.3.5 lists ½-inch ceiling board at 24 inches on center with screws at 12 inches. If the ceiling will get a water-based texture, footnote 4 of the table requires ⅝-inch board or ½-inch sag-resistant ceiling board instead.",
   },
 ];
 
@@ -52,8 +52,22 @@ const articleSchema = {
   "@type": "Article",
   headline: "Drywall Screw Spacing Guide",
   description:
-    "Complete reference for drywall screw spacing on walls and ceilings — field spacing, edge spacing, screw sizes, and how many screws per sheet.",
+    "Drywall screw spacing for walls and ceilings under 2024 IRC Table R702.3.5, screw types and lengths, and code-minimum screws per sheet.",
   url: "https://buildcalczone.com/guides/drywall-screw-spacing-guide",
+};
+
+const li = {
+  fontSize: "15px",
+  color: "var(--text-2)",
+  lineHeight: 1.8,
+  marginBottom: "6px",
+};
+
+const table = {
+  width: "100%",
+  borderCollapse: "collapse" as const,
+  margin: "12px 0 20px",
+  fontSize: "14px",
 };
 
 export default function DrywallScrewSpacingGuide() {
@@ -95,234 +109,240 @@ export default function DrywallScrewSpacingGuide() {
             Drywall Screw Spacing Guide
           </h1>
           <p style={{ fontSize: "15px", color: "var(--text-2)", lineHeight: 1.7 }}>
-            Screw spacing is one of the few drywall details that&apos;s actually
-            specified by code. Get it wrong and you get nail pops, loose panels,
-            and failed inspections. Here&apos;s the full reference for walls,
-            ceilings, and different framing spacings.
+            Fastener spacing for drywall (gypsum board) is set by the building
+            code. In the US, the 2024 International Residential Code (IRC) lists
+            the maximum screw and nail spacing in Table R702.3.5 and the screw
+            requirements in Section R702.3.5.1. Here&apos;s that reference for
+            walls, ceilings, and 16- or 24-inch framing.
           </p>
         </header>
 
         {/* Quick reference */}
-        <h2 style={sectionHeading}>Quick reference — GA-216 / IRC standard</h2>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <h2 style={sectionHeading}>Quick reference — 2024 IRC Table R702.3.5</h2>
+        <p style={paragraph}>
+          Maximum fastener spacing along each framing member, for board
+          installed without adhesive:
+        </p>
+        <table style={table}>
           <thead>
             <tr>
               <th style={th}>Location</th>
-              <th style={th}>Field spacing</th>
-              <th style={th}>Edge spacing</th>
               <th style={th}>Framing</th>
+              <th style={th}>Board</th>
+              <th style={th}>Screws</th>
+              <th style={th}>Nails</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td style={td}>Walls</td>
               <td style={td}>16&quot; OC</td>
-              <td style={td}>8&quot; OC</td>
-              <td style={td}>16&quot; OC studs</td>
+              <td style={td}>½&quot; or ⅝&quot;</td>
+              <td style={td}>16&quot;</td>
+              <td style={td}>8&quot;</td>
             </tr>
             <tr>
               <td style={td}>Walls</td>
               <td style={td}>24&quot; OC</td>
-              <td style={td}>8&quot; OC</td>
-              <td style={td}>24&quot; OC studs</td>
+              <td style={td}>½&quot; or ⅝&quot;</td>
+              <td style={td}>12&quot;</td>
+              <td style={td}>8&quot;</td>
             </tr>
             <tr>
               <td style={td}>Ceilings</td>
-              <td style={td}>12&quot; OC</td>
-              <td style={td}>8&quot; OC</td>
-              <td style={td}>16&quot; OC joists</td>
+              <td style={td}>16&quot; OC</td>
+              <td style={td}>½&quot; or ⅝&quot;</td>
+              <td style={td}>12&quot;</td>
+              <td style={td}>7&quot;</td>
             </tr>
             <tr>
               <td style={td}>Ceilings</td>
-              <td style={td}>12&quot; OC</td>
-              <td style={td}>8&quot; OC</td>
-              <td style={td}>24&quot; OC joists (⅝&quot; only)</td>
+              <td style={td}>24&quot; OC</td>
+              <td style={td}>½&quot; or ⅝&quot;, perpendicular to joists</td>
+              <td style={td}>12&quot;</td>
+              <td style={td}>7&quot;</td>
+            </tr>
+            <tr>
+              <td style={td}>Garage ceiling under habitable rooms</td>
+              <td style={td}>24&quot; OC</td>
+              <td style={td}>⅝&quot; Type X, perpendicular</td>
+              <td style={td}>6&quot;</td>
+              <td style={td}>6&quot;</td>
             </tr>
           </tbody>
         </table>
         <div style={note}>
-          &ldquo;Field&rdquo; means the interior of the sheet — screws that hit
-          intermediate framing members between the edges. &ldquo;Edge&rdquo; means
-          the perimeter of the sheet where it meets a framing member at the end
-          or side. Edge screws must be at least ⅜ inch from the edge of the sheet
-          to avoid crumbling the core.
+          The table gives one maximum spacing per framing member — it does not
+          set a separate, tighter &ldquo;edge&rdquo; spacing for screws. The 8&quot;
+          figure often quoted for walls is the <strong>nail</strong> spacing.
+          Installing with adhesive allows wider spacing (see the table&apos;s
+          adhesive rows). The IRC sets a minimum fastener distance of ⅜&quot; from
+          board edges and ends only for gypsum ceilings used as diaphragms
+          (Table R702.3.6); for other work, follow the board manufacturer&apos;s
+          instructions.
         </div>
 
         {/* Walls */}
         <h2 style={sectionHeading}>Walls — screw spacing in detail</h2>
         <p style={paragraph}>
-          For ½-inch drywall on 16-inch OC wood studs — the most common residential
-          wall assembly:
+          The IRC lets wall board run either direction — horizontal or vertical
+          (R702.3.5). All edges and ends must land on framing, except edges and
+          ends that run perpendicular to the framing.
         </p>
         <ul style={{ paddingLeft: "20px", margin: "0 0 14px" }}>
-          <li style={{ fontSize: "15px", color: "var(--text-2)", lineHeight: 1.8, marginBottom: "6px" }}>
-            <strong>Field screws:</strong> Every 16 inches along each intermediate stud
+          <li style={li}>
+            <strong>16&quot; OC studs:</strong> screws no more than 16 inches apart
+            along every stud the sheet crosses, including the studs at the sheet
+            ends
           </li>
-          <li style={{ fontSize: "15px", color: "var(--text-2)", lineHeight: 1.8, marginBottom: "6px" }}>
-            <strong>Edge screws:</strong> Every 8 inches along top and bottom plates
-            and any end stud
+          <li style={li}>
+            <strong>24&quot; OC studs:</strong> screws no more than 12 inches apart
+            — not 24 inches
           </li>
-          <li style={{ fontSize: "15px", color: "var(--text-2)", lineHeight: 1.8, marginBottom: "6px" }}>
-            <strong>Butt joints:</strong> 8 inches OC on both sheets at the joint
+          <li style={li}>
+            <strong>Butt joints:</strong> both sheets are screwed to the shared
+            stud at the same maximum spacing
           </li>
         </ul>
         <div style={formula}>
-          Screws per 4&times;8 wall sheet (16&quot; OC) &asymp; 32–36 screws
-        </div>
-        <p style={paragraph}>
-          For 24-inch OC framing, field screws space out to 24 inches, reducing
-          the total count per sheet slightly — but edge spacing stays at 8 inches.
-        </p>
-        <div style={note}>
-          Hang wall sheets horizontally (long edge parallel to floor) on walls
-          taller than 8 feet. This positions the tapered edges at a comfortable
-          taping height and reduces the total linear footage of joints to finish.
+          4&times;8 sheet, horizontal on 16&quot; OC: 7 studs &times; (48 &divide; 16 + 1)
+          = 7 &times; 4 = 28 screws
         </div>
 
         {/* Ceilings */}
-        <h2 style={sectionHeading}>Ceilings — tighter spacing required</h2>
-        <p style={paragraph}>
-          Ceiling drywall fights gravity and is more prone to sag — tighter
-          screw spacing is required by GA-216:
-        </p>
+        <h2 style={sectionHeading}>Ceilings — 12-inch maximum</h2>
         <ul style={{ paddingLeft: "20px", margin: "0 0 14px" }}>
-          <li style={{ fontSize: "15px", color: "var(--text-2)", lineHeight: 1.8, marginBottom: "6px" }}>
-            <strong>Field screws:</strong> Every 12 inches along each joist
+          <li style={li}>
+            <strong>Screws:</strong> no more than 12 inches apart along each
+            joist, at 16&quot; or 24&quot; OC
           </li>
-          <li style={{ fontSize: "15px", color: "var(--text-2)", lineHeight: 1.8, marginBottom: "6px" }}>
-            <strong>Edge screws:</strong> Every 8 inches along perimeter framing
+          <li style={li}>
+            <strong>½&quot; board at 24&quot; OC:</strong> allowed when installed
+            perpendicular to the joists
+          </li>
+          <li style={li}>
+            <strong>Water-based texture:</strong> the board must run
+            perpendicular to the framing, and thickness goes up — ⅜&quot; to
+            ½&quot; at 16&quot; OC, ½&quot; to ⅝&quot; at 24&quot; OC — or use ½&quot;
+            sag-resistant ceiling board (Table R702.3.5, footnote 4)
+          </li>
+          <li style={li}>
+            <strong>⅜&quot; single layer:</strong> not allowed on ceilings that get
+            a water-based texture or that support insulation above
           </li>
         </ul>
         <div style={formula}>
-          Screws per 4&times;8 ceiling sheet (16&quot; OC joists) &asymp; 40–45 screws
+          4&times;8 sheet on 16&quot; OC joists: 7 joists &times; (48 &divide; 12 + 1)
+          = 7 &times; 5 = 35 screws
         </div>
-        <p style={paragraph}>
-          For 24-inch OC ceiling joists, use ⅝-inch drywall only — ½-inch will
-          sag between joists at that span. Screw spacing remains 12 inches in
-          the field even at 24-inch OC.
-        </p>
         <div style={note}>
-          Always install ceiling drywall before walls. The wall sheets will
-          support the ceiling sheet edges and prevent them from drooping over time.
-          Never hang ceiling drywall alone — use a drywall lift (rental ~$50–$80/day)
-          or a helper.
+          Common practice is to hang the ceiling before the walls. This is a
+          rule of thumb, not a code requirement.
         </div>
 
         {/* Screw sizes */}
-        <h2 style={sectionHeading}>Screw size reference</h2>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <h2 style={sectionHeading}>Screw type and length</h2>
+        <p style={paragraph}>
+          2024 IRC R702.3.5.1: screws into wood must be Type W or Type S
+          (ASTM C1002) and penetrate the wood at least ⅝ inch. Into steel studs
+          thinner than 0.033 inch, use Type S (or ASTM C1513 bugle head) screws
+          that penetrate the steel at least ⅜ inch; for 0.033–0.112 inch steel,
+          use ASTM C954 (or C1513 bugle head) screws.
+        </p>
+        <div style={formula}>
+          Minimum screw length (wood) = total board thickness + ⅝&quot;
+        </div>
+        <table style={table}>
           <thead>
             <tr>
               <th style={th}>Application</th>
-              <th style={th}>Screw size</th>
-              <th style={th}>Thread type</th>
+              <th style={th}>Minimum length</th>
+              <th style={th}>Typical screw</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style={td}>½&quot; drywall into wood studs</td>
-              <td style={td}>1¼&quot; (6d equivalent)</td>
-              <td style={td}>Coarse thread</td>
+              <td style={td}>½&quot; board into wood</td>
+              <td style={td}>1⅛&quot;</td>
+              <td style={td}>1¼&quot; Type W (coarse)</td>
             </tr>
             <tr>
-              <td style={td}>⅝&quot; Type X into wood studs</td>
-              <td style={td}>1⅝&quot;</td>
-              <td style={td}>Coarse thread</td>
-            </tr>
-            <tr>
-              <td style={td}>½&quot; drywall into metal studs</td>
+              <td style={td}>⅝&quot; board into wood</td>
               <td style={td}>1¼&quot;</td>
-              <td style={td}>Fine thread (S-12)</td>
+              <td style={td}>1¼&quot; Type W (coarse)</td>
             </tr>
             <tr>
-              <td style={td}>Double-layer drywall</td>
-              <td style={td}>1⅝&quot; base layer, 1¼&quot; face</td>
-              <td style={td}>Coarse thread</td>
+              <td style={td}>½&quot; board into steel (&lt;0.033&quot;)</td>
+              <td style={td}>⅞&quot;</td>
+              <td style={td}>1&quot; Type S (fine)</td>
             </tr>
             <tr>
-              <td style={td}>Drywall to drywall (face layer only)</td>
-              <td style={td}>1&quot; Type G</td>
-              <td style={td}>Coarse thread</td>
+              <td style={td}>Two layers ½&quot; into wood — base layer</td>
+              <td style={td}>1⅛&quot;</td>
+              <td style={td}>1¼&quot; Type W</td>
+            </tr>
+            <tr>
+              <td style={td}>Two layers ½&quot; into wood — face layer</td>
+              <td style={td}>1⅝&quot;</td>
+              <td style={td}>1⅝&quot; Type W</td>
             </tr>
           </tbody>
         </table>
         <div style={note}>
-          Screws must penetrate at least ⅝ inch into wood framing members.
-          For metal studs, penetration of at least ⅜ inch through the stud is
-          required. Use a dimpler bit to set screws consistently — the head should
-          create a slight dimple without tearing the paper face.
+          Type G screws (ASTM C1002) fasten gypsum board to gypsum board, for
+          example a face layer screwed only into the base layer. Follow the
+          board manufacturer&apos;s instructions for their length and spacing.
+          Setting each head just below the surface without breaking the face
+          paper is common practice; the IRC doesn&apos;t address setting depth.
         </div>
 
         {/* Common mistakes */}
         <h2 style={sectionHeading}>Common screw mistakes to avoid</h2>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <table style={table}>
           <thead>
             <tr>
               <th style={th}>Mistake</th>
-              <th style={th}>Result</th>
+              <th style={th}>Why it&apos;s wrong</th>
               <th style={th}>Fix</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style={td}>Over-driven screw (paper torn)</td>
-              <td style={td}>Weak hold, must be refilled</td>
-              <td style={td}>Add a new screw 2&quot; away</td>
+              <td style={td}>16&quot; spacing on ceilings</td>
+              <td style={td}>Ceiling maximum is 12&quot;</td>
+              <td style={td}>Screws at 12&quot; or less</td>
             </tr>
             <tr>
-              <td style={td}>Under-driven screw (proud of surface)</td>
-              <td style={td}>Blocks taping, shows through paint</td>
-              <td style={td}>Drive deeper with dimpler bit</td>
+              <td style={td}>24&quot; spacing on 24&quot; OC walls</td>
+              <td style={td}>Wall maximum at 24&quot; OC is 12&quot;</td>
+              <td style={td}>Screws at 12&quot; or less</td>
             </tr>
             <tr>
-              <td style={td}>Screw too close to edge (&lt;⅜&quot;)</td>
-              <td style={td}>Core crumbles, no holding power</td>
-              <td style={td}>Move screw &frac12;&quot; from edge minimum</td>
+              <td style={td}>Screw too short</td>
+              <td style={td}>Less than ⅝&quot; into wood</td>
+              <td style={td}>Board thickness + ⅝&quot; or longer</td>
             </tr>
             <tr>
-              <td style={td}>Wrong thread type on metal studs</td>
-              <td style={td}>Screw strips out, sheet loose</td>
-              <td style={td}>Use fine-thread (S-12) for metal</td>
+              <td style={td}>Coarse-thread (Type W) screws in thin steel studs</td>
+              <td style={td}>Steel &lt;0.033&quot; needs Type S (or C1513)</td>
+              <td style={td}>Fine-thread Type S</td>
             </tr>
             <tr>
-              <td style={td}>Spacing too wide on ceilings</td>
-              <td style={td}>Sheet sags, nail pops over time</td>
-              <td style={td}>Add screws to meet 12&quot; OC requirement</td>
+              <td style={td}>Board edge or end between framing</td>
+              <td style={td}>Edges and ends parallel to framing must land on it</td>
+              <td style={td}>Cut the sheet to break on a stud or joist</td>
             </tr>
           </tbody>
         </table>
 
         {/* Screws per sheet estimator */}
-        <h2 style={sectionHeading}>Screws per sheet — planning guide</h2>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <h2 style={sectionHeading}>Screws per sheet — code minimum</h2>
+        <p style={paragraph}>
+          Counts below use the maximum spacing above, a screw at each end of
+          every framing member, and the sheet perpendicular to the framing.
+          Closer spacing is allowed, so treat these as the minimum.
+        </p>
+        <table style={table}>
           <thead>
             <tr>
               <th style={th}>Location</th>
@@ -335,28 +355,34 @@ export default function DrywallScrewSpacingGuide() {
             <tr>
               <td style={td}>Walls</td>
               <td style={td}>16&quot;</td>
-              <td style={td}>~34 screws</td>
-              <td style={td}>~50 screws</td>
+              <td style={td}>28 screws</td>
+              <td style={td}>40 screws</td>
             </tr>
             <tr>
               <td style={td}>Walls</td>
               <td style={td}>24&quot;</td>
-              <td style={td}>~28 screws</td>
-              <td style={td}>~42 screws</td>
+              <td style={td}>25 screws</td>
+              <td style={td}>35 screws</td>
             </tr>
             <tr>
               <td style={td}>Ceilings</td>
               <td style={td}>16&quot;</td>
-              <td style={td}>~42 screws</td>
-              <td style={td}>~62 screws</td>
+              <td style={td}>35 screws</td>
+              <td style={td}>50 screws</td>
+            </tr>
+            <tr>
+              <td style={td}>Ceilings</td>
+              <td style={td}>24&quot;</td>
+              <td style={td}>25 screws</td>
+              <td style={td}>35 screws</td>
             </tr>
           </tbody>
         </table>
         <p style={paragraph}>
-          A standard 5-lb box of 1¼-inch coarse-thread screws contains approximately
-          660 screws — enough for roughly 19 sheets at wall spacing. Order one box
-          per 15–18 sheets for walls, one box per 12–15 sheets for ceilings.
+          Screws per box vary by brand, length, and box weight — check the
+          count on the label before ordering.
         </p>
+
 
         {/* CTA */}
         <div

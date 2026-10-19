@@ -171,7 +171,7 @@
   - "대형 타일은 넓은 줄눈 3–6 mm"는 오해 소지. ANSI A108.02: 실제 치수 편차의 3배 이상, 최소 1/16″(1.6 mm).
   - 모자이크 1.5 mm는 최소 미만
 - [ ] 줄눈이 "움직임 흡수"한다는 서술 (grout ~103–106, ~22행, lay-tile ~216행): 시멘트 줄눈은 강성이고, 움직임은 movement joint(TCNA EJ171)가 담당
-- [ ] `drywall-screw-spacing-guide.tsx` (**시공 오류로 이어짐**)
+- [x] `drywall-screw-spacing-guide.tsx` (**시공 오류로 이어짐**) — 2026-10-19 완료 (아래 10-19 항목)
   - ~16행(FAQ), 표 ~125–146, ~169–173, ~200행: 가장자리 8″ OC는 **못** 간격. 나사는 벽 16″ / 천장 12″, 가장자리 포함.
   - ~131–134, ~180–181행: 24″ OC 골조 벽에서 나사 간격 24″ → **12″** (IRC Table R702.3.5)
   - ~26, ~36행: "천장에 못 금지, 나사 필수" → IRC는 천장 못 7″ OC 허용 (나사 권장일 뿐)
@@ -318,7 +318,7 @@
 - [x] 금 (2026-10-16): 손비빔 가이드 1.8 ft³ + title(60자)/description(145자) 축소 + 콘크리트 가이드 5곳에서 링크 (concrete-volume 백 수 문단, strength-grades 마무리, curing 습윤양생 목록 뒤, fence Step 6, mortar "콘크리트 대신" NoteBox — FAQ 답은 JSON-LD 문자열이라 본문에 링크)
 
 **2주차: 안전·시공 오류**
-- [ ] 월: drywall-screw-spacing-guide (2단계 항목 전체)
+- [x] 월 (2026-10-19): drywall-screw-spacing-guide (2단계 항목 전체) + 계산기 나사 수·drywall-sheets 나사 행 정합 + title/description 재작성
 - [ ] 화: 타일 줄눈 방향 / lippage / 움직임 흡수
 - [ ] 수: 지붕 OSHA 안전 문구 + IRC R905 최소 경사 (+ `pitchCategory` 반올림)
 - [ ] 목: single-vs-double-leaf (정원 담장 높이 등)
@@ -347,6 +347,17 @@
 - [ ] FAQ 4개뿐인 가이드 8개에 롱테일 FAQ 추가
 - [ ] `how-to-calculate-bricks-for-a-wall.tsx:39` "Do mortar joint thickness" → "Does"
 - [ ] paint 가이드 2개 동일 FAQ("How many coats") 중복 제거
+
+### 2026-10-19 drywall 나사 간격 가이드 (2024 IRC 기준)
+
+- 출처: 2024 IRC Table R702.3.5, R702.3.5, R702.3.5.1, Table R702.3.6 각주(⅜″ 가장자리 거리) — UpCodes GSA Residential Code 2024(IRC 2024 무수정 채택본). ASTM C1002-22 범위(Type S/W/G 정의)는 ASTM 스토어 요약. **GA-216-2024는 유료라 원문 미확인** → GA-216 인용 전부 삭제
+- 가이드: 나사 최대 간격 벽 16″(16 OC)/12″(24 OC), 천장 12″, 차고 천장(거실 아래, ⅝″ Type X) 6″. 표에 가장자리/필드 구분 없음 → "가장자리 8″"는 못 간격임을 명시. 천장 못 7″ 허용(나사 필수 아님). ½″ 천장 24 OC 직각 허용, 수성 텍스처 시 ⅝″ 또는 sag-resistant ½″(각주 4), ⅜″ 단층 제한
+- 나사 길이 = 보드 두께 + ⅝″(R702.3.5.1): ½″ 1⅛→1¼″, ⅝″ 1¼″, 이중 ½+½ 하부 1¼″/상부 1⅝″, 경량철골(<0.033″) Type S ⅜″ 관통 → 1″. "6d equivalent" 삭제. Type G는 보드-보드용(C1002), 길이는 제조사 지침으로
+- 장당 나사 수 재계산(직각 시공, 부재 양끝 포함): 벽 16 OC 28/40, 24 OC 25/35, 천장 16 OC 35/50, 24 OC 25/35 (4×8/4×12)
+- 삭제(출처 없음): nail pop 원인 서술, "failed inspections", 8 ft 초과 벽 수평 시공 권장, 리프트 대여료, 5 lb 박스 660개, 2″ 재고정, ½″ 가장자리 최소. 천장 먼저 시공은 관행(rule of thumb)으로 표기
+- 정합: DrywallCalc 나사 = (벽 순면적×28 + 천장×35)/32 × (1+낭비율) (기존 36/장 근거 없음), notice·단위 문구. how-to-calculate-drywall-sheets 자재표 나사 행(1⅝″ → 1¼″ Type W, 28/35장). 메타 title 50자/description 145자, /guides 카드 설명
+- sitemap: 나사 가이드·drywall-sheets 가이드·drywall-calculator 2026-10-19
+- 백로그로 남김: drywall-calculator FAQ(차고 Type X, green board, 4×12 9 ft), drywall-sheets 낭비율 모순·무게·테이프, 계산기 notice의 "⅝″ Type X for garages"
 
 ### 2026-10-16 이번 주 가이드 재검증 (2026 최신 1차 출처 기준)
 

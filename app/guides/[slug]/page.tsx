@@ -322,9 +322,9 @@ const metaMap: Record<
     ],
   },
   "drywall-screw-spacing-guide": {
-    title: "Drywall Screw Spacing Guide (Walls & Ceilings) | BuildCalc",
+    title: "Drywall Screw Spacing Guide (2024 IRC) | BuildCalc",
     description:
-      "Complete reference for drywall screw spacing on walls and ceilings — field spacing, edge spacing, screw sizes, and how many screws per sheet.",
+      "Drywall screw spacing per 2024 IRC Table R702.3.5: 16″ on walls, 12″ on ceilings and 24″ OC walls, screw types and lengths, and screws per sheet.",
     keywords: [
       "drywall screw spacing",
       "drywall screw pattern",

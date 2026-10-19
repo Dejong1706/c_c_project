@@ -64,8 +64,13 @@ export default function DrywallCalc() {
     // Ancillary materials
     // Joint compound: 1 gallon per 100 sq ft
     const jointCompoundGal = valid ? ceilCount(totalArea / 100) : 0;
-    // Screws: ~32–40 per 4×8 sheet at 16" OC — use 36 as midpoint
-    const screws = valid ? ceilCount(sheets * (sheet.sqft / 32) * 36) : 0;
+    // Screws: 2024 IRC Table R702.3.5 code minimum at 16" OC —
+    // 28 per 4×8 wall sheet (16" max), 35 per 4×8 ceiling sheet (12" max)
+    const screws = valid
+      ? ceilCount(
+          ((netWallArea * 28 + ceilingArea * 35) / 32) * (1 + waste / 100),
+        )
+      : 0;
     // Tape: 1 roll per ~150 sq ft
     const tapeRolls = valid ? ceilCount(totalArea / 150) : 0;
 
@@ -103,7 +108,7 @@ export default function DrywallCalc() {
       {
         label: "Drywall screws",
         value: valid ? screws.toLocaleString() : "—",
-        unit: 'screws (16" OC)',
+        unit: 'screws (code min., 16" OC)',
         tier: 3,
       },
       {
@@ -243,7 +248,7 @@ export default function DrywallCalc() {
       onTypeChange={setSheetIdx}
       inputs={inputs}
       results={results}
-      notice={`Wall area = 2 × (L + W) × H. Deductions: ${DOOR_SQFT} sq ft per door, ${WINDOW_SQFT} sq ft per window (USG / Georgia-Pacific standard). Sheets = ⌈Total area × (1 + ${waste}% waste) ÷ ${sheet.sqft} sq ft⌉. Joint compound: 1 gal per 100 sq ft. Screws: ~36 per 4×8 sheet at 16" OC. Install ceiling drywall before walls. Use ½" for walls, ⅝" Type X for garages and fire-rated assemblies.`}
+      notice={`Wall area = 2 × (L + W) × H. Deductions: ${DOOR_SQFT} sq ft per door, ${WINDOW_SQFT} sq ft per window (USG / Georgia-Pacific standard). Sheets = ⌈Total area × (1 + ${waste}% waste) ÷ ${sheet.sqft} sq ft⌉. Joint compound: 1 gal per 100 sq ft. Screws (2024 IRC minimum, 16" OC): 28 per 32 sq ft of wall, 35 per 32 sq ft of ceiling, plus waste. Install ceiling drywall before walls. Use ½" for walls, ⅝" Type X for garages and fire-rated assemblies.`}
       related={[
         {
           href: "/paint-calculator",

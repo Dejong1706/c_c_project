@@ -164,7 +164,7 @@ const guides: {
   {
     title: "Drywall Screw Spacing Guide",
     href: "/guides/drywall-screw-spacing-guide",
-    desc: "Field and edge screw spacing for walls and ceilings, screw size reference, and how many screws per sheet.",
+    desc: "Code-maximum screw spacing for walls and ceilings (2024 IRC), screw types and lengths, and code-minimum screws per sheet.",
     category: "Finishing",
   },
   {

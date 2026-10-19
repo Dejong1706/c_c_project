@@ -354,9 +354,10 @@ export default function HowToCalculateDrywallSheets() {
               <td style={td}>1 roll per 150 sq ft</td>
             </tr>
             <tr>
-              <td style={td}>Drywall screws (1⅝&quot; coarse)</td>
+              <td style={td}>Drywall screws (1¼&quot; Type W coarse)</td>
               <td style={td}>
-                ~36 screws per 4&times;8 sheet (16&quot; OC studs)
+                28 per 4&times;8 wall sheet, 35 per 4&times;8 ceiling sheet
+                (16&quot; OC, 2024 IRC code minimum)
               </td>
             </tr>
             <tr>
