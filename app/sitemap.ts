@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "", date: "2026-06-02", priority: 1 },
     { route: "/concrete-calculator", date: "2026-06-02", priority: 0.9 },
     { route: "/concrete-bags", date: "2026-06-02", priority: 0.9 },
-    { route: "/tile-calculator", date: "2026-06-02", priority: 0.9 },
+    { route: "/tile-calculator", date: "2026-10-20", priority: 0.9 },
     { route: "/brick-calculator", date: "2026-06-02", priority: 0.9 },
     { route: "/paint-calculator", date: "2026-06-02", priority: 0.9 },
     { route: "/rebar-calculator", date: "2026-06-02", priority: 0.9 },
@@ -33,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/tile-grout-gap-guide",
-      date: "2026-06-12",
+      date: "2026-10-20",
       priority: 0.7,
     },
     {
@@ -43,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-many-tiles-do-i-need",
-      date: "2026-06-12",
+      date: "2026-10-20",
       priority: 0.7,
     },
     {
@@ -103,7 +103,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-to-lay-tile-step-by-step",
-      date: "2026-06-25",
+      date: "2026-10-20",
       priority: 0.7,
     },
     {

@@ -106,7 +106,7 @@ const guides: {
   {
     title: "Tile Grout Gap Guide",
     href: "/guides/tile-grout-gap-guide",
-    desc: "Recommended grout gap widths for floor, wall and large-format tile, and how joint size affects appearance and tile count.",
+    desc: "Minimum grout joint width per ANSI A108.02, what lippage is, why grout is not a movement joint, and how joint width changes tile count.",
     category: "Tile",
   },
   {

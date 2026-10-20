@@ -39,7 +39,7 @@ const faqs = [
   {
     question: "What size grout joint should I use?",
     answer:
-      "Most floor tiles use a 3mm grout joint. Larger format tiles (60cm+) typically need wider joints of 3–6mm to accommodate size variation, while smaller mosaic tiles use narrower joints of 1.5–2mm.",
+      "Size the joint from the tile you bought. ANSI A108.02 requires the joint to be at least three times the size variation between tiles, and never less than 1/16 inch (1.6 mm). For offset layouts of tile longer than 15 inches, the average joint must be at least 1/8 inch (3.2 mm) for rectified tile and 3/16 inch (4.8 mm) for calibrated tile. The calculator defaults (3 mm floor, 2 mm wall) are only starting points.",
   },
   {
     question: "How many tiles come in a box?",

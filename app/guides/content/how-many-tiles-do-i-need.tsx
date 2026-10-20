@@ -19,7 +19,7 @@ const faqs = [
   {
     question: "Do grout lines change how many tiles I need?",
     answer:
-      "Grout lines take up a small amount of space, which can slightly increase the number of tiles needed on large jobs. For most residential rooms, this difference is small enough to be covered by your waste percentage.",
+      "Slightly, and in the opposite direction to what many people expect: a wider joint means fewer tiles, because each tile covers its own size plus one joint. Going from a 3 mm to a 6 mm joint cuts the count by about 1% for 60 cm tiles and about 6% for 10 cm tiles.",
   },
 ];
 
@@ -44,7 +44,7 @@ const articleSchema = {
     "Learn how to calculate the number of tiles needed for a room, including waste percentage by layout pattern, box quantities, and common mistakes to avoid.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-many-tiles-do-i-need" },
   datePublished: "2026-06-12",
-  dateModified: "2026-06-12",
+  dateModified: "2026-10-20",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -178,10 +178,10 @@ export default function HowManyTilesGuide() {
 
         <h2 style={sectionHeading}>Grout lines and tile count</h2>
         <p style={paragraph}>
-          Grout joints take up a small amount of space between tiles, which can
-          marginally affect tile count on larger jobs. For most residential
-          rooms this effect is small enough to be covered by your waste
-          percentage — see our{" "}
+          Each tile covers its own size plus one grout joint, so a wider joint
+          means slightly <strong>fewer</strong> tiles. Going from a 3 mm to a
+          6 mm joint cuts the count by about 1% for 60 cm tiles, about 2% for
+          30 cm tiles and about 6% for 10 cm tiles. See our{" "}
           <Link href="/guides/tile-grout-gap-guide" style={link}>
             tile grout gap guide
           </Link>{" "}

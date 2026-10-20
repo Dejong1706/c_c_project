@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, GuideTable, NoteBox, paragraph, sectionHeading, td, th } from "./shared";
+import { Breadcrumb, NoteBox, link, paragraph, sectionHeading } from "./shared";
 
 const faqs = [
   {
@@ -47,7 +47,7 @@ const articleSchema = {
     "Complete step-by-step guide to laying floor and wall tiles — substrate prep, layout, thinset, setting, grouting, and sealing.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-lay-tile-step-by-step" },
   datePublished: "2026-06-25",
-  dateModified: "2026-06-25",
+  dateModified: "2026-10-20",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -212,40 +212,22 @@ export default function HowToLayTileStepByStep() {
           <div style={stepContent}>
             <p style={stepTitle}>Choose the right grout joint size</p>
             <p style={paragraph}>
-              Grout joints aren&apos;t just aesthetic — they accommodate tile size
-              variation and substrate movement. Standard recommendations:
+              The grout joint takes up size variation between tiles. It does
+              not absorb movement — cement grout cures hard, so movement is
+              handled by sealant-filled movement joints (see step 7). Size the
+              joint from the tile you actually bought: measure tiles from
+              several boxes, and per ANSI A108.02 make the joint at least 3×
+              the difference between the largest and smallest tile, and never
+              less than 1/16&quot; (1.6 mm). For offset layouts of tile longer
+              than 15&quot;, the average joint must be at least 1/8&quot;
+              (3.2 mm) for rectified tile and 3/16&quot; (4.8 mm) for
+              calibrated tile. Use the manufacturer&apos;s recommended joint if
+              it is wider. Our{" "}
+              <Link href="/guides/tile-grout-gap-guide" style={link}>
+                tile grout gap guide
+              </Link>{" "}
+              explains the rules with examples.
             </p>
-            <GuideTable>
-              <thead>
-                <tr>
-                  <th style={th}>Tile type</th>
-                  <th style={th}>Recommended joint</th>
-                  <th style={th}>Grout type</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style={td}>Rectified porcelain/ceramic</td>
-                  <td style={td}>1/16&quot; – 1/8&quot; (2–3mm)</td>
-                  <td style={td}>Unsanded</td>
-                </tr>
-                <tr>
-                  <td style={td}>Standard floor tile</td>
-                  <td style={td}>1/8&quot; – 3/16&quot; (3–5mm)</td>
-                  <td style={td}>Sanded</td>
-                </tr>
-                <tr>
-                  <td style={td}>Natural stone</td>
-                  <td style={td}>1/8&quot; – 3/8&quot; (3–10mm)</td>
-                  <td style={td}>Sanded or epoxy</td>
-                </tr>
-                <tr>
-                  <td style={td}>Handmade / rustic tile</td>
-                  <td style={td}>3/16&quot; – 3/8&quot; (5–10mm)</td>
-                  <td style={td}>Sanded</td>
-                </tr>
-              </tbody>
-            </GuideTable>
             <NoteBox>
               Use unsanded grout for joints under 1/8&quot; — sanded grout has
               aggregate too coarse for narrow joints. Never use sanded grout on
@@ -329,9 +311,11 @@ export default function HowToLayTileStepByStep() {
             </p>
             <p style={paragraph}>
               Apply grout sealer to protect against staining. Natural stone
-              tiles should be sealed before and after grouting. Leave expansion
-              joints (filled with matching caulk, not grout) along all perimeter
-              edges and at every 5–8m across large areas.
+              tiles should be sealed before and after grouting. Leave movement
+              joints (filled with flexible sealant, not grout) at all perimeter
+              edges and inside corners, and across large floors about every
+              20–25 ft (6.1–7.6 m) indoors or 8–12 ft (2.4–3.7 m) outdoors, per
+              TCNA Handbook EJ171.
             </p>
           </div>
         </div>

@@ -159,18 +159,18 @@
 
 ### 마감
 
-- [ ] `tile-grout-gap-guide.tsx` ~17행(FAQ), ~161–168행 / `how-many-tiles-do-i-need.tsx` ~22행
+- [x] (아래 4개 항목 2026-10-20 완료, 10-20 항목 참고) `tile-grout-gap-guide.tsx` ~17행(FAQ), ~161–168행 / `how-many-tiles-do-i-need.tsx` ~22행
   - 현재: "줄눈이 넓으면 타일이 더 필요"
   - 정확: **반대로 줄어든다**. 계산기는 맞게 계산한다.
   - 효과 크기: 60 cm 타일 약 1%, 10 cm 약 6%, 모자이크 약 20%
-- [ ] `tile-grout-gap-guide.tsx` ~12, ~152–157행: lippage 정의 오류
+- [x] `tile-grout-gap-guide.tsx` ~12, ~152–157행: lippage 정의 오류
   - lippage = 시공된 인접 타일 간 높이차 (ANSI A108.02)
   - 크기 편차 = facial dimension variation, 휨 = warpage
-- [ ] 줄눈 폭 지침
+- [x] 줄눈 폭 지침
   - 해당 위치: grout 가이드 ~12, ~134, ~185행 / `tile-calculator/page.tsx` ~42행
   - "대형 타일은 넓은 줄눈 3–6 mm"는 오해 소지. ANSI A108.02: 실제 치수 편차의 3배 이상, 최소 1/16″(1.6 mm).
   - 모자이크 1.5 mm는 최소 미만
-- [ ] 줄눈이 "움직임 흡수"한다는 서술 (grout ~103–106, ~22행, lay-tile ~216행): 시멘트 줄눈은 강성이고, 움직임은 movement joint(TCNA EJ171)가 담당
+- [x] 줄눈이 "움직임 흡수"한다는 서술 (grout ~103–106, ~22행, lay-tile ~216행): 시멘트 줄눈은 강성이고, 움직임은 movement joint(TCNA EJ171)가 담당
 - [x] `drywall-screw-spacing-guide.tsx` (**시공 오류로 이어짐**) — 2026-10-19 완료 (아래 10-19 항목)
   - ~16행(FAQ), 표 ~125–146, ~169–173, ~200행: 가장자리 8″ OC는 **못** 간격. 나사는 벽 16″ / 천장 12″, 가장자리 포함.
   - ~131–134, ~180–181행: 24″ OC 골조 벽에서 나사 간격 24″ → **12″** (IRC Table R702.3.5)
@@ -319,7 +319,7 @@
 
 **2주차: 안전·시공 오류**
 - [x] 월 (2026-10-19): drywall-screw-spacing-guide (2단계 항목 전체) + 계산기 나사 수·drywall-sheets 나사 행 정합 + title/description 재작성
-- [ ] 화: 타일 줄눈 방향 / lippage / 움직임 흡수
+- [x] 화 (2026-10-20): 타일 줄눈 방향 / lippage / 움직임 흡수 — grout 가이드 재작성(ANSI A108.02 줄눈 폭) + how-many-tiles·lay-tile·tile-calculator FAQ 정합 + title/description
 - [ ] 수: 지붕 OSHA 안전 문구 + IRC R905 최소 경사 (+ `pitchCategory` 반올림)
 - [ ] 목: single-vs-double-leaf (정원 담장 높이 등)
 - [ ] 금: what-size-rebar (5h/18 in 등) + RebarCalc "±3%"
@@ -347,6 +347,15 @@
 - [ ] FAQ 4개뿐인 가이드 8개에 롱테일 FAQ 추가
 - [ ] `how-to-calculate-bricks-for-a-wall.tsx:39` "Do mortar joint thickness" → "Does"
 - [ ] paint 가이드 2개 동일 FAQ("How many coats") 중복 제거
+
+### 2026-10-20 타일 줄눈 가이드 (ANSI A108.02 / TCNA EJ171)
+
+- 출처: ANSI A108.02 §4.3.8(실제 치수 편차의 3배 이상, 최소 1/16″), §4.3.8.1(15″ 초과 running bond 평균 최소 rectified 1/8″·calibrated 3/16″), 이동 줄눈에 접착·줄눈재 금지. TCNA Handbook EJ171(둘레·내부 모서리·평면 변화·하지 줄눈·필드 실내 20–25 ft/실외 8–12 ft, 실링재+백업재). **ANSI A108/A118/A136.1-2024와 TCNA Handbook 2025는 유료라 원문 미확인.** 조항 문구는 CTEF(ceramictilefoundation.org) 인용과 Custom Building Products TB87, EJ171 간격은 제조사 자료 인용으로 확인
+- grout 가이드 재작성: 줄눈 폭 표를 ANSI 규칙으로 교체(3× 편차, 1/16″ 최소, running bond 평균), 측정 방법·예시(1 mm 편차 → 3 mm), lippage = 시공 후 인접 타일 높이차(치수 편차·warpage와 구분, 넓은 줄눈으로 해결 안 됨), "줄눈이 움직임 흡수" → 시멘트 줄눈은 강성, EJ171 movement joint 섹션 신설, 타일 수: 줄눈 넓으면 **줄어듦** (3→6 mm: 60 cm 약 1%, 30 cm 약 2%, 10 cm 약 6%; 12 m²·60 cm: 34 → 33장). lay-tile 가이드 링크 추가
+- 삭제(출처 없음): 유형별 줄눈 폭 표(모자이크 1.5–2 mm는 최소 미만, 대형 3–6 mm, 실외 6 mm+), "실외는 넓은 줄눈이 열 움직임 흡수", 색상·유지관리 섹션, lippage 최소화 위한 넓은 줄눈. lippage 허용치 수치는 조항 위치(A108.02 vs A137.1) 확인 못 해 넣지 않음
+- 정합: how-many-tiles FAQ·본문(줄어듦), lay-tile 3단계(유형별 표 → ANSI 규칙 + 가이드 링크, 1/16″ = 2 mm 오류 함께 해소) 및 7단계 이동 줄눈 5–8 m → EJ171 간격, tile-calculator FAQ 줄눈 답변. 메타 title 49자/description 151자, /guides 카드
+- sitemap: grout·how-many-tiles·lay-tile 가이드, tile-calculator 2026-10-20
+- 백로그로 남김: lay-tile 3단계 NoteBox sanded/unsanded 1/8″ 기준·대리석 문구(출처 확인 필요), 계산기 기본 줄눈(바닥 3 mm·벽 2 mm)은 유지
 
 ### 2026-10-19 drywall 나사 간격 가이드 (2024 IRC 기준)
 

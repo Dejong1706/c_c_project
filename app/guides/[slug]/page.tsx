@@ -84,9 +84,9 @@ const metaMap: Record<
     ],
   },
   "tile-grout-gap-guide": {
-    title: "Tile Grout Gap Guide — How Wide Should Grout Lines Be? | BuildCalc",
+    title: "Tile Grout Joint Width (ANSI A108.02) | BuildCalc",
     description:
-      "Recommended grout gap widths for floor, wall and large-format tile. Learn how grout joint size affects appearance, durability and tile count.",
+      "Minimum grout joint width per ANSI A108.02: 3× the tile size variation, never under 1/16″. Plus lippage, movement joints and joint width vs tile count.",
     keywords: [
       "grout gap size",
       "tile grout width",
