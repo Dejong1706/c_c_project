@@ -87,10 +87,10 @@
 - [ ] `how-to-calculate-roof-pitch.tsx` ~169–171행: 다락에서 측정 방향
   - 수평자를 서까래 아래면에 대고 12″ 지점에서 **위로** 측정해야 한다.
   - ~188행 "level flat on the roof, bubble centred"는 자기모순.
-- [ ] `roof-pitch-to-degrees-conversion.tsx` ~23행: "approximately … This is exact" 모순
-- [ ] `RoofPitchCalc.tsx` `pitchCategory`: 분류 전에 x:12를 소수 2자리로 반올림
+- [x] (2026-10-21) `roof-pitch-to-degrees-conversion.tsx` ~23행: "approximately … This is exact" 모순
+- [x] (2026-10-21) `RoofPitchCalc.tsx` `pitchCategory`: 분류 전에 x:12를 소수 2자리로 반올림
   - 18.43° 입력 시 3.9989로 "Low slope"가 뜬다.
-- [ ] `RoofPitchCalc.tsx` 안내문 / `pitchCategory`: 위 안전·지붕재 기준에 맞춰 문구 수정
+- [x] (2026-10-21) `RoofPitchCalc.tsx` 안내문 / `pitchCategory`: 위 안전·지붕재 기준에 맞춰 문구 수정
 
 ### 콘크리트 / 철근
 
@@ -320,7 +320,7 @@
 **2주차: 안전·시공 오류**
 - [x] 월 (2026-10-19): drywall-screw-spacing-guide (2단계 항목 전체) + 계산기 나사 수·drywall-sheets 나사 행 정합 + title/description 재작성
 - [x] 화 (2026-10-20): 타일 줄눈 방향 / lippage / 움직임 흡수 — grout 가이드 재작성(ANSI A108.02 줄눈 폭) + how-many-tiles·lay-tile·tile-calculator FAQ 정합 + title/description
-- [ ] 수: 지붕 OSHA 안전 문구 + IRC R905 최소 경사 (+ `pitchCategory` 반올림)
+- [x] 수 (2026-10-21): 지붕 OSHA 안전 문구 + IRC R905 최소 경사 (+ `pitchCategory` 반올림) — 계산기·가이드 2개·FAQ 정합
 - [ ] 목: single-vs-double-leaf (정원 담장 높이 등)
 - [ ] 금: what-size-rebar (5h/18 in 등) + RebarCalc "±3%"
 
@@ -347,6 +347,16 @@
 - [ ] FAQ 4개뿐인 가이드 8개에 롱테일 FAQ 추가
 - [ ] `how-to-calculate-bricks-for-a-wall.tsx:39` "Do mortar joint thickness" → "Does"
 - [ ] paint 가이드 2개 동일 FAQ("How many coats") 중복 제거
+
+### 2026-10-21 지붕 OSHA 안전 문구 + 2024 IRC R905 최소 경사
+
+- 출처: OSHA 29 CFR 1926.500(b) 정의(low-slope ≤ 4 in 12, steep > 4 in 12), 1926.501(b)(10)·(11)·(13) 원문(osha.gov). 2024 IRC R905 — UpCodes GSA Residential Code 2024(IRC 2024 무수정 채택본): 아스팔트 슁글 2:12(R905.2.2, 2:12–4:12 미만 이중 언더레이 R905.1.1), 점토/콘크리트 타일 2½:12(R905.3.2, 4:12 미만 이중), 금속 슁글 3:12(R905.4.2), 롤 루핑 1:12(R905.5.2), 슬레이트 4:12(R905.6.2), 목재 슁글·셰이크 3:12(R905.7.2/R905.8.2), built-up ¼:12·콜타르 ⅛:12(R905.9.1), 금속 패널 standing seam ¼·실런트 겹침 ½·무실런트 3:12(R905.10.2), 개질 아스팔트·single-ply·SPF·액상 ¼:12(R905.11.1–R905.14.1). ICC 원문(codes.iccsafe.org)은 403으로 접근 못 함
+- 계산기: `pitchCategory`를 OSHA 2분류(≤ 4:12 low-slope / > 4:12 steep)로 교체하고 소수 2자리 반올림 값으로 판정(18.43° → 4.00:12 → low-slope). "Roof coverings allowed" 결과 행 신설(R905 최소 경사 단계별). notice: "most common 6:12" 삭제, "2:12 미만 멤브레인 필요"·"6:12 초과 안전장비" → R905 최소 경사 + OSHA 6 ft 규칙
+- 계산기 FAQ: "most common pitch" → "minimum roof pitch for shingles"(R905), "too steep to walk on" → OSHA 정의·6 ft 규칙(경사 무관, 12:12 기준 없음)
+- how-to-calculate-roof-pitch: 4단계 분류표(Flat/Conventional/Steep/Very steep, 3:12–4:12 공백) → OSHA 2분류 표 + 주거 공사 6 ft NoteBox + degrees 가이드 링크. FAQ "most common" → 슁글 최소 경사, "special equipment" → fall protection
+- roof-pitch-to-degrees-conversion: 표 Category → OSHA 분류, ★ 6:12 "most common" 삭제, 지붕재 표 → 2024 IRC R905 최소 경사 표(조항 번호), "4:12 per most manufacturer warranties"·"structural engineer recommended"·"membrane only" 삭제. FAQ 4:12(ranch-style 삭제 → OSHA/IRC), 6:12(safe to walk 삭제), 30° approximately/exact 모순, 12:12 "steepest common" 삭제
+- 메타: 두 가이드 description(153/154자)·articleSchema 설명·/guides 카드 갱신. sitemap: 계산기·두 가이드·/guides 2026-10-21. 두 가이드는 articleSchema에 dateModified 필드 자체가 없음 → 3주차 수요일(Article schema 필드) 항목에서 추가
+- 백로그로 남김: how-to-calculate-roof-pitch 다락 측정 방향(FAQ 1번 답의 "measuring straight down" 포함) · Method 2 "level flat on the roof" 모순, 지붕 면적(결정 필요), 슁글 21:12 초과 특수 고정은 미반영
 
 ### 2026-10-20 타일 줄눈 가이드 (ANSI A108.02 / TCNA EJ171)
 

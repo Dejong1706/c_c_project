@@ -36,14 +36,14 @@ const faqs = [
       "The pitch factor (also called roof multiplier) is √((rise/12)² + 1). Multiply your roof's flat footprint area by the pitch factor to get the true sloped surface area for ordering shingles, underlayment, or metal panels. A 6:12 pitch has a factor of 1.118 — a 1,000 sq ft footprint needs 1,118 sq ft of roofing material.",
   },
   {
-    question: "What is the most common roof pitch for residential homes?",
+    question: "What is the minimum roof pitch for shingles?",
     answer:
-      "The most common US residential pitch is 6:12 (26.57°). It sheds water and snow well, works with most shingle types, allows usable attic space, and is safe to walk on without special equipment. Pitches from 4:12 to 9:12 are considered conventional and support all standard roofing materials.",
+      "Under the 2024 IRC (R905.2.2), asphalt shingles can be used on slopes of 2:12 (9.46°) or greater, with double underlayment required from 2:12 up to 4:12. Other minimums in R905: clay and concrete tile 2½:12, metal shingles and wood shingles or shakes 3:12, slate 4:12, standing-seam metal panels and membrane roofs ¼:12. Manufacturer instructions and local amendments can be stricter.",
   },
   {
     question: "What roof pitch is too steep to walk on?",
     answer:
-      "Roofs at 6:12 (26.6°) or less are generally safe to walk on without special equipment. At 7:12 (30°), caution is required. Above 8:12 (33.7°), safety harnesses and roof brackets are recommended. Above 12:12 (45°), specialized safety equipment is required.",
+      "OSHA does not set a pitch below which a roof is safe to walk on without fall protection. It (29 CFR 1926.500) defines a steep roof as one over 4:12 (18.43°) and a low-slope roof as 4:12 or less. For construction work, guardrails, safety nets or personal fall arrest are required 6 ft or more above a lower level on steep roofs and in residential construction at any pitch; low-slope roofs also allow warning-line and safety-monitoring systems (1926.501(b)(10), (11), (13)).",
   },
 ];
 

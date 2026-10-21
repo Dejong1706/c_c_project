@@ -335,7 +335,7 @@ const metaMap: Record<
   "how-to-calculate-roof-pitch": {
     title: "How to Calculate Roof Pitch | BuildCalc",
     description:
-      "Step-by-step guide to measuring and calculating roof pitch — rise over run, x:12 ratio, degrees conversion, rafter length, and pitch factor.",
+      "Measure and calculate roof pitch from rise and run, convert to degrees, find rafter length and pitch factor, and see OSHA low-slope vs steep roof limits.",
     keywords: [
       "how to calculate roof pitch",
       "roof pitch formula",
@@ -346,7 +346,7 @@ const metaMap: Record<
   "roof-pitch-to-degrees-conversion": {
     title: "Roof Pitch to Degrees Conversion Chart | BuildCalc",
     description:
-      "Complete conversion table for roof pitch x:12 to degrees and percentage slope, plus the formula to convert any pitch instantly.",
+      "Roof pitch to degrees chart for x:12, percent slope and pitch factor, with OSHA low-slope/steep categories and 2024 IRC minimum pitch by roofing material.",
     keywords: [
       "roof pitch to degrees",
       "roof pitch conversion chart",

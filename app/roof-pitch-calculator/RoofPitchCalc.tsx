@@ -15,13 +15,28 @@ const INPUT_MODES: Record<InputMode, { label: string }> = {
 const MODE_ORDER: InputMode[] = ["riseRun", "degrees", "ratio"];
 const TYPES = MODE_ORDER.map((k) => INPUT_MODES[k].label);
 
+// OSHA 29 CFR 1926.500(b): low-slope roof ≤ 4 in 12, steep roof > 4 in 12
 function pitchCategory(xIn12: number): string {
-  if (xIn12 < 2) return "Flat / low slope — membrane roofing required";
-  if (xIn12 < 4) return "Low slope — limited shingle options";
-  if (xIn12 <= 9) return "Conventional — supports shingles, tiles, metal";
-  if (xIn12 <= 12)
-    return "Steep slope — excellent drainage, requires safety gear";
-  return "Very steep — specialty roof (A-frame etc.)";
+  return xIn12 <= 4
+    ? "Low-slope roof (≤ 4:12, OSHA 1926.500)"
+    : "Steep roof (> 4:12, OSHA 1926.500)";
+}
+
+// 2024 IRC R905 minimum slopes; each tier adds to the coverings allowed below it
+function allowedCoverings(xIn12: number): string {
+  if (xIn12 < 0.125) return "None — below every IRC R905 minimum slope";
+  if (xIn12 < 0.25) return "Coal-tar built-up roofing only (⅛:12)";
+  if (xIn12 < 0.5)
+    return "Built-up, modified bitumen, single-ply, SPF, liquid-applied, standing-seam metal (¼:12)";
+  if (xIn12 < 1) return "Above + lapped metal panels with lap sealant (½:12)";
+  if (xIn12 < 2) return "Above + mineral-surfaced roll roofing (1:12)";
+  if (xIn12 < 2.5)
+    return "Above + asphalt shingles with double underlayment (2:12)";
+  if (xIn12 < 3)
+    return "Above + clay/concrete tile with double underlayment (2½:12)";
+  if (xIn12 < 4)
+    return "Above + metal shingles, wood shingles/shakes, lapped metal panels without sealant (3:12)";
+  return "All IRC R905 coverings incl. slate (4:12); standard underlayment for shingles & tile";
 }
 
 export default function RoofPitchCalc() {
@@ -64,6 +79,8 @@ export default function RoofPitchCalc() {
     }
 
     const xIn12 = risePerRun * 12;
+    // classify on the displayed 2-decimal value (18.43° → 3.9988 → 4.00:12)
+    const xRounded = Math.round(xIn12 * 100) / 100;
     const angleDeg = (Math.atan(risePerRun) * 180) / Math.PI;
     const pitchPct = risePerRun * 100;
     // Pitch factor = √((rise/run)² + 1)
@@ -93,8 +110,14 @@ export default function RoofPitchCalc() {
       },
       {
         label: "Pitch category",
-        value: valid ? pitchCategory(xIn12) : "—",
+        value: valid ? pitchCategory(xRounded) : "—",
         unit: "",
+        tier: 2,
+      },
+      {
+        label: "Roof coverings allowed",
+        value: valid ? allowedCoverings(xRounded) : "—",
+        unit: "minimum slope, 2024 IRC R905",
         tier: 2,
       },
       {
@@ -214,7 +237,7 @@ export default function RoofPitchCalc() {
       onTypeChange={setModeIdx}
       inputs={inputs}
       results={results}
-      notice={`Pitch ratio = rise ÷ 12 (x:12 format). Degrees = arctan(rise/12) × (180/π). Pitch factor = √((rise/12)² + 1) — multiply flat footprint area by this to get true sloped roof area for material ordering. Rafter length = run × pitch factor. Most common US residential pitch: 6:12 (26.57°). Pitches below 2:12 require membrane roofing; above 6:12 require safety equipment for installation.`}
+      notice={`Pitch ratio = rise ÷ 12 (x:12 format). Degrees = arctan(rise/12) × (180/π). Pitch factor = √((rise/12)² + 1) — multiply flat footprint area by this to get true sloped roof area for material ordering. Rafter length = run × pitch factor. Minimum slopes (2024 IRC R905): ¼:12 built-up, membrane and standing-seam metal; 2:12 asphalt shingles (double underlayment below 4:12); 2½:12 clay/concrete tile (double underlayment below 4:12); 3:12 metal shingles and wood shingles/shakes; 4:12 slate. Manufacturer instructions and local amendments can be stricter. OSHA calls a roof over 4:12 "steep", but for construction work fall protection is required 6 ft or more above a lower level at any pitch (29 CFR 1926.501(b)(10), (11), (13)).`}
       related={[
         {
           href: "/concrete-calculator",

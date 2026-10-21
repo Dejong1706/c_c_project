@@ -4,6 +4,7 @@ import {
   sectionHeading,
   paragraph,
   formula,
+  link,
   note,
   th,
   td,
@@ -16,9 +17,9 @@ const faqs = [
       "Measure the vertical rise in inches over a 12-inch horizontal run. That rise number is your pitch — a 6-inch rise over 12 inches of run is a 6:12 pitch. You can measure from inside the attic by holding a level against a rafter and measuring straight down at the 12-inch mark.",
   },
   {
-    question: "What is the most common roof pitch for houses?",
+    question: "What is the minimum roof pitch for shingles?",
     answer:
-      "6:12 (26.57°) is the most common residential pitch in the US. It sheds water and snow effectively, supports all standard roofing materials, allows usable attic space, and is safe to walk on without special equipment.",
+      "Under the 2024 IRC (R905.2.2), asphalt shingles can be used on slopes of 2:12 or greater, with double underlayment required from 2:12 up to 4:12. Clay and concrete tile need 2½:12, metal shingles and wood shingles or shakes 3:12, and slate 4:12. Manufacturer instructions and local amendments can be stricter.",
   },
   {
     question: "How do I convert roof pitch to degrees?",
@@ -31,9 +32,9 @@ const faqs = [
       "The pitch factor is √((rise/12)² + 1). Multiply your roof's flat footprint area by this number to get the true sloped surface area. A 6:12 pitch has a factor of 1.118 — so a 1,000 sq ft footprint needs 1,118 sq ft of shingles or roofing material.",
   },
   {
-    question: "What roof pitch requires special equipment to walk on?",
+    question: "What roof pitch requires fall protection?",
     answer:
-      "Roofs at 6:12 (26.6°) or less are generally safe to walk on without special gear. At 7:12 (30°) caution is needed. Above 8:12 (33.7°), safety harnesses and roof brackets are recommended. Above 12:12 (45°), specialized safety equipment is required by OSHA.",
+      "Fall protection depends on height, not just pitch. For construction work, OSHA requires guardrails, safety nets or personal fall arrest 6 ft or more above a lower level on steep roofs (over 4:12) and in residential construction at any pitch; low-slope roofs (4:12 or less) also allow warning-line and safety-monitoring systems (29 CFR 1926.501(b)(10), (11), (13)). OSHA has no 12:12 threshold.",
   },
 ];
 
@@ -52,7 +53,7 @@ const articleSchema = {
   "@type": "Article",
   headline: "How to Calculate Roof Pitch",
   description:
-    "Step-by-step guide to measuring and calculating roof pitch — rise over run, x:12 ratio, degrees conversion, rafter length, and pitch factor explained.",
+    "Measure and calculate roof pitch from rise and run, convert to degrees, find rafter length and pitch factor, and see OSHA low-slope vs steep roof limits.",
   url: "https://buildcalczone.com/guides/how-to-calculate-roof-pitch",
 };
 
@@ -110,6 +111,10 @@ export default function HowToCalculateRoofPitch() {
           12 inches of horizontal distance. The same pitch can also be expressed
           as an angle (26.57°) or a percentage slope (50%).
         </p>
+        <p style={paragraph}>
+          OSHA&apos;s construction fall-protection rule (29 CFR 1926.500)
+          defines two roof categories by pitch:
+        </p>
         <table
           style={{
             width: "100%",
@@ -120,39 +125,43 @@ export default function HowToCalculateRoofPitch() {
         >
           <thead>
             <tr>
-              <th style={th}>Pitch category</th>
+              <th style={th}>OSHA category</th>
               <th style={th}>x:12 range</th>
               <th style={th}>Degrees</th>
-              <th style={th}>Notes</th>
+              <th style={th}>Fall protection 6 ft+ above a lower level</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style={td}>Flat / low slope</td>
-              <td style={td}>0:12 – 3:12</td>
-              <td style={td}>0° – 14°</td>
-              <td style={td}>Membrane roofing required</td>
+              <td style={td}>Low-slope roof</td>
+              <td style={td}>4:12 or less</td>
+              <td style={td}>0° – 18.43°</td>
+              <td style={td}>
+                Guardrails, safety nets, personal fall arrest, or warning-line
+                combinations (1926.501(b)(10))
+              </td>
             </tr>
             <tr>
-              <td style={td}>Conventional</td>
-              <td style={td}>4:12 – 9:12</td>
-              <td style={td}>18° – 37°</td>
-              <td style={td}>Supports shingles, tiles, metal</td>
-            </tr>
-            <tr>
-              <td style={td}>Steep slope</td>
-              <td style={td}>10:12 – 12:12</td>
-              <td style={td}>40° – 45°</td>
-              <td style={td}>Safety gear required</td>
-            </tr>
-            <tr>
-              <td style={td}>Very steep</td>
-              <td style={td}>Over 12:12</td>
-              <td style={td}>45°+</td>
-              <td style={td}>Specialty roofs (A-frame etc.)</td>
+              <td style={td}>Steep roof</td>
+              <td style={td}>Over 4:12</td>
+              <td style={td}>Over 18.43°</td>
+              <td style={td}>
+                Guardrails with toeboards, safety nets, or personal fall arrest
+                (1926.501(b)(11))
+              </td>
             </tr>
           </tbody>
         </table>
+        <div style={note}>
+          In residential construction, OSHA requires guardrails, safety nets or
+          personal fall arrest 6 ft or more above a lower level regardless of
+          pitch (1926.501(b)(13)). Which roofing materials a pitch allows is set
+          separately by the building code. See the{" "}
+          <Link href="/guides/roof-pitch-to-degrees-conversion" style={link}>
+            2024 IRC minimum pitch by roofing material
+          </Link>
+          .
+        </div>
 
         {/* How to measure */}
         <h2 style={sectionHeading}>How to measure roof pitch</h2>

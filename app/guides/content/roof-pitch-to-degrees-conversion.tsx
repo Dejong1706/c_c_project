@@ -10,22 +10,22 @@ const faqs = [
   {
     question: "What is a 4:12 pitch in degrees?",
     answer:
-      "A 4:12 pitch equals 18.43°. Use arctan(4 ÷ 12) = arctan(0.333) = 18.43°. This is a low-slope conventional pitch commonly used on ranch-style homes and low-profile additions.",
+      "A 4:12 pitch equals 18.43°. Use arctan(4 ÷ 12) = arctan(0.333) = 18.43°. It is the upper limit of a low-slope roof under OSHA 29 CFR 1926.500 (anything steeper is a steep roof). In the 2024 IRC it is the minimum slope for slate and the point at which asphalt shingles and tile no longer need double underlayment.",
   },
   {
     question: "What is a 6:12 pitch in degrees?",
     answer:
-      "A 6:12 pitch equals 26.57°. This is the most common residential roof pitch in the US — it sheds water well, supports all standard roofing materials, and is safe to walk on without special equipment.",
+      "A 6:12 pitch equals 26.57° (50% slope, pitch factor 1.118). Because it is over 4:12, OSHA classifies it as a steep roof: for construction work 6 ft or more above a lower level, guardrails with toeboards, safety nets or personal fall arrest are required.",
   },
   {
     question: "How do I convert degrees back to x:12 pitch?",
     answer:
-      "Use tan(degrees) × 12. For 30°: tan(30°) = 0.577 × 12 = 6.93, so approximately 7:12. This is exact: a 30° roof is a 6.928:12 pitch.",
+      "Use tan(degrees) × 12. For 30°: tan(30°) = 0.577 × 12 = 6.93, so a 30° roof is a 6.93:12 pitch — about 7:12 when rounded to a whole number.",
   },
   {
     question: "What angle is a 12:12 pitch?",
     answer:
-      "A 12:12 pitch is exactly 45° — the roof rises as much as it runs horizontally. This is the steepest common residential pitch. Above 12:12 produces angles greater than 45°, which are considered very steep or specialty pitches.",
+      "A 12:12 pitch is exactly 45° — the roof rises as much as it runs horizontally (100% slope, pitch factor 1.414). Pitches above 12:12 give angles greater than 45°.",
   },
 ];
 
@@ -44,7 +44,7 @@ const articleSchema = {
   "@type": "Article",
   headline: "Roof Pitch to Degrees Conversion Chart",
   description:
-    "Complete conversion table for roof pitch x:12 to degrees and percentage slope, plus the formula to convert any pitch instantly.",
+    "Roof pitch to degrees chart for x:12, percent slope and pitch factor, with OSHA low-slope/steep categories and 2024 IRC minimum pitch by roofing material.",
   url: "https://buildcalczone.com/guides/roof-pitch-to-degrees-conversion",
 };
 
@@ -129,30 +129,28 @@ export default function RoofPitchToDegreesConversion() {
               <th style={th}>Degrees</th>
               <th style={th}>% slope</th>
               <th style={th}>Pitch factor</th>
-              <th style={th}>Category</th>
+              <th style={th}>OSHA category</th>
             </tr>
           </thead>
           <tbody>
             {[
-              ["1:12", "4.76°", "8.3%", "1.003", "Flat"],
+              ["1:12", "4.76°", "8.3%", "1.003", "Low slope"],
               ["2:12", "9.46°", "16.7%", "1.014", "Low slope"],
               ["3:12", "14.04°", "25.0%", "1.031", "Low slope"],
-              ["4:12", "18.43°", "33.3%", "1.054", "Conventional"],
-              ["5:12", "22.62°", "41.7%", "1.083", "Conventional"],
-              ["6:12", "26.57°", "50.0%", "1.118", "Conventional ★"],
-              ["7:12", "30.26°", "58.3%", "1.158", "Conventional"],
-              ["8:12", "33.69°", "66.7%", "1.202", "Conventional"],
-              ["9:12", "36.87°", "75.0%", "1.250", "Conventional"],
+              ["4:12", "18.43°", "33.3%", "1.054", "Low slope"],
+              ["5:12", "22.62°", "41.7%", "1.083", "Steep"],
+              ["6:12", "26.57°", "50.0%", "1.118", "Steep"],
+              ["7:12", "30.26°", "58.3%", "1.158", "Steep"],
+              ["8:12", "33.69°", "66.7%", "1.202", "Steep"],
+              ["9:12", "36.87°", "75.0%", "1.250", "Steep"],
               ["10:12", "39.81°", "83.3%", "1.302", "Steep"],
               ["11:12", "42.51°", "91.7%", "1.357", "Steep"],
               ["12:12", "45.00°", "100.0%", "1.414", "Steep"],
-              ["14:12", "49.40°", "116.7%", "1.537", "Very steep"],
-              ["16:12", "53.13°", "133.3%", "1.667", "Very steep"],
+              ["14:12", "49.40°", "116.7%", "1.537", "Steep"],
+              ["16:12", "53.13°", "133.3%", "1.667", "Steep"],
             ].map(([pitch, deg, pct, factor, cat]) => (
               <tr key={pitch}>
-                <td style={{ ...td, fontWeight: pitch === "6:12" ? 600 : 400 }}>
-                  {pitch}
-                </td>
+                <td style={td}>{pitch}</td>
                 <td style={td}>{deg}</td>
                 <td style={td}>{pct}</td>
                 <td style={td}>{factor}</td>
@@ -164,9 +162,10 @@ export default function RoofPitchToDegreesConversion() {
           </tbody>
         </table>
         <div style={note}>
-          ★ 6:12 is the most common residential pitch in the US. Pitch factor =
-          √((x/12)² + 1) — multiply your flat roof footprint by this number to
-          get the true sloped surface area for material ordering.
+          OSHA 29 CFR 1926.500 defines a low-slope roof as 4:12 or less and a
+          steep roof as over 4:12. Pitch factor = √((x/12)² + 1) — multiply
+          your flat roof footprint by this number to get the true sloped
+          surface area for material ordering.
         </div>
 
         {/* Worked examples */}
@@ -220,7 +219,11 @@ export default function RoofPitchToDegreesConversion() {
         </div>
 
         {/* Material guide */}
-        <h2 style={sectionHeading}>Roofing material by pitch</h2>
+        <h2 style={sectionHeading}>Minimum pitch by roofing material</h2>
+        <p style={paragraph}>
+          The 2024 International Residential Code (IRC) sets a minimum slope
+          for each roof covering in Section R905:
+        </p>
         <table
           style={{
             width: "100%",
@@ -231,45 +234,45 @@ export default function RoofPitchToDegreesConversion() {
         >
           <thead>
             <tr>
-              <th style={th}>Pitch range</th>
-              <th style={th}>Compatible materials</th>
+              <th style={th}>Roof covering</th>
+              <th style={th}>Minimum pitch</th>
+              <th style={th}>2024 IRC</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td style={td}>0:12 – 2:12</td>
-              <td style={td}>TPO, EPDM, PVC membrane only</td>
-            </tr>
-            <tr>
-              <td style={td}>2:12 – 4:12</td>
-              <td style={td}>Modified bitumen, some metal panels</td>
-            </tr>
-            <tr>
-              <td style={td}>4:12 – 9:12</td>
-              <td style={td}>
-                Asphalt shingles, metal, clay/concrete tile, wood shakes
-              </td>
-            </tr>
-            <tr>
-              <td style={td}>10:12 – 12:12</td>
-              <td style={td}>
-                All of above — safety equipment required for installation
-              </td>
-            </tr>
-            <tr>
-              <td style={td}>Over 12:12</td>
-              <td style={td}>
-                Metal, slate, specialty systems — structural engineer
-                recommended
-              </td>
-            </tr>
+            {[
+              ["Built-up roofing (coal-tar)", "¼:12 (⅛:12)", "R905.9.1"],
+              ["Standing-seam metal panels", "¼:12", "R905.10.2"],
+              ["Modified bitumen", "¼:12", "R905.11.1"],
+              ["Single-ply membrane (EPDM, TPO, PVC)", "¼:12", "R905.12.1"],
+              ["Sprayed polyurethane foam", "¼:12", "R905.13.1"],
+              ["Liquid-applied roofing", "¼:12", "R905.14.1"],
+              ["Lapped metal panels with lap sealant", "½:12", "R905.10.2"],
+              ["Mineral-surfaced roll roofing", "1:12", "R905.5.2"],
+              ["Asphalt shingles", "2:12 (double underlayment below 4:12)", "R905.2.2"],
+              ["Clay and concrete tile", "2½:12 (double underlayment below 4:12)", "R905.3.2"],
+              ["Metal roof shingles", "3:12", "R905.4.2"],
+              ["Wood shingles / wood shakes", "3:12", "R905.7.2 / R905.8.2"],
+              ["Lapped metal panels without lap sealant", "3:12", "R905.10.2"],
+              ["Slate shingles", "4:12", "R905.6.2"],
+            ].map(([covering, min, section]) => (
+              <tr key={covering}>
+                <td style={td}>{covering}</td>
+                <td style={td}>{min}</td>
+                <td style={{ ...td, color: "var(--text-3)", fontSize: "13px" }}>
+                  {section}
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
         <div style={note}>
-          Minimum pitch for standard asphalt shingles is 2:12 with double
-          underlayment, 4:12 for standard installation per most manufacturer
-          warranties. Always check the specific manufacturer&apos;s requirements
-          before specifying materials.
+          For built-up, modified bitumen, single-ply, foam and liquid-applied
+          roofs, the IRC figure is a minimum design slope. Below 2:12 the IRC
+          still allows standing-seam metal panels as well as these systems, so
+          a low pitch does not mean membrane only. Manufacturer
+          installation instructions and local code amendments can set higher
+          minimums, so check both before choosing a material.
         </div>
 
         {/* CTA */}
