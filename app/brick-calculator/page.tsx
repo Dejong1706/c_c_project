@@ -45,7 +45,7 @@ const faqs = [
     question:
       "What is the difference between single leaf and double leaf walls?",
     answer:
-      "A single leaf wall is one brick thick, while a double leaf (cavity) wall has two layers with a gap between them, requiring roughly double the bricks per square meter.",
+      "A single leaf (half-brick) wall is one brick wide — 102.5 mm with UK standard bricks. A double leaf (one-brick) wall is one brick length thick — 215 mm — with the two leaves bonded by header bricks, so it needs exactly twice the bricks per square meter. A cavity wall is different: two separate leaves with a gap, and the inner leaf is often blockwork.",
   },
 ];
 
@@ -69,6 +69,7 @@ export default function Page() {
             { href: "/guides/how-many-bricks-per-square-metre", label: "How Many Bricks Per Square Metre?" },
             { href: "/guides/brick-mortar-mix-ratio", label: "Brick Mortar Mix Ratio Guide" },
             { href: "/guides/standard-brick-sizes-by-country", label: "Standard Brick Sizes by Country" },
+            { href: "/guides/single-vs-double-leaf-brick-wall", label: "Single vs Double Leaf Brick Wall" },
           ].map((g) => (
             <Link key={g.href} href={g.href} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", color: "var(--accent-text)", background: "var(--accent-light)", padding: "8px 14px", borderRadius: "8px", textDecoration: "none" }}>
               <BookOpen size={13} color="var(--accent)" />

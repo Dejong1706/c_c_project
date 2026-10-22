@@ -203,9 +203,9 @@ const metaMap: Record<
     ],
   },
   "single-vs-double-leaf-brick-wall": {
-    title: "Single vs Double Leaf Brick Wall: Key Differences | BuildCalc",
+    title: "Single vs Double Leaf Brick Wall: Height Limits | BuildCalc",
     description:
-      "Single leaf vs double leaf brick walls — thickness, structural limits, brick counts, bonding patterns, and when to use each. Includes cavity wall comparison.",
+      "Single vs double leaf brick walls: thickness, bricks per m² (59.3 vs 118.5), bonds, safe garden wall heights by wind zone, and how cavity walls differ.",
     keywords: [
       "single leaf brick wall",
       "double leaf brick wall",

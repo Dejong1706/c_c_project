@@ -45,7 +45,7 @@ const articleSchema = {
     "Brick quantities per square metre for standard, maxi and jumbo bricks. Includes waste allowance guidance and pallet quantity notes.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-many-bricks-per-square-metre" },
   datePublished: "2026-06-16",
-  dateModified: "2026-10-15",
+  dateModified: "2026-10-22",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -100,10 +100,11 @@ export default function HowManyBricksPerSquareMetreGuide() {
 
         <h2 style={sectionHeading}>Bricks per square metre by size</h2>
         <p style={paragraph}>
-          The figures below are for a single-leaf wall (one brick thick) with
+          The figures below are for a single-leaf (half-brick) wall with
           10mm mortar joints, which is the standard joint width for most
-          brickwork. Double-leaf or cavity walls require double these
-          quantities.
+          brickwork. A double-leaf (one-brick) wall needs exactly double these
+          quantities; a cavity wall needs this figure for each brick leaf
+          (the inner leaf is often blockwork).
         </p>
         <GuideTable>
           <thead>

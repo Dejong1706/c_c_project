@@ -321,7 +321,7 @@
 - [x] 월 (2026-10-19): drywall-screw-spacing-guide (2단계 항목 전체) + 계산기 나사 수·drywall-sheets 나사 행 정합 + title/description 재작성
 - [x] 화 (2026-10-20): 타일 줄눈 방향 / lippage / 움직임 흡수 — grout 가이드 재작성(ANSI A108.02 줄눈 폭) + how-many-tiles·lay-tile·tile-calculator FAQ 정합 + title/description
 - [x] 수 (2026-10-21): 지붕 OSHA 안전 문구 + IRC R905 최소 경사 (+ `pitchCategory` 반올림) — 계산기·가이드 2개·FAQ 정합
-- [ ] 목: single-vs-double-leaf (정원 담장 높이 등)
+- [x] 목 (2026-10-22): single-vs-double-leaf (정원 담장 높이 등) — GOV.WALES/ODPM 높이표, ADA 2C8 공동, 벽돌 계산기 FAQ·관련 가이드 링크
 - [ ] 금: what-size-rebar (5h/18 in 등) + RebarCalc "±3%"
 
 **3주차: 기술·접근성**
@@ -347,6 +347,17 @@
 - [ ] FAQ 4개뿐인 가이드 8개에 롱테일 FAQ 추가
 - [ ] `how-to-calculate-bricks-for-a-wall.tsx:39` "Do mortar joint thickness" → "Does"
 - [ ] paint 가이드 2개 동일 FAQ("How many coats") 중복 제거
+
+### 2026-10-22 single vs double leaf 가이드 (정원 담장 높이·공동 벽)
+
+- 출처: GOV.WALES "Building regulations: fences, gates and garden walls"(담장·펜스·대문은 건축규정 승인 불필요, 자립 담장 최대 높이표 zone 1–4, 기울기 30/70/100 mm 기준, party fence wall). ODPM 리플릿 "Your Garden Walls: Better to be Safe than Sorry"(Crown copyright, 2004 재판, BRE Good Building Guides 13 & 14 기반 명시, 같은 표 — Milton Keynes Council 게시 PDF). Approved Document A 2013 원문(gov.uk PDF) 2C8(각 leaf ≥ 90 mm, 공동 ≥ 50 mm, 타이 900×450)·Table 5(공동 50–300 mm 타이 길이). GPDO 2015 Sch 2 Part 2 Class A(도로 인접 1 m, 그 외 2 m, legislation.gov.uk). **BRE GBG 13/14 원문은 유료라 미확인**, 영어 bond 정의는 일반 용어(Nottinghamshire HER 등)로 확인
+- 높이: "Approved Doc A가 정원 담장 높이 규정"·"반장 벽 450 mm, 기둥(327×327, 3 m 간격) 있으면 1.8 m"·"1 m 넘으면 구조기술사" 삭제 → 반장 525/450/400/375, 1장 1,450/1,300/1,175/1,075, 1.5장·블록 행 포함 표 + 기둥·대문·옹벽은 전문가(표 적용 안 됨). 비교표·"어느 벽을 쓸까" 표도 같은 기준으로 재작성, FAQ "Can a single leaf be load-bearing"(건축규정 450 mm 귀속) → 높이 FAQ + 건축규정/계획허가 FAQ
+- 수치: 벽돌 59.3/118.5(정확히 2배, header는 개수 안 늘림), 줄눈 모르타르 0.018/0.045 m³(기존 0.043), 17%/21%(기존 20%). 1:4 시멘트 포대 열 삭제(건조계수 근거 없음) → 모르타르 계산기 링크
+- 공동 벽: 50–100 mm → ADA 2C8 최소 50 mm + Table 5 300 mm까지, 실제 폭은 단열 설계로 결정(현대 100–150 mm는 1차 출처 못 찾아 넣지 않음). 270–330 mm 두께·"1930년대부터 표준"·"1920년 이전" 삭제, 내측 leaf는 블록일 수 있음
+- 삭제(출처 없음): "English bond 가장 강함", Flemish "조지·빅토리아 시대", 열질량/내후성/비용 정성 행, 패시브 솔라·문화재 용도 목록. FAQ "every course both directions"(English bond 오류) 정정
+- 정합: brick-calculator FAQ(single = one brick thick, double = cavity 오류 정정) + 관련 가이드에 이 가이드 추가, how-many-bricks-per-square-metre "one brick thick"·"cavity도 2배" 정정, Related 목록 "bricks and mortar" → 계산기는 벽돌만 계산. 메타 title 59자/description 151자, /guides 카드
+- sitemap: 이 가이드·how-many-bricks-per-square-metre·brick-calculator·/guides 2026-10-22
+- 백로그로 남김: 바람 zone 지도 경계는 이미지라 본문에 옮기지 않음(GOV.WALES 링크), 스코틀랜드·북아일랜드 계획 규정 미반영, 계산기 notice "60/120"은 반올림 유지
 
 ### 2026-10-21 지붕 OSHA 안전 문구 + 2024 IRC R905 최소 경사
 

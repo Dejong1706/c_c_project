@@ -5,34 +5,39 @@ const faqs = [
   {
     question: "What is a single leaf brick wall?",
     answer:
-      "A single leaf wall (also called a half-brick wall) is one brick wide — bricks are laid lengthways in stretcher bond, giving a wall 102.5 mm thick (UK standard). It is the most common wall type for garden walls, boundary walls, and internal non-load-bearing partitions. Single leaf walls are not suitable for load-bearing external applications without additional structural support.",
+      "A single leaf wall (also called a half-brick wall) is one brick wide: bricks are laid lengthways in stretcher bond, so the wall is as thick as the brick is wide — 102.5 mm for UK standard bricks. With 10 mm joints it takes about 59 bricks per m² (usually rounded to 60).",
   },
   {
     question: "What is a double leaf brick wall?",
     answer:
-      "A double leaf wall (also called a full-brick or one-brick wall) is one full brick length wide — 215 mm thick for UK standard bricks. Every course has bricks running in both directions, tied together with header courses or wall ties. Double leaf walls are used for load-bearing external walls, retaining walls, and anywhere structural strength or thermal mass is required.",
+      "A double leaf wall (also called a one-brick or full-brick wall) is one brick length thick — 215 mm for UK standard bricks. The two leaves are tied together by header bricks laid across the wall. In English bond, courses of headers alternate with courses of stretchers; in Flemish bond, headers and stretchers alternate within each course. It takes exactly twice the bricks of a single leaf wall: about 118.5 per m² (usually rounded to 120).",
   },
   {
-    question: "Can a single leaf wall be load-bearing?",
+    question: "How high can a half-brick garden wall be?",
     answer:
-      "A single leaf wall has limited load-bearing capacity and should not be used as a primary structural wall without engineering assessment. For garden walls taller than 450 mm, Building Regulations in England and Wales require adequate thickness or piers for stability. Any load-bearing application should be confirmed by a structural engineer.",
+      "Welsh Government and ODPM guidance (based on BRE Good Building Guides 13 & 14) gives maximum heights of 525 mm, 450 mm, 400 mm and 375 mm for a free-standing half-brick wall in wind zones 1 to 4. A one-brick (215 mm) wall can go to 1,450, 1,300, 1,175 and 1,075 mm. Seek expert advice for any wall above these heights, walls with piers, walls carrying heavy gates and walls retaining soil.",
+  },
+  {
+    question: "Do garden walls need Building Regulations approval?",
+    answer:
+      "No. Welsh Government guidance states that fences, walls and gates do not require building regulations approval, but they must still be structurally sound and maintained. Planning rules are separate: in England, permitted development allows a wall up to 1 m high next to a highway used by vehicles and up to 2 m elsewhere (GPDO 2015, Schedule 2, Part 2, Class A). Listed buildings and areas with an Article 4 direction are excluded.",
   },
   {
     question:
       "What is a cavity wall and how does it differ from a double leaf wall?",
     answer:
-      "A cavity wall consists of two separate single-leaf walls (inner and outer leaf) separated by a gap (cavity) of typically 50–100 mm, tied together with wall ties. The cavity provides thermal insulation and prevents moisture transfer. A solid double leaf (one-brick) wall has no cavity — both leaves are bonded directly together with mortar. Modern external walls in the UK are almost always cavity construction rather than solid double leaf.",
+      "A cavity wall is two separate leaves with a gap between them, connected by wall ties. Approved Document A (2013) paragraph 2C8 requires leaves at least 90 mm thick and a cavity at least 50 mm wide, with ties at 900 mm horizontal and 450 mm vertical spacing. A solid double leaf wall has no cavity — the leaves are bonded with headers. A cavity wall is not two leaves of brick by default: the inner leaf is often blockwork, so it does not need double the bricks.",
   },
   {
     question:
       "How many more bricks does a double leaf wall need compared to a single leaf?",
     answer:
-      "Approximately twice as many. A single leaf wall with UK standard bricks requires about 60 bricks per m². A double leaf wall requires about 120 bricks per m². In practice, the double leaf figure is marginally higher due to the additional header bricks used to bond the two leaves together in traditional bonding patterns.",
+      "Exactly twice as many. For UK standard bricks (215 × 102.5 × 65 mm) with 10 mm joints, a single leaf needs 1 ÷ (0.225 × 0.075) = 59.3 bricks per m² and a double leaf needs 118.5. Header bricks do not add to the count — a header takes the place of two stretchers' worth of wall thickness, so the total volume of brick is the same in any bond.",
   },
   {
     question: "Which brick bond should I use for a single leaf wall?",
     answer:
-      "Stretcher bond is the only practical option for a single leaf wall — all bricks are laid lengthways with each course offset by half a brick. For double leaf walls, common bonds include English bond (alternating courses of stretchers and headers), Flemish bond (alternating stretchers and headers within each course), and English garden wall bond. Each gives a different appearance and slightly different structural performance.",
+      "Stretcher bond — all bricks laid lengthways with each course offset by half a brick. A half-brick wall has no room for headers across its thickness. For double leaf walls, English bond, Flemish bond and their garden wall variants are used; they differ in how often header bricks appear on the face.",
   },
 ];
 
@@ -51,10 +56,10 @@ const articleSchema = {
   "@type": "Article",
   headline: "Single vs Double Leaf Brick Wall: Key Differences Explained",
   description:
-    "A clear comparison of single leaf (half-brick) and double leaf (full-brick) walls — thickness, structural capacity, brick counts, bonding patterns, and when to use each.",
+    "Single leaf (half-brick) vs double leaf (one-brick) walls — thickness, brick counts, bonds, safe garden wall heights by wind zone, and how cavity walls differ.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/single-vs-double-leaf-brick-wall" },
   datePublished: "2026-06-18",
-  dateModified: "2026-06-18",
+  dateModified: "2026-10-22",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -99,12 +104,12 @@ export default function SingleVsDoubleLeafBrickWall() {
             Single vs Double Leaf Brick Wall: Key Differences Explained
           </h1>
           <IntroText>
-            Choosing the wrong wall type is a costly mistake — too thin and the
-            wall may fail structurally or thermally; too thick and you&apos;ve
-            wasted materials and space. This guide covers the practical
-            differences between single and double leaf walls, including
-            thickness, structural limits, brick quantities, bonding patterns,
-            and when each is appropriate.
+            A single leaf (half-brick) wall is half the thickness of a double
+            leaf (one-brick) wall, and that difference decides how high a
+            free-standing garden wall can safely go. This guide covers
+            thickness, brick quantities, bonding patterns, published safe
+            heights for garden walls in the UK, and how cavity walls differ
+            from solid double leaf walls.
           </IntroText>
         </header>
 
@@ -125,13 +130,13 @@ export default function SingleVsDoubleLeafBrickWall() {
           <li style={listItem}>
             <strong>Double leaf (one-brick / full-brick wall)</strong> — two
             leaves wide. Wall thickness equals the brick length: 215 mm for UK
-            standard bricks. The two leaves are bonded together with mortar in a
-            structural pattern.
+            standard bricks. The two leaves are tied together by header bricks
+            laid across the full thickness.
           </li>
           <li style={listItem}>
-            <strong>Cavity wall</strong> — two separate single leaves with a
-            50–100 mm gap between them, tied with metal wall ties. This is a
-            distinct construction method covered separately below.
+            <strong>Cavity wall</strong> — two separate leaves with a gap
+            between them, connected by wall ties. The inner leaf is often
+            blockwork rather than brick. Covered separately below.
           </li>
         </ul>
 
@@ -152,92 +157,67 @@ export default function SingleVsDoubleLeafBrickWall() {
               <td style={td}>215 mm</td>
             </tr>
             <tr>
-              <td style={td}>Bricks per m²</td>
-              <td style={td}>~60</td>
-              <td style={td}>~120</td>
+              <td style={td}>Bricks per m² (10 mm joints)</td>
+              <td style={td}>59.3 (≈ 60)</td>
+              <td style={td}>118.5 (≈ 120)</td>
             </tr>
             <tr>
-              <td style={td}>Mortar volume (% of wall)</td>
+              <td style={td}>Mortar joints (% of wall volume)</td>
               <td style={td}>~17%</td>
-              <td style={td}>~20%</td>
+              <td style={td}>~21%</td>
             </tr>
             <tr>
-              <td style={td}>Load-bearing capacity</td>
-              <td style={td}>Limited</td>
-              <td style={td}>High</td>
+              <td style={td}>Max. free-standing height, wind zone 1–4*</td>
+              <td style={td}>525–375 mm</td>
+              <td style={td}>1,450–1,075 mm</td>
             </tr>
             <tr>
-              <td style={td}>Thermal mass</td>
-              <td style={td}>Low</td>
-              <td style={td}>High</td>
-            </tr>
-            <tr>
-              <td style={td}>Weather resistance</td>
-              <td style={td}>Moderate</td>
-              <td style={td}>Good</td>
-            </tr>
-            <tr>
-              <td style={td}>Typical bond</td>
-              <td style={td}>Stretcher bond only</td>
-              <td style={td}>English, Flemish, or English garden wall</td>
-            </tr>
-            <tr>
-              <td style={td}>Common applications</td>
-              <td style={td}>Garden walls, partitions</td>
-              <td style={td}>External structural walls, retaining walls</td>
-            </tr>
-            <tr>
-              <td style={td}>Relative material cost</td>
-              <td style={td}>Lower</td>
-              <td style={td}>~2× higher</td>
+              <td style={td}>Bond</td>
+              <td style={td}>Stretcher bond</td>
+              <td style={td}>English, Flemish, or garden wall variants</td>
             </tr>
           </tbody>
         </GuideTable>
+        <p style={paragraph}>
+          * Walls without piers. Source and full table in the{" "}
+          <a href="#garden-wall-heights" style={link}>
+            garden wall heights
+          </a>{" "}
+          section below.
+        </p>
 
         {/* Single leaf detail */}
         <h2 style={sectionHeading}>Single Leaf Walls in Detail</h2>
         <p style={paragraph}>
-          A single leaf wall is quick to build and uses fewer materials, which
-          makes it the default choice for non-structural applications. All
-          bricks are laid in <strong>stretcher bond</strong> — the only bond
-          that works for a wall one brick wide — with each course offset by half
-          a brick to distribute load and tie the coursing together.
+          A single leaf wall uses half the bricks of a double leaf wall. All
+          bricks are laid in <strong>stretcher bond</strong> — each course
+          offset by half a brick — because a wall one brick wide has no room
+          for headers across its thickness.
         </p>
         <p style={paragraph}>
-          <strong>Height limitations:</strong> For free-standing garden walls in
-          the UK, Approved Document A (Structure) and standard masonry practice
-          set practical height limits based on wall length and thickness. A
-          102.5 mm single leaf wall without piers should not exceed
-          approximately 450 mm in height as a free-standing structure. With
-          piers (at least 327 mm × 327 mm, spaced no more than 3 m apart), a
-          single leaf wall can reach up to 1.8 m in appropriate conditions.
-          Always consult a structural engineer for walls above 1 m.
-        </p>
-        <NoteBox>
-          Height and stability limits for free-standing walls depend on
-          exposure, foundation conditions, and local regulations. The figures
-          above are indicative only — a structural engineer should be consulted
-          for any wall above 1 m or in exposed locations.
-        </NoteBox>
-        <p style={paragraph}>
-          <strong>Where single leaf walls are appropriate:</strong>
+          Its thinness is also its main limit. As a free-standing wall, a
+          half-brick wall without piers should be kept to 375–525 mm high
+          depending on wind exposure (see the table below). Typical uses
+          within that range:
         </p>
         <ul style={{ paddingLeft: "20px", marginBottom: "16px" }}>
+          <li style={listItem}>Low garden edging and planter walls</li>
           <li style={listItem}>
-            Low garden boundary walls (under 450 mm without piers)
+            One leaf of a cavity wall (the outer brick leaf of most new UK
+            houses)
           </li>
           <li style={listItem}>Internal non-load-bearing partitions</li>
-          <li style={listItem}>Raised planter beds and low edging walls</li>
           <li style={listItem}>Infill panels within a structural frame</li>
         </ul>
 
         {/* Double leaf detail */}
         <h2 style={sectionHeading}>Double Leaf Walls in Detail</h2>
         <p style={paragraph}>
-          A double leaf (one-brick) wall bonds two leaves of brickwork together
-          using header bricks that span the full wall thickness. This creates a
-          monolithic structure with significantly greater compressive strength
-          and lateral stability than a single leaf wall.
+          A double leaf (one-brick) wall ties two leaves of brickwork together
+          with header bricks — bricks laid across the wall so their end shows
+          on the face. Twice the thickness allows a free-standing wall about 2.8–2.9
+          times as high as a half-brick wall in the same wind zone (1,450 mm
+          vs 525 mm in zone 1).
         </p>
         <p style={paragraph}>
           <strong>Bonding patterns for double leaf walls:</strong>
@@ -246,84 +226,161 @@ export default function SingleVsDoubleLeafBrickWall() {
           <thead>
             <tr>
               <th style={th}>Bond</th>
-              <th style={th}>Description</th>
-              <th style={th}>Appearance</th>
+              <th style={th}>Pattern</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td style={td}>English bond</td>
               <td style={td}>
-                Alternating courses of all stretchers and all headers
-              </td>
-              <td style={td}>
-                Strong, traditional, distinct horizontal banding
+                Alternating courses: one course of all headers, one course of
+                all stretchers
               </td>
             </tr>
             <tr>
               <td style={td}>Flemish bond</td>
               <td style={td}>
-                Each course alternates stretcher–header–stretcher–header
-              </td>
-              <td style={td}>
-                Decorative, used widely in Georgian and Victorian work
+                Headers and stretchers alternate within every course
               </td>
             </tr>
             <tr>
               <td style={td}>English garden wall bond</td>
               <td style={td}>
-                Three (or five) courses of stretchers between each header course
-              </td>
-              <td style={td}>
-                Faster to lay than full English bond, less formal
+                One course of headers after every three (sometimes five)
+                courses of stretchers
               </td>
             </tr>
             <tr>
               <td style={td}>Flemish garden wall bond</td>
               <td style={td}>
-                Each course has one header for every three stretchers
-              </td>
-              <td style={td}>
-                Decorative variation of Flemish, fewer headers required
+                One header to every three stretchers within each course
               </td>
             </tr>
           </tbody>
         </GuideTable>
+        <p style={paragraph}>
+          The bond does not change the brick count: one header fills the same
+          wall volume as the two stretchers it replaces (one in each leaf), so
+          every bond uses about 118.5 bricks per m² with UK standard bricks.
+        </p>
+
+        {/* Garden wall heights */}
+        <h2 id="garden-wall-heights" style={sectionHeading}>
+          Safe Heights for Free-Standing Garden Walls (UK)
+        </h2>
+        <p style={paragraph}>
+          The table below is published by the Welsh Government and in the ODPM
+          leaflet <em>Your Garden Walls: Better to be Safe than Sorry</em>,
+          which states it is based on BRE Good Building Guides 13 &amp; 14.
+          Heights depend on wall thickness and on the wind zone: the allowed
+          height falls from zone 1 to zone 4 as wind exposure rises. The zone
+          map is on the{" "}
+          <a
+            href="https://gov.wales/building-regulations-fences-gates-and-garden-walls"
+            style={link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GOV.WALES garden walls page
+          </a>
+          .
+        </p>
+        <GuideTable>
+          <thead>
+            <tr>
+              <th style={th}>Wall</th>
+              <th style={th}>Zone 1</th>
+              <th style={th}>Zone 2</th>
+              <th style={th}>Zone 3</th>
+              <th style={th}>Zone 4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style={td}>Half brick (100 mm)</td>
+              <td style={td}>525 mm</td>
+              <td style={td}>450 mm</td>
+              <td style={td}>400 mm</td>
+              <td style={td}>375 mm</td>
+            </tr>
+            <tr>
+              <td style={td}>One brick (215 mm)</td>
+              <td style={td}>1,450 mm</td>
+              <td style={td}>1,300 mm</td>
+              <td style={td}>1,175 mm</td>
+              <td style={td}>1,075 mm</td>
+            </tr>
+            <tr>
+              <td style={td}>One and a half brick (325 mm)</td>
+              <td style={td}>2,400 mm</td>
+              <td style={td}>2,175 mm</td>
+              <td style={td}>2,000 mm</td>
+              <td style={td}>1,825 mm</td>
+            </tr>
+            <tr>
+              <td style={td}>100 mm block</td>
+              <td style={td}>450 mm</td>
+              <td style={td}>400 mm</td>
+              <td style={td}>350 mm</td>
+              <td style={td}>325 mm</td>
+            </tr>
+            <tr>
+              <td style={td}>200 mm block</td>
+              <td style={td}>1,050 mm</td>
+              <td style={td}>925 mm</td>
+              <td style={td}>850 mm</td>
+              <td style={td}>775 mm</td>
+            </tr>
+            <tr>
+              <td style={td}>300 mm block</td>
+              <td style={td}>2,000 mm</td>
+              <td style={td}>1,825 mm</td>
+              <td style={td}>1,650 mm</td>
+              <td style={td}>1,525 mm</td>
+            </tr>
+          </tbody>
+        </GuideTable>
         <NoteBox>
-          English bond is generally considered the strongest of these patterns
-          due to its higher header frequency and the way loads are transferred
-          across the wall thickness.
+          The guidance advises seeking expert advice for any wall above these
+          heights, and for walls with piers, walls supporting heavy gates, or
+          walls retaining soil — the table does not apply to them. It notes
+          that taller walls may be acceptable in very sheltered locations or
+          where piers are used, but gives no pier sizes or heights, so a pier
+          design should come from an engineer. For an existing wall, seek
+          advice if it leans more than 30 mm (half brick), 70 mm (one brick)
+          or 100 mm (brick and a half).
         </NoteBox>
         <p style={paragraph}>
-          <strong>Where double leaf walls are appropriate:</strong>
+          <strong>Regulations:</strong> Welsh Government guidance states that
+          fences, walls and gates do not need building regulations approval,
+          but must be kept structurally sound. Planning permission is a
+          separate question — in England, permitted development covers a wall
+          up to 1 m high next to a highway used by vehicles and up to 2 m
+          elsewhere (
+          <a
+            href="https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-a-gates-fences-walls-etc"
+            style={link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GPDO 2015, Schedule 2, Part 2, Class A
+          </a>
+          ), with exclusions such as listed buildings. A wall built astride a
+          boundary (a party fence wall) may also need notice to the neighbour under the
+          Party Wall etc. Act 1996.
         </p>
-        <ul style={{ paddingLeft: "20px", marginBottom: "16px" }}>
-          <li style={listItem}>
-            Load-bearing external walls (pre-cavity construction or solid wall
-            retrofit)
-          </li>
-          <li style={listItem}>Retaining walls holding back soil or water</li>
-          <li style={listItem}>
-            Garden walls above 1 m requiring structural mass
-          </li>
-          <li style={listItem}>
-            Buildings where thermal mass is deliberately specified (e.g. passive
-            solar design)
-          </li>
-          <li style={listItem}>
-            Heritage and conservation work where solid wall construction is
-            required to match existing fabric
-          </li>
-        </ul>
 
         {/* Cavity walls */}
         <h2 style={sectionHeading}>Cavity Walls — A Third Option</h2>
         <p style={paragraph}>
-          Most modern UK external walls are neither single leaf nor solid double
-          leaf — they are <strong>cavity walls</strong>. A cavity wall consists
-          of two single leaf skins separated by a gap (the cavity), typically
-          50–100 mm wide, tied together with stainless steel wall ties at
-          regular intervals.
+          A <strong>cavity wall</strong> is two separate leaves separated by a
+          gap (the cavity) and connected by wall ties. For walls designed
+          under the simple rules of Approved Document A (2013), paragraph 2C8
+          requires each leaf to be at least 90 mm thick and the cavity at
+          least 50 mm wide, with ties at 900 mm horizontally and 450 mm
+          vertically. Table 5 of the same document gives tie lengths for
+          cavities from 50 mm up to 300 mm; the actual width is set by the
+          insulation the design needs.
         </p>
         <GuideTable>
           <thead>
@@ -335,77 +392,71 @@ export default function SingleVsDoubleLeafBrickWall() {
           </thead>
           <tbody>
             <tr>
-              <td style={td}>Overall wall thickness</td>
-              <td style={td}>215 mm</td>
-              <td style={td}>270–330 mm (with insulation)</td>
+              <td style={td}>How the leaves connect</td>
+              <td style={td}>Header bricks and mortar, no gap</td>
+              <td style={td}>Metal wall ties across a cavity ≥ 50 mm</td>
             </tr>
             <tr>
-              <td style={td}>Thermal performance</td>
-              <td style={td}>Poor without added insulation</td>
-              <td style={td}>Good — cavity filled with insulation</td>
+              <td style={td}>Wall thickness</td>
+              <td style={td}>215 mm (UK standard brick)</td>
+              <td style={td}>Leaf + cavity + leaf (each leaf ≥ 90 mm)</td>
             </tr>
             <tr>
-              <td style={td}>Moisture resistance</td>
-              <td style={td}>Moderate (solid path for water)</td>
-              <td style={td}>High — cavity breaks moisture path</td>
+              <td style={td}>Inner leaf material</td>
+              <td style={td}>Brick</td>
+              <td style={td}>Brick or blockwork</td>
             </tr>
             <tr>
-              <td style={td}>Brick quantity (outer leaf only)</td>
-              <td style={td}>N/A</td>
-              <td style={td}>~60 bricks/m² (same as single leaf)</td>
-            </tr>
-            <tr>
-              <td style={td}>Common in UK new build</td>
-              <td style={td}>No (pre-1920s mainly)</td>
-              <td style={td}>Yes (standard since ~1930s)</td>
+              <td style={td}>Bricks per m² (brick outer leaf)</td>
+              <td style={td}>118.5</td>
+              <td style={td}>
+                59.3 for the outer leaf; inner leaf counted separately
+              </td>
             </tr>
           </tbody>
         </GuideTable>
-        <NoteBox>
-          For new external walls in the UK, cavity construction is the standard.
-          Solid double leaf walls are primarily encountered in renovation,
-          heritage work, or specific structural applications.
-        </NoteBox>
 
         {/* Brick and mortar quantities */}
         <h2 style={sectionHeading}>Brick and Mortar Quantities</h2>
         <p style={paragraph}>
           For UK standard bricks (215 × 102.5 × 65 mm) with a 10 mm mortar
-          joint:
+          joint, each brick plus its joints covers 0.225 × 0.075 = 0.016875
+          m² of wall face:
         </p>
         <GuideTable>
           <thead>
             <tr>
               <th style={th}>Wall Type</th>
               <th style={th}>Bricks/m²</th>
-              <th style={th}>Mortar/m² (approx)</th>
-              <th style={th}>Cement bags/m² (1:4 mix)</th>
+              <th style={th}>Mortar in joints/m²</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td style={td}>Single leaf (half-brick)</td>
-              <td style={td}>~60</td>
+              <td style={td}>59.3</td>
               <td style={td}>~0.018 m³</td>
-              <td style={td}>~0.3 bags (25 kg)</td>
             </tr>
             <tr>
-              <td style={td}>Double leaf (full-brick)</td>
-              <td style={td}>~120</td>
-              <td style={td}>~0.043 m³</td>
-              <td style={td}>~0.65 bags (25 kg)</td>
+              <td style={td}>Double leaf (one-brick)</td>
+              <td style={td}>118.5</td>
+              <td style={td}>~0.045 m³</td>
             </tr>
           </tbody>
         </GuideTable>
         <NoteBox>
-          Mortar quantities assume a standard 1:4 cement-to-sand mix and are
-          the volume of the joints themselves — frogged bricks and site waste
-          will use noticeably more, so round up when ordering. For a full
-          mortar calculation, see our{" "}
+          Mortar figures are the volume of the joints only (wall volume minus
+          brick volume), for solid bricks. The double leaf figure includes the
+          10 mm vertical joint between the two leaves. Frogged bricks, site
+          waste and mixing losses add to this, so use the{" "}
+          <Link href="/mortar-calculator" style={link}>
+            Mortar Calculator
+          </Link>{" "}
+          for an order quantity and the{" "}
           <Link href="/guides/brick-mortar-mix-ratio" style={link}>
             Brick Mortar Mix Ratio Guide
-          </Link>
-          .
+          </Link>{" "}
+          for mixes.
         </NoteBox>
 
         {/* Which to choose */}
@@ -414,40 +465,41 @@ export default function SingleVsDoubleLeafBrickWall() {
           <thead>
             <tr>
               <th style={th}>Project</th>
-              <th style={th}>Recommended Wall Type</th>
+              <th style={th}>Wall Type</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style={td}>Low garden boundary wall (under 450 mm)</td>
+              <td style={td}>
+                Free-standing garden wall up to 375–525 mm (by wind zone)
+              </td>
               <td style={td}>Single leaf</td>
             </tr>
             <tr>
-              <td style={td}>Garden wall 450 mm – 1.8 m with piers</td>
-              <td style={td}>Single leaf with piers, or double leaf</td>
+              <td style={td}>
+                Free-standing garden wall up to 1,075–1,450 mm (by wind zone)
+              </td>
+              <td style={td}>Double leaf</td>
             </tr>
             <tr>
-              <td style={td}>Garden wall above 1.8 m</td>
-              <td style={td}>Double leaf — seek structural engineer advice</td>
+              <td style={td}>
+                Taller garden wall, wall with piers, or wall carrying heavy
+                gates
+              </td>
+              <td style={td}>Get expert / engineer advice</td>
             </tr>
             <tr>
               <td style={td}>Retaining wall (holding back soil)</td>
-              <td style={td}>
-                Double leaf minimum — structural design required
-              </td>
+              <td style={td}>Get expert / engineer design</td>
             </tr>
             <tr>
-              <td style={td}>Internal partition (non-load-bearing)</td>
+              <td style={td}>Internal non-load-bearing partition</td>
               <td style={td}>Single leaf</td>
             </tr>
             <tr>
               <td style={td}>New external house wall</td>
-              <td style={td}>Cavity wall (not solid double leaf)</td>
-            </tr>
-            <tr>
-              <td style={td}>Heritage / conservation external wall</td>
               <td style={td}>
-                Double leaf solid — match existing construction
+                Cavity wall, designed to Approved Document A
               </td>
             </tr>
           </tbody>
@@ -460,7 +512,13 @@ export default function SingleVsDoubleLeafBrickWall() {
             <Link href="/brick-calculator" style={link}>
               Brick Calculator
             </Link>{" "}
-            — calculate bricks and mortar for your wall dimensions
+            — count bricks for single or double leaf walls, with waste
+          </li>
+          <li style={listItem}>
+            <Link href="/mortar-calculator" style={link}>
+              Mortar Calculator
+            </Link>{" "}
+            — estimate mortar for your brickwork
           </li>
           <li style={listItem}>
             <Link
@@ -481,7 +539,7 @@ export default function SingleVsDoubleLeafBrickWall() {
             <Link href="/guides/brick-mortar-mix-ratio" style={link}>
               Brick Mortar Mix Ratio Guide
             </Link>{" "}
-            — cement, sand, and water ratios for brickwork
+            — cement, lime, and sand ratios for brickwork
           </li>
           <li style={listItem}>
             <Link href="/guides/standard-brick-sizes-by-country" style={link}>

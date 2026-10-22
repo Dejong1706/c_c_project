@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/concrete-calculator", date: "2026-06-02", priority: 0.9 },
     { route: "/concrete-bags", date: "2026-06-02", priority: 0.9 },
     { route: "/tile-calculator", date: "2026-10-20", priority: 0.9 },
-    { route: "/brick-calculator", date: "2026-06-02", priority: 0.9 },
+    { route: "/brick-calculator", date: "2026-10-22", priority: 0.9 },
     { route: "/paint-calculator", date: "2026-06-02", priority: 0.9 },
     { route: "/rebar-calculator", date: "2026-06-02", priority: 0.9 },
     { route: "/excavation-calculator", date: "2026-06-15", priority: 0.9 },
@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/drywall-calculator", date: "2026-10-19", priority: 0.9 },
     { route: "/roof-pitch-calculator", date: "2026-10-21", priority: 0.9 },
     { route: "/unit-converter", date: "2026-06-02", priority: 0.8 },
-    { route: "/guides", date: "2026-10-21", priority: 0.8 },
+    { route: "/guides", date: "2026-10-22", priority: 0.8 },
     {
       route: "/guides/how-to-calculate-concrete-volume",
       date: "2026-10-16",
@@ -68,7 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-many-bricks-per-square-metre",
-      date: "2026-10-15",
+      date: "2026-10-22",
       priority: 0.7,
     },
     {
@@ -88,7 +88,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/single-vs-double-leaf-brick-wall",
-      date: "2026-06-18",
+      date: "2026-10-22",
       priority: 0.7,
     },
     {

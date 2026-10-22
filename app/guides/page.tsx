@@ -93,7 +93,7 @@ const guides: {
   {
     title: "Single vs Double Leaf Brick Wall",
     href: "/guides/single-vs-double-leaf-brick-wall",
-    desc: "Thickness, structural limits, brick counts, and bonding patterns — with cavity wall comparison.",
+    desc: "Thickness, bricks per m², bonds, and safe garden wall heights by wind zone — with cavity wall comparison.",
     category: "Masonry",
   },
   // Tile
