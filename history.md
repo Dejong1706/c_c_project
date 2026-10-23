@@ -94,7 +94,7 @@
 
 ### 콘크리트 / 철근
 
-- [ ] `what-size-rebar-do-i-need.tsx` ~18행(FAQ), ~196–199행: 수축·온도 철근 최대 간격
+- [x] (2026-10-23) `what-size-rebar-do-i-need.tsx` ~18행(FAQ), ~196–199행: 수축·온도 철근 최대 간격
   - 현재: "3h 또는 450 mm"
   - 정확: **5h와 18 in(457 mm) 중 작은 값** (ACI 318-19 §24.4.3.3). 3h는 1방향 슬래브 주철근 기준이다.
   - 일반 slab-on-ground는 ACI 360 소관이라는 점도 언급.
@@ -118,7 +118,7 @@
 - [ ] `concrete-bags/page.tsx` ~11, ~23행: 없는 "bag size 선택" 기능을 약속. `BagCalc.tsx` ~102행 "post hole" 언급 (원형 모드 없음, 27% 과다)
 - [x] (2026-10-16) `how-to-mix-concrete-by-hand.tsx`: "50 litres (roughly 2 ft³)" → 1.8 ft³
 - [ ] `guides/[slug]/page.tsx` cubic-yards-to-cubic-meters 메타 title의 "Converter" (페이지에 변환기 없음)
-- [ ] `RebarCalc.tsx` ~102행: "±3%" → ASTM A615은 최대 6% 미달 허용, EN 10080 ±4.5%. "Weight per bar"는 이음 여유 포함임을 명시
+- [x] (2026-10-23) `RebarCalc.tsx` ~102행: "±3%" → ASTM A615은 최대 6% 미달 허용, EN 10080 ±4.5%. "Weight per bar"는 이음 여유 포함임을 명시
 
 ### 석공
 
@@ -322,7 +322,7 @@
 - [x] 화 (2026-10-20): 타일 줄눈 방향 / lippage / 움직임 흡수 — grout 가이드 재작성(ANSI A108.02 줄눈 폭) + how-many-tiles·lay-tile·tile-calculator FAQ 정합 + title/description
 - [x] 수 (2026-10-21): 지붕 OSHA 안전 문구 + IRC R905 최소 경사 (+ `pitchCategory` 반올림) — 계산기·가이드 2개·FAQ 정합
 - [x] 목 (2026-10-22): single-vs-double-leaf (정원 담장 높이 등) — GOV.WALES/ODPM 높이표, ADA 2C8 공동, 벽돌 계산기 FAQ·관련 가이드 링크
-- [ ] 금: what-size-rebar (5h/18 in 등) + RebarCalc "±3%"
+- [x] 금 (2026-10-23): what-size-rebar (5h/18 in 등) + RebarCalc "±3%" — 가이드 재작성(ASTM 바 표 #3–#11, 2024 IRC R506·R403.1.3, ACI 318 0.0018·5h/18 in), 계산기 notice·weight per bar·lap FAQ
 
 **3주차: 기술·접근성**
 - [ ] 월: `layout.tsx:34-37` Tabler 웹폰트(`@latest`, 렌더 차단) 제거 → `shared.tsx:118` NoteBox를 `IconInfoCircle`(`@tabler/icons-react`)로
@@ -343,10 +343,20 @@
 - [ ] 단위 상수 `calcMath.ts`로 통일 (3.28084 vs 1/0.3048, 0.393701)
 - [ ] 레지스트리 통합(guides.ts / calculators.ts) — 수동 동기화 지점 제거
 - [ ] `docs/adding-a-calculator.md` §4, `docs/adding-a-guide.md`(가이드 수, CATEGORY_ORDER) 최신화
-- [ ] 얇은 가이드 확장: roof-degrees, what-size-rebar(무게 공식 d²/162 섹션), bricks-per-m², mulch 2개
+- [ ] 얇은 가이드 확장: roof-degrees, bricks-per-m², mulch 2개 (what-size-rebar 무게 공식 d²/162 섹션은 2026-10-23 완료)
 - [ ] FAQ 4개뿐인 가이드 8개에 롱테일 FAQ 추가
 - [ ] `how-to-calculate-bricks-for-a-wall.tsx:39` "Do mortar joint thickness" → "Does"
 - [ ] paint 가이드 2개 동일 FAQ("How many coats") 중복 제거
+
+### 2026-10-23 what-size-rebar 가이드 + RebarCalc (ASTM A615 / 2024 IRC / ACI 318)
+
+- 출처: 2024 IRC — UpCodes GSA Residential Code 2024(무수정 채택본) R506.1(슬래브 3½″, 철근 요구 없음), R506.3.4(철근은 중앙~상부 1/3에 지지), R403.1.3(SDC D0–D2 기초: 스템월 No. 4 수직 4 ft·상단 12″ 수평, turned-down 기초 No. 4 상하 또는 No. 5/No. 4×2 중간 1/3, 비일체 시 No. 3 갈고리 다월 4 ft), R403.1.3.5.1–.4(A615/A706/A996 Grade 40 이상, 피복 3″/1½″·2″/¾″, 이음은 Table R608.5.4(1)·간격 ≤ lap/5와 6″ 중 작은 값), Figure R403.1(1)(SDC A–C 무근 기초), R301.1.3(공학 설계). ACI 318-19 §24.4.3.2(0.0018)·§24.4.3.3(5h와 18 in 중 작은 값) — 강의 자료·소프트웨어 문서 인용으로 확인, §1.4.8 slab-on-ground 제외는 ACI 공식 FAQ(concrete.org faqid=226)로 확인, ACI 360R 범위도 같은 FAQ. ASTM A615/A615M-26가 현행판(astm.org, No. 20 [64]까지)
+- **미확인:** ACI 318-25(현행판) 원문 접근 못 함 → 본문은 "ACI 318-19 §…"로 판 명시. ASTM A615 Table 1(지름·면적·lb/ft)과 무게 허용차는 유료라 원문 미확인 — 바 표는 Table 1 공칭값(널리 재수록된 값, kg/m는 lb/ft × 1.48816로 재계산하고 0.006165 d²와 대조), 무게 허용차(A615 94%, EN 10080 ±4.5%)는 1차 출처 못 찾아 **수치 넣지 않음**. IRC Table R608.5.4(1) 이음 길이 수치도 미확인이라 표 번호만 인용
+- 가이드 재작성: "#번호 = 1/8″"는 #3–#8만(#9 = 1.128″, 면적 기준), soft metric #13 = #4 동일 바 vs 유럽 12 mm(면적 약 11% 작음, 113 vs 127 mm²), 바 표 #3–#11(지름·면적·lb/ft·kg/m). 간격 "3h 또는 450 mm" → 0.0018·5h/18 in, 3.6″ 넘으면 18 in 지배, 4/5/6″ 슬래브 #3 15/12/10″·#4 18″ 표. IRC 요구사항 섹션 신설, 무게 공식 d²/162 섹션
+- 삭제(출처 없음): 용도별 "typical" 크기·간격 표(주거 슬래브 10–12 mm 200–300 mm, 진입로 300 mm, 펜스 기둥 #3 등), "200–300 mm standard", 진입로 FAQ "significantly reduces cracking", "local codes typically require". 철근이 균열 폭을 제어한다는 문구는 1차 출처를 따로 확인 못 해 넣지 않음
+- 계산기: notice "±3%" → 공칭 무게(7,850 kg/m³), 실제 질량은 표준 허용차 내에서 다르므로 공급사 무게 사용. "Weight per bar"를 이음 여유 포함 kg/n → 바 1개 공칭 무게(unitWt × L)로 바꾸고 단위에 "no splice allowance" 명시. FAQ "lap splice 5–10%" → 설계(IRC Table R608.5.4(1))가 정함, 여유율 = 총 겹침 ÷ 총 길이(6 m마다 0.6 m → 10%), IRC "longest lengths practical". 관련 가이드 라벨 갱신
+- 메타 title 60자/description 150자, articleSchema 설명 157자, /guides 카드. sitemap: 가이드·rebar-calculator·/guides 2026-10-23
+- 백로그로 남김: rebar ↔ strength-grades 상호 링크(4주차 항목), 계산기 관련 가이드에 strength-grades, 영국 BS 4449/BS 8666 내용, IRC R404/R608 벽 철근 표 상세
 
 ### 2026-10-22 single vs double leaf 가이드 (정원 담장 높이·공동 벽)
 

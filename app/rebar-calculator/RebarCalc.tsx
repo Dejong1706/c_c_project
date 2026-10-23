@@ -48,8 +48,8 @@ export default function RebarCalc() {
       },
       {
         label: "Weight per bar",
-        value: n > 0 && kg > 0 ? (kg / n).toFixed(2) : "—",
-        unit: "kg/bar",
+        value: L > 0 && d > 0 ? (unitWt * L).toFixed(2) : "—",
+        unit: "kg/bar (no splice allowance)",
         tier: 3 as const,
       },
     ];
@@ -99,7 +99,7 @@ export default function RebarCalc() {
       description="Calculate total weight of steel rebar from bar diameter, length and count. Uses the standard formula: unit weight = 0.006165 × d² kg/m."
       inputs={inputs}
       results={results}
-      notice="Formula: W = 0.006165 × d²(mm) kg/m. Results are theoretical weight; actual may vary ±3%."
+      notice="Formula: W = 0.006165 × d²(mm) kg/m (steel at 7,850 kg/m³). Results are nominal weights; bar standards allow actual mass to differ within set tolerances, so use the supplier's weights for ordering or payment."
       related={[
         {
           href: "/concrete-calculator",

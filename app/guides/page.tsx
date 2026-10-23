@@ -50,7 +50,7 @@ const guides: {
   {
     title: "What Size Rebar Do I Need?",
     href: "/guides/what-size-rebar-do-i-need",
-    desc: "Bar size and spacing guide for slabs, footings and driveways. Covers metric and US Imperial sizes.",
+    desc: "US bar sizes #3–#11 with weights, 2024 IRC slab and footing rules, and ACI 318 spacing limits.",
     category: "Structural",
   },
   {

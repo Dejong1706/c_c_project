@@ -141,9 +141,9 @@ const metaMap: Record<
     ],
   },
   "what-size-rebar-do-i-need": {
-    title: "What Size Rebar Do I Need? A Practical Selection Guide | BuildCalc",
+    title: "What Size Rebar Do I Need? Bar Sizes & IRC Rules | BuildCalc",
     description:
-      "Rebar size and spacing guide for slabs, footings and driveways. Covers metric and US Imperial bar sizes, typical spacing, and when to consult an engineer.",
+      "US rebar sizes #3–#11 with diameters and weights, 2024 IRC rules for slabs and footings, ACI 318 spacing (5h or 18 in), and when you need an engineer.",
     keywords: [
       "what size rebar do i need",
       "rebar size guide",

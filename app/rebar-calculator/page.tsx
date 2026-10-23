@@ -34,7 +34,7 @@ const faqs = [
   {
     question: "What is a lap splice and how much extra rebar do I need?",
     answer:
-      "A lap splice is the overlap between two rebar pieces joined together. Typical lap splice length adds 5–10% extra material depending on bar diameter and design requirements.",
+      "A lap splice is the overlap where two bars are joined. Lap length is set by the design — for IRC footings and concrete walls it comes from Table R608.5.4(1) — so there is no fixed percentage. Work out the allowance as total lap length ÷ total bar run; for example, one 0.6 m lap for every 6 m of run adds 10%. The IRC also asks for bars in the longest lengths practical to keep splices to a minimum.",
   },
   {
     question: "How much does a 12mm rebar weigh per meter?",
@@ -64,7 +64,7 @@ export default function Page() {
         </p>
         <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
           {[
-            { href: "/guides/what-size-rebar-do-i-need", label: "What Size Rebar Do I Need?" },
+            { href: "/guides/what-size-rebar-do-i-need", label: "What Size Rebar Do I Need? Bar Sizes and Code Rules" },
           ].map((g) => (
             <Link key={g.href} href={g.href} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", color: "var(--accent-text)", background: "var(--accent-light)", padding: "8px 14px", borderRadius: "8px", textDecoration: "none" }}>
               <BookOpen size={13} color="var(--accent)" />

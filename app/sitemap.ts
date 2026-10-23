@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/tile-calculator", date: "2026-10-20", priority: 0.9 },
     { route: "/brick-calculator", date: "2026-10-22", priority: 0.9 },
     { route: "/paint-calculator", date: "2026-06-02", priority: 0.9 },
-    { route: "/rebar-calculator", date: "2026-06-02", priority: 0.9 },
+    { route: "/rebar-calculator", date: "2026-10-23", priority: 0.9 },
     { route: "/excavation-calculator", date: "2026-06-15", priority: 0.9 },
     { route: "/mortar-calculator", date: "2026-10-16", priority: 0.9 },
     { route: "/flooring-calculator", date: "2026-06-25", priority: 0.9 },
@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/drywall-calculator", date: "2026-10-19", priority: 0.9 },
     { route: "/roof-pitch-calculator", date: "2026-10-21", priority: 0.9 },
     { route: "/unit-converter", date: "2026-06-02", priority: 0.8 },
-    { route: "/guides", date: "2026-10-22", priority: 0.8 },
+    { route: "/guides", date: "2026-10-23", priority: 0.8 },
     {
       route: "/guides/how-to-calculate-concrete-volume",
       date: "2026-10-16",
@@ -53,7 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/what-size-rebar-do-i-need",
-      date: "2026-06-12",
+      date: "2026-10-23",
       priority: 0.7,
     },
     {
