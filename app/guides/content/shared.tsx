@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { IconInfoCircle } from "@tabler/icons-react";
 
 export const sectionHeading: React.CSSProperties = {
   fontSize: "20px",
@@ -114,14 +115,11 @@ export function NoteBox({ children }: { children: ReactNode }) {
         margin: "12px 0 20px",
       }}
     >
-      <i
-        className="ti ti-info-circle"
-        style={{
-          fontSize: "16px",
-          color: "var(--accent)",
-          flexShrink: 0,
-          marginTop: "1px",
-        }}
+      <IconInfoCircle
+        size={16}
+        color="var(--accent)"
+        aria-hidden="true"
+        style={{ flexShrink: 0, marginTop: "3px" }}
       />
       <span>{children}</span>
     </div>

@@ -325,7 +325,7 @@
 - [x] 금 (2026-10-23): what-size-rebar (5h/18 in 등) + RebarCalc "±3%" — 가이드 재작성(ASTM 바 표 #3–#11, 2024 IRC R506·R403.1.3, ACI 318 0.0018·5h/18 in), 계산기 notice·weight per bar·lap FAQ
 
 **3주차: 기술·접근성**
-- [ ] 월: `layout.tsx:34-37` Tabler 웹폰트(`@latest`, 렌더 차단) 제거 → `shared.tsx:118` NoteBox를 `IconInfoCircle`(`@tabler/icons-react`)로
+- [x] 월 (2026-10-26): `layout.tsx:34-37` Tabler 웹폰트(`@latest`, 렌더 차단) 제거 → `shared.tsx:118` NoteBox를 `IconInfoCircle`(`@tabler/icons-react`)로
 - [ ] 화: og:site_name — 페이지 `openGraph`가 layout의 `siteName`을 덮어씀(얕은 병합). 각 페이지에 `siteName` 추가 또는 헬퍼. drywall/roof-pitch/stair 계산기 페이지는 `openGraph` 자체 없음
 - [ ] 수: Article schema 필드 누락 4개(drywall-screw, drywall-sheets, roof-pitch, roof-degrees; `how-to-mix-concrete-by-hand.tsx:50-62` 참고) + `docs/adding-a-guide.md` 템플릿. 10/08 수정 가이드 8개 `dateModified`/sitemap 날짜, 홈·/guides sitemap 날짜
 - [ ] 목: 계산기 공통 접근성 — `Field.tsx:36` 단위 select aria-label, `WasteSlider.tsx` label 연결·aria-valuetext, `CalcShell` 결과 aria-live, 결과 보조글 대비(0.7 → 0.85), 입력 테두리 대비, range `:focus-visible`
@@ -347,6 +347,12 @@
 - [ ] FAQ 4개뿐인 가이드 8개에 롱테일 FAQ 추가
 - [ ] `how-to-calculate-bricks-for-a-wall.tsx:39` "Do mortar joint thickness" → "Does"
 - [ ] paint 가이드 2개 동일 FAQ("How many coats") 중복 제거
+
+### 2026-10-26 Tabler 웹폰트 제거 (NoteBox → IconInfoCircle)
+
+- `app/layout.tsx`의 `@tabler/icons-webfont@latest` 스타일시트 삭제 (버전 미고정 + 렌더 차단 CSS + 폰트 다운로드). 웹폰트 클래스(`ti ti-*`) 사용처는 `shared.tsx` NoteBox 1곳뿐이었음
+- NoteBox 아이콘 `<i className="ti ti-info-circle">` → `<IconInfoCircle size={16}>` 인라인 SVG, `aria-hidden`, 첫 줄(13px × 1.7) 정렬용 `marginTop` 1px → 3px
+- 콘텐츠 변경 없음 → 가이드 `dateModified`·sitemap 날짜·IndexNow 대상 아님. tsc·eslint(에러 0, 기존 Google Fonts 경고 1)·build 통과, 빌드 HTML에 `tabler-icon-info-circle` SVG 확인
 
 ### 2026-10-23 what-size-rebar 가이드 + RebarCalc (ASTM A615 / 2024 IRC / ACI 318)
 
