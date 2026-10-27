@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
+import { siteOpenGraph } from "./shared-metadata";
 import "./globals.css";
 import Layout from "./components/Layout";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://buildcalczone.com"),
-  openGraph: {
-    siteName: "BuildCalc",
-  },
+  openGraph: siteOpenGraph,
   twitter: {
     card: "summary_large_image",
   },

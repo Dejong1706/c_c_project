@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteOpenGraph } from "../shared-metadata";
 import ConcreteCalc from "./ConcreteCalc";
 import CalcSchema from "../components/CalcSchema";
 import CalcFaq from "../components/CalcFaq";
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/concrete-calculator" },
   openGraph: {
+    ...siteOpenGraph,
     type: "website",
     title:
       "Concrete Calculator — Volume, Cubic Yards & Ready-Mix Trucks | BuildCalc",

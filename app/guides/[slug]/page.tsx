@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { siteOpenGraph } from "../../shared-metadata";
 
 import GuideLayout from "./GuideLayout";
 import ConcreteVolumeGuide from "../content/how-to-calculate-concrete-volume";
@@ -372,6 +373,7 @@ export async function generateMetadata(
     keywords: meta.keywords,
     alternates: { canonical: `/guides/${slug}` },
     openGraph: {
+      ...siteOpenGraph,
       type: "article",
       title: meta.title,
       description: meta.description,

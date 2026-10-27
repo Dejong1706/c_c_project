@@ -326,7 +326,7 @@
 
 **3주차: 기술·접근성**
 - [x] 월 (2026-10-26): `layout.tsx:34-37` Tabler 웹폰트(`@latest`, 렌더 차단) 제거 → `shared.tsx:118` NoteBox를 `IconInfoCircle`(`@tabler/icons-react`)로
-- [ ] 화: og:site_name — 페이지 `openGraph`가 layout의 `siteName`을 덮어씀(얕은 병합). 각 페이지에 `siteName` 추가 또는 헬퍼. drywall/roof-pitch/stair 계산기 페이지는 `openGraph` 자체 없음
+- [x] 화 (2026-10-27): og:site_name — `app/shared-metadata.ts` `siteOpenGraph`(siteName + og:image)를 layout·전 페이지 `openGraph`에 펼침, drywall/roof-pitch/stair에 `openGraph` 신설
 - [ ] 수: Article schema 필드 누락 4개(drywall-screw, drywall-sheets, roof-pitch, roof-degrees; `how-to-mix-concrete-by-hand.tsx:50-62` 참고) + `docs/adding-a-guide.md` 템플릿. 10/08 수정 가이드 8개 `dateModified`/sitemap 날짜, 홈·/guides sitemap 날짜
 - [ ] 목: 계산기 공통 접근성 — `Field.tsx:36` 단위 select aria-label, `WasteSlider.tsx` label 연결·aria-valuetext, `CalcShell` 결과 aria-live, 결과 보조글 대비(0.7 → 0.85), 입력 테두리 대비, range `:focus-visible`
 - [ ] 금: UnitConverter — label 연결, 값 입력 label, ⇄ 버튼 aria-label, aria-live + 참조표 머리글·누락 단위
@@ -347,6 +347,14 @@
 - [ ] FAQ 4개뿐인 가이드 8개에 롱테일 FAQ 추가
 - [ ] `how-to-calculate-bricks-for-a-wall.tsx:39` "Do mortar joint thickness" → "Does"
 - [ ] paint 가이드 2개 동일 FAQ("How many coats") 중복 제거
+
+### 2026-10-27 og:site_name·og:image 공통화 (openGraph 얕은 병합)
+
+- 원인: Next metadata는 세그먼트 간 **얕은 병합**(node_modules/next/dist/docs generate-metadata §Merging) → 페이지가 `openGraph`를 정의하면 layout의 `siteName`이 통째로 사라짐. og:site_name이 홈·계산기 12개·/guides·가이드 25개 모두 누락돼 있었음
+- 추가 발견: 루트 `opengraph-image.tsx`도 하위 페이지에는 같은 병합을 따라감 → `openGraph`를 정의한 페이지(계산기 12개·/guides·가이드 전부)에는 og:image가 없었고, `openGraph`가 없던 drywall/roof-pitch/stair·privacy-policy만 있었음
+- 수정: `app/shared-metadata.ts`에 `siteOpenGraph`(siteName + images `/opengraph-image` 1200×630, alt·size는 `opengraph-image.tsx`에서 import) → layout은 그대로 사용, 페이지·가이드 `generateMetadata`는 `...siteOpenGraph` 펼침. drywall/roof-pitch/stair 계산기에 `openGraph`(website, title/description/url = 기존 메타) 신설. privacy-policy는 layout 상속
+- 검증: tsc·eslint(에러 0, 기존 Google Fonts 경고 1)·build 통과. 빌드 HTML(홈, stair, brick, unit-converter, /guides, what-size-rebar, privacy-policy)에서 og:site_name·og:image·twitter:image 각 1개 확인. 홈 og:image URL은 해시 쿼리(`?2603…`) 없는 `/opengraph-image`로 바뀜
+- 콘텐츠 변경 없음 → dateModified·sitemap 날짜 갱신 안 함. 메타 태그 변경이므로 IndexNow는 배포 후 전체(`--all`) 제출 대상
 
 ### 2026-10-26 Tabler 웹폰트 제거 (NoteBox → IconInfoCircle)
 

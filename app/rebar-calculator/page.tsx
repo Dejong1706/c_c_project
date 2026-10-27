@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteOpenGraph } from "../shared-metadata";
 import RebarCalc from "./RebarCalc";
 import CalcSchema from "../components/CalcSchema";
 import CalcFaq from "../components/CalcFaq";
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/rebar-calculator" },
   openGraph: {
+    ...siteOpenGraph,
     type: "website",
     title: "Rebar Weight Calculator — Steel Bar Weight & Length | BuildCalc",
     description:

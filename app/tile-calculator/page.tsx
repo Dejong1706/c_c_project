@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteOpenGraph } from "../shared-metadata";
 import TileCalc from "./TileCalc";
 import CalcSchema from "../components/CalcSchema";
 import CalcFaq from "../components/CalcFaq";
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/tile-calculator" },
   openGraph: {
+    ...siteOpenGraph,
     type: "website",
     title: "Tile Calculator — How Many Tiles Do I Need? | BuildCalc",
     description:

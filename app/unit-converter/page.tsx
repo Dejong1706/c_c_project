@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteOpenGraph } from "../shared-metadata";
 import UnitConverter from "./UnitConverter";
 import CalcSchema from "../components/CalcSchema";
 import CalcFaq from "../components/CalcFaq";
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/unit-converter" },
   openGraph: {
+    ...siteOpenGraph,
     type: "website",
     title:
       "Construction Unit Converter — m, ft, m², yd³, kg, lbs | BuildCalc",

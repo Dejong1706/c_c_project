@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteOpenGraph } from "../shared-metadata";
 import CalcSchema from "../components/CalcSchema";
 import CalcFaq from "../components/CalcFaq";
 import Link from "next/link";
@@ -17,6 +18,14 @@ export const metadata: Metadata = {
     "drywall estimator",
   ],
   alternates: { canonical: "/drywall-calculator" },
+  openGraph: {
+    ...siteOpenGraph,
+    type: "website",
+    title: "Drywall Calculator — Sheets, Compound & Screws | BuildCalc",
+    description:
+      "Calculate how many drywall sheets you need for any room. Enter dimensions, doors, and windows to get sheet count, joint compound, tape, and screw estimates instantly.",
+    url: "https://buildcalczone.com/drywall-calculator",
+  },
 };
 
 const faqs = [

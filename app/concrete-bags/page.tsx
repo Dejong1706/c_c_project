@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteOpenGraph } from "../shared-metadata";
 import BagCalc from "./BagCalc";
 import CalcSchema from "../components/CalcSchema";
 import CalcFaq from "../components/CalcFaq";
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/concrete-bags" },
   openGraph: {
+    ...siteOpenGraph,
     type: "website",
     title: "Concrete Bag Calculator — How Many Bags of Concrete? | BuildCalc",
     description:

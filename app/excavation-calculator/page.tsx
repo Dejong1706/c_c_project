@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteOpenGraph } from "../shared-metadata";
 import ExcavationCalc from "./ExcavationCalc";
 import CalcSchema from "../components/CalcSchema";
 import CalcFaq from "../components/CalcFaq";
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/excavation-calculator" },
   openGraph: {
+    ...siteOpenGraph,
     type: "website",
     title:
       "Excavation Calculator — Volume in m³, Cubic Yards & Truck Loads | BuildCalc",

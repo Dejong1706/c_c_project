@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteOpenGraph } from "../shared-metadata";
 import CalcSchema from "../components/CalcSchema";
 import CalcFaq from "../components/CalcFaq";
 import Link from "next/link";
@@ -17,6 +18,14 @@ export const metadata: Metadata = {
     "stair riser calculator",
   ],
   alternates: { canonical: "/stair-calculator" },
+  openGraph: {
+    ...siteOpenGraph,
+    type: "website",
+    title: "Stair Calculator — Rise, Run & Stringer Length | BuildCalc",
+    description:
+      "Calculate stair risers, treads, total run, and stringer length for IRC-compliant residential stairs. Includes code check for riser height, tread depth, and stair angle.",
+    url: "https://buildcalczone.com/stair-calculator",
+  },
 };
 
 const faqs = [

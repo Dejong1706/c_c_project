@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteOpenGraph } from "./shared-metadata";
 import Link from "next/link";
 import {
   IconBuildingFactory2,
@@ -28,6 +29,7 @@ export const metadata: Metadata = {
     "Free construction calculators for concrete volume, tile quantity, rebar weight, brick count and more. Instant results in metric and imperial.",
   alternates: { canonical: "/" },
   openGraph: {
+    ...siteOpenGraph,
     type: "website",
     title: "BuildCalc — Free Construction Calculators",
     description:

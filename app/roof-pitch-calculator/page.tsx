@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteOpenGraph } from "../shared-metadata";
 import CalcSchema from "../components/CalcSchema";
 import CalcFaq from "../components/CalcFaq";
 import Link from "next/link";
@@ -17,6 +18,14 @@ export const metadata: Metadata = {
     "roof pitch conversion",
   ],
   alternates: { canonical: "/roof-pitch-calculator" },
+  openGraph: {
+    ...siteOpenGraph,
+    type: "website",
+    title: "Roof Pitch Calculator — Degrees, Ratio & Rafter Length | BuildCalc",
+    description:
+      "Convert roof pitch between x:12 ratio, degrees, and percentage slope. Get rafter length, pitch factor, and true roof area for accurate material estimates.",
+    url: "https://buildcalczone.com/roof-pitch-calculator",
+  },
 };
 
 const faqs = [

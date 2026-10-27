@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteOpenGraph } from "../shared-metadata";
 import PaintCalc from "./PaintCalc";
 import CalcSchema from "../components/CalcSchema";
 import CalcFaq from "../components/CalcFaq";
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/paint-calculator" },
   openGraph: {
+    ...siteOpenGraph,
     type: "website",
     title: "Paint Calculator — How Much Paint Do I Need? | BuildCalc",
     description:

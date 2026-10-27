@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteOpenGraph } from "../shared-metadata";
 import BrickCalc from "./BrickCalc";
 import CalcSchema from "../components/CalcSchema";
 import CalcFaq from "../components/CalcFaq";
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/brick-calculator" },
   openGraph: {
+    ...siteOpenGraph,
     type: "website",
     title: "Brick Calculator — How Many Bricks Do I Need? | BuildCalc",
     description:

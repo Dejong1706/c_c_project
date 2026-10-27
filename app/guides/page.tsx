@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteOpenGraph } from "../shared-metadata";
 import GuidesClient from "./GuidesClient";
 
 export const metadata: Metadata = {
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
     "Free construction guides covering concrete, tiles, rebar, paint and more. Learn how to calculate material quantities and understand industry standards.",
   alternates: { canonical: "/guides" },
   openGraph: {
+    ...siteOpenGraph,
     type: "website",
     title: "Construction Guides — How-To & Reference | BuildCalc",
     description:

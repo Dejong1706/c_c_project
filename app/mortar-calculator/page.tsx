@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteOpenGraph } from "../shared-metadata";
 import CalcSchema from "../components/CalcSchema";
 import CalcFaq from "../components/CalcFaq";
 import Link from "next/link";
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/mortar-calculator" },
   openGraph: {
+    ...siteOpenGraph,
     type: "website",
     title: "Mortar Calculator — Cement, Sand & Bags Estimator | BuildCalc",
     description:
