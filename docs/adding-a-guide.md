@@ -47,7 +47,13 @@ const articleSchema = {
   "@type": "Article",
   headline: "...",
   description: "...",
-  url: "https://buildcalczone.com/guides/<slug>",
+  // 아래 필드는 전부 필수 (Google Article 리치 결과). 내용을 고칠 때마다 dateModified와 sitemap.ts 날짜를 함께 갱신
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/<slug>" },
+  datePublished: "YYYY-MM-DD",
+  dateModified: "YYYY-MM-DD",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 export default function XxxGuide() {
@@ -129,6 +135,7 @@ const CATEGORY_ORDER = ["All", "Concrete", "Structural", "Masonry", "Tile", "Pai
 - [ ] `npx tsc --noEmit -p .` 통과
 - [ ] `npx eslint app/guides/content/<slug>.tsx` 통과 (unescaped entities, 미사용 변수 확인)
 - [ ] `Breadcrumb` 넣었는지, `shared.tsx` 스타일 썼는지 확인
+- [ ] `articleSchema`에 `mainEntityOfPage`·`datePublished`·`dateModified`·`author`·`publisher`·`image` 전부 있는지 확인 (`url`만 넣고 빠뜨린 가이드가 4개 있었음, 2026-10-28 보완)
 - [ ] `[slug]/page.tsx`, `guides/page.tsx`, `sitemap.ts` 세 곳 모두 추가
 - [ ] `CATEGORY_ORDER`에 기존 카테고리를 안 지웠는지 확인
 - [ ] `curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/guides/<slug>` → 200 확인

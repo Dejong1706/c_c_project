@@ -54,7 +54,12 @@ const articleSchema = {
   headline: "How to Calculate Roof Pitch",
   description:
     "Measure and calculate roof pitch from rise and run, convert to degrees, find rafter length and pitch factor, and see OSHA low-slope vs steep roof limits.",
-  url: "https://buildcalczone.com/guides/how-to-calculate-roof-pitch",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-roof-pitch" },
+  datePublished: "2026-07-21",
+  dateModified: "2026-10-21",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 export default function HowToCalculateRoofPitch() {

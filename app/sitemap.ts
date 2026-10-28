@@ -4,22 +4,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://buildcalczone.com";
 
   const pages: { route: string; date: string; priority: number }[] = [
-    { route: "", date: "2026-06-02", priority: 1 },
-    { route: "/concrete-calculator", date: "2026-06-02", priority: 0.9 },
-    { route: "/concrete-bags", date: "2026-06-02", priority: 0.9 },
+    { route: "", date: "2026-10-07", priority: 1 },
+    { route: "/concrete-calculator", date: "2026-10-08", priority: 0.9 },
+    { route: "/concrete-bags", date: "2026-10-08", priority: 0.9 },
     { route: "/tile-calculator", date: "2026-10-20", priority: 0.9 },
     { route: "/brick-calculator", date: "2026-10-22", priority: 0.9 },
-    { route: "/paint-calculator", date: "2026-06-02", priority: 0.9 },
+    { route: "/paint-calculator", date: "2026-10-08", priority: 0.9 },
     { route: "/rebar-calculator", date: "2026-10-23", priority: 0.9 },
-    { route: "/excavation-calculator", date: "2026-06-15", priority: 0.9 },
+    { route: "/excavation-calculator", date: "2026-10-08", priority: 0.9 },
     { route: "/mortar-calculator", date: "2026-10-16", priority: 0.9 },
-    { route: "/flooring-calculator", date: "2026-06-25", priority: 0.9 },
+    { route: "/flooring-calculator", date: "2026-10-08", priority: 0.9 },
     { route: "/fence-calculator", date: "2026-10-16", priority: 0.9 },
-    { route: "/mulch-calculator", date: "2026-06-29", priority: 0.9 },
+    { route: "/mulch-calculator", date: "2026-10-08", priority: 0.9 },
     { route: "/stair-calculator", date: "2026-10-16", priority: 0.9 },
     { route: "/drywall-calculator", date: "2026-10-19", priority: 0.9 },
     { route: "/roof-pitch-calculator", date: "2026-10-21", priority: 0.9 },
-    { route: "/unit-converter", date: "2026-06-02", priority: 0.8 },
+    { route: "/unit-converter", date: "2026-10-08", priority: 0.8 },
     { route: "/guides", date: "2026-10-23", priority: 0.8 },
     {
       route: "/guides/how-to-calculate-concrete-volume",
@@ -83,7 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-to-calculate-bricks-for-a-wall",
-      date: "2026-06-18",
+      date: "2026-10-08",
       priority: 0.7,
     },
     {
@@ -108,12 +108,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-much-mulch-do-i-need",
-      date: "2026-06-29",
+      date: "2026-10-08",
       priority: 0.7,
     },
     {
       route: "/guides/how-to-calculate-mulch",
-      date: "2026-06-29",
+      date: "2026-10-08",
       priority: 0.7,
     },
     {

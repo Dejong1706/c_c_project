@@ -327,7 +327,7 @@
 **3주차: 기술·접근성**
 - [x] 월 (2026-10-26): `layout.tsx:34-37` Tabler 웹폰트(`@latest`, 렌더 차단) 제거 → `shared.tsx:118` NoteBox를 `IconInfoCircle`(`@tabler/icons-react`)로
 - [x] 화 (2026-10-27): og:site_name — `app/shared-metadata.ts` `siteOpenGraph`(siteName + og:image)를 layout·전 페이지 `openGraph`에 펼침, drywall/roof-pitch/stair에 `openGraph` 신설
-- [ ] 수: Article schema 필드 누락 4개(drywall-screw, drywall-sheets, roof-pitch, roof-degrees; `how-to-mix-concrete-by-hand.tsx:50-62` 참고) + `docs/adding-a-guide.md` 템플릿. 10/08 수정 가이드 8개 `dateModified`/sitemap 날짜, 홈·/guides sitemap 날짜
+- [x] 수 (2026-10-28): Article schema 필드 누락 4개(drywall-screw, drywall-sheets, roof-pitch, roof-degrees; `how-to-mix-concrete-by-hand.tsx:50-62` 참고) + `docs/adding-a-guide.md` 템플릿. 10/08 수정 가이드 8개 `dateModified`/sitemap 날짜, 홈·/guides sitemap 날짜
 - [ ] 목: 계산기 공통 접근성 — `Field.tsx:36` 단위 select aria-label, `WasteSlider.tsx` label 연결·aria-valuetext, `CalcShell` 결과 aria-live, 결과 보조글 대비(0.7 → 0.85), 입력 테두리 대비, range `:focus-visible`
 - [ ] 금: UnitConverter — label 연결, 값 입력 label, ⇄ 버튼 aria-label, aria-live + 참조표 머리글·누락 단위
 
@@ -347,6 +347,15 @@
 - [ ] FAQ 4개뿐인 가이드 8개에 롱테일 FAQ 추가
 - [ ] `how-to-calculate-bricks-for-a-wall.tsx:39` "Do mortar joint thickness" → "Does"
 - [ ] paint 가이드 2개 동일 FAQ("How many coats") 중복 제거
+
+### 2026-10-28 Article schema 필드 보완 + 낡은 dateModified·sitemap 날짜
+
+- Article schema: drywall-screw-spacing-guide·how-to-calculate-drywall-sheets·how-to-calculate-roof-pitch·roof-pitch-to-degrees-conversion은 `url`만 있고 `mainEntityOfPage`·`datePublished`·`dateModified`·`author`·`publisher`·`image`가 없었음 → `how-to-mix-concrete-by-hand.tsx` 형식으로 교체(`url` → `mainEntityOfPage`). datePublished = 첫 커밋일(07-15, 07-14, 07-21, 07-22), dateModified = 마지막 내용 수정일(10-19, 10-19, 10-21, 10-21, sitemap과 동일)
+- 10/08 `0a8dd5a` 수정 가이드 8개 중 날짜가 그 뒤로 갱신되지 않은 3개: how-much-mulch-do-i-need·how-to-calculate-mulch(06-29)·how-to-calculate-bricks-for-a-wall(06-18) → dateModified·sitemap 2026-10-08. 나머지 5개는 이미 이후 날짜이거나 위 schema 보완 대상
+- sitemap: 홈 06-02 → 10-07(`e03a5d9` 홈 개편, 10-27 커밋은 메타만이라 제외). /guides는 10-23 그대로(마지막 카드 변경). 계획에 없던 추가: 10/08 `52918ee` 수치 수정 이후 날짜가 그대로였던 계산기 7개(concrete, concrete-bags, paint, excavation, flooring, mulch, unit-converter) → 2026-10-08
+- `docs/adding-a-guide.md`: articleSchema 템플릿을 필수 필드 전체로 바꾸고 체크리스트에 항목 추가
+- 검증: tsc·eslint(에러 0, 기존 Google Fonts 경고 1)·build 통과, 빌드 HTML에서 3개 가이드 Article JSON-LD 필드·sitemap lastmod 확인. 본문 내용 변경 없음
+- IndexNow 대상(배포 후): 위 4개 + 3개 가이드, 홈, 계산기 7개
 
 ### 2026-10-27 og:site_name·og:image 공통화 (openGraph 얕은 병합)
 

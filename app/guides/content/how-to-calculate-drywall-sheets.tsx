@@ -45,7 +45,12 @@ const articleSchema = {
   headline: "How to Calculate Drywall Sheets",
   description:
     "Step-by-step guide to calculating how many drywall sheets you need for walls and ceiling — with formula, worked examples, and sheet size comparison.",
-  url: "https://buildcalczone.com/guides/how-to-calculate-drywall-sheets",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-drywall-sheets" },
+  datePublished: "2026-07-14",
+  dateModified: "2026-10-19",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 export default function HowToCalculateDrywallSheets() {

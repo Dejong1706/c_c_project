@@ -45,7 +45,12 @@ const articleSchema = {
   headline: "Roof Pitch to Degrees Conversion Chart",
   description:
     "Roof pitch to degrees chart for x:12, percent slope and pitch factor, with OSHA low-slope/steep categories and 2024 IRC minimum pitch by roofing material.",
-  url: "https://buildcalczone.com/guides/roof-pitch-to-degrees-conversion",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/roof-pitch-to-degrees-conversion" },
+  datePublished: "2026-07-22",
+  dateModified: "2026-10-21",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 export default function RoofPitchToDegreesConversion() {

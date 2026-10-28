@@ -53,7 +53,12 @@ const articleSchema = {
   headline: "Drywall Screw Spacing Guide",
   description:
     "Drywall screw spacing for walls and ceilings under 2024 IRC Table R702.3.5, screw types and lengths, and code-minimum screws per sheet.",
-  url: "https://buildcalczone.com/guides/drywall-screw-spacing-guide",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/drywall-screw-spacing-guide" },
+  datePublished: "2026-07-15",
+  dateModified: "2026-10-19",
+  author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
+  image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
 };
 
 const li = {
