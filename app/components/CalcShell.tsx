@@ -160,8 +160,10 @@ export default function CalcShell({
             Results
           </p>
 
-          {/* Primary — 크고 임팩트 있게 */}
+          {/* Primary — 크고 임팩트 있게. aria-live로 입력이 바뀔 때 주 결과를 읽어 줌 */}
           <div
+            aria-live="polite"
+            aria-atomic="true"
             style={{
               background: "var(--accent)",
               borderRadius: "10px",
@@ -172,7 +174,7 @@ export default function CalcShell({
             <p
               style={{
                 fontSize: "11px",
-                color: "rgba(255,255,255,0.7)",
+                color: "rgba(255,255,255,0.85)",
                 marginBottom: "6px",
               }}
             >
@@ -209,7 +211,7 @@ export default function CalcShell({
             <p
               style={{
                 fontSize: "13px",
-                color: "rgba(255,255,255,0.6)",
+                color: "rgba(255,255,255,0.85)",
                 marginTop: "4px",
               }}
             >
@@ -239,7 +241,7 @@ export default function CalcShell({
                   <p
                     style={{
                       fontSize: "11px",
-                      color: "var(--text-3)",
+                      color: "var(--text-2)",
                       marginBottom: "3px",
                     }}
                   >
@@ -261,7 +263,7 @@ export default function CalcShell({
                   <p
                     style={{
                       fontSize: "11px",
-                      color: "var(--text-3)",
+                      color: "var(--text-2)",
                       marginTop: "2px",
                     }}
                   >
@@ -323,7 +325,7 @@ export default function CalcShell({
             <p
               style={{
                 fontSize: "11px",
-                color: "var(--text-3)",
+                color: "var(--text-2)",
                 marginTop: "12px",
                 lineHeight: 1.6,
                 padding: "8px 10px",

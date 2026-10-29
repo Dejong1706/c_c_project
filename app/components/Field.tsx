@@ -33,7 +33,7 @@ export default function Field({ label, id, value, onChange, placeholder, units, 
           style={{ flex: 1, minWidth: 0 }}
         />
         {units && units.length > 1 && onUnitChange && (
-          <select value={selectedUnit} onChange={e => onUnitChange(e.target.value)}
+          <select value={selectedUnit} onChange={e => onUnitChange(e.target.value)} aria-label={`${label} unit`}
             style={{ width: 'auto', padding: '9px 10px', fontSize: '13px', color: 'var(--text-2)' }}>
             {units.map(u => <option key={u} value={u}>{u}</option>)}
           </select>

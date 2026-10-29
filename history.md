@@ -328,7 +328,7 @@
 - [x] 월 (2026-10-26): `layout.tsx:34-37` Tabler 웹폰트(`@latest`, 렌더 차단) 제거 → `shared.tsx:118` NoteBox를 `IconInfoCircle`(`@tabler/icons-react`)로
 - [x] 화 (2026-10-27): og:site_name — `app/shared-metadata.ts` `siteOpenGraph`(siteName + og:image)를 layout·전 페이지 `openGraph`에 펼침, drywall/roof-pitch/stair에 `openGraph` 신설
 - [x] 수 (2026-10-28): Article schema 필드 누락 4개(drywall-screw, drywall-sheets, roof-pitch, roof-degrees; `how-to-mix-concrete-by-hand.tsx:50-62` 참고) + `docs/adding-a-guide.md` 템플릿. 10/08 수정 가이드 8개 `dateModified`/sitemap 날짜, 홈·/guides sitemap 날짜
-- [ ] 목: 계산기 공통 접근성 — `Field.tsx:36` 단위 select aria-label, `WasteSlider.tsx` label 연결·aria-valuetext, `CalcShell` 결과 aria-live, 결과 보조글 대비(0.7 → 0.85), 입력 테두리 대비, range `:focus-visible`
+- [x] 목 (2026-10-29): 계산기 공통 접근성 — `Field.tsx:36` 단위 select aria-label, `WasteSlider.tsx` label 연결·aria-valuetext, `CalcShell` 결과 aria-live, 결과 보조글 대비(0.7 → 0.85), 입력 테두리 대비, range `:focus-visible`
 - [ ] 금: UnitConverter — label 연결, 값 입력 label, ⇄ 버튼 aria-label, aria-live + 참조표 머리글·누락 단위
 
 **4주차 이후 후보**
@@ -347,6 +347,18 @@
 - [ ] FAQ 4개뿐인 가이드 8개에 롱테일 FAQ 추가
 - [ ] `how-to-calculate-bricks-for-a-wall.tsx:39` "Do mortar joint thickness" → "Does"
 - [ ] paint 가이드 2개 동일 FAQ("How many coats") 중복 제거
+
+### 2026-10-29 계산기 공통 접근성 (Field·WasteSlider·CalcShell·입력 대비)
+
+- 적용 범위: 계산기 14개 전부(모두 `CalcShell` + `Field` 사용, WasteSlider는 10개). UnitConverter·QuickCalc는 이 컴포넌트를 안 써서 대상 아님(UnitConverter는 내일 항목)
+- `Field.tsx`: 단위 select에 `aria-label="{label} unit"`(예: "Length unit"). 이전에는 이름 없는 콤보박스였음
+- `WasteSlider.tsx`: `useId()`로 label `htmlFor` ↔ range `id` 연결(이전엔 label이 아무것에도 연결 안 됨), `aria-valuetext="{value}%"`, 시각용 "Exact / Conservative" 눈금 글자는 `aria-hidden`
+- `CalcShell.tsx`: 주 결과 상자에 `aria-live="polite"` + `aria-atomic="true"` → 입력이 바뀌면 라벨·값·단위를 한 번에 읽음. 보조·3차 결과까지 live로 하면 입력마다 너무 많이 읽혀서 주 결과만
+- 대비(WCAG 2.x 공식으로 `node` 계산, 배경 #2d6a4f): 주 결과 라벨 흰색 0.7 → 0.85(4.05 → 5.16:1), 단위 0.6 → 0.85(3.42 → 5.16:1). 계획에 없던 추가: 보조 결과 라벨·단위와 notice가 surface-2(#f0efe9) 위 text-3(#706d65)이라 4.48:1(< 4.5) → text-2(5.99:1). 3차 결과는 흰 배경(5.17:1)이라 그대로
+- `globals.css`: 입력·select 테두리 `--border`(#e4e2da, 흰 배경 1.30:1) → 새 토큰 `--border-input` #8a867d(흰 3.63:1, bg 3.36:1, WCAG 1.4.11 3:1 충족). range는 `outline: none`에 `input:focus` box-shadow도 range 규칙이 덮어써서 포커스 표시가 전혀 없었음 → `:focus-visible` outline 2px accent
+- 검증: tsc·eslint(에러 0, 기존 Google Fonts 경고 1)·build 통과, 빌드 HTML(concrete-calculator)에서 select aria-label 3개, label for = range id, aria-valuetext, aria-live 확인. 실제 스크린리더 테스트는 안 함
+- 콘텐츠·메타 변경 없음 → dateModified·sitemap 날짜 갱신 안 함, IndexNow 대상 아님(10-26 Tabler 때와 같은 기준)
+- 백로그로 남김: 타입 탭 버튼 aria-pressed(4주차 SegmentedToggle 항목), range 트랙 대비(#e4e2da — 썸이 값 표시라 우선순위 낮음), Firefox range 썸 스타일(`::-moz-range-thumb` 없음, 기본 모양으로 보임)
 
 ### 2026-10-28 Article schema 필드 보완 + 낡은 dateModified·sitemap 날짜
 
