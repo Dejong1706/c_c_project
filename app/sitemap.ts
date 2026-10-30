@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/stair-calculator", date: "2026-10-16", priority: 0.9 },
     { route: "/drywall-calculator", date: "2026-10-19", priority: 0.9 },
     { route: "/roof-pitch-calculator", date: "2026-10-21", priority: 0.9 },
-    { route: "/unit-converter", date: "2026-10-08", priority: 0.8 },
+    { route: "/unit-converter", date: "2026-10-30", priority: 0.8 },
     { route: "/guides", date: "2026-10-23", priority: 0.8 },
     {
       route: "/guides/how-to-calculate-concrete-volume",

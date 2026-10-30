@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useId, useState } from 'react'
 
 interface Category {
   label: string
@@ -41,11 +41,18 @@ const DEFAULT_PAIRS: Record<string, [string, string]> = {
   Weight: ['kg', 'lb'],
 }
 
+// 화면에는 숨기고 스크린리더에만 읽히는 텍스트
+const srOnly: React.CSSProperties = { position: 'absolute', width: '1px', height: '1px', overflow: 'hidden', clip: 'rect(0 0 0 0)', whiteSpace: 'nowrap' }
+// 참조표를 가로 스크롤할 때 행 머리글(단위) 열 고정
+const stickyCell: React.CSSProperties = { position: 'sticky', left: 0, zIndex: 1 }
+
 export default function UnitConverter() {
   const [catIdx, setCatIdx] = useState(0)
   const [fromUnit, setFromUnit] = useState(categories[0].units[2])
   const [toUnit, setToUnit] = useState(categories[0].units[5])
   const [value, setValue] = useState('1')
+  const fromId = useId()
+  const toId = useId()
 
   const cat = categories[catIdx]
   const tb = cat.toBase as Record<string, number>
@@ -72,7 +79,7 @@ export default function UnitConverter() {
       {/* Category tabs */}
       <div style={{ display: 'flex', gap: '6px', marginBottom: '20px', flexWrap: 'wrap' }}>
         {categories.map((c, i) => (
-          <button key={c.label} onClick={() => { setCatIdx(i); setFromUnit(DEFAULT_PAIRS[c.label][0]); setToUnit(DEFAULT_PAIRS[c.label][1]) }}
+          <button key={c.label} type="button" aria-pressed={catIdx === i} onClick={() => { setCatIdx(i); setFromUnit(DEFAULT_PAIRS[c.label][0]); setToUnit(DEFAULT_PAIRS[c.label][1]) }}
             style={{ padding: '6px 16px', borderRadius: '20px', fontSize: '13px', cursor: 'pointer', border: catIdx === i ? 'none' : '1px solid var(--border)', background: catIdx === i ? 'var(--accent)' : 'var(--surface)', color: catIdx === i ? 'white' : 'var(--text-2)', fontFamily: 'var(--font-sans)', fontWeight: catIdx === i ? 500 : 400, transition: 'all 0.15s' }}>
             {c.label}
           </button>
@@ -83,50 +90,64 @@ export default function UnitConverter() {
       <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px', maxWidth: '520px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '10px', alignItems: 'end' }}>
           <div>
-            <label style={{ fontSize: '12px', fontWeight: 500, color: 'var(--text-2)', display: 'block', marginBottom: '5px' }}>From</label>
-            <select value={fromUnit} onChange={e => setFromUnit(e.target.value)}>
+            <label htmlFor={fromId} style={{ fontSize: '12px', fontWeight: 500, color: 'var(--text-2)', display: 'block', marginBottom: '5px' }}>From</label>
+            <select id={fromId} value={fromUnit} onChange={e => setFromUnit(e.target.value)}>
               {cat.units.map(u => <option key={u} value={u}>{u}</option>)}
             </select>
           </div>
-          <button onClick={swap}
+          <button type="button" onClick={swap} aria-label="Swap From and To units" title="Swap units"
             style={{ height: '36px', width: '36px', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--surface-2)', cursor: 'pointer', fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-2)', marginBottom: '0' }}>
-            ⇄
+            <span aria-hidden="true">⇄</span>
           </button>
           <div>
-            <label style={{ fontSize: '12px', fontWeight: 500, color: 'var(--text-2)', display: 'block', marginBottom: '5px' }}>To</label>
-            <select value={toUnit} onChange={e => setToUnit(e.target.value)}>
+            <label htmlFor={toId} style={{ fontSize: '12px', fontWeight: 500, color: 'var(--text-2)', display: 'block', marginBottom: '5px' }}>To</label>
+            <select id={toId} value={toUnit} onChange={e => setToUnit(e.target.value)}>
               {cat.units.map(u => <option key={u} value={u}>{u}</option>)}
             </select>
           </div>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '10px', alignItems: 'center', marginTop: '16px' }}>
-          <input type="number" value={value} onChange={e => setValue(e.target.value)} placeholder="Enter value" step="any" />
-          <span style={{ fontSize: '18px', color: 'var(--text-3)', textAlign: 'center' }}>=</span>
-          <div style={{ background: 'var(--accent)', borderRadius: '8px', padding: '9px 12px' }}>
+          <input type="number" value={value} onChange={e => setValue(e.target.value)} aria-label={`Value in ${fromUnit}`} placeholder="Enter value" step="any" />
+          <span aria-hidden="true" style={{ fontSize: '18px', color: 'var(--text-3)', textAlign: 'center' }}>=</span>
+          {/* aria-live: 값·단위가 바뀌면 결과와 단위를 한 번에 읽어 줌 (CalcShell 주 결과와 같은 방식) */}
+          <div aria-live="polite" aria-atomic="true" style={{ background: 'var(--accent)', borderRadius: '8px', padding: '9px 12px' }}>
             <p style={{ fontSize: '16px', fontWeight: 600, color: 'white', fontFamily: 'var(--font-mono)', wordBreak: 'break-all' }}>{result}</p>
-            <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.7)', marginTop: '2px' }}>{toUnit}</p>
+            <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.85)', marginTop: '2px' }}>{toUnit}</p>
           </div>
         </div>
       </div>
 
-      {/* Reference table */}
+      {/* Reference table — 카테고리의 모든 단위. 행 = 1 단위, 열 = 그 단위로 환산한 값 */}
       <div style={{ marginTop: '28px', background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '12px', overflow: 'hidden' }}>
-        <p style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.07em', textTransform: 'uppercase', padding: '14px 18px', borderBottom: '1px solid var(--border)' }}>Quick reference — {cat.label}</p>
+        <h2 style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.07em', textTransform: 'uppercase', padding: '14px 18px 4px' }}>Quick reference — {cat.label}</h2>
+        <p style={{ fontSize: '12px', color: 'var(--text-2)', padding: '0 18px 12px', borderBottom: '1px solid var(--border)' }}>Each row shows what 1 unit of that row equals in each column unit.</p>
         <div style={{ overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+            <caption style={srOnly}>{cat.label} conversion factors: 1 row unit equals the value shown in each column unit</caption>
+            <thead>
+              <tr style={{ borderBottom: '1px solid var(--border)', background: 'var(--surface-2)' }}>
+                <th scope="col" style={{ ...stickyCell, background: 'var(--surface-2)', padding: '10px 18px', textAlign: 'left', fontSize: '11px', fontWeight: 500, color: 'var(--text-2)', whiteSpace: 'nowrap' }}>1 unit =</th>
+                {cat.units.map(u2 => (
+                  <th key={u2} scope="col" style={{ padding: '10px 14px', textAlign: 'left', fontWeight: 600, color: 'var(--text-1)', whiteSpace: 'nowrap' }}>{u2}</th>
+                ))}
+              </tr>
+            </thead>
             <tbody>
-              {cat.units.slice(0, 6).map((u, i) => (
-                <tr key={u} style={{ borderBottom: i < cat.units.slice(0,6).length - 1 ? '1px solid var(--border)' : 'none', background: u === fromUnit ? 'var(--accent-light)' : 'transparent' }}>
-                  <td style={{ padding: '10px 18px', fontWeight: 500, color: 'var(--text-1)' }}>{u}</td>
-                  {cat.units.slice(0, 6).map(u2 => {
-                    if (u === u2) return <td key={u2} style={{ padding: '10px 14px', color: 'var(--text-3)' }}>—</td>
-                    const v = tb[u] / tb[u2]
-                    const disp = Math.abs(v) < 0.001 || Math.abs(v) > 9999 ? v.toExponential(3) : parseFloat(v.toPrecision(5))
-                    return <td key={u2} style={{ padding: '10px 14px', color: 'var(--text-2)', fontFamily: 'var(--font-mono)', fontSize: '12px' }}>{disp}</td>
-                  })}
-                </tr>
-              ))}
+              {cat.units.map((u, i) => {
+                const rowBg = u === fromUnit ? 'var(--accent-light)' : 'var(--surface)'
+                return (
+                  <tr key={u} style={{ borderBottom: i < cat.units.length - 1 ? '1px solid var(--border)' : 'none', background: rowBg }}>
+                    <th scope="row" style={{ ...stickyCell, background: rowBg, padding: '10px 18px', textAlign: 'left', fontWeight: 500, color: 'var(--text-1)', whiteSpace: 'nowrap' }}>{u}</th>
+                    {cat.units.map(u2 => {
+                      if (u === u2) return <td key={u2} style={{ padding: '10px 14px', color: 'var(--text-2)' }}><span aria-hidden="true">—</span><span style={srOnly}>1</span></td>
+                      const v = tb[u] / tb[u2]
+                      const disp = Math.abs(v) < 0.001 || Math.abs(v) > 9999 ? v.toExponential(3) : parseFloat(v.toPrecision(5))
+                      return <td key={u2} style={{ padding: '10px 14px', color: 'var(--text-2)', fontFamily: 'var(--font-mono)', fontSize: '12px', whiteSpace: 'nowrap' }}>{disp}</td>
+                    })}
+                  </tr>
+                )
+              })}
             </tbody>
           </table>
         </div>

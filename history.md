@@ -262,7 +262,7 @@
   - 천장 포함 시 나사를 12″ OC로 계산하지 않음 (라벨 "16″ OC" 고정)
 - [ ] **모르타르 계산기**: 미국 94 lb 시멘트 포대 옵션 (현재 25 kg만)
 - [ ] **펜스 체인링크**: "2 rails/section" → 보통 상단 레일 1개 + 하단 텐션 와이어 (확신 중간)
-- [ ] **단위 변환기** 빠른 참조표: 열 머리글 없음. 앞 6개 단위만 표시해서 yd³, gallon, acre, 평이 빠짐.
+- [x] **단위 변환기** 빠른 참조표: 열 머리글 없음. 앞 6개 단위만 표시해서 yd³, gallon, acre, 평이 빠짐. (2026-10-30 완료)
 - [ ] **CalcShell**: 실제 결과 0이 "—"로 표시된다.
   - 예: 석고보드에서 공제 > 벽 면적이면 "Enter your measurements" 표시
   - 계단 1단이면 디딤판 0개도 "—"
@@ -329,7 +329,7 @@
 - [x] 화 (2026-10-27): og:site_name — `app/shared-metadata.ts` `siteOpenGraph`(siteName + og:image)를 layout·전 페이지 `openGraph`에 펼침, drywall/roof-pitch/stair에 `openGraph` 신설
 - [x] 수 (2026-10-28): Article schema 필드 누락 4개(drywall-screw, drywall-sheets, roof-pitch, roof-degrees; `how-to-mix-concrete-by-hand.tsx:50-62` 참고) + `docs/adding-a-guide.md` 템플릿. 10/08 수정 가이드 8개 `dateModified`/sitemap 날짜, 홈·/guides sitemap 날짜
 - [x] 목 (2026-10-29): 계산기 공통 접근성 — `Field.tsx:36` 단위 select aria-label, `WasteSlider.tsx` label 연결·aria-valuetext, `CalcShell` 결과 aria-live, 결과 보조글 대비(0.7 → 0.85), 입력 테두리 대비, range `:focus-visible`
-- [ ] 금: UnitConverter — label 연결, 값 입력 label, ⇄ 버튼 aria-label, aria-live + 참조표 머리글·누락 단위
+- [x] 금 (2026-10-30): UnitConverter — label 연결, 값 입력 label, ⇄ 버튼 aria-label, aria-live + 참조표 머리글·누락 단위
 
 **4주차 이후 후보**
 - [ ] Google Fonts → `next/font/google` (lint 경고 해소, 미사용 300/italic 제거)
@@ -348,6 +348,17 @@
 - [ ] `how-to-calculate-bricks-for-a-wall.tsx:39` "Do mortar joint thickness" → "Does"
 - [ ] paint 가이드 2개 동일 FAQ("How many coats") 중복 제거
 
+### 2026-10-30 UnitConverter 접근성 + 빠른 참조표 머리글·전체 단위
+
+- From/To label ↔ select 연결(`useId`, 이전엔 label이 아무것에도 연결 안 됨), 값 입력에 `aria-label="Value in {from 단위}"`(보이는 label 없음), ⇄ 버튼 `type="button"`·`aria-label="Swap From and To units"`·`title`, 글자 ⇄와 `=`는 `aria-hidden`
+- 결과 상자 `aria-live="polite"` + `aria-atomic` (CalcShell 주 결과와 같은 방식), 결과 단위 글자 흰색 0.7 → 0.85(10-29 CalcShell과 동일, 5.16:1)
+- 계획에 없던 추가: 카테고리 탭 버튼 `type="button"`·`aria-pressed` (공통 SegmentedToggle 백로그는 그대로 — 이 컴포넌트만 적용)
+- 빠른 참조표: `slice(0, 6)` 제거 → 카테고리의 모든 단위(길이 yd, 면적 yd²·acre·평, 부피 yd³·gallon(US)이 빠져 있었음). `<thead>` 열 머리글(`th scope="col"`), 행 머리글 `th scope="row"`, 시각 숨김 `<caption>`, 표 위에 읽는 법 한 줄("Each row shows what 1 unit of that row equals in each column unit."), 제목 `<p>` → `<h2>`. 대각선 "—"는 스크린리더용 "1"을 함께 둠. 열이 최대 10개라 가로 스크롤 시 행 머리글 열 `position: sticky`
+- 수치: 환산 계수(toBase)와 표시 반올림(5자리 유효숫자, 9999 초과·0.001 미만은 지수) 변경 없음. `node`로 새로 보이는 값 확인(acre → m² 4046.9, 평 → ft² 35.583, yd³ → m³ 0.76455, gal → L 3.7854), FAQ와 일치
+- 대비: 강조 행(accent-light) 위 text-2 6.13:1, 머리글 행(surface-2) 위 text-2 5.99:1
+- 검증: tsc·eslint(에러 0, 기존 Google Fonts 경고 1)·build 통과, 빌드 HTML에서 열 머리글 7개(길이), label for 2개, aria-live·aria-pressed·aria-label 확인. 실제 스크린리더 테스트는 안 함
+- 보이는 표 내용이 바뀌었으므로 sitemap `/unit-converter` 2026-10-30, IndexNow 대상(배포 후): /unit-converter
+
 ### 2026-10-29 계산기 공통 접근성 (Field·WasteSlider·CalcShell·입력 대비)
 
 - 적용 범위: 계산기 14개 전부(모두 `CalcShell` + `Field` 사용, WasteSlider는 10개). UnitConverter·QuickCalc는 이 컴포넌트를 안 써서 대상 아님(UnitConverter는 내일 항목)
@@ -357,7 +368,7 @@
 - 대비(WCAG 2.x 공식으로 `node` 계산, 배경 #2d6a4f): 주 결과 라벨 흰색 0.7 → 0.85(4.05 → 5.16:1), 단위 0.6 → 0.85(3.42 → 5.16:1). 계획에 없던 추가: 보조 결과 라벨·단위와 notice가 surface-2(#f0efe9) 위 text-3(#706d65)이라 4.48:1(< 4.5) → text-2(5.99:1). 3차 결과는 흰 배경(5.17:1)이라 그대로
 - `globals.css`: 입력·select 테두리 `--border`(#e4e2da, 흰 배경 1.30:1) → 새 토큰 `--border-input` #8a867d(흰 3.63:1, bg 3.36:1, WCAG 1.4.11 3:1 충족). range는 `outline: none`에 `input:focus` box-shadow도 range 규칙이 덮어써서 포커스 표시가 전혀 없었음 → `:focus-visible` outline 2px accent
 - 검증: tsc·eslint(에러 0, 기존 Google Fonts 경고 1)·build 통과, 빌드 HTML(concrete-calculator)에서 select aria-label 3개, label for = range id, aria-valuetext, aria-live 확인. 실제 스크린리더 테스트는 안 함
-- 콘텐츠·메타 변경 없음 → dateModified·sitemap 날짜 갱신 안 함, IndexNow 대상 아님(10-26 Tabler 때와 같은 기준)
+- 콘텐츠·메타 변경 없음 → dateModified·sitemap 날짜 갱신 안 함, IndexNow는 마크업이 바뀐 계산기 14개를 배포 후 제출(2026-10-29, 14 URL, 200 OK)
 - 백로그로 남김: 타입 탭 버튼 aria-pressed(4주차 SegmentedToggle 항목), range 트랙 대비(#e4e2da — 썸이 값 표시라 우선순위 낮음), Firefox range 썸 스타일(`::-moz-range-thumb` 없음, 기본 모양으로 보임)
 
 ### 2026-10-28 Article schema 필드 보완 + 낡은 dateModified·sitemap 날짜
