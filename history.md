@@ -293,7 +293,12 @@
 - 노출 상위 가이드 3개 보강 완료 (계단, 모르타르, 콘크리트 손비빔). 색인 요청도 완료.
 - 다음 할 일:
   - 같은 주제의 롱테일 가이드 추가 (예: Type S vs Type N mortar, deck stair code, how much concrete does one 80 lb bag make)
-  - 백링크 확보 (Reddit/Quora 답변)
+  - 백링크 확보 — **2026-11-03 방향 수정** (Google 순위가 Bing보다 낮은 원인으로 가장 유력하지만 추론이고 확인된 원인은 아님)
+    - [ ] Reddit/Quora: 백링크용 아님(대부분 nofollow라 순위 효과 작음, 홍보성은 차단 위험) → 정말 맞는 질문에만 몇 개, **방문자 유입 목적**으로
+    - [ ] 링크받을 만한 자료 페이지 강화: 1순위 계단 코드 가이드(Google 노출 1위, 출처 정리된 표 있음), 후보 나라별 벽돌 규격 비교표
+    - [ ] 강화 후 DIY·건축 블로그/포럼/자료 모음 페이지에 자연스러운 편집 링크 요청
+    - 하지 않을 것: 링크 구매·교환 (Google 스팸 정책 위반)
+  - [ ] Bing CTR 개선: single-vs-double-leaf 내벽(internal wall) 섹션 + title/description ("school brickwork" 노출 62·9위·클릭 0)
 - 체크포인트:
   - 2026-11 초: 보강 페이지의 노출수와 순위 → **2026-11-03 점검 완료** (아래)
   - 2027-01: 평균 순위 20–30위대 진입 여부
@@ -313,7 +318,7 @@
 - 후속 후보:
   - single-vs-double-leaf: 내벽(internal wall) 두께·구성 검색에 9위·클릭 0 → 내벽 섹션 보강 + title/description 검토 (content-rules에 따라 1차 출처 필요)
   - 손비빔 주제가 Bing 3–5위 → 같은 주제 롱테일 가이드 우선 (예: 80 lb 포대 1개 부피)
-  - 백링크(Reddit/Quora 답변) — 아직 시작 안 함
+  - 백링크 — 아직 시작 안 함. 방향은 위 "다음 할 일" 참고 (Reddit/Quora는 유입용, 핵심은 자료 페이지 강화 후 편집 링크)
 - 다음 점검: 2026-12 초. Bing **Pages·Keywords 탭 CSV**까지 받아 페이지별로 비교 (이번엔 Bing 페이지별 데이터 없음)
 
 ---
