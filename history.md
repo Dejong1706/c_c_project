@@ -333,7 +333,7 @@
 
 **4주차 이후 후보**
 - [x] Google Fonts → `next/font/google` (lint 경고 해소, 미사용 300/italic 제거) (2026-11-02분, 11-03 커밋)
-- [ ] 미사용 파일 정리: `public/` 기본 svg들, `favicon.svg`, `icon-192.png`, `tailwind.config.ts`(v4에서 무시), lockfile 1개만 유지
+- [x] 미사용 파일 정리: `public/` 기본 svg들, `favicon.svg`, `icon-192.png`, `tailwind.config.ts`(v4에서 무시), lockfile 1개만 유지 (2026-11-03)
 - [ ] 계산기 15개 Related guides 마크업 → 공통 컴포넌트, 가이드용 `<RelatedGuides>`(`shared.tsx`)
 - [ ] 가이드 간 상호 링크 없는 쌍: roof 2개, drywall 2개, mulch 2개, lay-tile ↔ grout/tiles, rebar ↔ strength-grades
 - [ ] 계산기 관련 가이드 보강: brick ← single-vs-double-leaf(어느 계산기에서도 링크 없음), rebar ← strength-grades, fence ← mix-by-hand, mortar ← bricks-for-a-wall, concrete-bags ← curing
@@ -347,6 +347,15 @@
 - [ ] FAQ 4개뿐인 가이드 8개에 롱테일 FAQ 추가
 - [ ] `how-to-calculate-bricks-for-a-wall.tsx:39` "Do mortar joint thickness" → "Does"
 - [ ] paint 가이드 2개 동일 FAQ("How many coats") 중복 제거
+
+### 2026-11-03 미사용 파일 정리 (public 기본 svg·아이콘, tailwind.config.ts, package-lock.json)
+
+- 삭제: `public/` create-next-app 기본 svg 5개(file·globe·next·vercel·window), `public/favicon.svg`, `public/icon-192.png` — 코드·메타·manifest 어디에서도 참조 없음 (아이콘은 `app/favicon.ico`·`icon.png`·`apple-icon.png` 파일 규칙으로 제공)
+- `tailwind.config.ts` 삭제: Tailwind v4는 `globals.css`의 `@import "tailwindcss"`만 쓰고 `@config`가 없어 이 파일을 읽지 않았음
+- lockfile은 `pnpm-lock.yaml`만 유지, `package-lock.json` 삭제. 근거: 6/22 `dcb39f5 pnpm 버전 누락`이 npm lock에 먼저 들어간 `@tabler/icons-react`를 pnpm lock에 뒤늦게 추가(배포 빌드가 pnpm lock을 씀), 로컬 `node_modules`도 마지막 설치가 pnpm(06-25). `npm run`/`npx` 스크립트 실행은 그대로 동작
+- 유지: `public/ads.txt`(AdSense), `public/fdb6…4061.txt`(IndexNow 키)
+- 검증: tsc·eslint(에러·경고 0)·build(51페이지) 통과. 배포 후 빌드 로그에서 pnpm 설치가 정상인지 확인할 것
+- 콘텐츠 변경 없음 → dateModified·sitemap·IndexNow 대상 아님
 
 ### 2026-11-02 Google Fonts → next/font/google (11-03에 진행)
 
