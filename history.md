@@ -332,7 +332,7 @@
 - [x] 금 (2026-10-30): UnitConverter — label 연결, 값 입력 label, ⇄ 버튼 aria-label, aria-live + 참조표 머리글·누락 단위
 
 **4주차 이후 후보**
-- [ ] Google Fonts → `next/font/google` (lint 경고 해소, 미사용 300/italic 제거)
+- [x] Google Fonts → `next/font/google` (lint 경고 해소, 미사용 300/italic 제거) (2026-11-02분, 11-03 커밋)
 - [ ] 미사용 파일 정리: `public/` 기본 svg들, `favicon.svg`, `icon-192.png`, `tailwind.config.ts`(v4에서 무시), lockfile 1개만 유지
 - [ ] 계산기 15개 Related guides 마크업 → 공통 컴포넌트, 가이드용 `<RelatedGuides>`(`shared.tsx`)
 - [ ] 가이드 간 상호 링크 없는 쌍: roof 2개, drywall 2개, mulch 2개, lay-tile ↔ grout/tiles, rebar ↔ strength-grades
@@ -348,6 +348,15 @@
 - [ ] `how-to-calculate-bricks-for-a-wall.tsx:39` "Do mortar joint thickness" → "Does"
 - [ ] paint 가이드 2개 동일 FAQ("How many coats") 중복 제거
 
+### 2026-11-02 Google Fonts → next/font/google (11-03에 진행)
+
+- `app/layout.tsx`의 fonts.googleapis.com preconnect 2개 + 렌더 차단 스타일시트 삭제 → `next/font/google`의 `DM_Sans`·`DM_Mono`·`Oswald`를 빌드 시 자체 호스팅(브라우저가 Google에 요청하지 않음), `<html>`에 `variable` 클래스 3개
+- DM Sans·Oswald는 가변 폰트라 weight 지정 없이 전체 굵기. 기존엔 DM Sans 300–600만 로드해서 `<strong>`·lay-tile 단계 번호(700)가 600으로 대체됐는데, 이제 실제 700으로 보임(약간 더 굵어짐, 의도한 굵기). DM Sans는 기존 URL처럼 `axes: ["opsz"]`(광학 크기) 유지. DM Mono는 정적이라 400·500
+- 미사용이던 DM Sans 300·italic 300 제거. italic은 single-vs-double-leaf의 `<em>` 1곳뿐 → 이제 합성 기울임
+- `globals.css` `--font-sans/mono/display` → `var(--font-dm-sans)` 등 (next/font의 크기 보정 fallback 포함). 직접 폰트 이름을 쓴 곳은 없음
+- 검증: tsc·eslint(에러 0, **경고 0** — Google Fonts 경고 해소)·build 통과, 빌드 HTML에 googleapis 링크 없음, woff2 preload 확인
+- 콘텐츠 변경 없음 → dateModified·sitemap·IndexNow 대상 아님
+
 ### 2026-10-30 UnitConverter 접근성 + 빠른 참조표 머리글·전체 단위
 
 - From/To label ↔ select 연결(`useId`, 이전엔 label이 아무것에도 연결 안 됨), 값 입력에 `aria-label="Value in {from 단위}"`(보이는 label 없음), ⇄ 버튼 `type="button"`·`aria-label="Swap From and To units"`·`title`, 글자 ⇄와 `=`는 `aria-hidden`
@@ -357,7 +366,7 @@
 - 수치: 환산 계수(toBase)와 표시 반올림(5자리 유효숫자, 9999 초과·0.001 미만은 지수) 변경 없음. `node`로 새로 보이는 값 확인(acre → m² 4046.9, 평 → ft² 35.583, yd³ → m³ 0.76455, gal → L 3.7854), FAQ와 일치
 - 대비: 강조 행(accent-light) 위 text-2 6.13:1, 머리글 행(surface-2) 위 text-2 5.99:1
 - 검증: tsc·eslint(에러 0, 기존 Google Fonts 경고 1)·build 통과, 빌드 HTML에서 열 머리글 7개(길이), label for 2개, aria-live·aria-pressed·aria-label 확인. 실제 스크린리더 테스트는 안 함
-- 보이는 표 내용이 바뀌었으므로 sitemap `/unit-converter` 2026-10-30, IndexNow 대상(배포 후): /unit-converter
+- 보이는 표 내용이 바뀌었으므로 sitemap `/unit-converter` 2026-10-30, IndexNow 배포 후 제출(2026-10-30, /unit-converter 1 URL, 200 OK)
 
 ### 2026-10-29 계산기 공통 접근성 (Field·WasteSlider·CalcShell·입력 대비)
 

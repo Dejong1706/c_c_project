@@ -1,8 +1,29 @@
 import type { Metadata } from "next";
+import { DM_Sans, DM_Mono, Oswald } from "next/font/google";
 import { siteOpenGraph } from "./shared-metadata";
 import "./globals.css";
 import Layout from "./components/Layout";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+
+// Self-hosted by next/font: no browser request to Google Fonts, no render-blocking CSS.
+// DM Sans and Oswald are variable fonts (all weights in one file); DM Mono is static.
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  axes: ["opsz"], // optical size, as the old Google Fonts URL loaded (opsz 9..40)
+  display: "swap",
+  variable: "--font-dm-sans",
+});
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-dm-mono",
+});
+const oswald = Oswald({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-oswald",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://buildcalczone.com"),
@@ -18,18 +39,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${dmSans.variable} ${dmMono.variable} ${oswald.variable}`}
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&family=Oswald:wght@500;600&display=swap"
-        />
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8534888375420361"
