@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, GuideTable, IntroText, NoteBox, link, listItem, paragraph, sectionHeading, td, th } from "./shared";
+import { Breadcrumb, GuideTable, IntroText, NoteBox, link, listItem, paragraph, sectionHeading, td, th, RelatedGuides } from "./shared";
 
 const faqs = [
   {
@@ -505,49 +505,17 @@ export default function SingleVsDoubleLeafBrickWall() {
           </tbody>
         </GuideTable>
 
-        {/* Related links */}
-        <h2 style={sectionHeading}>Related Guides & Tools</h2>
-        <ul style={{ paddingLeft: "20px", marginBottom: "16px" }}>
-          <li style={listItem}>
-            <Link href="/brick-calculator" style={link}>
-              Brick Calculator
-            </Link>{" "}
-            — count bricks for single or double leaf walls, with waste
-          </li>
-          <li style={listItem}>
-            <Link href="/mortar-calculator" style={link}>
-              Mortar Calculator
-            </Link>{" "}
-            — estimate mortar for your brickwork
-          </li>
-          <li style={listItem}>
-            <Link
-              href="/guides/how-to-calculate-bricks-for-a-wall"
-              style={link}
-            >
-              How to Calculate Bricks for a Wall
-            </Link>{" "}
-            — step-by-step calculation guide with worked examples
-          </li>
-          <li style={listItem}>
-            <Link href="/guides/how-many-bricks-per-square-metre" style={link}>
-              How Many Bricks Per Square Metre?
-            </Link>{" "}
-            — detailed bricks/m² reference
-          </li>
-          <li style={listItem}>
-            <Link href="/guides/brick-mortar-mix-ratio" style={link}>
-              Brick Mortar Mix Ratio Guide
-            </Link>{" "}
-            — cement, lime, and sand ratios for brickwork
-          </li>
-          <li style={listItem}>
-            <Link href="/guides/standard-brick-sizes-by-country" style={link}>
-              Standard Brick Sizes by Country
-            </Link>{" "}
-            — work sizes and coordinating sizes worldwide
-          </li>
-        </ul>
+        <RelatedGuides
+          title="Related Guides & Tools"
+          links={[
+            { href: "/brick-calculator", label: "Brick Calculator", description: "count bricks for single or double leaf walls, with waste" },
+            { href: "/mortar-calculator", label: "Mortar Calculator", description: "estimate mortar for your brickwork" },
+            { href: "/guides/how-to-calculate-bricks-for-a-wall", label: "How to Calculate Bricks for a Wall", description: "step-by-step calculation guide with worked examples" },
+            { href: "/guides/how-many-bricks-per-square-metre", label: "How Many Bricks Per Square Metre?", description: "detailed bricks/m² reference" },
+            { href: "/guides/brick-mortar-mix-ratio", label: "Brick Mortar Mix Ratio Guide", description: "cement, lime, and sand ratios for brickwork" },
+            { href: "/guides/standard-brick-sizes-by-country", label: "Standard Brick Sizes by Country", description: "work sizes and coordinating sizes worldwide" },
+          ]}
+        />
 
         {/* FAQ */}
         <h2 style={sectionHeading}>FAQ</h2>

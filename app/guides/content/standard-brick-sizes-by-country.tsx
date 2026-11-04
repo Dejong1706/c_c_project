@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, GuideTable, IntroText, NoteBox, formula, link, listItem, paragraph, sectionHeading, td, th } from "./shared";
+import { Breadcrumb, GuideTable, IntroText, NoteBox, formula, link, listItem, paragraph, sectionHeading, td, th, RelatedGuides } from "./shared";
 
 const faqs = [
   {
@@ -477,22 +477,12 @@ export default function StandardBrickSizesByCountry() {
           — it lets you set your own joint size and wall dimensions.
         </p>
 
-        {/* Related guides */}
-        <h2 style={sectionHeading}>Related Guides</h2>
-        <ul style={{ paddingLeft: "20px", marginBottom: "16px" }}>
-          <li style={{ ...listItem }}>
-            <Link href="/guides/how-many-bricks-per-square-metre" style={link}>
-              How Many Bricks Per Square Metre?
-            </Link>{" "}
-            — detailed calculation walkthrough
-          </li>
-          <li style={{ ...listItem }}>
-            <Link href="/guides/brick-mortar-mix-ratio" style={link}>
-              Brick Mortar Mix Ratio Guide
-            </Link>{" "}
-            — getting the right mix for your application
-          </li>
-        </ul>
+        <RelatedGuides
+          links={[
+            { href: "/guides/how-many-bricks-per-square-metre", label: "How Many Bricks Per Square Metre?", description: "detailed calculation walkthrough" },
+            { href: "/guides/brick-mortar-mix-ratio", label: "Brick Mortar Mix Ratio Guide", description: "getting the right mix for your application" },
+          ]}
+        />
 
         {/* FAQ */}
         <h2 style={sectionHeading}>FAQ</h2>

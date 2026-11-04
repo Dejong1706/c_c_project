@@ -126,6 +126,33 @@ export function NoteBox({ children }: { children: ReactNode }) {
   );
 }
 
+export type RelatedLink = { href: string; label: string; description: string };
+
+/** "Related Guides" section near the end of a guide: h2 (picked up by the TOC) + link list. */
+export function RelatedGuides({
+  title = "Related Guides",
+  links,
+}: {
+  title?: string;
+  links: RelatedLink[];
+}) {
+  return (
+    <>
+      <h2 style={sectionHeading}>{title}</h2>
+      <ul style={{ paddingLeft: "20px", marginBottom: "16px" }}>
+        {links.map((l) => (
+          <li key={l.href} style={listItem}>
+            <Link href={l.href} style={link}>
+              {l.label}
+            </Link>{" "}
+            — {l.description}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
 const crumbPill: React.CSSProperties = {
   fontSize: "12px",
   color: "var(--text-2)",

@@ -3,8 +3,7 @@ import { siteOpenGraph } from "../shared-metadata";
 import RebarCalc from "./RebarCalc";
 import CalcSchema from "../components/CalcSchema";
 import CalcFaq from "../components/CalcFaq";
-import Link from "next/link";
-import { BookOpen } from "lucide-react";
+import RelatedGuides from "../components/RelatedGuides";
 
 export const metadata: Metadata = {
   title: "Rebar Weight Calculator — Steel Bar Weight & Length | BuildCalc",
@@ -60,21 +59,11 @@ export default function Page() {
         faqs={faqs}
       />
       <RebarCalc />
-      <div style={{ marginTop: "40px", paddingTop: "24px", borderTop: "1px solid var(--border)", maxWidth: "560px" }}>
-        <p style={{ fontSize: "11px", fontWeight: 600, color: "var(--text-3)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "12px" }}>
-          Related guides
-        </p>
-        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-          {[
-            { href: "/guides/what-size-rebar-do-i-need", label: "What Size Rebar Do I Need? Bar Sizes and Code Rules" },
-          ].map((g) => (
-            <Link key={g.href} href={g.href} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", color: "var(--accent-text)", background: "var(--accent-light)", padding: "8px 14px", borderRadius: "8px", textDecoration: "none" }}>
-              <BookOpen size={13} color="var(--accent)" />
-              {g.label}
-            </Link>
-          ))}
-        </div>
-      </div>
+      <RelatedGuides
+        guides={[
+          { href: "/guides/what-size-rebar-do-i-need", label: "What Size Rebar Do I Need? Bar Sizes and Code Rules" },
+        ]}
+      />
       <CalcFaq faqs={faqs} />
     </>
   );

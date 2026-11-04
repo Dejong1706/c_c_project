@@ -3,8 +3,7 @@ import { siteOpenGraph } from "../shared-metadata";
 import PaintCalc from "./PaintCalc";
 import CalcSchema from "../components/CalcSchema";
 import CalcFaq from "../components/CalcFaq";
-import Link from "next/link";
-import { BookOpen } from "lucide-react";
+import RelatedGuides from "../components/RelatedGuides";
 
 export const metadata: Metadata = {
   title: "Paint Calculator — How Much Paint Do I Need? | BuildCalc",
@@ -60,22 +59,12 @@ export default function Page() {
         faqs={faqs}
       />
       <PaintCalc />
-      <div style={{ marginTop: "40px", paddingTop: "24px", borderTop: "1px solid var(--border)", maxWidth: "560px" }}>
-        <p style={{ fontSize: "11px", fontWeight: 600, color: "var(--text-3)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "12px" }}>
-          Related guides
-        </p>
-        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-          {[
-            { href: "/guides/how-to-calculate-paint-coverage", label: "How to Calculate Paint Coverage" },
-            { href: "/guides/how-to-calculate-wall-area-for-painting", label: "How to Calculate Wall Area for Painting" },
-          ].map((g) => (
-            <Link key={g.href} href={g.href} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", color: "var(--accent-text)", background: "var(--accent-light)", padding: "8px 14px", borderRadius: "8px", textDecoration: "none" }}>
-              <BookOpen size={13} color="var(--accent)" />
-              {g.label}
-            </Link>
-          ))}
-        </div>
-      </div>
+      <RelatedGuides
+        guides={[
+          { href: "/guides/how-to-calculate-paint-coverage", label: "How to Calculate Paint Coverage" },
+          { href: "/guides/how-to-calculate-wall-area-for-painting", label: "How to Calculate Wall Area for Painting" },
+        ]}
+      />
       <CalcFaq faqs={faqs} />
     </>
   );

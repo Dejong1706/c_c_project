@@ -80,6 +80,8 @@ return (
 ```tsx
 import type { Metadata } from "next";
 import CalcSchema from "../components/CalcSchema";
+import CalcFaq from "../components/CalcFaq";
+import RelatedGuides from "../components/RelatedGuides";
 import XxxCalc from "./XxxCalc";
 
 export const metadata: Metadata = {
@@ -101,10 +103,18 @@ export default function XxxCalculatorPage() {
         faqs={faqs}
       />
       <XxxCalc />
+      <RelatedGuides
+        guides={[
+          { href: "/guides/xxx-guide-slug", label: "Guide Title" },
+        ]}
+      />
+      <CalcFaq faqs={faqs} />
     </>
   );
 }
 ```
+
+"Related guides" 목록은 `RelatedGuides` 컴포넌트로만 만든다 (마크업 직접 복사 금지).
 
 ## 4. 연결해야 할 3곳 (빠뜨리기 쉬움)
 

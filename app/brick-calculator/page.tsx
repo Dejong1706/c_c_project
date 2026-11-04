@@ -3,8 +3,7 @@ import { siteOpenGraph } from "../shared-metadata";
 import BrickCalc from "./BrickCalc";
 import CalcSchema from "../components/CalcSchema";
 import CalcFaq from "../components/CalcFaq";
-import Link from "next/link";
-import { BookOpen } from "lucide-react";
+import RelatedGuides from "../components/RelatedGuides";
 
 export const metadata: Metadata = {
   title: "Brick Calculator — How Many Bricks Do I Need? | BuildCalc",
@@ -61,25 +60,15 @@ export default function Page() {
         faqs={faqs}
       />
       <BrickCalc />
-      <div style={{ marginTop: "40px", paddingTop: "24px", borderTop: "1px solid var(--border)", maxWidth: "560px" }}>
-        <p style={{ fontSize: "11px", fontWeight: 600, color: "var(--text-3)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "12px" }}>
-          Related guides
-        </p>
-        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-          {[
-            { href: "/guides/how-to-calculate-bricks-for-a-wall", label: "How to Calculate Bricks for a Wall" },
-            { href: "/guides/how-many-bricks-per-square-metre", label: "How Many Bricks Per Square Metre?" },
-            { href: "/guides/brick-mortar-mix-ratio", label: "Brick Mortar Mix Ratio Guide" },
-            { href: "/guides/standard-brick-sizes-by-country", label: "Standard Brick Sizes by Country" },
-            { href: "/guides/single-vs-double-leaf-brick-wall", label: "Single vs Double Leaf Brick Wall" },
-          ].map((g) => (
-            <Link key={g.href} href={g.href} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", color: "var(--accent-text)", background: "var(--accent-light)", padding: "8px 14px", borderRadius: "8px", textDecoration: "none" }}>
-              <BookOpen size={13} color="var(--accent)" />
-              {g.label}
-            </Link>
-          ))}
-        </div>
-      </div>
+      <RelatedGuides
+        guides={[
+          { href: "/guides/how-to-calculate-bricks-for-a-wall", label: "How to Calculate Bricks for a Wall" },
+          { href: "/guides/how-many-bricks-per-square-metre", label: "How Many Bricks Per Square Metre?" },
+          { href: "/guides/brick-mortar-mix-ratio", label: "Brick Mortar Mix Ratio Guide" },
+          { href: "/guides/standard-brick-sizes-by-country", label: "Standard Brick Sizes by Country" },
+          { href: "/guides/single-vs-double-leaf-brick-wall", label: "Single vs Double Leaf Brick Wall" },
+        ]}
+      />
       <CalcFaq faqs={faqs} />
     </>
   );

@@ -10,6 +10,7 @@ import {
   table,
   th,
   td,
+  RelatedGuides,
 } from "./shared";
 
 const faqs = [
@@ -396,16 +397,11 @@ export default function HowToCalculateWallAreaForPainting() {
           calculates the exact litres needed in one step.
         </p>
 
-        {/* Related guides */}
-        <h2 style={sectionHeading}>Related Guides</h2>
-        <ul style={{ paddingLeft: "20px", marginBottom: "16px" }}>
-          <li style={listItem}>
-            <Link href="/guides/how-to-calculate-paint-coverage" style={link}>
-              How to Calculate Paint Coverage
-            </Link>{" "}
-            — coverage rates, tin sizes, and surface types explained
-          </li>
-        </ul>
+        <RelatedGuides
+          links={[
+            { href: "/guides/how-to-calculate-paint-coverage", label: "How to Calculate Paint Coverage", description: "coverage rates, tin sizes, and surface types explained" },
+          ]}
+        />
 
         {/* FAQ */}
         <h2 style={sectionHeading}>FAQ</h2>

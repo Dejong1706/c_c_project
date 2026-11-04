@@ -21,6 +21,7 @@ import {
   GuideTable,
   NoteBox,
   IntroText,
+  RelatedGuides,
   formula,
   listItem,
   paragraph,
@@ -89,6 +90,13 @@ export default function XxxGuide() {
         <div style={{ background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: "10px", padding: "16px 20px", margin: "24px 0" }}>
           <Link href="/xxx-calculator" style={{ /* 버튼 스타일 */ }}>Use the Xxx Calculator →</Link>
         </div>
+
+        {/* 관련 가이드·계산기 (선택) — h2 포함, 목차에 자동 반영 */}
+        <RelatedGuides
+          links={[
+            { href: "/guides/other-slug", label: "Other Guide Title", description: "한 줄 설명" },
+          ]}
+        />
 
         <h2 style={sectionHeading}>FAQ</h2>
         {faqs.map((f) => (
