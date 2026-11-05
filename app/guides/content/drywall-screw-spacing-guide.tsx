@@ -7,6 +7,7 @@ import {
   note,
   th,
   td,
+  RelatedGuides,
 } from "./shared";
 
 const faqs = [
@@ -55,7 +56,7 @@ const articleSchema = {
     "Drywall screw spacing for walls and ceilings under 2024 IRC Table R702.3.5, screw types and lengths, and code-minimum screws per sheet.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/drywall-screw-spacing-guide" },
   datePublished: "2026-07-15",
-  dateModified: "2026-10-19",
+  dateModified: "2026-11-05",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -429,6 +430,12 @@ export default function DrywallScrewSpacingGuide() {
             Use the Drywall Calculator &rarr;
           </Link>
         </div>
+
+        <RelatedGuides
+          links={[
+            { href: "/guides/how-to-calculate-drywall-sheets", label: "How to Calculate Drywall Sheets", description: "how many sheets you need for walls and ceilings, with worked examples" },
+          ]}
+        />
 
         <h2 style={sectionHeading}>FAQ</h2>
         {faqs.map((f) => (

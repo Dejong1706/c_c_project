@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, GuideTable, IntroText, formula, link, paragraph, sectionHeading, td, th } from "./shared";
+import { Breadcrumb, GuideTable, IntroText, formula, link, paragraph, sectionHeading, td, th, RelatedGuides } from "./shared";
 const faqs = [
   {
     question: "How do I calculate how many tiles I need for a room?",
@@ -44,7 +44,7 @@ const articleSchema = {
     "Learn how to calculate the number of tiles needed for a room, including waste percentage by layout pattern, box quantities, and common mistakes to avoid.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-many-tiles-do-i-need" },
   datePublished: "2026-06-12",
-  dateModified: "2026-10-20",
+  dateModified: "2026-11-05",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -200,6 +200,13 @@ export default function HowManyTilesGuide() {
           takes your room dimensions and tile size and handles the area, waste,
           and rounding for you.
         </p>
+
+        <RelatedGuides
+          links={[
+            { href: "/guides/how-to-lay-tile-step-by-step", label: "How to Lay Tile Step by Step", description: "substrate prep, layout, thinset, setting and grouting" },
+            { href: "/guides/tile-grout-gap-guide", label: "Tile Grout Gap Guide", description: "minimum joint width under ANSI A108.02, lippage and movement joints" },
+          ]}
+        />
 
         <h2 style={sectionHeading}>FAQ</h2>
         {faqs.map((f) => (

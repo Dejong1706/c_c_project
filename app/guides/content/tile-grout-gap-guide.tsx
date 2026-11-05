@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, GuideTable, IntroText, NoteBox, formula, link, listItem, paragraph, sectionHeading, td, th } from "./shared";
+import { Breadcrumb, GuideTable, IntroText, NoteBox, formula, link, listItem, paragraph, sectionHeading, td, th, RelatedGuides } from "./shared";
 const faqs = [
   {
     question: "What is the minimum grout joint width for tile?",
@@ -44,7 +44,7 @@ const articleSchema = {
     "Minimum tile grout joint width per ANSI A108.02 (3× the tile size variation, never under 1/16″), lippage explained, why grout is not a movement joint, and how joint width changes tile count.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/tile-grout-gap-guide" },
   datePublished: "2026-06-12",
-  dateModified: "2026-10-20",
+  dateModified: "2026-11-05",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -309,6 +309,13 @@ export default function TileGroutGapGuide() {
           </Link>
           .
         </p>
+
+        <RelatedGuides
+          links={[
+            { href: "/guides/how-many-tiles-do-i-need", label: "How Many Tiles Do I Need?", description: "tile count, waste by layout pattern and rounding to full boxes" },
+            { href: "/guides/how-to-lay-tile-step-by-step", label: "How to Lay Tile Step by Step", description: "substrate prep, layout, thinset, setting and grouting" },
+          ]}
+        />
 
         <h2 style={sectionHeading}>FAQ</h2>
         {faqs.map((f) => (

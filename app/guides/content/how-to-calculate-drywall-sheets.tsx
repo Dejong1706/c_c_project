@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td } from "./shared";
+import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td, RelatedGuides } from "./shared";
 
 const faqs = [
   {
@@ -47,7 +47,7 @@ const articleSchema = {
     "Step-by-step guide to calculating how many drywall sheets you need for walls and ceiling — with formula, worked examples, and sheet size comparison.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-drywall-sheets" },
   datePublished: "2026-07-14",
-  dateModified: "2026-10-19",
+  dateModified: "2026-11-05",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -420,6 +420,12 @@ export default function HowToCalculateDrywallSheets() {
             Use the Drywall Calculator &rarr;
           </Link>
         </div>
+
+        <RelatedGuides
+          links={[
+            { href: "/guides/drywall-screw-spacing-guide", label: "Drywall Screw Spacing Guide", description: "2024 IRC screw spacing, screw lengths and screws per sheet" },
+          ]}
+        />
 
         <h2 style={sectionHeading}>FAQ</h2>
         {faqs.map((f) => (

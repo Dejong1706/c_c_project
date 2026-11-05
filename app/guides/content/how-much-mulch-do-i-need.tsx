@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td } from "./shared";
+import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td, RelatedGuides } from "./shared";
 
 const faqs = [
   {
@@ -47,7 +47,7 @@ const articleSchema = {
     "Quick reference guide for mulch quantities by area and depth, plus tips on depth, timing, and choosing between bags and bulk delivery.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-much-mulch-do-i-need" },
   datePublished: "2026-06-29",
-  dateModified: "2026-10-08",
+  dateModified: "2026-11-05",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -332,6 +332,12 @@ export default function HowMuchMulchDoINeed() {
             Use the Mulch Calculator &rarr;
           </Link>
         </div>
+
+        <RelatedGuides
+          links={[
+            { href: "/guides/how-to-calculate-mulch", label: "How to Calculate Mulch", description: "step-by-step cubic-yard and bag calculation for any bed shape" },
+          ]}
+        />
 
         <h2 style={sectionHeading}>FAQ</h2>
         {faqs.map((f) => (

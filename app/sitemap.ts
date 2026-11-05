@@ -33,17 +33,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/tile-grout-gap-guide",
-      date: "2026-10-20",
+      date: "2026-11-05",
       priority: 0.7,
     },
     {
       route: "/guides/concrete-strength-grades",
-      date: "2026-10-16",
+      date: "2026-11-05",
       priority: 0.7,
     },
     {
       route: "/guides/how-many-tiles-do-i-need",
-      date: "2026-10-20",
+      date: "2026-11-05",
       priority: 0.7,
     },
     {
@@ -53,7 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/what-size-rebar-do-i-need",
-      date: "2026-10-23",
+      date: "2026-11-05",
       priority: 0.7,
     },
     {
@@ -103,17 +103,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-to-lay-tile-step-by-step",
-      date: "2026-10-20",
+      date: "2026-11-05",
       priority: 0.7,
     },
     {
       route: "/guides/how-much-mulch-do-i-need",
-      date: "2026-10-08",
+      date: "2026-11-05",
       priority: 0.7,
     },
     {
       route: "/guides/how-to-calculate-mulch",
-      date: "2026-10-08",
+      date: "2026-11-05",
       priority: 0.7,
     },
     {
@@ -128,12 +128,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-to-calculate-drywall-sheets",
-      date: "2026-10-19",
+      date: "2026-11-05",
       priority: 0.7,
     },
     {
       route: "/guides/drywall-screw-spacing-guide",
-      date: "2026-10-19",
+      date: "2026-11-05",
       priority: 0.7,
     },
     {
@@ -143,7 +143,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/roof-pitch-to-degrees-conversion",
-      date: "2026-10-21",
+      date: "2026-11-05",
       priority: 0.7,
     },
     { route: "/privacy-policy", date: "2026-07-02", priority: 0.3 },

@@ -357,7 +357,7 @@
 - [x] Google Fonts → `next/font/google` (lint 경고 해소, 미사용 300/italic 제거) (2026-11-02분, 11-03 커밋)
 - [x] 미사용 파일 정리: `public/` 기본 svg들, `favicon.svg`, `icon-192.png`, `tailwind.config.ts`(v4에서 무시), lockfile 1개만 유지 (2026-11-03)
 - [x] 계산기 15개 Related guides 마크업 → 공통 컴포넌트, 가이드용 `<RelatedGuides>`(`shared.tsx`) (2026-11-04)
-- [ ] 가이드 간 상호 링크 없는 쌍: roof 2개, drywall 2개, mulch 2개, lay-tile ↔ grout/tiles, rebar ↔ strength-grades
+- [x] 가이드 간 상호 링크 없는 쌍: roof 2개, drywall 2개, mulch 2개, lay-tile ↔ grout/tiles, rebar ↔ strength-grades (2026-11-05)
 - [ ] 계산기 관련 가이드 보강: brick ← single-vs-double-leaf(어느 계산기에서도 링크 없음), rebar ← strength-grades, fence ← mix-by-hand, mortar ← bricks-for-a-wall, concrete-bags ← curing
 - [ ] 홈 프로젝트 카드에 지붕 없음
 - [ ] 나머지 title 60자 초과 / description 120–160자 벗어난 페이지 정리
@@ -370,6 +370,15 @@
 - [ ] `how-to-calculate-bricks-for-a-wall.tsx:39` "Do mortar joint thickness" → "Does"
 - [ ] paint 가이드 2개 동일 FAQ("How many coats") 중복 제거
 
+### 2026-11-05 가이드 간 상호 링크 (Related Guides 섹션 10개)
+
+- 서로 링크가 없던 쌍에 `RelatedGuides`(shared.tsx) 섹션을 FAQ 바로 앞에 추가: roof-pitch-to-degrees → how-to-calculate-roof-pitch(반대 방향은 본문에 이미 있음), drywall-sheets ↔ drywall-screw-spacing, how-much-mulch ↔ how-to-calculate-mulch, how-many-tiles ↔ lay-tile, tile-grout → how-many-tiles, what-size-rebar ↔ concrete-strength-grades
+- 타일 3개는 나머지 두 가이드를 모두 목록에 둠(lay-tile ↔ grout는 본문 링크가 이미 있지만 목록 일관성 위해 함께)
+- 설명 문구는 각 가이드의 articleSchema description·본문 범위 안에서만 작성(새 수치·주장 없음)
+- 10개 가이드 `dateModified` + sitemap 날짜 2026-11-05
+- 검증: eslint·tsc·build 통과, 빌드 HTML에서 각 페이지 Related Guides h2·링크 확인
+- IndexNow: 배포 후 10개 URL 제출 예정
+
 ### 2026-11-04 Related guides 공통 컴포넌트 (계산기 15개 + 가이드 3개)
 
 - `app/components/RelatedGuides.tsx` 신설(`guides`: href·label) → 계산기 15개 `page.tsx`의 복붙 마크업(스타일·map·BookOpen) 교체, 각 페이지 `Link`·`BookOpen` import 제거. 링크 목록·순서는 그대로 (brick 5, concrete 4, bags·flooring·tile 3, fence·rebar·unit-converter 1, 나머지 2)
@@ -377,7 +386,7 @@
 - 아이콘에 `aria-hidden="true"` 명시 외에는 렌더 결과 동일 (빌드 HTML에서 링크 수·설명 문구 확인)
 - `docs/adding-a-calculator.md` §3 템플릿에 `CalcFaq`·`RelatedGuides`, `docs/adding-a-guide.md` 템플릿에 `RelatedGuides` 추가
 - 검증: eslint·tsc·build 통과
-- 콘텐츠 변경 없음 → dateModified·sitemap·IndexNow 대상 아님. 다음 항목(가이드 간 상호 링크, 계산기 관련 가이드 보강)은 이 컴포넌트에 항목만 추가하면 됨
+- 콘텐츠 변경 없음 → dateModified·sitemap 갱신 안 함. IndexNow는 사용자 요청으로 배포(Vercel Production 76a00d6 완료) 확인 후 바뀐 18개 URL 제출 → 200 OK (2026-11-04). 다음 항목(가이드 간 상호 링크, 계산기 관련 가이드 보강)은 이 컴포넌트에 항목만 추가하면 됨
 
 ### 2026-11-03 미사용 파일 정리 (public 기본 svg·아이콘, tailwind.config.ts, package-lock.json)
 

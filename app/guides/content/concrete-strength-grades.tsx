@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, GuideTable, IntroText, NoteBox, link, paragraph, sectionHeading, td, th } from "./shared";
+import { Breadcrumb, GuideTable, IntroText, NoteBox, link, paragraph, sectionHeading, td, th, RelatedGuides } from "./shared";
 const faqs = [
   {
     question: "What PSI concrete should I use for a driveway?",
@@ -44,7 +44,7 @@ const articleSchema = {
     "Understand concrete strength grades in PSI and MPa, what they're used for, and how US and international (EN 206) classifications compare.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/concrete-strength-grades" },
   datePublished: "2026-06-12",
-  dateModified: "2026-10-16",
+  dateModified: "2026-11-05",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -233,6 +233,12 @@ export default function ConcreteStrengthGradesGuide() {
           a water-cement ratio of 0.57 gives about 4,000 psi at 28 days and
           0.68 about 3,000 psi, for concrete without air entrainment.
         </p>
+
+        <RelatedGuides
+          links={[
+            { href: "/guides/what-size-rebar-do-i-need", label: "What Size Rebar Do I Need?", description: "US bar sizes #3–#11 and what the 2024 IRC requires for slabs and footings" },
+          ]}
+        />
 
         <h2 style={sectionHeading}>FAQ</h2>
         {faqs.map((f) => (

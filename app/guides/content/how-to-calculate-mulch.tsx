@@ -7,6 +7,7 @@ import {
   note,
   th,
   td,
+  RelatedGuides,
 } from "./shared";
 
 const faqs = [
@@ -55,7 +56,7 @@ const articleSchema = {
     "Step-by-step guide to calculating how much mulch you need in cubic yards and bags for any garden bed shape.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-mulch" },
   datePublished: "2026-06-29",
-  dateModified: "2026-10-08",
+  dateModified: "2026-11-05",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -366,6 +367,12 @@ export default function HowToCalculateMulch() {
             Use the Mulch Calculator &rarr;
           </Link>
         </div>
+
+        <RelatedGuides
+          links={[
+            { href: "/guides/how-much-mulch-do-i-need", label: "How Much Mulch Do I Need?", description: "quick-reference quantities by area and depth, bags vs bulk" },
+          ]}
+        />
 
         <h2 style={sectionHeading}>FAQ</h2>
         {faqs.map((f) => (

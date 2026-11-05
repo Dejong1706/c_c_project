@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, NoteBox, link, paragraph, sectionHeading } from "./shared";
+import { Breadcrumb, NoteBox, link, paragraph, sectionHeading, RelatedGuides } from "./shared";
 
 const faqs = [
   {
@@ -47,7 +47,7 @@ const articleSchema = {
     "Complete step-by-step guide to laying floor and wall tiles — substrate prep, layout, thinset, setting, grouting, and sealing.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-lay-tile-step-by-step" },
   datePublished: "2026-06-25",
-  dateModified: "2026-10-20",
+  dateModified: "2026-11-05",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -366,6 +366,13 @@ export default function HowToLayTileStepByStep() {
             Use the Tile Calculator →
           </Link>
         </div>
+
+        <RelatedGuides
+          links={[
+            { href: "/guides/how-many-tiles-do-i-need", label: "How Many Tiles Do I Need?", description: "tile count, waste by layout pattern and rounding to full boxes" },
+            { href: "/guides/tile-grout-gap-guide", label: "Tile Grout Gap Guide", description: "minimum joint width under ANSI A108.02, lippage and movement joints" },
+          ]}
+        />
 
         <h2 style={sectionHeading}>FAQ</h2>
         {faqs.map((f) => (

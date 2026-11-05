@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td } from "./shared";
+import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td, RelatedGuides } from "./shared";
 
 const faqs = [
   {
@@ -47,7 +47,7 @@ const articleSchema = {
     "Roof pitch to degrees chart for x:12, percent slope and pitch factor, with OSHA low-slope/steep categories and 2024 IRC minimum pitch by roofing material.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/roof-pitch-to-degrees-conversion" },
   datePublished: "2026-07-22",
-  dateModified: "2026-10-21",
+  dateModified: "2026-11-05",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -326,6 +326,12 @@ export default function RoofPitchToDegreesConversion() {
             Use the Roof Pitch Calculator &rarr;
           </Link>
         </div>
+
+        <RelatedGuides
+          links={[
+            { href: "/guides/how-to-calculate-roof-pitch", label: "How to Calculate Roof Pitch", description: "measure rise and run, then work out rafter length and pitch factor" },
+          ]}
+        />
 
         <h2 style={sectionHeading}>FAQ</h2>
         {faqs.map((f) => (
