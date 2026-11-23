@@ -64,6 +64,7 @@ export default function MortarCalculatorPage() {
         guides={[
           { href: "/guides/brick-mortar-mix-ratio", label: "Brick Mortar Mix Ratio Guide" },
           { href: "/guides/how-many-bricks-per-square-metre", label: "How Many Bricks Per Square Metre?" },
+          { href: "/guides/how-to-calculate-bricks-for-a-wall", label: "How to Calculate Bricks for a Wall" },
         ]}
       />
       <CalcFaq faqs={faqs} />

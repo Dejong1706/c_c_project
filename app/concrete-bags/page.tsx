@@ -69,6 +69,7 @@ export default function Page() {
           { href: "/guides/how-to-calculate-concrete-volume", label: "How to Calculate Concrete Volume" },
           { href: "/guides/how-to-mix-concrete-by-hand", label: "How to Mix Concrete by Hand" },
           { href: "/guides/cubic-yards-to-cubic-meters", label: "Cubic Yards to Cubic Meters" },
+          { href: "/guides/concrete-curing-time-guide", label: "Concrete Curing Time Guide" },
         ]}
       />
       <CalcFaq faqs={faqs} />

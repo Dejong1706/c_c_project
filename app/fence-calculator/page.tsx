@@ -63,6 +63,7 @@ export default function FenceCalculatorPage() {
       <RelatedGuides
         guides={[
           { href: "/guides/how-to-calculate-fence-post-spacing", label: "How to Calculate Fence Post Spacing" },
+          { href: "/guides/how-to-mix-concrete-by-hand", label: "How to Mix Concrete by Hand" },
         ]}
       />
       <CalcFaq faqs={faqs} />

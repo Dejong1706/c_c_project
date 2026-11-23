@@ -62,6 +62,7 @@ export default function Page() {
       <RelatedGuides
         guides={[
           { href: "/guides/what-size-rebar-do-i-need", label: "What Size Rebar Do I Need? Bar Sizes and Code Rules" },
+          { href: "/guides/concrete-strength-grades", label: "Concrete Strength Grades Explained" },
         ]}
       />
       <CalcFaq faqs={faqs} />
