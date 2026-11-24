@@ -149,7 +149,8 @@ export default function ConcreteVolumeGuide() {
           multiply length, width, and depth as shown above.
         </p>
         <p style={paragraph}>
-          <strong>Columns and round footings</strong> use a different formula
+          <strong>Columns and round footings</strong>{" "}
+          use a different formula
           since you&apos;re working with a circle:
         </p>
         <div style={formula}>Volume = π × radius² × height</div>

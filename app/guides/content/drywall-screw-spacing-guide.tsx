@@ -180,7 +180,8 @@ export default function DrywallScrewSpacingGuide() {
         <div style={note}>
           The table gives one maximum spacing per framing member — it does not
           set a separate, tighter &ldquo;edge&rdquo; spacing for screws. The 8&quot;
-          figure often quoted for walls is the <strong>nail</strong> spacing.
+          figure often quoted for walls is the <strong>nail</strong>{" "}
+          spacing.
           Installing with adhesive allows wider spacing (see the table&apos;s
           adhesive rows). The IRC sets a minimum fastener distance of ⅜&quot; from
           board edges and ends only for gypsum ceilings used as diaphragms
@@ -219,7 +220,8 @@ export default function DrywallScrewSpacingGuide() {
         <h2 style={sectionHeading}>Ceilings — 12-inch maximum</h2>
         <ul style={{ paddingLeft: "20px", margin: "0 0 14px" }}>
           <li style={li}>
-            <strong>Screws:</strong> no more than 12 inches apart along each
+            <strong>Screws:</strong>{" "}
+          no more than 12 inches apart along each
             joist, at 16&quot; or 24&quot; OC
           </li>
           <li style={li}>
@@ -227,7 +229,8 @@ export default function DrywallScrewSpacingGuide() {
             perpendicular to the joists
           </li>
           <li style={li}>
-            <strong>Water-based texture:</strong> the board must run
+            <strong>Water-based texture:</strong>{" "}
+          the board must run
             perpendicular to the framing, and thickness goes up — ⅜&quot; to
             ½&quot; at 16&quot; OC, ½&quot; to ⅝&quot; at 24&quot; OC — or use ½&quot;
             sag-resistant ceiling board (Table R702.3.5, footnote 4)

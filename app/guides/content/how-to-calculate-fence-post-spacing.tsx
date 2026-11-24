@@ -185,7 +185,7 @@ export default function FencePostSpacingGuide() {
           After calculating post count, work backwards to get perfectly even
           spacing. This prevents an awkward short bay at the end of your run.
         </p>
-        <div style={formula}>Adjusted spacing = Fence length ÷ (Posts − 1)</div>
+        <div style={formula}>Adjusted spacing = Run length ÷ (Posts in the run − 1)</div>
         <p style={paragraph}>
           <strong>Example:</strong> 100 ft fence, 14 posts:
         </p>

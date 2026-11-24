@@ -108,7 +108,8 @@ export default function HowToMixConcreteByHandGuide() {
         </header>
 
         <NoteBox>
-          <strong>Quick answer:</strong> for most small jobs, use bagged
+          <strong>Quick answer:</strong>{" "}
+          for most small jobs, use bagged
           concrete mix and the water printed on the bag — Quikrete&apos;s 80 lb
           Concrete Mix starts at about 6 pints (3 quarts, 2.8 L) and should end
           up at no more than about 9 pints (4.3 L). Mixing from separate
@@ -258,7 +259,8 @@ export default function HowToMixConcreteByHandGuide() {
           94 lb of sand and 128 lb of gravel.
         </p>
         <p style={paragraph}>
-          <strong>The 1:2:3 rule.</strong> On site, the most widely used
+          <strong>The 1:2:3 rule.</strong>{" "}
+          On site, the most widely used
           shortcut is 1 part cement, 2 parts sand and 3 parts gravel by volume,
           measured with the same bucket or shovel for each material. It is a
           rule of thumb rather than a figure from a standard, but it lands in

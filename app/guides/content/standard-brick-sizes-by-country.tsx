@@ -160,7 +160,7 @@ export default function StandardBrickSizesByCountry() {
               <td style={td}>Imperial (pre-1969)</td>
               <td style={td}>229 × 114 × 76 mm</td>
               <td style={td}>239 × 124 × 86 mm</td>
-              <td style={td}>~48</td>
+              <td style={td}>~49</td>
             </tr>
           </tbody>
         </GuideTable>
@@ -289,7 +289,7 @@ export default function StandardBrickSizesByCountry() {
               <td style={td}>NF (Normalformat)</td>
               <td style={td}>Germany (older)</td>
               <td style={td}>240 × 115 × 71 mm</td>
-              <td style={td}>~52</td>
+              <td style={td}>~49</td>
             </tr>
             <tr>
               <td style={td}>WDF (Waalformat)</td>
@@ -373,7 +373,7 @@ export default function StandardBrickSizesByCountry() {
         <p style={paragraph}>
           This table summarises the approximate number of bricks needed per m²
           of half-brick (single-leaf) wall using each country&apos;s most common
-          standard brick and a 10 mm mortar joint.
+          standard brick and a 10 mm mortar joint (⅜″ in the US).
         </p>
         <GuideTable>
           <thead>
@@ -431,7 +431,7 @@ export default function StandardBrickSizesByCountry() {
         </GuideTable>
         <NoteBox>
           All bricks/m² figures are for a half-brick (single-leaf) wall with a
-          10 mm mortar joint. Add 5–10% for waste and cuts.
+          10 mm mortar joint (⅜″ for the US row). Add 5–10% for waste and cuts.
         </NoteBox>
 
         {/* Mortar joint note */}
@@ -455,7 +455,7 @@ export default function StandardBrickSizesByCountry() {
             <tr>
               <td style={td}>8 mm</td>
               <td style={td}>73 mm</td>
-              <td style={td}>~63</td>
+              <td style={td}>~61</td>
             </tr>
             <tr>
               <td style={td}>10 mm (standard)</td>
@@ -465,7 +465,7 @@ export default function StandardBrickSizesByCountry() {
             <tr>
               <td style={td}>12 mm</td>
               <td style={td}>77 mm</td>
-              <td style={td}>~58</td>
+              <td style={td}>~57</td>
             </tr>
           </tbody>
         </GuideTable>
@@ -474,7 +474,7 @@ export default function StandardBrickSizesByCountry() {
           <Link href="/brick-calculator" style={link}>
             Brick Calculator
           </Link>{" "}
-          — it lets you set your own joint size and wall dimensions.
+          for UK standard (10 mm joints) or US modular brick; for another joint size, use the formula at the top of this guide.
         </p>
 
         <RelatedGuides

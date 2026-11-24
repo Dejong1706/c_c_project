@@ -8,7 +8,7 @@ import RelatedGuides from "../components/RelatedGuides";
 export const metadata: Metadata = {
   title: "Paint Calculator — How Much Paint Do I Need? | BuildCalc",
   description:
-    "Free paint calculator. Enter room dimensions and get litres needed plus tin count. Covers walls, ceilings and exterior. Adjustable for 2-coat coverage.",
+    "Free paint calculator. Enter room dimensions and get litres needed plus tin count. Covers walls, ceilings and exterior. Set your own coverage rate and 1 to 3 coats.",
   keywords: [
     "paint calculator",
     "how much paint do I need",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Paint Calculator — How Much Paint Do I Need? | BuildCalc",
     description:
-      "Free paint calculator. Enter room dimensions and get litres needed plus tin count. Covers walls, ceilings and exterior. Adjustable for 2-coat coverage.",
+      "Free paint calculator. Enter room dimensions and get litres needed plus tin count. Covers walls, ceilings and exterior. Set your own coverage rate and 1 to 3 coats.",
     url: "https://buildcalczone.com/paint-calculator",
   },
 };
