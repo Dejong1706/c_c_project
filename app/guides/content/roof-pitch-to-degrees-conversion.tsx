@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td, RelatedGuides } from "./shared";
+import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td, RelatedGuides,
+  GuideTable,
+} from "./shared";
 
 const faqs = [
   {
@@ -120,14 +122,7 @@ export default function RoofPitchToDegreesConversion() {
 
         {/* Full conversion table */}
         <h2 style={sectionHeading}>Complete conversion table</h2>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Pitch (x:12)</th>
@@ -165,7 +160,7 @@ export default function RoofPitchToDegreesConversion() {
               </tr>
             ))}
           </tbody>
-        </table>
+        </GuideTable>
         <div style={note}>
           OSHA 29 CFR 1926.500 defines a low-slope roof as 4:12 or less and a
           steep roof as over 4:12. Pitch factor = √((x/12)² + 1) — multiply
@@ -229,14 +224,7 @@ export default function RoofPitchToDegreesConversion() {
           The 2024 International Residential Code (IRC) sets a minimum slope
           for each roof covering in Section R905:
         </p>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Roof covering</th>
@@ -270,7 +258,7 @@ export default function RoofPitchToDegreesConversion() {
               </tr>
             ))}
           </tbody>
-        </table>
+        </GuideTable>
         <div style={note}>
           For built-up, modified bitumen, single-ply, foam and liquid-applied
           roofs, the IRC figure is a minimum design slope. Below 2:12 the IRC

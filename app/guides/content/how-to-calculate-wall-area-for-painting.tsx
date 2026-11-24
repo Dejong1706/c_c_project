@@ -7,10 +7,10 @@ import {
   note,
   paragraph,
   sectionHeading,
-  table,
   th,
   td,
   RelatedGuides,
+  GuideTable,
 } from "./shared";
 
 const faqs = [
@@ -193,7 +193,7 @@ export default function HowToCalculateWallAreaForPainting() {
         <p style={paragraph}>
           The number of coats affects how much paint you need. These are rules of thumb; follow the tin.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Situation</th>
@@ -220,7 +220,7 @@ export default function HowToCalculateWallAreaForPainting() {
               <td style={td}>1 primer + 2 full coats</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <div style={note}>
           A mist coat is thinned emulsion that seals new plaster so the topcoats
           are not absorbed unevenly. Follow the tin for the dilution: Dulux Trade
@@ -254,7 +254,7 @@ export default function HowToCalculateWallAreaForPainting() {
           around skirting boards, cornices, and window reveals uses more paint
           than rolling open wall areas.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Situation</th>
@@ -275,7 +275,7 @@ export default function HowToCalculateWallAreaForPainting() {
               <td style={td}>15–20%</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <div style={formula}>
           Final order (litres) = Calculated litres × (1 + waste factor)
         </div>
@@ -342,7 +342,7 @@ export default function HowToCalculateWallAreaForPainting() {
           Coverage varies by product and surface. These are published figures read
           in November 2026; use the one on your tin.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Paint (manufacturer&apos;s stated coverage)</th>
@@ -363,7 +363,7 @@ export default function HowToCalculateWallAreaForPainting() {
               <td style={td}>300–400 ft²/gal (7.4–9.8 m²/L)</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         {/* Calculator CTA */}
         <h2 style={sectionHeading}>Skip the Maths</h2>

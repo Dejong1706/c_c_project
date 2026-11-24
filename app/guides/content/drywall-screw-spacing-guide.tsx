@@ -8,6 +8,7 @@ import {
   th,
   td,
   RelatedGuides,
+  GuideTable,
 } from "./shared";
 
 const faqs = [
@@ -69,13 +70,6 @@ const li = {
   marginBottom: "6px",
 };
 
-const table = {
-  width: "100%",
-  borderCollapse: "collapse" as const,
-  margin: "12px 0 20px",
-  fontSize: "14px",
-};
-
 export default function DrywallScrewSpacingGuide() {
   return (
     <>
@@ -129,7 +123,7 @@ export default function DrywallScrewSpacingGuide() {
           Maximum fastener spacing along each framing member, for board
           installed without adhesive:
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Location</th>
@@ -176,7 +170,7 @@ export default function DrywallScrewSpacingGuide() {
               <td style={td}>6&quot;</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <div style={note}>
           The table gives one maximum spacing per framing member — it does not
           set a separate, tighter &ldquo;edge&rdquo; spacing for screws. The 8&quot;
@@ -261,7 +255,7 @@ export default function DrywallScrewSpacingGuide() {
         <div style={formula}>
           Minimum screw length (wood) = total board thickness + ⅝&quot;
         </div>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Application</th>
@@ -296,7 +290,7 @@ export default function DrywallScrewSpacingGuide() {
               <td style={td}>1⅝&quot; Type W</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <div style={note}>
           Type G screws (ASTM C1002) fasten gypsum board to gypsum board, for
           example a face layer screwed only into the base layer. Follow the
@@ -307,7 +301,7 @@ export default function DrywallScrewSpacingGuide() {
 
         {/* Common mistakes */}
         <h2 style={sectionHeading}>Common screw mistakes to avoid</h2>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Mistake</th>
@@ -342,7 +336,7 @@ export default function DrywallScrewSpacingGuide() {
               <td style={td}>Cut the sheet to break on a stud or joist</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         {/* Screws per sheet estimator */}
         <h2 style={sectionHeading}>Screws per sheet — code minimum</h2>
@@ -351,7 +345,7 @@ export default function DrywallScrewSpacingGuide() {
           every framing member, and the sheet perpendicular to the framing.
           Closer spacing is allowed, so treat these as the minimum.
         </p>
-        <table style={table}>
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Location</th>
@@ -386,7 +380,7 @@ export default function DrywallScrewSpacingGuide() {
               <td style={td}>35 screws</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <p style={paragraph}>
           Screws per box vary by brand, length, and box weight — check the
           count on the label before ordering.

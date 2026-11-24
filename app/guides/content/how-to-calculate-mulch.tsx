@@ -8,6 +8,7 @@ import {
   th,
   td,
   RelatedGuides,
+  GuideTable,
 } from "./shared";
 
 const faqs = [
@@ -186,14 +187,7 @@ export default function HowToCalculateMulch() {
           Depth affects how much material you need and how well it works. Use
           these standard recommendations:
         </p>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Application</th>
@@ -222,7 +216,7 @@ export default function HowToCalculateMulch() {
               <td style={td}>9 inches (install ~12 inches, compacts to 9)</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <div style={note}>
           Never apply mulch deeper than 4 inches around plants — it traps excess
           moisture and can cause root rot. Keep mulch 2–3 inches away from all
@@ -233,14 +227,7 @@ export default function HowToCalculateMulch() {
         <p style={paragraph}>
           Plug your numbers into the formula. Here are worked examples:
         </p>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Area</th>
@@ -275,7 +262,7 @@ export default function HowToCalculateMulch() {
               <td style={td}>9.26 yd&sup3;</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         <h2 style={sectionHeading}>Step 4 — Convert to bags</h2>
         <p style={paragraph}>
@@ -284,14 +271,7 @@ export default function HowToCalculateMulch() {
         <div style={formula}>
           Bags = Cubic yards &times; 27 &divide; bag size (cu ft)
         </div>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Bag size</th>
@@ -308,7 +288,7 @@ export default function HowToCalculateMulch() {
               <td style={td}>9 bags</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <p style={paragraph}>
           Always round up to the nearest whole bag. Running short mid-project
           means a second trip and a possible dye-lot mismatch.

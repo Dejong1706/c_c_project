@@ -122,7 +122,7 @@ export default function UnitConverter() {
       <div style={{ marginTop: '28px', background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '12px', overflow: 'hidden' }}>
         <h2 style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.07em', textTransform: 'uppercase', padding: '14px 18px 4px' }}>Quick reference — {cat.label}</h2>
         <p style={{ fontSize: '12px', color: 'var(--text-2)', padding: '0 18px 12px', borderBottom: '1px solid var(--border)' }}>Each row shows what 1 unit of that row equals in each column unit.</p>
-        <div style={{ overflowX: 'auto' }}>
+        <div style={{ overflowX: 'auto', position: 'relative' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
             <caption style={srOnly}>{cat.label} conversion factors: 1 row unit equals the value shown in each column unit</caption>
             <thead>

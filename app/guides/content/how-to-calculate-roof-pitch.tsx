@@ -8,6 +8,7 @@ import {
   note,
   th,
   td,
+  GuideTable,
 } from "./shared";
 
 const faqs = [
@@ -120,14 +121,7 @@ export default function HowToCalculateRoofPitch() {
           OSHA&apos;s construction fall-protection rule (29 CFR 1926.500)
           defines two roof categories by pitch:
         </p>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>OSHA category</th>
@@ -156,7 +150,7 @@ export default function HowToCalculateRoofPitch() {
               </td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <div style={note}>
           In residential construction, OSHA requires guardrails, safety nets or
           personal fall arrest 6 ft or more above a lower level regardless of
@@ -247,14 +241,7 @@ export default function HowToCalculateRoofPitch() {
         <div style={formula}>
           Degrees = arctan(rise &divide; 12) &times; (180 &divide; &pi;)
         </div>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Pitch (x:12)</th>
@@ -283,7 +270,7 @@ export default function HowToCalculateRoofPitch() {
               </tr>
             ))}
           </tbody>
-        </table>
+        </GuideTable>
 
         {/* Rafter length */}
         <h2 style={sectionHeading}>Calculate rafter length</h2>

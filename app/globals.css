@@ -101,3 +101,8 @@ input[type="range"]:focus-visible {
 input[type="range"]::-webkit-slider-thumb:hover {
   transform: scale(1.15);
 }
+
+/* Table rows sit on white so they stand out from the page background */
+.main-content tbody {
+  background: var(--surface);
+}

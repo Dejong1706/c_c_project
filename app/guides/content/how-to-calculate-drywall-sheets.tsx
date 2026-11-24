@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td, RelatedGuides } from "./shared";
+import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td, RelatedGuides,
+  GuideTable,
+} from "./shared";
 
 const faqs = [
   {
@@ -111,14 +113,7 @@ export default function HowToCalculateDrywallSheets() {
           Standard drywall comes in three common lengths. All sheets are 4 feet
           wide.
         </p>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Sheet size</th>
@@ -143,7 +138,7 @@ export default function HowToCalculateDrywallSheets() {
               <td style={td}>Ceilings and long walls — minimum joints</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <div style={note}>
           Longer sheets mean fewer seams to tape, but they are heavier and awkward
           to lift: check the weight for your board and plan on two people or a
@@ -186,14 +181,7 @@ export default function HowToCalculateDrywallSheets() {
         <p style={paragraph}>
           Deduct standard openings from your gross wall area:
         </p>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Opening type</th>
@@ -213,7 +201,7 @@ export default function HowToCalculateDrywallSheets() {
               <td style={td}>3 ft &times; 5 ft</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <p style={paragraph}>
           <strong>Example:</strong>{" "}
           1 door + 2 windows: 21 + (2 &times; 15) = 51
@@ -253,14 +241,7 @@ export default function HowToCalculateDrywallSheets() {
 
         {/* Waste guide */}
         <h2 style={sectionHeading}>Waste factor guide</h2>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Room type</th>
@@ -285,18 +266,11 @@ export default function HowToCalculateDrywallSheets() {
               <td style={td}>15%</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         {/* Worked examples */}
         <h2 style={sectionHeading}>Worked examples</h2>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Room</th>
@@ -331,7 +305,7 @@ export default function HowToCalculateDrywallSheets() {
               <td style={td}>21 sheets</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <div style={note}>
           All examples include 10% waste and subtract 1 door (21 sq ft) and 1
           window (15 sq ft). Actual counts may vary by room shape and opening
@@ -340,14 +314,7 @@ export default function HowToCalculateDrywallSheets() {
 
         {/* Ancillary materials */}
         <h2 style={sectionHeading}>Other materials to order</h2>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Material</th>
@@ -377,7 +344,7 @@ export default function HowToCalculateDrywallSheets() {
               </td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         {/* CTA */}
         <div

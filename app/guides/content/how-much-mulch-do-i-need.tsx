@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td, RelatedGuides } from "./shared";
+import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td, RelatedGuides,
+  GuideTable,
+} from "./shared";
 
 const faqs = [
   {
@@ -108,14 +110,7 @@ export default function HowMuchMulchDoINeed() {
         <p style={paragraph}>
           How much mulch a cubic yard covers at common depths:
         </p>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Depth</th>
@@ -145,7 +140,7 @@ export default function HowMuchMulchDoINeed() {
               <td style={td}>13.5 bags</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <div style={note}>
           Bags per cubic yard stays the same regardless of depth — you always
           need 13.5 bags of 2 cu ft (or 9 bags of 3 cu ft) to make up one cubic
@@ -153,14 +148,7 @@ export default function HowMuchMulchDoINeed() {
         </div>
 
         <h2 style={sectionHeading}>Mulch by area size</h2>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Area</th>
@@ -183,7 +171,7 @@ export default function HowMuchMulchDoINeed() {
               </tr>
             ))}
           </tbody>
-        </table>
+        </GuideTable>
         <div style={note}>
           Bag counts based on 2 cu ft bags, rounded up. Add 10% for waste and
           settling on flat beds, 15–20% for uneven ground or areas around mature
@@ -200,14 +188,7 @@ export default function HowMuchMulchDoINeed() {
         </p>
 
         <h2 style={sectionHeading}>Bags vs. bulk delivery</h2>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Option</th>
@@ -227,7 +208,7 @@ export default function HowMuchMulchDoINeed() {
               <td style={td}>$30–$45 + delivery</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
         <p style={paragraph}>
           Bulk mulch saves 30–50% per cubic yard on larger projects. Delivery is
           typically included for orders of 3+ cubic yards from most suppliers.

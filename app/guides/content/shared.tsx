@@ -68,7 +68,8 @@ export const td: React.CSSProperties = {
 const tableWrap: React.CSSProperties = {
   border: "1px solid var(--border)",
   borderRadius: "10px",
-  overflow: "hidden",
+  // Wide tables scroll sideways on narrow screens instead of being cut off
+  overflowX: "auto",
   margin: "12px 0 20px",
 };
 

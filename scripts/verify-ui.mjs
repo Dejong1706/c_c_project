@@ -108,9 +108,12 @@ try {
   };
   for (const d of ["Page", "Runtime", "Log", "Network"]) await send(`${d}.enable`);
 
+  // innerWidth grows with overflowing content in mobile emulation, so compare with the requested width
+  let viewport = 0;
   const open = async (path, width) => {
     logs = [];
     status = 0;
+    viewport = width;
     await send("Emulation.setDeviceMetricsOverride", {
       width, height: 900, deviceScaleFactor: 1, mobile: width < 600,
     });
@@ -119,9 +122,11 @@ try {
     if (status !== 200) fail(`${path} HTTP ${status || "no response"}`);
   };
   const check = async (label) => {
-    const r = await evaluate(`({ over: document.documentElement.scrollWidth - innerWidth, len: document.body.innerText.trim().length,
+    const r = await evaluate(`({ over: document.documentElement.scrollWidth - ${viewport},
+      tables: [...document.querySelectorAll("table")].map((t, i) => [i + 1, Math.round(t.getBoundingClientRect().width - t.parentElement.clientWidth), getComputedStyle(t.parentElement).overflowX]).filter(([, w, o]) => w > 0 && o !== "auto" && o !== "scroll"), len: document.body.innerText.trim().length,
       bad: document.body.innerText.match(/undefined|NaN|&[a-z]+;|Application error/g) ?? [] })`);
     if (r.over > 0) fail(`${label} overflows by ${r.over}px`);
+    for (const [i, w] of r.tables) fail(`${label} table ${i} is cut off by ${w}px`);
     if (r.len < 200) fail(`${label} almost empty (${r.len} chars)`);
     if (r.bad.length) fail(`${label} shows ${r.bad.join(", ")}`);
     for (const l of new Set(logs)) fail(`${label} ${l}`);

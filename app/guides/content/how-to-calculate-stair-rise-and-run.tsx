@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td, link } from "./shared";
+import { Breadcrumb, sectionHeading, paragraph, formula, note, th, td, link,
+  GuideTable,
+} from "./shared";
 
 const faqs = [
   {
@@ -110,14 +112,7 @@ export default function HowToCalculateStairRiseAndRun() {
 
         {/* Key terms */}
         <h2 style={sectionHeading}>Key terms</h2>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Term</th>
@@ -158,7 +153,7 @@ export default function HowToCalculateStairRiseAndRun() {
               <td style={td}>Diagonal support board the treads sit on</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         {/* Step 1 */}
         <h2 style={sectionHeading}>Step 1 — Measure total rise precisely</h2>
@@ -292,14 +287,7 @@ export default function HowToCalculateStairRiseAndRun() {
           requirement, but it&apos;s widely used and our stair calculator shows
           it as a quick check.
         </p>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Rise</th>
@@ -339,7 +327,7 @@ export default function HowToCalculateStairRiseAndRun() {
               <td style={td}>Within both</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         {/* Worked example */}
         <h2 style={sectionHeading}>Full worked example</h2>
@@ -347,14 +335,7 @@ export default function HowToCalculateStairRiseAndRun() {
           9-ft floor-to-floor (108 inches), 7-inch target riser, 11-inch
           treads, standard mount:
         </p>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            margin: "12px 0 20px",
-            fontSize: "14px",
-          }}
-        >
+        <GuideTable>
           <thead>
             <tr>
               <th style={th}>Calculation</th>
@@ -387,7 +368,7 @@ export default function HowToCalculateStairRiseAndRun() {
               <td style={td}>193.6&quot; (16.1 ft) → buy 18 ft 2&times;12</td>
             </tr>
           </tbody>
-        </table>
+        </GuideTable>
 
         {/* CTA */}
         <div
