@@ -376,7 +376,7 @@
 - 홈 카드에 없는 계산기는 unit-converter만 남음(특정 작업이 아니라 제외, All calculators에는 있음)
 - sitemap 홈 날짜 2026-11-24
 - 검증: eslint·tsc·build 통과, 빌드 HTML에서 카드·링크 확인
-- IndexNow: 배포 후 `/` 제출 예정
+- IndexNow: 배포(d455939) 확인 후 `/` 제출 → 200 OK (2026-11-24)
 
 ### 2026-11-23 계산기 Related guides 보강 (4개)
 
