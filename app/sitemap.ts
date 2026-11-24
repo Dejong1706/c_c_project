@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/concrete-calculator", date: "2026-10-08", priority: 0.9 },
     { route: "/concrete-bags", date: "2026-11-23", priority: 0.9 },
     { route: "/tile-calculator", date: "2026-10-20", priority: 0.9 },
-    { route: "/brick-calculator", date: "2026-10-22", priority: 0.9 },
+    { route: "/brick-calculator", date: "2026-11-24", priority: 0.9 },
     { route: "/paint-calculator", date: "2026-10-08", priority: 0.9 },
     { route: "/rebar-calculator", date: "2026-11-23", priority: 0.9 },
     { route: "/excavation-calculator", date: "2026-10-08", priority: 0.9 },
@@ -83,7 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-to-calculate-bricks-for-a-wall",
-      date: "2026-10-08",
+      date: "2026-11-24",
       priority: 0.7,
     },
     {

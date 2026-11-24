@@ -8,6 +8,9 @@ import { ceilCount } from "../components/calcMath";
 type UnitLen = "m" | "ft";
 const toM: Record<UnitLen, number> = { m: 1, ft: 0.3048 };
 
+// BIA Technical Note 10, Table 4: 675 modular brick per 100 ft² (nominal 4 × 2⅔ × 8 in)
+const BRICKS_PER_FT2_MODULAR = 6.75;
+
 export default function BrickCalc() {
   const [type, setType] = useState(0);
   const [len, setLen] = useState("");
@@ -16,12 +19,13 @@ export default function BrickCalc() {
   const [hUnit, setHUnit] = useState<UnitLen>("m");
   const [waste, setWaste] = useState(10);
 
-  const density = type === 1 ? 120 : 60;
+  const isUS = type === 2;
+  const density = isUS ? BRICKS_PER_FT2_MODULAR : type === 1 ? 120 : 60;
 
   const results = useMemo(() => {
     const L = (parseFloat(len) || 0) * toM[lUnit];
     const H = (parseFloat(h) || 0) * toM[hUnit];
-    const area = L * H;
+    const area = isUS ? (L * H) / (0.3048 * 0.3048) : L * H;
     const net = ceilCount(area * density);
     const total = ceilCount(net * (1 + waste / 100));
     return [
@@ -34,7 +38,7 @@ export default function BrickCalc() {
       {
         label: "Wall area",
         value: area > 0 ? area.toFixed(2) : "—",
-        unit: "m²",
+        unit: isUS ? "ft²" : "m²",
         tier: 2 as const,
       },
       {
@@ -49,9 +53,14 @@ export default function BrickCalc() {
         unit: "pcs (no waste)",
         tier: 3 as const,
       },
-      { label: "Density", value: String(density), unit: "bricks/m²", tier: 3 as const },
+      {
+        label: "Density",
+        value: String(density),
+        unit: isUS ? "bricks/ft²" : "bricks/m²",
+        tier: 3 as const,
+      },
     ];
-  }, [len, lUnit, h, hUnit, waste, density]);
+  }, [len, lUnit, h, hUnit, waste, density, isUS]);
 
   const inputs = (
     <>
@@ -82,12 +91,12 @@ export default function BrickCalc() {
   return (
     <CalcShell
       title="Brick calculator"
-      description="Estimate bricks needed for a wall including mortar joints. Based on standard brick (215×102×65mm) with 10mm mortar joints — 60 bricks/m² for single leaf, 120 bricks/m² for double leaf."
-      types={["Single leaf", "Double leaf"]}
+      description="Estimate bricks needed for a wall including mortar joints — UK standard brick (215 × 102.5 × 65 mm, 10 mm joints) in single or double leaf, or one wythe of US modular brick (6.75 per ft²)."
+      types={["UK single leaf", "UK double leaf", "US modular"]}
       onTypeChange={setType}
       inputs={inputs}
       results={results}
-      notice="Single leaf: 60 bricks/m². Double leaf: 120 bricks/m². Special bonds or non-standard sizes will differ."
+      notice="UK: 60 bricks/m² single leaf, 120 double leaf. US modular: 6.75 bricks/ft² for one wythe in running or stack bond (BIA Technical Note 10). Other brick sizes will differ. Subtract openings from the wall area first. This counts bricks only — it does not check that a wall is safe to build. UK guidance limits a free-standing wall without piers to 375–525 mm (half-brick) or 1,075–1,450 mm (one-brick) depending on wind zone; get expert advice above that."
       related={[
         {
           href: "/concrete-calculator",

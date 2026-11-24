@@ -8,7 +8,7 @@ import RelatedGuides from "../components/RelatedGuides";
 export const metadata: Metadata = {
   title: "Brick Calculator — How Many Bricks Do I Need? | BuildCalc",
   description:
-    "Free brick calculator. Enter wall length and height to get brick count with waste allowance and pallet estimate. Based on standard brick (215×102×65mm) with 10mm mortar joints.",
+    "Free brick calculator. Enter wall length and height to get a brick count with waste and pallets, for UK standard (60/m²) or US modular (6.75/ft²) brick.",
   keywords: [
     "brick calculator",
     "how many bricks do I need",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Brick Calculator — How Many Bricks Do I Need? | BuildCalc",
     description:
-      "Free brick calculator. Enter wall length and height to get brick count with waste allowance and pallet estimate. Based on standard brick (215×102×65mm) with 10mm mortar joints.",
+      "Free brick calculator. Enter wall length and height to get a brick count with waste and pallets, for UK standard (60/m²) or US modular (6.75/ft²) brick.",
     url: "https://buildcalczone.com/brick-calculator",
   },
 };
@@ -30,17 +30,17 @@ const faqs = [
   {
     question: "How many bricks do I need per square meter?",
     answer:
-      "A standard single-leaf brick wall requires approximately 60 bricks per square meter, based on a standard brick size (215×102×65mm) with 10mm mortar joints.",
+      "A single-leaf wall of UK standard bricks (215 × 102.5 × 65 mm) with 10 mm joints takes about 60 bricks per square meter. One wythe of US modular brick takes 6.75 per square foot, which is about 73 per square meter.",
   },
   {
     question: "How do I calculate bricks for a wall?",
     answer:
-      "Multiply the wall length by height to get the area in square meters, then multiply by 60 for a single leaf wall or 120 for a double leaf wall. Add 10% extra for breakage and waste.",
+      "Multiply the wall length by height to get the area in square meters, then multiply by 60 for a single leaf wall or 120 for a double leaf wall of UK standard bricks. For US modular brick, multiply the area in square feet by 6.75. Subtract openings first, then add an allowance for breakage and waste: 10% is the default here, and the Brick Industry Association gives at least 5% as a general rule.",
   },
   {
     question: "How many bricks are on a pallet?",
     answer:
-      "A standard pallet typically holds around 500 bricks, though this varies by brick size and supplier.",
+      "It varies by brick size and supplier. This calculator assumes 500 as a planning figure; use the pack size your supplier quotes.",
   },
   {
     question:

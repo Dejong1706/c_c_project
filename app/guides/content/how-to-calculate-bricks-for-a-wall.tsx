@@ -23,12 +23,12 @@ const faqs = [
     question:
       "What is the difference between a half-brick and a full-brick wall?",
     answer:
-      "A half-brick wall is one brick wide — the brick is laid lengthways (stretcher bond), giving a wall 102.5 mm thick. A full-brick wall is one full brick length wide (215 mm thick), where every course has bricks running both directions. Half-brick walls are common for garden walls, internal partitions, and non-load-bearing applications. Full-brick walls are used for load-bearing exterior walls. Full-brick walls require roughly twice as many bricks per m² as half-brick walls.",
+      "A half-brick wall is one brick wide — the brick is laid lengthways (stretcher bond), giving a wall 102.5 mm thick. A full-brick (one-brick) wall is one brick length thick (215 mm), with its two leaves tied together by header bricks laid across the wall. Half-brick brickwork is used for the outer leaf of cavity walls, internal non-load-bearing partitions and very low garden walls; UK guidance limits a free-standing half-brick wall without piers to 375–525 mm high and a one-brick wall to 1,075–1,450 mm, depending on wind zone. A full-brick wall takes twice as many bricks per m² as a half-brick wall.",
   },
   {
     question: "Should I add waste to my brick calculation?",
     answer:
-      "Yes, always. For straightforward rectangular walls with few cuts, add 5%. For walls with openings (doors, windows), arches, or complex bonds, add 10%. For decorative or intricate patterns, add up to 15%. Underordering means delays and potential dye-lot mismatches if you need to reorder later.",
+      "Yes. The Brick Industry Association (US, Technical Note 10) says that, as a general rule, at least 5 percent is added to the net brick quantity, and more where job conditions warrant it. Common rules of thumb are 5% for plain rectangular walls, 10% for walls with openings, 10–15% for complex bonds, and 15% for curved walls or arches. Bricks from a later batch may not match in colour, so order the extra with the main delivery.",
   },
   {
     question: "How do I account for doors and windows when calculating bricks?",
@@ -36,14 +36,14 @@ const faqs = [
       "Calculate the gross wall area first (full height × full width), then subtract the area of each opening. Apply your waste factor to the net area. For example, a 4 m × 2.5 m wall (10 m²) with one 1 m × 2 m door opening has a net area of 8 m². At 60 bricks/m² plus 10% waste: 8 × 60 × 1.10 = 528 bricks.",
   },
   {
-    question: "Do mortar joint thickness affect how many bricks I need?",
+    question: "Does mortar joint thickness affect how many bricks I need?",
     answer:
-      "Yes. A thicker mortar joint increases the coordinating size of each brick, so fewer bricks fit per m². With UK standard bricks, an 8 mm joint gives about 63 bricks/m², a 10 mm joint gives 60 bricks/m², and a 12 mm joint gives about 58 bricks/m². The difference matters on large projects — always use the joint size you actually intend to lay.",
+      "Yes. A thicker mortar joint increases the coordinating size of each brick, so fewer bricks fit per m². With UK standard bricks, an 8 mm joint gives about 61 bricks/m², a 10 mm joint about 59 (usually rounded to 60), and a 12 mm joint about 57. The difference matters on large projects — always use the joint size you actually intend to lay.",
   },
   {
     question: "How many bricks are in a standard pack or pallet?",
     answer:
-      "Pack sizes vary by manufacturer, but UK standard bricks typically come in packs of 400–500 bricks. A full pallet is usually 400–504 bricks. Always confirm with your supplier. Order in full packs where possible to avoid small top-up orders, which are often charged at a higher per-brick rate.",
+      "It varies by manufacturer and brick. Our calculator assumes 500 per pallet as a planning figure; use the pack size your supplier quotes when you order.",
   },
 ];
 
@@ -65,7 +65,7 @@ const articleSchema = {
     "Step-by-step guide to calculating how many bricks you need for any wall — including half-brick and full-brick walls, openings, waste factors, and mortar quantities.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-bricks-for-a-wall" },
   datePublished: "2026-06-18",
-  dateModified: "2026-10-08",
+  dateModified: "2026-11-24",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -137,17 +137,31 @@ export default function HowToCalculateBricksForAWall() {
             <tr>
               <td style={td}>Half-brick (single-leaf)</td>
               <td style={td}>102.5 mm</td>
-              <td style={td}>Garden walls, partition walls</td>
+              <td style={td}>
+                Outer leaf of a cavity wall, internal non-load-bearing
+                partitions, very low garden walls*
+              </td>
               <td style={td}>~60</td>
             </tr>
             <tr>
               <td style={td}>Full-brick (double-leaf)</td>
               <td style={td}>215 mm</td>
-              <td style={td}>Load-bearing exterior walls</td>
+              <td style={td}>Solid walls, garden walls*</td>
               <td style={td}>~120</td>
             </tr>
           </tbody>
         </GuideTable>
+        <NoteBox>
+          * Welsh Government guidance limits a free-standing wall without piers
+          to 375–525 mm high (half-brick) or 1,075–1,450 mm (one-brick),
+          depending on wind zone. It advises getting expert advice for anything
+          higher, for walls with piers and for walls retaining soil. See the
+          full{" "}
+          <Link href="/guides/single-vs-double-leaf-brick-wall" style={link}>
+            wall height table
+          </Link>
+          . A brick count does not tell you whether a wall is safe to build.
+        </NoteBox>
         <NoteBox>
           Bricks per m² figures assume UK standard bricks (215 × 102.5 × 65 mm)
           with a 10 mm mortar joint. For other countries, see our{" "}
@@ -167,8 +181,8 @@ export default function HowToCalculateBricksForAWall() {
           Gross area (m²) = Wall width (m) × Wall height (m)
         </div>
         <p style={paragraph}>
-          <strong>Example:</strong> A wall 5 m wide and 2 m high has a gross
-          area of 10 m².
+          <strong>Example:</strong> The brick outer leaf of a house wall, 5 m wide
+          and 2.4 m high, has a gross area of 12 m².
         </p>
 
         {/* Step 3 */}
@@ -182,14 +196,14 @@ export default function HowToCalculateBricksForAWall() {
           opening
         </div>
         <p style={paragraph}>
-          <strong>Example:</strong> The 10 m² wall above has one window 1.2 m
+          <strong>Example:</strong> The 12 m² wall above has one window 1.2 m
           wide × 1.0 m high (1.2 m²) and one door 0.9 m wide × 2.1 m high (1.89
           m²).
         </p>
-        <div style={formula}>Net area = 10 − 1.2 − 1.89 = 6.91 m²</div>
+        <div style={formula}>Net area = 12 − 1.2 − 1.89 = 8.91 m²</div>
         <NoteBox>
-          Bricks cut around openings have a higher waste rate. If more than 20%
-          of your wall area is openings, use a 10% waste factor rather than 5%.
+          Cutting around openings wastes more bricks. As a rule of thumb, allow
+          10% rather than 5% on walls with openings.
         </NoteBox>
 
         {/* Step 4 */}
@@ -203,14 +217,14 @@ export default function HowToCalculateBricksForAWall() {
           <strong>Example continued:</strong> Half-brick wall, UK standard
           bricks (60/m²):
         </p>
-        <div style={formula}>6.91 × 60 = 414.6 → 415 bricks (before waste)</div>
+        <div style={formula}>8.91 × 60 = 534.6 → 535 bricks (before waste)</div>
 
         {/* Step 5 */}
         <h2 style={sectionHeading}>Step 5 — Add Waste</h2>
         <p style={paragraph}>
-          Always order more than the calculated quantity. Cutting, breakage, and
-          colour variation between batches make it essential to have spares on
-          site.
+          Order more than the calculated quantity to cover cutting and breakage.
+          The Brick Industry Association (US) gives at least 5% as a general
+          rule; the higher figures below are rules of thumb, not a standard.
         </p>
         <GuideTable>
           <thead>
@@ -245,28 +259,29 @@ export default function HowToCalculateBricksForAWall() {
           <strong>Example continued:</strong> Wall with openings, 10% waste:
         </p>
         <div style={formula}>
-          415 × 1.10 = 456.5 → order 457 bricks (round up)
+          535 × 1.10 = 588.5 → order 589 bricks (round up)
         </div>
         <NoteBox>
-          Always round up to the nearest full pack. Ordering a partial pack
-          later often costs more per brick and risks a dye-lot mismatch.
+          Round up to whole packs if your supplier only sells full packs. Bricks
+          from a later batch may not match in colour.
         </NoteBox>
 
         {/* Worked examples */}
         <h2 style={sectionHeading}>Worked Examples</h2>
 
         <p style={{ ...paragraph, fontWeight: 600, marginBottom: "6px" }}>
-          Example A — Garden wall, no openings
+          Example A — Garden wall 0.9 m high, no openings
         </p>
         <ul style={{ paddingLeft: "20px", marginBottom: "16px" }}>
-          <li style={listItem}>Wall: 6 m wide × 1.2 m high = 7.2 m²</li>
-          <li style={listItem}>Type: half-brick, UK standard (60 bricks/m²)</li>
-          <li style={listItem}>Bricks: 7.2 × 60 = 432</li>
-          <li style={listItem}>Waste (5%): 432 × 1.05 = 453.6 → order 454</li>
+          <li style={listItem}>Wall: 6 m wide × 0.9 m high = 5.4 m²</li>
+          <li style={listItem}>Type: one-brick (215 mm), UK standard (120 bricks/m²). 0.9 m is too
+            high for a free-standing half-brick wall</li>
+          <li style={listItem}>Bricks: 5.4 × 120 = 648</li>
+          <li style={listItem}>Waste (5%): 648 × 1.05 = 680.4 → order 681</li>
         </ul>
 
         <p style={{ ...paragraph, fontWeight: 600, marginBottom: "6px" }}>
-          Example B — House exterior wall with two windows
+          Example B — Solid one-brick wall with two windows
         </p>
         <ul style={{ paddingLeft: "20px", marginBottom: "16px" }}>
           <li style={listItem}>Wall: 8 m wide × 2.5 m high = 20 m²</li>
@@ -336,24 +351,20 @@ export default function HowToCalculateBricksForAWall() {
         {/* Mortar quantity */}
         <h2 style={sectionHeading}>Estimating Mortar Quantity</h2>
         <p style={paragraph}>
-          As a rule of thumb, one bag of cement (25 kg) mixed at a 1:4
-          cement-to-sand ratio will lay roughly 150–200 UK standard bricks,
-          depending on how much goes into frogs and waste. For a more accurate
-          estimate, use the following:
+          The mortar in the joints is the part of the wall that is not brick:
         </p>
         <div style={formula}>
           Mortar volume (m³) ≈ wall volume (m³) × mortar fraction
         </div>
         <p style={paragraph}>
-          For a half-brick wall, mortar makes up roughly 17% of total wall
-          volume. For a full-brick wall, this rises to around 20% due to more
-          cross joints. So 1 m² of half-brick wall (0.1025 m³) holds about
-          0.1025 × 0.17 ≈ 0.017 m³ — 17 litres — of mortar in its joints, before
-          frogs and waste.
+          For UK standard bricks with 10 mm joints, mortar makes up about 17% of a
+          half-brick wall. In a full-brick wall it rises to about 21%, because of
+          the extra joint between the two leaves. So 1 m² of half-brick wall
+          (0.1025 m³) holds about 17.6 litres of mortar and 1 m² of full-brick
+          wall (0.215 m³) about 45 litres, before frogs and waste.
         </p>
         <NoteBox>
-          For a full mortar breakdown including cement bags and sand weight, see
-          our{" "}
+          For mix proportions, see our{" "}
           <Link href="/guides/brick-mortar-mix-ratio" style={link}>
             Brick Mortar Mix Ratio Guide
           </Link>
@@ -367,8 +378,13 @@ export default function HowToCalculateBricksForAWall() {
           <Link href="/brick-calculator" style={link}>
             Brick Calculator
           </Link>{" "}
-          to enter your wall dimensions, brick size, wall type, and waste factor
-          — it calculates the brick count and mortar estimate in one step.
+          to enter your wall length and height, choose a wall type (UK single or
+          double leaf, or US modular brick) and set a waste allowance. If the
+          wall has openings, subtract them first as in Step 3. The{" "}
+          <Link href="/mortar-calculator" style={link}>
+            Mortar Calculator
+          </Link>{" "}
+          estimates the mortar.
         </p>
 
         {/* FAQ */}

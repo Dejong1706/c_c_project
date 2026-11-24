@@ -11,11 +11,12 @@ const TABS: { id: Tab; label: string }[] = [
   { id: "stair", label: "Stairs" },
 ];
 
-// 80 lb premix bag yields ~0.6 ft³; US modular brick with 3/8" joints ≈ 6.75 per ft²
+// 80 lb premix bag yields ~0.6 ft³ (Quikrete 1101); US modular brick = 675 per 100 ft² (BIA TN 10)
 const BAG_80LB_FT3 = 0.6;
 const BRICKS_PER_FT2 = 6.75;
 const MAX_RISER_IN = 7.75; // 2024 IRC R318.7.5.1
 const MIN_TREAD_IN = 10; // 2024 IRC R318.7.5.2
+const MAX_FLIGHT_RISE_IN = 151; // 2024 IRC R318.7.3 — landing required above this
 
 const num = (v: string) => {
   const n = parseFloat(v);
@@ -91,7 +92,7 @@ function Result({
 export default function QuickCalc() {
   const [tab, setTab] = useState<Tab>("slab");
   const [slab, setSlab] = useState({ l: "10", w: "10", d: "4" });
-  const [wall, setWall] = useState({ l: "20", h: "6" });
+  const [wall, setWall] = useState({ l: "20", h: "8" });
   const [rise, setRise] = useState("108");
 
   // Slab — includes 10% waste, matching the concrete calculator default
@@ -99,20 +100,22 @@ export default function QuickCalc() {
   const slabYd = ft3 > 0 ? (ft3 / 27).toFixed(2) : "—";
   const slabBags = ft3 > 0 ? ceilCount(ft3 / BAG_80LB_FT3).toLocaleString("en-US") : "—";
 
-  // Brick wall — includes 5% waste
+  // Brick wall — includes 10% waste, same rounding as the brick calculator default
   const area = num(wall.l) * num(wall.h);
-  const bricks = area > 0 ? ceilCount(area * BRICKS_PER_FT2 * 1.05).toLocaleString("en-US") : "—";
+  const bricks = area > 0 ? ceilCount(ceilCount(area * BRICKS_PER_FT2) * 1.1).toLocaleString("en-US") : "—";
 
   // Stairs
   const totalRise = num(rise);
   const risers = totalRise > 0 ? ceilCount(totalRise / MAX_RISER_IN) : 0;
   const treads = Math.max(risers - 1, 0);
+  const needsLanding = totalRise > MAX_FLIGHT_RISE_IN;
 
   const resultGrid: React.CSSProperties = {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
     gap: "10px",
   };
+  const noteStyle: React.CSSProperties = { fontSize: "13px", color: "var(--text-2)", lineHeight: 1.5 };
   const fullLink: React.CSSProperties = {
     fontSize: "14px",
     fontWeight: 600,
@@ -187,11 +190,15 @@ export default function QuickCalc() {
             <NumField id="qc-wall-h" label="Wall height (ft)" value={wall.h} onChange={(v) => setWall({ ...wall, h: v })} />
           </div>
           <div style={resultGrid}>
-            <Result primary label="Bricks needed" value={bricks} unit="US modular bricks (incl. 5% waste)" />
-            <Result label="Wall area" value={area > 0 ? area.toFixed(0) : "—"} unit="sq ft at 6.75 bricks / sq ft" />
+            <Result primary label="Bricks needed" value={bricks} unit="US modular bricks (incl. 10% waste)" />
+            <Result label="Wall area" value={area > 0 ? area.toLocaleString("en-US", { maximumFractionDigits: 2 }) : "—"} unit="sq ft at 6.75 bricks / sq ft" />
           </div>
+          <p style={noteStyle}>
+            Counts one wythe, such as veneer over a framed wall. It does not check that a wall is safe
+            to build: a free-standing wall this thin is only suitable at very low heights.
+          </p>
           <Link href="/brick-calculator" style={fullLink}>
-            Full brick calculator — metric bricks, pallets →
+            Full brick calculator — US &amp; UK bricks, pallets →
           </Link>
         </div>
       )}
@@ -207,11 +214,17 @@ export default function QuickCalc() {
               unit={risers > 0 ? `at ${(totalRise / risers).toFixed(2)} in each (IRC max 7¾ in)` : "IRC max 7¾ in each"}
             />
             <Result
-              label="Shortest total run"
+              label={needsLanding ? "Run without landing" : "Shortest total run"}
               value={treads > 0 ? String(treads * MIN_TREAD_IN) : "—"}
-              unit={treads > 0 ? `in, with ${treads} treads at the ${MIN_TREAD_IN} in minimum` : "in"}
+              unit={treads > 0 ? `in, with ${treads} ${treads === 1 ? "tread" : "treads"} at the ${MIN_TREAD_IN} in minimum` : "in"}
             />
           </div>
+          {needsLanding && (
+            <p style={noteStyle}>
+              Above {MAX_FLIGHT_RISE_IN} in the IRC limits the rise of a single flight, so a landing is
+              needed. The run shown leaves out the landing, which also changes the tread count.
+            </p>
+          )}
           <Link href="/stair-calculator" style={fullLink}>
             Full stair calculator — stringer length, IRC check →
           </Link>
