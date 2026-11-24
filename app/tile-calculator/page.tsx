@@ -30,12 +30,12 @@ const faqs = [
   {
     question: "How many tiles do I need for a room?",
     answer:
-      "Divide your room area by the area of a single tile (including the grout joint). For example, a 12 m² room with 60×60cm tiles needs about 33 tiles before adding waste allowance.",
+      "Divide your room area by the area of a single tile (including the grout joint). For example, a 12 m² room with 60 × 60 cm tiles and 3 mm joints needs 12 ÷ 0.603² = 33.002, which rounds up to 34 tiles before adding waste.",
   },
   {
     question: "How much extra tile should I buy for waste?",
     answer:
-      "Add 10% extra for straight-laid tiles, and 15% for diagonal, herringbone, or patterned layouts to account for cuts and breakage.",
+      "As a rule of thumb, add 10% extra for straight-laid floor tile and 15–20% in total for diagonal, herringbone or other patterned layouts, to cover cuts and breakage.",
   },
   {
     question: "What size grout joint should I use?",
@@ -45,7 +45,7 @@ const faqs = [
   {
     question: "How many tiles come in a box?",
     answer:
-      "Box quantities vary by manufacturer and tile size, but 10 tiles per box is common for medium-format floor tiles. Always check the specific product packaging.",
+      "It varies by manufacturer and tile size. Enter the quantity printed on the packaging in the tiles-per-box field to get a box count.",
   },
 ];
 

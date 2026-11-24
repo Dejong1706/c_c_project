@@ -31,17 +31,17 @@ const faqs = [
   {
     question: "How many fence posts do I need?",
     answer:
-      "Divide your total fence length by your post spacing, round up, then add 1. For a 100 ft fence at 8 ft spacing: ⌈100 ÷ 8⌉ + 1 = 14 posts. Add 2 extra posts per gate opening.",
+      "Divide your total fence length by your post spacing, round up, then add 1. For a 100 ft fence at 8 ft spacing: ⌈100 ÷ 8⌉ + 1 = 14 posts. If the fence has gates, take the gate openings off the length first, then add 2 posts per gate.",
   },
   {
     question: "How far apart should fence posts be?",
     answer:
-      "8 feet on centre is the standard for most wood and vinyl fences. Use 6 ft spacing for fences over 6 ft tall or in high-wind areas. Chain-link fences typically use 10 ft spacing.",
+      "Common spacing is up to 8 ft on centre for wood and 10 ft for chain link; for vinyl, match the panel width. Going down to 6 ft for fences over 6 ft tall or in windy places is a rule of thumb. These are common practice, not a standard, so check the fence manufacturer's instructions.",
   },
   {
     question: "How deep should fence posts be buried?",
     answer:
-      "Quikrete's post-setting instructions say to dig the hole 1/3 of the overall post length deep — which works out to half the above-ground height. A 6 ft fence needs 3 ft buried and a 9 ft post (cut from a 10 ft length). In cold climates, set posts below the local frost line (often 48 inches or more in northern states) to prevent frost heave, and check your local requirements.",
+      "Quikrete's post-setting instructions say to dig the hole 1/3 of the overall post length deep — which works out to half the above-ground height. A 6 ft fence needs 3 ft buried and a 9 ft post (cut from a 10 ft length). Frost depth varies widely by location. Where frost heave is a risk, set the posts below your local frost line and ask your building department for the depth.",
   },
   {
     question: "How many bags of concrete do I need per fence post?",

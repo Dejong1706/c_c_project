@@ -8,7 +8,7 @@ import { ceilCount } from "../components/calcMath";
 type UnitLen = "m" | "ft" | "cm" | "in";
 const toM: Record<UnitLen, number> = { m: 1, ft: 0.3048, cm: 0.01, in: 0.0254 };
 
-const TYPES = ["Rectangular pit", "Trench", "Sloped sides"];
+const TYPES = ["Rectangular pit", "Trench", "Trench, sloped sides", "Pit, sloped sides"];
 
 export default function ExcavationCalc() {
   const [type, setType] = useState(0);
@@ -16,16 +16,20 @@ export default function ExcavationCalc() {
   const [lenUnit, setLenUnit] = useState<UnitLen>("m");
   const [width, setWidth] = useState("");
   const [wUnit, setWUnit] = useState<UnitLen>("m");
+  const [lengthBottom, setLengthBottom] = useState("");
+  const [lbUnit, setLbUnit] = useState<UnitLen>("m");
   const [widthBottom, setWidthBottom] = useState("");
   const [wbUnit, setWbUnit] = useState<UnitLen>("m");
   const [depth, setDepth] = useState("");
   const [dUnit, setDUnit] = useState<UnitLen>("m");
-  const [waste, setWaste] = useState(15);
+  const [waste, setWaste] = useState(10);
+  const [swell, setSwell] = useState(25);
 
   const results = useMemo(() => {
     const L = (parseFloat(length) || 0) * toM[lenUnit];
     const W = (parseFloat(width) || 0) * toM[wUnit];
     const Wb = (parseFloat(widthBottom) || 0) * toM[wbUnit];
+    const Lb = (parseFloat(lengthBottom) || 0) * toM[lbUnit];
     const D = (parseFloat(depth) || 0) * toM[dUnit];
 
     let netVol = 0;
@@ -33,45 +37,51 @@ export default function ExcavationCalc() {
       // sloped: average of top and bottom width (a blank bottom width would
       // silently halve the volume, so require it)
       netVol = Wb > 0 ? ((W + Wb) / 2) * L * D : 0;
+    } else if (type === 3) {
+      // pit with four sloped sides: prismoidal formula, D/6 × (top + 4 × middle + bottom)
+      netVol =
+        Wb > 0 && Lb > 0
+          ? (D / 6) * (L * W + (L + Lb) * (W + Wb) + Lb * Wb)
+          : 0;
     } else {
       // rectangular pit or trench
       netVol = L * W * D;
     }
 
     const withWaste = netVol * (1 + waste / 100);
-    const trucks = withWaste > 0 ? ceilCount(withWaste / 6) : "—";
+    const loose = withWaste * (1 + swell / 100);
+    const trucks = loose > 0 ? ceilCount(loose / 6) : "—";
 
     return [
       {
-        label: "Volume (net)",
+        label: "Volume in the ground (net)",
         value: netVol > 0 ? netVol.toFixed(3) : "—",
         unit: "cubic metres (m³)",
         tier: 1 as const,
       },
       {
-        label: `With ${waste}% buffer`,
+        label: `With ${waste}% over-excavation`,
         value: withWaste > 0 ? withWaste.toFixed(3) : "—",
         unit: "m³",
         tier: 2 as const,
       },
       {
-        label: `Cubic yards (incl. ${waste}% buffer)`,
-        value: withWaste > 0 ? (withWaste * 1.30795).toFixed(2) : "—",
+        label: `Cubic yards (incl. ${waste}% over-excavation)`,
+        value: withWaste > 0 ? (withWaste / 0.764554857984).toFixed(2) : "—",
         unit: "yd³",
+        tier: 2 as const,
+      },
+      {
+        label: `Loose soil to remove (${swell}% swell)`,
+        value: loose > 0 ? loose.toFixed(2) : "—",
+        unit: loose > 0 ? `m³ (${(loose / 0.764554857984).toFixed(2)} yd³)` : "m³",
         tier: 2 as const,
       },
       {
         label: "Removal trucks",
         value: trucks,
-        unit: "@ 6m³ / truck",
-        tier: 3 as const,
-      },
-      {
-        label: "Litres",
-        value:
-          withWaste > 0 ? Math.round(withWaste * 1000).toLocaleString() : "—",
-        unit: "L",
-        tier: 3 as const,
+        unit: "loads @ 6 m³ loose (example size)",
+        tier: 2 as const,
       },
     ];
   }, [
@@ -81,18 +91,22 @@ export default function ExcavationCalc() {
     wUnit,
     widthBottom,
     wbUnit,
+    lengthBottom,
+    lbUnit,
     depth,
     dUnit,
     waste,
+    swell,
     type,
   ]);
 
-  const isSloped = type === 2;
+  const isSloped = type >= 2;
+  const isSlopedPit = type === 3;
 
   const inputs = (
     <>
       <Field
-        label="Length"
+        label={isSlopedPit ? "Length (top)" : "Length"}
         id="length"
         value={length}
         onChange={setLength}
@@ -101,6 +115,18 @@ export default function ExcavationCalc() {
         selectedUnit={lenUnit}
         onUnitChange={(v) => setLenUnit(v as UnitLen)}
       />
+      {isSlopedPit && (
+        <Field
+          label="Length (bottom)"
+          id="lengthBottom"
+          value={lengthBottom}
+          onChange={setLengthBottom}
+          placeholder="e.g. 4"
+          units={["m", "ft", "cm", "in"]}
+          selectedUnit={lbUnit}
+          onUnitChange={(v) => setLbUnit(v as UnitLen)}
+        />
+      )}
       <Field
         label={isSloped ? "Width (top)" : "Width"}
         id="width"
@@ -136,20 +162,21 @@ export default function ExcavationCalc() {
       <WasteSlider
         value={waste}
         onChange={setWaste}
-        label="Over-excavation buffer"
+        label="Over-excavation allowance"
       />
+      <WasteSlider value={swell} onChange={setSwell} label="Soil swell when dug" max={60} />
     </>
   );
 
   return (
     <CalcShell
       title="Excavation calculator"
-      description="Calculate the volume of soil or material to be excavated for pits, trenches and sloped-side cuts. Results in m³, cubic yards and truck loads."
+      description="Calculate the volume of soil or material to be excavated for pits and trenches with vertical or sloped sides. Results in m³, cubic yards and truck loads."
       types={TYPES}
       onTypeChange={setType}
       inputs={inputs}
       results={results}
-      notice="Add 10–15% buffer to account for over-excavation and soil swell. Actual removal volume may vary depending on soil type."
+      notice="Dug soil takes up more space than soil in the ground. The 10% over-excavation and 25% swell are planning figures, not standards: swell depends on the soil, so ask your haulage company or use a site figure. Trench, sloped sides assumes vertical ends; use Pit, sloped sides when all four sides slope. Safety (US): OSHA 1926.652 requires protection from cave-ins in an excavation unless it is entirely in stable rock, or is less than 5 ft (1.52 m) deep and a competent person finds no sign of a potential cave-in."
       related={[
         {
           href: "/concrete-calculator",

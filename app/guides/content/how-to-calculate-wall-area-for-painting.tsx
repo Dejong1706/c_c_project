@@ -28,12 +28,12 @@ const faqs = [
   {
     question: "How much paint do I need per m²?",
     answer:
-      "Most standard emulsion paints cover 10–12 m² per litre for a single coat. Higher-pigment or specialist paints may cover less — always check the manufacturer's stated coverage rate on the tin. For two coats on new plaster or a significant colour change, divide your wall area by the coverage rate and multiply by 2.",
+      "Use the coverage on the tin; 10–12 m² per litre for a single coat is a common planning range indoors. Divide your wall area by the coverage rate and multiply by the number of coats. On new plaster, allow for a mist coat as well as two full coats.",
   },
   {
     question: "How many coats of paint do I need?",
     answer:
-      "For repainting a similar colour on a sound surface: 1–2 coats. For a significant colour change (e.g. dark to light or vice versa): 2–3 coats. For new plaster or bare walls: a diluted mist coat first, then 2 full coats. New plaster is highly absorbent — skipping the mist coat leads to uneven finish and peeling.",
+      "For repainting a similar colour on a sound surface: 1–2 coats. For a significant colour change (e.g. dark to light or vice versa): 2–3 coats. For new plaster or bare walls: a diluted mist coat first, then 2 full coats. The mist coat seals the absorbent plaster so the finish coats go on evenly. These are rules of thumb, so follow the tin.",
   },
   {
     question: "Should I add waste when ordering paint?",
@@ -65,7 +65,7 @@ const articleSchema = {
     "Step-by-step guide to calculating wall area for painting — including rooms with doors and windows, ceilings, number of coats, and how much paint to order.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-wall-area-for-painting" },
   datePublished: "2026-06-21",
-  dateModified: "2026-06-21",
+  dateModified: "2026-11-24",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -191,8 +191,7 @@ export default function HowToCalculateWallAreaForPainting() {
         {/* Step 4 — Coats */}
         <h2 style={sectionHeading}>Step 4 — Decide on Number of Coats</h2>
         <p style={paragraph}>
-          The number of coats affects how much paint you need. Use the table
-          below as a guide.
+          The number of coats affects how much paint you need. These are rules of thumb; follow the tin.
         </p>
         <table style={table}>
           <thead>
@@ -223,19 +222,18 @@ export default function HowToCalculateWallAreaForPainting() {
           </tbody>
         </table>
         <div style={note}>
-          A mist coat is standard emulsion diluted with 10–20% water. It seals
-          new plaster and prevents the topcoats from being absorbed unevenly.
-          Skipping it on new plaster is one of the most common causes of patchy
-          finish.
+          A mist coat is thinned emulsion that seals new plaster so the topcoats
+          are not absorbed unevenly. Follow the tin for the dilution: Dulux Trade
+          Vinyl Matt, for example, allows up to 1 part water to 5 parts paint on
+          new or bare surfaces.
         </div>
 
         {/* Step 5 — Paint quantity */}
         <h2 style={sectionHeading}>Step 5 — Calculate Paint Quantity</h2>
         <p style={paragraph}>
-          Most standard emulsion paints cover{" "}
-          <strong>10–12 m² per litre</strong> per coat. Always check the
-          coverage rate on the tin — premium or high-pigment paints often cover
-          less.
+          A common planning range for interior emulsion is{" "}
+          <strong>10–12 m² per litre</strong> per coat. Use the coverage rate on
+          the tin, because it varies by product and surface.
         </p>
         <div style={formula}>
           Litres needed = (Net wall area × number of coats) ÷ coverage rate
@@ -284,7 +282,7 @@ export default function HowToCalculateWallAreaForPainting() {
         <p style={paragraph}>
           <strong>Example continued:</strong> 7.07 litres + 10% waste:
         </p>
-        <div style={formula}>7.07 × 1.10 = 7.78 litres → buy 8 litres</div>
+        <div style={formula}>7.07 × 1.10 = 7.78 litres → buy 8.5 L (5 + 2.5 + 1 L tins)</div>
         <div style={note}>
           Order in standard tin sizes (1 L, 2.5 L, 5 L) and round up. Leftover
           paint from the same batch is useful for future touch-ups — colour
@@ -339,49 +337,30 @@ export default function HowToCalculateWallAreaForPainting() {
         </ul>
 
         {/* Common coverage rates */}
-        <h2 style={sectionHeading}>Common Paint Coverage Rates</h2>
+        <h2 style={sectionHeading}>Example Paint Coverage Rates</h2>
         <p style={paragraph}>
-          Coverage varies by paint type. Use these as a starting point and
-          always verify against the tin.
+          Coverage varies by product and surface. These are published figures read
+          in November 2026; use the one on your tin.
         </p>
         <table style={table}>
           <thead>
             <tr>
-              <th style={th}>Paint Type</th>
-              <th style={th}>Typical Coverage</th>
-              <th style={th}>Notes</th>
+              <th style={th}>Paint (manufacturer&apos;s stated coverage)</th>
+              <th style={th}>Coverage per coat</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style={td}>Standard emulsion (walls)</td>
-              <td style={td}>10–12 m²/L</td>
-              <td style={td}>Most common interior wall paint</td>
+              <td style={td}>Dulux Trade Vinyl Matt (UK, interior)</td>
+              <td style={td}>Up to 17 m²/L</td>
             </tr>
             <tr>
-              <td style={td}>Matt emulsion</td>
-              <td style={td}>10–12 m²/L</td>
-              <td style={td}>Hides surface imperfections well</td>
+              <td style={td}>Benjamin Moore Regal Select, flat (US, interior)</td>
+              <td style={td}>400–450 ft²/gal (9.8–11.0 m²/L)</td>
             </tr>
             <tr>
-              <td style={td}>Silk / satin emulsion</td>
-              <td style={td}>10–11 m²/L</td>
-              <td style={td}>Washable, used in kitchens and bathrooms</td>
-            </tr>
-            <tr>
-              <td style={td}>Eggshell (oil-based)</td>
-              <td style={td}>8–10 m²/L</td>
-              <td style={td}>Durable, slow drying</td>
-            </tr>
-            <tr>
-              <td style={td}>Masonry paint (exterior)</td>
-              <td style={td}>4–6 m²/L</td>
-              <td style={td}>Lower coverage due to textured surfaces</td>
-            </tr>
-            <tr>
-              <td style={td}>Primer / undercoat</td>
-              <td style={td}>8–10 m²/L</td>
-              <td style={td}>Higher pigment, covers less per litre</td>
+              <td style={td}>Benjamin Moore Element Guard, flat (US, exterior)</td>
+              <td style={td}>300–400 ft²/gal (7.4–9.8 m²/L)</td>
             </tr>
           </tbody>
         </table>
@@ -393,8 +372,8 @@ export default function HowToCalculateWallAreaForPainting() {
           <Link href="/paint-calculator" style={link}>
             Paint Calculator
           </Link>{" "}
-          to enter your room dimensions, number of coats, and coverage rate — it
-          calculates the exact litres needed in one step.
+          to enter your room dimensions, number of coats, and coverage rate — it calculates the litres for the gross wall area,
+          without deducting doors and windows.
         </p>
 
         <RelatedGuides

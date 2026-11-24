@@ -49,7 +49,7 @@ export default function ConcreteCalc() {
       },
       {
         label: "Cubic yards",
-        value: withWaste > 0 ? (withWaste * 1.30795).toFixed(2) : "—",
+        value: withWaste > 0 ? (withWaste / 0.764554857984).toFixed(2) : "—",
         unit: "yd³",
         tier: 2 as const,
       },

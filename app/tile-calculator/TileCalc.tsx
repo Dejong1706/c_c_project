@@ -82,6 +82,7 @@ export default function TileCalc() {
   const [twUnit, setTwUnit] = useState("cm");
   const [grout, setGrout] = useState(String(TILE_APPS.floor.defaultGroutMm));
   const [waste, setWaste] = useState(TILE_APPS.floor.defaultWaste);
+  const [boxQty, setBoxQty] = useState("");
 
   const appKey = APP_ORDER[appIdx];
   const app = TILE_APPS[appKey];
@@ -105,6 +106,7 @@ export default function TileCalc() {
     const tileArea = (TL + G) * (TW + G);
     const net = tileArea > 0 ? ceilCount(area / tileArea) : 0;
     const total = ceilCount(net * (1 + waste / 100));
+    const perBox = parseFloat(boxQty) || 0;
     return [
       {
         label: app.areaLabel,
@@ -119,9 +121,9 @@ export default function TileCalc() {
         tier: 2 as const,
       },
       {
-        label: `Boxes (10 tiles/box)`,
-        value: total > 0 ? ceilCount(total / 10) : "—",
-        unit: "boxes",
+        label: "Boxes",
+        value: total > 0 && perBox > 0 ? ceilCount(total / perBox) : "—",
+        unit: perBox > 0 ? `boxes of ${perBox}` : "enter tiles per box",
         tier: 2 as const,
       },
       {
@@ -149,6 +151,7 @@ export default function TileCalc() {
     twUnit,
     grout,
     waste,
+    boxQty,
   ]);
 
   const inputs = (
@@ -226,6 +229,14 @@ export default function TileCalc() {
         units={["mm"]}
         hint={`typical ${app.defaultGroutMm} mm`}
       />
+      <Field
+        label="Tiles per box"
+        id="boxQty"
+        value={boxQty}
+        onChange={setBoxQty}
+        placeholder="e.g. 8"
+        hint="optional, from the packaging"
+      />
       <WasteSlider value={waste} onChange={setWaste} label="Waste / cuts" />
     </>
   );
@@ -244,7 +255,7 @@ export default function TileCalc() {
           : appKey === "wall"
           ? "wall tiling needs extra cuts around corners and fixtures"
           : "floor tiling is mostly straight cuts along the perimeter"
-      }). Add 10–15% more on top for herringbone or diagonal patterns.`}
+      }). For diagonal or herringbone patterns, set the total to at least 15–20%. These percentages are rules of thumb.`}
       related={[
         {
           href: "/concrete-calculator",

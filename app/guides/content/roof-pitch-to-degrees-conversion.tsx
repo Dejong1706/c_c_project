@@ -47,7 +47,7 @@ const articleSchema = {
     "Roof pitch to degrees chart for x:12, percent slope and pitch factor, with OSHA low-slope/steep categories and 2024 IRC minimum pitch by roofing material.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/roof-pitch-to-degrees-conversion" },
   datePublished: "2026-07-22",
-  dateModified: "2026-11-05",
+  dateModified: "2026-11-24",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -169,8 +169,8 @@ export default function RoofPitchToDegreesConversion() {
         <div style={note}>
           OSHA 29 CFR 1926.500 defines a low-slope roof as 4:12 or less and a
           steep roof as over 4:12. Pitch factor = √((x/12)² + 1) — multiply
-          your flat roof footprint by this number to get the true sloped
-          surface area for material ordering.
+          your flat roof footprint, including overhangs, by this number to get
+          the true sloped surface area before waste.
         </div>
 
         {/* Worked examples */}
@@ -216,11 +216,11 @@ export default function RoofPitchToDegreesConversion() {
             marginTop: "16px",
           }}
         >
-          Example 3 — pitch factor for material ordering
+          Example 3 — pitch factor for roof area
         </p>
         <div style={formula}>
           6:12 pitch, 2,000 sq ft footprint &rarr; 2,000 &times; 1.118 ={" "}
-          <strong>2,236 sq ft</strong> of roofing material
+          <strong>2,236 sq ft</strong> of roof surface, before waste
         </div>
 
         {/* Material guide */}

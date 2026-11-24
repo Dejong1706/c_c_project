@@ -8,9 +8,9 @@ import { ceilCount } from "../components/calcMath";
 type UnitLen = "ft" | "m" | "in" | "cm";
 const toFt: Record<UnitLen, number> = {
   ft: 1,
-  m: 3.28084,
+  m: 1 / 0.3048,
   in: 1 / 12,
-  cm: 0.0328084,
+  cm: 0.01 / 0.3048,
 };
 
 export default function BagCalc() {

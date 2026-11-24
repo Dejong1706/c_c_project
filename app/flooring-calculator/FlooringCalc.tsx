@@ -5,12 +5,12 @@ import Field from "../components/Field";
 import { ceilCount } from "../components/calcMath";
 
 type UnitLen = "ft" | "m";
-const toFt: Record<UnitLen, number> = { ft: 1, m: 3.28084 };
+const toFt: Record<UnitLen, number> = { ft: 1, m: 1 / 0.3048 };
 
 type FlooringType = "lvp" | "hardwood" | "laminate" | "tile" | "carpet";
 type Layout = "straight" | "diagonal";
 
-// Waste factors per NWFA / 2020Flooring / remodelcalculators
+// Waste percentages are rules of thumb, not from a standard
 const FLOORING_TYPES: Record<
   FlooringType,
   {
@@ -234,12 +234,12 @@ export default function FlooringCalc() {
       onTypeChange={setTypeIdx}
       inputs={inputs}
       results={results}
-      notice={`${flooring2.label} — ${layout} layout — ${currentWaste}% waste factor applied (per NWFA guidelines). Diagonal and pattern layouts need more waste due to extra cuts. Always order from the same dye lot — reordering a partial box later may not match.`}
+      notice={`${flooring2.label} — ${layout} layout — ${currentWaste}% waste applied. Waste percentages are rules of thumb; follow the product's instructions if they say otherwise. Diagonal and pattern layouts need more waste due to extra cuts. Always order from the same dye lot — reordering a partial box later may not match.`}
       related={[
         {
           href: "/tile-calculator",
           label: "Tile calculator",
-          desc: "Tiles & grout estimator",
+          desc: "Tile count & boxes",
         },
         {
           href: "/paint-calculator",

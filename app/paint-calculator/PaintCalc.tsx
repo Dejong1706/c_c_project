@@ -7,6 +7,10 @@ import { ceilCount } from "../components/calcMath";
 type UnitLen = "m" | "ft";
 const toM: Record<UnitLen, number> = { m: 1, ft: 0.3048 };
 
+const TYPES = ["Walls", "Ceiling", "Exterior walls"];
+// Starting values only (m²/L); the tin overrides them
+const DEFAULT_COVERAGE = [10, 10, 7];
+
 export default function PaintCalc() {
   const [type, setType] = useState(0);
   const [roomL, setRoomL] = useState("");
@@ -15,16 +19,19 @@ export default function PaintCalc() {
   const [rwUnit, setRwUnit] = useState<UnitLen>("m");
   const [ceilH, setCeilH] = useState("");
   const [chUnit, setChUnit] = useState<UnitLen>("m");
+  const [coverage, setCoverage] = useState("");
   const [coats, setCoats] = useState(2);
 
   const isCeiling = type === 1;
+  const isExterior = type === 2;
+  const rate = parseFloat(coverage) || DEFAULT_COVERAGE[type];
 
   const results = useMemo(() => {
     const L = (parseFloat(roomL) || 0) * toM[rlUnit];
     const W = (parseFloat(roomW) || 0) * toM[rwUnit];
     const H = (parseFloat(ceilH) || 0) * toM[chUnit];
     const area = isCeiling ? L * W : 2 * (L + W) * H;
-    const litres = (area / 10) * coats;
+    const litres = (area / rate) * coats;
     return [
       {
         label: `Paint needed (${coats} coat${coats > 1 ? "s" : ""})`,
@@ -52,17 +59,17 @@ export default function PaintCalc() {
       },
       {
         label: "Coverage rate",
-        value: "10",
-        unit: "m² per litre",
+        value: String(rate),
+        unit: "m² per litre per coat",
         tier: 3 as const,
       },
     ];
-  }, [roomL, rlUnit, roomW, rwUnit, ceilH, chUnit, coats, isCeiling]);
+  }, [roomL, rlUnit, roomW, rwUnit, ceilH, chUnit, coats, isCeiling, rate]);
 
   const inputs = (
     <>
       <Field
-        label="Room length"
+        label={isExterior ? "Building length" : "Room length"}
         id="roomL"
         value={roomL}
         onChange={setRoomL}
@@ -72,7 +79,7 @@ export default function PaintCalc() {
         onUnitChange={(v) => setRlUnit(v as UnitLen)}
       />
       <Field
-        label="Room width"
+        label={isExterior ? "Building width" : "Room width"}
         id="roomW"
         value={roomW}
         onChange={setRoomW}
@@ -83,7 +90,7 @@ export default function PaintCalc() {
       />
       {!isCeiling && (
         <Field
-          label="Ceiling height"
+          label={isExterior ? "Wall height" : "Ceiling height"}
           id="ceilH"
           value={ceilH}
           onChange={setCeilH}
@@ -93,6 +100,14 @@ export default function PaintCalc() {
           onUnitChange={(v) => setChUnit(v as UnitLen)}
         />
       )}
+      <Field
+        label="Coverage from the tin (m²/L)"
+        id="coverage"
+        value={coverage}
+        onChange={setCoverage}
+        placeholder={String(DEFAULT_COVERAGE[type])}
+        hint={`default ${DEFAULT_COVERAGE[type]}`}
+      />
       <div
         style={{
           marginTop: "14px",
@@ -140,12 +155,12 @@ export default function PaintCalc() {
   return (
     <CalcShell
       title="Paint calculator"
-      description="How much paint do you need? Enter room dimensions and coating preferences to get litres required and tin count. Based on 10 m²/litre standard coverage."
-      types={["Walls", "Ceiling", "Exterior"]}
+      description="How much paint do you need? Enter room dimensions and coating preferences to get litres required and tin count. Enter the coverage from your tin, or use the default starting value."
+      types={TYPES}
       onTypeChange={setType}
       inputs={inputs}
       results={results}
-      notice="Based on 10 m²/L coverage. Rough or porous surfaces may need 20% more. Windows and doors are not deducted, which leaves a small margin for waste."
+      notice="Default coverage is 10 m²/L indoors and 7 m²/L for exterior walls. These are starting values: use the figure on your tin. Rough or porous surfaces take more paint. Windows and doors are not deducted, which leaves a small margin for waste. 1 US gallon = 3.785 L; 400 ft²/gal = 9.8 m²/L."
       related={[
         {
           href: "/tile-calculator",

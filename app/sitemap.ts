@@ -5,20 +5,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const pages: { route: string; date: string; priority: number }[] = [
     { route: "", date: "2026-11-24", priority: 1 },
-    { route: "/concrete-calculator", date: "2026-10-08", priority: 0.9 },
-    { route: "/concrete-bags", date: "2026-11-23", priority: 0.9 },
-    { route: "/tile-calculator", date: "2026-10-20", priority: 0.9 },
+    { route: "/concrete-calculator", date: "2026-11-24", priority: 0.9 },
+    { route: "/concrete-bags", date: "2026-11-24", priority: 0.9 },
+    { route: "/tile-calculator", date: "2026-11-24", priority: 0.9 },
     { route: "/brick-calculator", date: "2026-11-24", priority: 0.9 },
-    { route: "/paint-calculator", date: "2026-10-08", priority: 0.9 },
-    { route: "/rebar-calculator", date: "2026-11-23", priority: 0.9 },
-    { route: "/excavation-calculator", date: "2026-10-08", priority: 0.9 },
+    { route: "/paint-calculator", date: "2026-11-24", priority: 0.9 },
+    { route: "/rebar-calculator", date: "2026-11-24", priority: 0.9 },
+    { route: "/excavation-calculator", date: "2026-11-24", priority: 0.9 },
     { route: "/mortar-calculator", date: "2026-11-23", priority: 0.9 },
-    { route: "/flooring-calculator", date: "2026-10-08", priority: 0.9 },
-    { route: "/fence-calculator", date: "2026-11-23", priority: 0.9 },
-    { route: "/mulch-calculator", date: "2026-10-08", priority: 0.9 },
-    { route: "/stair-calculator", date: "2026-10-16", priority: 0.9 },
-    { route: "/drywall-calculator", date: "2026-10-19", priority: 0.9 },
-    { route: "/roof-pitch-calculator", date: "2026-10-21", priority: 0.9 },
+    { route: "/flooring-calculator", date: "2026-11-24", priority: 0.9 },
+    { route: "/fence-calculator", date: "2026-11-24", priority: 0.9 },
+    { route: "/mulch-calculator", date: "2026-11-24", priority: 0.9 },
+    { route: "/stair-calculator", date: "2026-11-24", priority: 0.9 },
+    { route: "/drywall-calculator", date: "2026-11-24", priority: 0.9 },
+    { route: "/roof-pitch-calculator", date: "2026-11-24", priority: 0.9 },
     { route: "/unit-converter", date: "2026-10-30", priority: 0.8 },
     { route: "/guides", date: "2026-10-23", priority: 0.8 },
     {
@@ -43,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-many-tiles-do-i-need",
-      date: "2026-11-05",
+      date: "2026-11-24",
       priority: 0.7,
     },
     {
@@ -58,17 +58,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-to-calculate-paint-coverage",
-      date: "2026-06-15",
+      date: "2026-11-24",
       priority: 0.7,
     },
     {
       route: "/guides/how-to-calculate-wall-area-for-painting",
-      date: "2026-06-21",
+      date: "2026-11-24",
       priority: 0.7,
     },
     {
       route: "/guides/how-many-bricks-per-square-metre",
-      date: "2026-10-22",
+      date: "2026-11-24",
       priority: 0.7,
     },
     {
@@ -78,7 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/standard-brick-sizes-by-country",
-      date: "2026-06-16",
+      date: "2026-11-24",
       priority: 0.7,
     },
     {
@@ -93,7 +93,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-to-calculate-fence-post-spacing",
-      date: "2026-10-16",
+      date: "2026-11-24",
       priority: 0.7,
     },
     {
@@ -118,17 +118,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-to-calculate-stair-rise-and-run",
-      date: "2026-10-16",
+      date: "2026-11-24",
       priority: 0.7,
     },
     {
       route: "/guides/stair-building-code-requirements",
-      date: "2026-10-16",
+      date: "2026-11-24",
       priority: 0.7,
     },
     {
       route: "/guides/how-to-calculate-drywall-sheets",
-      date: "2026-11-05",
+      date: "2026-11-24",
       priority: 0.7,
     },
     {
@@ -138,12 +138,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-to-calculate-roof-pitch",
-      date: "2026-10-21",
+      date: "2026-11-24",
       priority: 0.7,
     },
     {
       route: "/guides/roof-pitch-to-degrees-conversion",
-      date: "2026-11-05",
+      date: "2026-11-24",
       priority: 0.7,
     },
     { route: "/privacy-policy", date: "2026-07-02", priority: 0.3 },

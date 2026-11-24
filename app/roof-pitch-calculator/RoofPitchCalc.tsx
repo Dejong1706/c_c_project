@@ -5,7 +5,7 @@ import Field from "../components/Field";
 
 type InputMode = "riseRun" | "degrees" | "ratio";
 type UnitLen = "ft" | "m";
-const toFt: Record<UnitLen, number> = { ft: 1, m: 3.28084 };
+const toFt: Record<UnitLen, number> = { ft: 1, m: 1 / 0.3048 };
 
 const INPUT_MODES: Record<InputMode, { label: string }> = {
   riseRun: { label: "Rise & Run" },
@@ -46,7 +46,10 @@ export default function RoofPitchCalc() {
   const [runUnit, setRunUnit] = useState<UnitLen>("ft");
   const [degrees, setDegrees] = useState("");
   const [xRatio, setXRatio] = useState("");
-  const [spanFt, setSpanFt] = useState("");
+  const [span, setSpan] = useState("");
+  const [spanUnit, setSpanUnit] = useState<UnitLen>("ft");
+  const [bLen, setBLen] = useState("");
+  const [bLenUnit, setBLenUnit] = useState<UnitLen>("ft");
 
   const mode = MODE_ORDER[modeIdx];
 
@@ -90,10 +93,12 @@ export default function RoofPitchCalc() {
     const rafterPerFt = Math.sqrt(1 + risePerRun ** 2);
 
     // If span provided, calculate full rafter length
-    const spanVal = parseFloat(spanFt) || 0;
+    const spanVal = (parseFloat(span) || 0) * toFt[spanUnit];
+    const lenVal = (parseFloat(bLen) || 0) * toFt[bLenUnit];
     const halfSpan = spanVal / 2; // rafter run = half span for gable
     const rafterLength = halfSpan > 0 ? rafterPerFt * halfSpan : 0;
-    const roofArea = halfSpan > 0 ? halfSpan * pitchFactor * spanVal : 0;
+    // Gable roof: each slope is rafter length × building length
+    const sideArea = rafterLength * lenVal;
 
     return [
       {
@@ -146,20 +151,23 @@ export default function RoofPitchCalc() {
                 1
               )} in)`
             : "—",
-        unit:
-          halfSpan > 0
-            ? `half-span ${halfSpan.toFixed(1)} ft`
-            : "enter span below",
+        unit: halfSpan > 0 ? `for a ${halfSpan.toFixed(1)} ft run (half the span)` : "enter the span",
         tier: 3,
       },
       {
-        label: "True roof area (one side)",
-        value: valid && roofArea > 0 ? `${roofArea.toFixed(1)} sq ft` : "—",
-        unit: halfSpan > 0 ? "" : "enter span below",
+        label: "Gable roof area (one side)",
+        value: valid && sideArea > 0 ? `${sideArea.toFixed(1)} sq ft` : "—",
+        unit: sideArea > 0 ? "rafter length × building length" : "enter the span and length",
+        tier: 3,
+      },
+      {
+        label: "Gable roof area (both sides)",
+        value: valid && sideArea > 0 ? `${(sideArea * 2).toFixed(1)} sq ft` : "—",
+        unit: sideArea > 0 ? "before waste" : "enter the span and length",
         tier: 3,
       },
     ];
-  }, [mode, rise, run, runUnit, degrees, xRatio, spanFt]);
+  }, [mode, rise, run, runUnit, degrees, xRatio, span, spanUnit, bLen, bLenUnit]);
 
   const inputs = (
     <>
@@ -205,7 +213,7 @@ export default function RoofPitchCalc() {
         />
       )}
 
-      {/* Optional span for rafter length */}
+      {/* Optional span and length for rafter length and gable roof area */}
       <div
         style={{
           marginTop: "14px",
@@ -214,16 +222,30 @@ export default function RoofPitchCalc() {
         }}
       >
         <Field
-          label="Building span — optional (for rafter length & roof area)"
-          id="spanFt"
-          value={spanFt}
-          onChange={setSpanFt}
-          placeholder="e.g. 24 ft"
+          label="Span, eave to eave — optional"
+          id="span"
+          value={span}
+          onChange={setSpan}
+          placeholder="e.g. 24"
+          units={["ft", "m"]}
+          selectedUnit={spanUnit}
+          onUnitChange={(v) => setSpanUnit(v as UnitLen)}
+        />
+        <Field
+          label="Roof length along the ridge — optional"
+          id="bLen"
+          value={bLen}
+          onChange={setBLen}
+          placeholder="e.g. 40"
+          units={["ft", "m"]}
+          selectedUnit={bLenUnit}
+          onUnitChange={(v) => setBLenUnit(v as UnitLen)}
         />
         <p
           style={{ fontSize: "12px", color: "var(--text-3)", marginTop: "4px" }}
         >
-          Full width of building at eave level. Rafter run = span &divide; 2.
+          Include the overhangs in both to get the full rafter and roof area. Assumes a
+          symmetrical gable roof: rafter run = span &divide; 2.
         </p>
       </div>
     </>
@@ -232,12 +254,12 @@ export default function RoofPitchCalc() {
   return (
     <CalcShell
       title="Roof pitch calculator"
-      description="Convert roof pitch between x:12 ratio, degrees, and percentage. Get rafter length, pitch factor, and true roof area from any input format."
+      description="Convert roof pitch between x:12 ratio, degrees, and percentage. Get rafter length, pitch factor, and gable roof area from any input format."
       types={TYPES}
       onTypeChange={setModeIdx}
       inputs={inputs}
       results={results}
-      notice={`Pitch ratio = rise ÷ 12 (x:12 format). Degrees = arctan(rise/12) × (180/π). Pitch factor = √((rise/12)² + 1) — multiply flat footprint area by this to get true sloped roof area for material ordering. Rafter length = run × pitch factor. Minimum slopes (2024 IRC R905): ¼:12 built-up, membrane and standing-seam metal; 2:12 asphalt shingles (double underlayment below 4:12); 2½:12 clay/concrete tile (double underlayment below 4:12); 3:12 metal shingles and wood shingles/shakes; 4:12 slate. Manufacturer instructions and local amendments can be stricter. OSHA calls a roof over 4:12 "steep", but for construction work fall protection is required 6 ft or more above a lower level at any pitch (29 CFR 1926.501(b)(10), (11), (13)).`}
+      notice={`Pitch ratio = rise ÷ 12 (x:12 format). Degrees = arctan(rise/12) × (180/π). Pitch factor = √((rise/12)² + 1) — multiply the flat footprint area, including overhangs, by this to get the sloped roof area. Rafter length = run × pitch factor, measured to the centre of the ridge with no deduction for a ridge board. Gable area per side = rafter length × roof length; waste, ridge caps and hips are not included. Minimum slopes (2024 IRC R905): ¼:12 built-up, membrane and standing-seam metal; 2:12 asphalt shingles (double underlayment below 4:12); 2½:12 clay/concrete tile (double underlayment below 4:12); 3:12 metal shingles and wood shingles/shakes; 4:12 slate. Manufacturer instructions and local amendments can be stricter. OSHA calls a roof over 4:12 "steep", but for construction work fall protection is required 6 ft or more above a lower level at any pitch (29 CFR 1926.501(b)(10), (11), (13)).`}
       related={[
         {
           href: "/concrete-calculator",
@@ -247,7 +269,7 @@ export default function RoofPitchCalc() {
         {
           href: "/excavation-calculator",
           label: "Excavation calculator",
-          desc: "Soil volume & cost",
+          desc: "Soil volume & truck loads",
         },
       ]}
     />

@@ -37,22 +37,22 @@ const faqs = [
     question:
       "Should I subtract doors and windows from my drywall calculation?",
     answer:
-      "You can, but many professionals don't — drywall is hung over openings and cut out, so the cutoffs become waste. If you do subtract, use 21 sq ft per standard door (3×7 ft) and 15 sq ft per standard window (3×5 ft). For rooms with many openings, subtract them and increase waste to 15%.",
+      "You can, but many professionals don't — drywall is hung over openings and cut out, so the cutoffs become waste. If you do subtract, use 21 sq ft per standard door (3×7 ft) and 15 sq ft per standard window (3×5 ft). The choice affects waste: if you leave openings in, their area already covers much of the waste, so 10% is enough; if you subtract many openings, use about 15% because the cutouts are lost. These are rules of thumb.",
   },
   {
     question: "What size drywall sheets should I use?",
     answer:
-      "4×8 ft sheets are standard for most residential work and easiest to handle solo. 4×12 ft sheets are preferred for ceilings and 9-foot walls — they span the full height horizontally with fewer joints to tape. 4×10 ft is a good middle ground for 9-foot walls.",
+      "4×8 ft sheets are the easiest to handle. Longer 4×10 and 4×12 ft sheets leave fewer joints to tape on ceilings and long walls. All three are 4 ft wide, so two rows hung horizontally cover 8 ft of height: a 9 ft wall needs an extra strip, 54-inch-wide board, or 4×10 sheets hung vertically.",
   },
   {
     question: "How much joint compound do I need?",
     answer:
-      "Budget approximately 1 gallon of all-purpose joint compound per 100 square feet of drywall. A standard 5-gallon bucket covers about 500 sq ft for taping and two coats of mud. You'll need more for heavy texture or Level 5 finish.",
+      "A rule of thumb is 1 gallon of all-purpose joint compound per 100 square feet of drywall, or about 500 sq ft from a 5-gallon bucket. Heavy texture or a Level 5 finish takes more. Check the coverage the manufacturer gives for your product.",
   },
   {
     question: "What thickness drywall should I use?",
     answer:
-      "Use ½-inch drywall for standard interior walls and ceilings. Use ⅝-inch Type X (fire-rated) for garage walls and ceilings adjacent to living space — required by IRC. Use ¼-inch flexible drywall for curved walls. Moisture-resistant (green board) for bathrooms, though cement board is better behind tile.",
+      "½-inch is the usual thickness for interior walls. Ceilings depend on joist spacing, finish and load, so check the manufacturer's tables. Garages are not one rule: the IRC sets the board by location, with the stricter ⅝-inch Type X case being a garage ceiling below habitable rooms, so confirm with your building department. In wet areas use a tile backer approved by the tile and board manufacturers instead of ordinary gypsum board.",
   },
 ];
 

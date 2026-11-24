@@ -6,7 +6,7 @@ import WasteSlider from "../components/WasteSlider";
 import { ceilCount } from "../components/calcMath";
 
 type UnitLen = "ft" | "m";
-const toFt: Record<UnitLen, number> = { ft: 1, m: 3.28084 };
+const toFt: Record<UnitLen, number> = { ft: 1, m: 1 / 0.3048 };
 
 type FenceType = "wood" | "vinyl" | "chainlink";
 
@@ -57,6 +57,8 @@ export default function FenceCalc() {
   const [spacing, setSpacing] = useState("");
   const [spacingUnit, setSpacingUnit] = useState<UnitLen>("ft");
   const [gates, setGates] = useState("0");
+  const [gateWidth, setGateWidth] = useState("4");
+  const [gateWidthUnit, setGateWidthUnit] = useState<UnitLen>("ft");
   const [waste, setWaste] = useState(10);
 
   const fenceKey = FENCE_TYPES_ORDER[fenceTypeIdx];
@@ -70,16 +72,20 @@ export default function FenceCalc() {
     const S = spacingVal > 0 ? spacingVal * toFt[spacingUnit] : fenceType.defaultSpacing;
     const G = parseInt(gates) || 0;
 
-    const valid = L > 0 && H > 0 && S > 0;
+    // Gate openings have no rails or pickets
+    const fenced = L - G * (parseFloat(gateWidth) || 0) * toFt[gateWidthUnit];
 
-    // Posts = ⌈length ÷ spacing⌉ + 1 + (gates × 2)
-    const linePosts = valid ? ceilCount(L / S) + 1 : 0;
+    const valid = fenced > 0 && H > 0 && S > 0;
+
+    // Posts = ⌈fenced length ÷ spacing⌉ + 1 + (gates × 2). A gate in a run splits it
+    // into sections that round up separately, so 2 per gate is an upper bound.
+    const linePosts = valid ? ceilCount(fenced / S) + 1 : 0;
     const gatePosts = G * 2;
     const totalPosts = valid ? linePosts + gatePosts : 0;
 
     // Adjusted equal spacing
     const bays = linePosts - 1;
-    const adjustedSpacing = valid && bays > 0 ? L / bays : S;
+    const adjustedSpacing = valid && bays > 0 ? fenced / bays : S;
 
     // Post length: above ground (H) + burial. Quikrete: hole depth = 1/3 of the
     // overall post length, so burial = (H + burial) / 3 → burial = H / 2
@@ -87,7 +93,7 @@ export default function FenceCalc() {
     const postLength = H + burial;
 
     // Rails
-    const railsPerSection = fenceType.railsPerSection(H);
+    const railsPerSection = fenceType.railsPerSection(H || 6);
     const totalRails = valid ? bays * railsPerSection : 0;
 
     // Concrete: fill the hole to burial depth, minus the post itself
@@ -100,7 +106,7 @@ export default function FenceCalc() {
     const picketWidthFt = 5.5 / 12;
     const pickets =
       valid && fenceKey === "wood"
-        ? ceilCount((L / picketWidthFt) * (1 + waste / 100))
+        ? ceilCount((fenced / picketWidthFt) * (1 + waste / 100))
         : 0;
 
     const rows: {
@@ -118,7 +124,7 @@ export default function FenceCalc() {
       {
         label: "Adjusted post spacing",
         value: valid ? adjustedSpacing.toFixed(2) : "—",
-        unit: "ft on centre",
+        unit: G > 0 ? "ft on centre (average)" : "ft on centre",
         tier: 1 as const,
       },
       {
@@ -159,6 +165,8 @@ export default function FenceCalc() {
     spacing,
     spacingUnit,
     gates,
+    gateWidth,
+    gateWidthUnit,
     waste,
     fenceKey,
     fenceType,
@@ -171,6 +179,7 @@ export default function FenceCalc() {
     <>
       <Field
         label="Total fence length"
+        hint="incl. gates"
         id="length"
         value={length}
         onChange={setLength}
@@ -206,6 +215,18 @@ export default function FenceCalc() {
         onChange={setGates}
         placeholder="e.g. 1"
       />
+      {parseInt(gates) > 0 && (
+        <Field
+          label="Gate opening width"
+          id="gateWidth"
+          value={gateWidth}
+          onChange={setGateWidth}
+          placeholder="e.g. 4"
+          units={["ft", "m"]}
+          selectedUnit={gateWidthUnit}
+          onUnitChange={(v) => setGateWidthUnit(v as UnitLen)}
+        />
+      )}
       <WasteSlider value={waste} onChange={setWaste} />
     </>
   );
@@ -218,11 +239,11 @@ export default function FenceCalc() {
       onTypeChange={setFenceTypeIdx}
       inputs={inputs}
       results={results}
-      notice={`Posts = ⌈length ÷ spacing⌉ + 1. Burial depth = max(height ÷ 3, 2 ft). Rails per section: ${FENCE_TYPES[
+      notice={`Posts = ⌈(length − gate openings) ÷ spacing⌉ + 1, plus 2 per gate. Burial depth = height ÷ 2 (Quikrete: hole depth is 1/3 of the overall post length). Rails per section: ${FENCE_TYPES[
         fenceKey2
       ].railsPerSection(
         (parseFloat(height) || 6) * toFt[heightUnit]
-      )}. Concrete: a ${FENCE_TYPES[fenceKey2].holeDiaIn}″ hole filled to burial depth, minus the post, at 0.6 ft³ per 80 lb bag. Includes ${waste}% waste on pickets. Always check local building codes for height limits and permit requirements.`}
+      )}. Concrete: a ${FENCE_TYPES[fenceKey2].holeDiaIn}″ hole filled to burial depth, minus the post, at 0.6 ft³ per 80 lb bag. Includes ${waste}% waste on pickets. Spacing and rail counts are common practice, not a standard. Frost depth is not included: where the local frost line is deeper, use longer posts. Check local rules for height limits and permits.`}
       related={[
         {
           href: "/concrete-bags",
@@ -232,7 +253,7 @@ export default function FenceCalc() {
         {
           href: "/excavation-calculator",
           label: "Excavation calculator",
-          desc: "Soil volume & cost",
+          desc: "Soil volume & truck loads",
         },
       ]}
     />

@@ -41,10 +41,10 @@ const articleSchema = {
   "@type": "Article",
   headline: "How Many Tiles Do I Need? A Practical Calculation Guide",
   description:
-    "Learn how to calculate the number of tiles needed for a room, including waste percentage by layout pattern, box quantities, and common mistakes to avoid.",
+    "Learn how to calculate the number of tiles needed for a room, including waste percentage by layout pattern, box quantities, and how grout joints affect the count.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-many-tiles-do-i-need" },
   datePublished: "2026-06-12",
-  dateModified: "2026-11-05",
+  dateModified: "2026-11-24",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -125,7 +125,7 @@ export default function HowManyTilesGuide() {
           <thead>
             <tr>
               <th style={th}>Layout</th>
-              <th style={th}>Recommended waste</th>
+              <th style={th}>Rule-of-thumb waste</th>
             </tr>
           </thead>
           <tbody>
@@ -135,7 +135,7 @@ export default function HowManyTilesGuide() {
             </tr>
             <tr>
               <td style={td}>Diagonal or herringbone pattern</td>
-              <td style={td}>15%</td>
+              <td style={td}>15–20%</td>
             </tr>
             <tr>
               <td style={td}>Irregular room shape, many corners/cuts</td>

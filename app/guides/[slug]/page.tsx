@@ -109,7 +109,7 @@ const metaMap: Record<
   "how-many-tiles-do-i-need": {
     title: "How Many Tiles Do I Need? Calculation Guide & Tips | BuildCalc",
     description:
-      "Learn how to calculate the number of tiles needed for a room, including waste percentage by layout pattern, box quantities, and common mistakes to avoid.",
+      "Learn how to calculate the number of tiles needed for a room, including waste percentage by layout pattern, box quantities, and how grout joints affect the count.",
     keywords: [
       "how many tiles do i need",
       "tile calculator guide",
@@ -302,7 +302,7 @@ const metaMap: Record<
     title:
       "How to Calculate Stair Rise and Run — Step-by-Step Formula | BuildCalc",
     description:
-      "Step-by-step guide to calculating stair rise, run, riser count, tread count, and stringer length for IRC-compliant residential stairs.",
+      "Step-by-step guide to calculating stair rise, run, riser count, tread count, and stringer length within the IRC riser and tread limits.",
     keywords: [
       "stair rise and run",
       "how to calculate stairs",

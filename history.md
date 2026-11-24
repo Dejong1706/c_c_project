@@ -26,22 +26,22 @@
 - [x] (2026-11-24) 1. ★ **bricks-for-a-wall 가이드 (안전)**: 예시 A가 반장 벽 정원 담장 **높이 1.2 m** — 같은 사이트 single-vs-double 가이드의 상한(375–525 mm)을 크게 넘는다. 1단계 표 "half-brick = garden walls", "full-brick = load-bearing exterior walls"와 FAQ도 같이 수정. 2 m 벽에 2.1 m 문 예시(불가능), 영국식 쌓기 설명, 8/12 mm 줄눈 63/58 → **61/57**, 모르타르 17 L·20% → 17.6 L·21%, "25 kg 1:4 = 150–200장" 근거, 계산기에 없는 기능 약속(벽돌 크기·모르타르), "Do mortar joint" → "Does"
 - [x] (2026-11-24) 1a. ◆ **홈 벽돌 계산기(QuickCalc)**: 기본 예시가 **높이 6 ft(1.83 m)** 인데 벽 두께·용도 안내 없음. 장수는 반장 벽(single wythe) 기준이라 독립 담장이면 사이트의 한도(375–525 mm)를 넘는다. 같은 20×6 ft 벽이 홈 851장(US 6.75/ft², 5%) vs 벽돌 계산기 736장(UK 60/m², 10%, 로직을 따로 계산) → 기준 표시 또는 US 옵션(28번과 함께). 미국 예시에 영국 높이표를 그대로 적용하지 말고 미국 근거 확인
 - [x] (2026-11-24) 1b. ◆ **홈 계단 계산기**: 층고 152″·300″도 계단참 안내 없이 단수와 "Shortest total run"을 보여 줌(참 길이 제외). 다른 페이지는 151″ 초과 시 참 필요. "1 treads" 표기도 함께. 홈 벽돌 작은 벽(0.5×0.5 ft) 면적 "0 sq ft"도 함께(22번에서 옮김)
-- [ ] 16. ★ **계단 계산기 판정 문구**: 단 높이·깊이·폭·비행 높이만 보고 "✓ IRC compliant" → "Within the limits checked". flush mount 정의(결정 필요)
-- [ ] 3. **지붕 피치 측정 방법** (가이드 + ★FAQ도 같은 오류): 다락에서는 수평자에서 **위로** 서까래 아랫면까지. 지붕 위 방법은 "flat + bubble centred" 자기모순 → 한쪽 끝만 대고 수평 유지. ★처마 12–18″는 수평 돌출이므로 × pitch factor, ★footprint 면적에 처마 포함 안내
+- [x] (2026-11-24) 16. ★ **계단 계산기 판정 문구**: 단 높이·깊이·폭·비행 높이만 보고 "✓ IRC compliant" → "Within the limits checked". flush mount 정의(결정 필요)
+- [x] (2026-11-24) 3. **지붕 피치 측정 방법** (가이드 + ★FAQ도 같은 오류): 다락에서는 수평자에서 **위로** 서까래 아랫면까지. 지붕 위 방법은 "flat + bubble centred" 자기모순 → 한쪽 끝만 대고 수평 유지. ★처마 12–18″는 수평 돌출이므로 × pitch factor, ★footprint 면적에 처마 포함 안내
 
 **나. 계산 결과가 틀림**
-- [ ] 4. **지붕 계산기 면적** (결정 필요, 아래): 24×40 ft·6:12 한쪽 면이 322로 나오지만 실제 537 sq ft (40% 과소). 결정 전이라도 결과 숨김 권장. "enter span below"는 위치에 맞는 문구로
-- [ ] 5. **굴착 계산기**: "Sloped sides"에 정사각 구덩이(위 4×4, 아래 2×2, 깊이 2)를 넣으면 24.0, 실제 18.67 m³ (**29% 과다**) → "Trench, sloped sides" 라벨 우선. swell 10–15%는 일반 흙·점토에 과소, 슬라이더 최대 30%. over-excavation과 swell을 한 값으로 섞은 것 분리
-- [ ] 2. ★ **펜스 계산기 notice**: "Burial depth = max(height ÷ 3, 2 ft)"라고 쓰지만 실제 계산·FAQ·가이드는 **높이 ÷ 2** (10-16 변경 때 누락). 함께: 가이드 "vinyl can't be cut", 동결선 "must", "industry-standard … professional contractors", 레일 7–8 ft 공백(계산기는 7 ft 초과 → 4), Step 4 동결선 범위(24–48+)와 FAQ(36–48) 불일치, 게이트 폭을 빼지 않아 피킷·레일 과다
-- [ ] 24a. ◆ **ft/m 결과 불일치**: 같은 100 ft 펜스의 피킷이 ft 입력 240개, 30.48 m 입력 241개(화면 확인). 원인은 반올림된 3.28084 → 1/0.3048로. 같은 값을 쓰는 계산기 6개(bags·drywall·fence·flooring·mulch·roof) 전부 확인. 단위 상수 공통화와 함께
-- [ ] 12. **타일/바닥재 계산기 문구**: 박스당 10장 고정 → 입력 추가, 대각선 안내 "10–15% more **on top**" vs FAQ·가이드 "총 15%", FAQ "about 33" → 34 (12 ÷ 0.603² = 33.002라 **계산기·가이드가 모두 34**. 10-12에 불필요로 봤던 판단을 변경), Flooring "per NWFA" (LVP·카펫·타일에 적용, 코드 주석의 출처도 판매·계산기 사이트)
+- [x] (2026-11-24) 4. **지붕 계산기 면적** (결정 필요, 아래): 24×40 ft·6:12 한쪽 면이 322로 나오지만 실제 537 sq ft (40% 과소). 결정 전이라도 결과 숨김 권장. "enter span below"는 위치에 맞는 문구로
+- [x] (2026-11-24) 5. **굴착 계산기**: "Sloped sides"에 정사각 구덩이(위 4×4, 아래 2×2, 깊이 2)를 넣으면 24.0, 실제 18.67 m³ (**29% 과다**) → "Trench, sloped sides" 라벨 우선. swell 10–15%는 일반 흙·점토에 과소, 슬라이더 최대 30%. over-excavation과 swell을 한 값으로 섞은 것 분리
+- [x] (2026-11-24) 2. ★ **펜스 계산기 notice**: "Burial depth = max(height ÷ 3, 2 ft)"라고 쓰지만 실제 계산·FAQ·가이드는 **높이 ÷ 2** (10-16 변경 때 누락). 함께: 가이드 "vinyl can't be cut", 동결선 "must", "industry-standard … professional contractors", 레일 7–8 ft 공백(계산기는 7 ft 초과 → 4), Step 4 동결선 범위(24–48+)와 FAQ(36–48) 불일치, 게이트 폭을 빼지 않아 피킷·레일 과다
+- [x] (2026-11-24) 24a. ◆ **ft/m 결과 불일치**: 같은 100 ft 펜스의 피킷이 ft 입력 240개, 30.48 m 입력 241개(화면 확인). 원인은 반올림된 3.28084 → 1/0.3048로. 같은 값을 쓰는 계산기 6개(bags·drywall·fence·flooring·mulch·roof) 전부 확인. 단위 상수 공통화와 함께
+- [x] (2026-11-24) 12. **타일/바닥재 계산기 문구**: 박스당 10장 고정 → 입력 추가, 대각선 안내 "10–15% more **on top**" vs FAQ·가이드 "총 15%", FAQ "about 33" → 34 (12 ÷ 0.603² = 33.002라 **계산기·가이드가 모두 34**. 10-12에 불필요로 봤던 판단을 변경), Flooring "per NWFA" (LVP·카펫·타일에 적용, 코드 주석의 출처도 판매·계산기 사이트)
 
 **다. 사이트 안에서 말이 다르거나 없는 것을 약속**
-- [ ] 17. 문구 일괄: ◆홈 "Metric and imperial"(철근 지름 mm만, 바닥재 결과 sq ft, 지붕 span ft, 계단 디딤판 in), 홈 "Every formula explained in a guide"(철근은 이제 있음, 굴착·바닥재 없음), `SearchAction` 삭제, 관련 링크 "Soil volume & cost" **4곳**(fence·mulch·★stair·★roof), "Tiles & grout estimator", how-many-tiles의 "common mistakes" 약속(메타·카드·schema)
-- [ ] 6. **drywall-calculator FAQ + drywall-sheets**: 차고 ⅝″ Type X "IRC 필수"(R302.6), green board, 4×12가 9 ft 벽 높이 커버(틀림), **낭비율 서로 반대**(본문: 공제 안 하면 15% / FAQ: 공제하면 15%), 테이프 1롤/150 sq ft(과다), 4×12 무게·리프트 대여료, notice "USG / Georgia-Pacific standard" 공제 출처 미확인, 나사 "16″ OC" 라벨(천장은 12″)
-- [ ] 10. **bricks-per-m² 가이드**: 맥시 표 33 vs FAQ 34 (33.3), 점보 23 → 22.2. 한 규칙(올림 또는 반올림)으로 통일하고 계산기·다른 가이드와 맞추기
-- [ ] 13. **페인트 2개 가이드 + 계산기**: masonry 6–10 vs 4–6 m²/L, premium 더 넓게 vs 더 좁게, 10 m²/L "conservative"(407 ft²/gal), 계산기에 없는 coverage 입력 약속, 새 석고 FAQ(2회만 곱함 vs mist + 2), "going from light to dark", 중복 FAQ. Exterior 옵션은 실내와 계산 동일
-- [ ] 32. ◆ ICC 상점에서 2027 **IBC**는 예약 문구 없이 판매 중으로 보임(대리 조회, 재확인 필요) → 계단 가이드의 2024 IBC 비교표·"1011" 서술, `content-rules.md` 1번("IBC도 2024 현행, 2027판은 2027-01") 갱신 여부
+- [x] (2026-11-24) 17. 문구 일괄: ◆홈 "Metric and imperial"(철근 지름 mm만, 바닥재 결과 sq ft, 지붕 span ft, 계단 디딤판 in), 홈 "Every formula explained in a guide"(철근은 이제 있음, 굴착·바닥재 없음), `SearchAction` 삭제, 관련 링크 "Soil volume & cost" **4곳**(fence·mulch·★stair·★roof), "Tiles & grout estimator", how-many-tiles의 "common mistakes" 약속(메타·카드·schema)
+- [x] (2026-11-24) 6. **drywall-calculator FAQ + drywall-sheets**: 차고 ⅝″ Type X "IRC 필수"(R302.6), green board, 4×12가 9 ft 벽 높이 커버(틀림), **낭비율 서로 반대**(본문: 공제 안 하면 15% / FAQ: 공제하면 15%), 테이프 1롤/150 sq ft(과다), 4×12 무게·리프트 대여료, notice "USG / Georgia-Pacific standard" 공제 출처 미확인, 나사 "16″ OC" 라벨(천장은 12″)
+- [x] (2026-11-24) 10. **bricks-per-m² 가이드**: 맥시 표 33 vs FAQ 34 (33.3), 점보 23 → 22.2. 한 규칙(올림 또는 반올림)으로 통일하고 계산기·다른 가이드와 맞추기
+- [x] (2026-11-24) 13. **페인트 2개 가이드 + 계산기**: masonry 6–10 vs 4–6 m²/L, premium 더 넓게 vs 더 좁게, 10 m²/L "conservative"(407 ft²/gal), 계산기에 없는 coverage 입력 약속, 새 석고 FAQ(2회만 곱함 vs mist + 2), "going from light to dark", 중복 FAQ. Exterior 옵션은 실내와 계산 동일
+- [x] (2026-11-24) 32. ◆ ICC 상점에서 2027 **IBC**는 예약 문구 없이 판매 중으로 보임(대리 조회, 재확인 필요) → 계단 가이드의 2024 IBC 비교표·"1011" 서술, `content-rules.md` 1번("IBC도 2024 현행, 2027판은 2027-01") 갱신 여부
 
 ### 2순위: 내용 정확도 (아는 사람이 보면 틀렸다고 느낄 것)
 
@@ -91,6 +91,9 @@
 
 ### 2026-11-24 1순위 작업 기록
 - **1·1a·1b** 벽돌 가이드 예시 A를 0.9 m 한 장 벽(681장), 예시 문·벽 치수를 2.4 m로, 높이 한도 안내, 줄눈 61/57, 모르타르 17.6·45 L, 낭비율은 BIA TN10 최소 5% + 관행 표기. 벽돌 계산기에 US 모듈러(6.75/ft²) 탭, 구조 안전 안내. 홈 벽돌 20×8 ft·10%(계산기와 같은 1,188장)·안내문, 작은 면적 표시, 151″ 초과 계단참 안내, "1 tread". 출처: gov.wales 높이표(2026-11-24 열람), BIA TN10(2009). 검증: 코드 0, 43경로, 화면 입력 17회·재계산 일치. 이미지로 본 것: 벽돌 가이드 1280·375, 벽돌 계산기 375. 미확인: IRC R318.7.3 원문, TN10 현행 여부
+
+### 2026-11-24 1순위 작업 기록
+- **16·3·4·5·2·24a·12·17·6·10·13·32** 계단 판정 문구를 "Within the limits checked"로, 판정 제외 항목 명시, 따로 놀던 중복 탭 제거(flush mount 정의는 결정 대기). 지붕: 측정 방향 정정(다락은 위로), 처마 × pitch factor, 길이 입력 추가해 24×40 ft·6:12 한쪽 536.7·양쪽 1,073.3 sq ft (사용자 결정 전 권장안 적용). 굴착: 네 면 경사 탭(4×4→2×2, 깊이 2 = 18.67 m³), 과굴착 10%·팽창 25%(관행, 조절 가능) 분리, OSHA 1926.652 안내. 펜스: 매립 = 높이 ÷ 2, 게이트 폭 입력, 관행·동결선 표기. 단위 1/0.3048 (6개). 타일 박스당 장수 입력, 바닥재 NWFA 삭제. 홈 문구·SearchAction·관련 링크. 석고보드 FAQ·낭비율·테이프. 벽돌 m²당 34·23 올림. 페인트: 도포율 입력, 제조사 예시(Benjamin Moore 공식 페이지, Dulux Trade 공식 페이지), 외벽 기본 7. 계단 가이드·content-rules: 2027 IRC 2027-01 말, 2027 IBC 판매 중(ICC 상점). 추가로 찾아 고친 것: CalcShell 결과 중복 표시(굴착·Chain Link), "Example:" 뒤 공백, 빈 펜스 레일 수. 미확인: 토질별 팽창률(CAT 시간 초과, 해병대 PDF 403), USG 테이프·컴파운드 수치, 차고 R302.6 원문, 2024 IRC 원문, 2027 IBC 내용. 검증 방식: 묶어서 1–6단계 실행(작업마다 따로 하지 않음), 바뀐 페이지 본문 전체를 처음부터 끝까지 다시 읽지는 않음
 
 ### 2026-11-24 홈 화면 검증 결과 (verification.md 첫 실행, 수정 없음)
 

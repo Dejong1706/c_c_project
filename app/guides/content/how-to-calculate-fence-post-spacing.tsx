@@ -15,17 +15,17 @@ const faqs = [
   {
     question: "How many fence posts do I need for 100 feet?",
     answer:
-      "For 100 ft with standard 8 ft spacing: divide 100 by 8 (= 12.5), round up to 13 sections, then add 1 post = 14 posts total. Add 2 extra posts per gate opening.",
+      "For 100 ft with standard 8 ft spacing: divide 100 by 8 (= 12.5), round up to 13 sections, then add 1 post = 14 posts total. If the fence has gates, take the gate openings off the length first, then add 2 posts per gate.",
   },
   {
     question: "How far apart should fence posts be?",
     answer:
-      "8 feet on centre is standard for most wood and vinyl fences. Use 6 ft for fences over 6 ft tall or in high-wind areas. Chain-link fences typically use 10 ft spacing.",
+      "Common spacing is up to 8 ft on centre for wood and 10 ft for chain link; for vinyl, match the panel width. Going down to 6 ft for fences over 6 ft tall or in windy places is a rule of thumb. These are common practice, not a standard, so check the fence manufacturer's instructions.",
   },
   {
     question: "How deep should fence posts be set?",
     answer:
-      "Quikrete says to dig the hole 1/3 of the overall post length deep — half the above-ground height. So a 6 ft fence needs 3 ft buried and a 9 ft post (cut from a 10 ft length). In cold climates, always go below the local frost line (36–48 inches in northern regions).",
+      "Quikrete says to dig the hole 1/3 of the overall post length deep — half the above-ground height. So a 6 ft fence needs 3 ft buried and a 9 ft post (cut from a 10 ft length). Frost depth varies widely by location. Where frost heave is a risk, set the posts below your local frost line and ask your building department for the depth.",
   },
   {
     question: "Why do I get an uneven last bay?",
@@ -35,7 +35,7 @@ const faqs = [
   {
     question: "How many rails do I need per section?",
     answer:
-      "Use 2 rails for fences under 5 ft, 3 rails for 5–7 ft fences, and 4 rails for 8 ft fences. Rails run horizontally between posts and carry the pickets or boards.",
+      "A common rule of thumb is 2 rails for fences under 5 ft, 3 rails for 5–7 ft and 4 rails above 7 ft. Chain link is counted here as 2 (top and bottom). Rails run horizontally between posts and carry the pickets or boards.",
   },
 ];
 
@@ -57,7 +57,7 @@ const articleSchema = {
     "Step-by-step guide to calculating fence post spacing, post count, burial depth, rail count, and concrete needs for wood, vinyl, and chain-link fences.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-fence-post-spacing" },
   datePublished: "2026-06-25",
-  dateModified: "2026-10-16",
+  dateModified: "2026-11-24",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -118,15 +118,13 @@ export default function FencePostSpacingGuide() {
         {/* Step 1 */}
         <h2 style={sectionHeading}>Step 1 — Choose your post spacing</h2>
         <p style={paragraph}>
-          Post spacing depends on fence type, height, and wind exposure. These
-          are the industry-standard spacings used by professional fencing
-          contractors:
+          Post spacing depends on fence type, height, and wind exposure. These are common spacings, not a standard. Follow the fence manufacturer&apos;s instructions where they differ:
         </p>
         <GuideTable>
           <thead>
             <tr>
               <th style={th}>Fence type</th>
-              <th style={th}>Standard spacing</th>
+              <th style={th}>Common spacing</th>
               <th style={th}>Notes</th>
             </tr>
           </thead>
@@ -134,26 +132,26 @@ export default function FencePostSpacingGuide() {
             <tr>
               <td style={td}>Wood privacy</td>
               <td style={td}>8 ft (2.4 m)</td>
-              <td style={td}>Reduce to 6 ft for 7–8 ft tall or windy areas</td>
+              <td style={td}>Rule of thumb: reduce to 6 ft for fences over 6 ft tall or in windy areas</td>
             </tr>
             <tr>
               <td style={td}>Vinyl panel</td>
               <td style={td}>6 or 8 ft</td>
               <td style={td}>
-                Match panel width exactly — vinyl can&apos;t be cut
+                Match the panel width; follow the manufacturer&apos;s instructions if a panel has to be cut
               </td>
             </tr>
             <tr>
               <td style={td}>Chain link</td>
               <td style={td}>10 ft (3 m)</td>
               <td style={td}>
-                Mesh doesn&apos;t catch wind, wider spacing is fine
+                Open mesh catches less wind than solid boards
               </td>
             </tr>
             <tr>
               <td style={td}>Split rail</td>
               <td style={td}>8–10 ft</td>
-              <td style={td}>Decorative only — strength less critical</td>
+              <td style={td}>Match the rail length</td>
             </tr>
           </tbody>
         </GuideTable>
@@ -173,8 +171,11 @@ export default function FencePostSpacingGuide() {
           ⌈100 ÷ 8⌉ + 1 = ⌈12.5⌉ + 1 = 13 + 1 = 14 posts
         </div>
         <p style={paragraph}>
-          If your fence includes gates, add 2 posts per gate opening — one on
-          each side.
+          If your fence includes gates, take the gate openings off the fence length
+          before dividing, then add 2 posts per gate opening, one on each side.
+          Adding 2 allows for the sections either side of the gate rounding up
+          separately; where a gate is part of a straight run you may need one
+          fewer, so check it against a sketch.
         </p>
         <div style={formula}>Total posts = Line posts + (Gates × 2)</div>
 
@@ -200,7 +201,8 @@ export default function FencePostSpacingGuide() {
           Step 4 — Calculate post length and burial depth
         </h2>
         <p style={paragraph}>
-          Every post needs to be buried deep enough to stay rigid. The rule is:
+          Every post needs to be buried deep enough to stay rigid. Quikrete&apos;s
+          rule is:
         </p>
         <div style={formula}>Burial depth = 1/3 of post length = Fence height ÷ 2</div>
         <p style={paragraph}>
@@ -211,17 +213,16 @@ export default function FencePostSpacingGuide() {
           post (cut from a 10 ft length).
         </p>
         <p style={paragraph}>
-          In cold climates, burial depth must go below the local frost line
-          even if that is deeper than the 1/3 rule. Frost lines range from 24 inches in mild
-          regions to 48+ inches in northern states and Canada. Check your local
-          building code.
+          Frost depth varies widely by location. Where frost heave is a risk, set
+          the posts below your local frost line even if that is deeper than the
+          1/3 rule, and ask your building department for the depth.
         </p>
 
         {/* Step 5 */}
         <h2 style={sectionHeading}>Step 5 — Count rails</h2>
         <p style={paragraph}>
-          Rails are the horizontal boards that run between posts. The number you
-          need per section depends on fence height:
+          Rails are the horizontal boards that run between posts. A common rule of thumb by fence height (for chain link, the calculator
+          counts 2):
         </p>
         <GuideTable>
           <thead>
@@ -240,7 +241,7 @@ export default function FencePostSpacingGuide() {
               <td style={td}>3 rails</td>
             </tr>
             <tr>
-              <td style={td}>8 ft</td>
+              <td style={td}>Over 7 ft</td>
               <td style={td}>4 rails</td>
             </tr>
           </tbody>

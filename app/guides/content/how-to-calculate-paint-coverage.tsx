@@ -4,17 +4,17 @@ const faqs = [
   {
     question: "How much paint do I need for a room?",
     answer:
-      "Calculate the total wall area (perimeter × ceiling height), subtract large openings like doors and windows, then divide by the paint's coverage rate — typically 10–12 square meters per litre. Multiply by the number of coats and add 10% for waste.",
+      "Calculate the total wall area (perimeter × ceiling height), subtract large openings like doors and windows, then divide by the coverage rate on the tin (10–12 square meters per litre is a common planning range indoors). Multiply by the number of coats and add 10% for waste.",
   },
   {
     question: "How many square meters does 1 litre of paint cover?",
     answer:
-      "Most standard interior paints cover around 10–12 square meters per litre per coat. Premium paints may cover slightly more. Always check the coverage rate on the tin, as it varies by brand and finish.",
+      "It varies by product and surface, so use the tin. 10–12 square meters per litre per coat is a common planning range indoors; published figures run from 9.8–11.0 m²/L (Benjamin Moore Regal Select flat) to up to 17 m²/L (Dulux Trade Vinyl Matt).",
   },
   {
     question: "How many coats of paint do I need?",
     answer:
-      "Two coats is standard for most interior repaints. If you're painting over a dark color, going from light to dark, or using a new color on bare plaster, you may need a primer coat plus two finish coats.",
+      "Two coats is standard for most interior repaints. A strong color change can need a primer or a third coat. New plaster needs a thinned first coat (mist coat) followed by two finish coats.",
   },
   {
     question: "How do I calculate wall area for painting?",
@@ -44,7 +44,7 @@ const articleSchema = {
     "Learn how to calculate how much paint you need for a room. Includes coverage rates, coat counts, wall area formulas and tips for buying the right amount.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-paint-coverage" },
   datePublished: "2026-06-15",
-  dateModified: "2026-06-15",
+  dateModified: "2026-11-24",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -135,39 +135,35 @@ export default function PaintCoverageGuide() {
         </h2>
         <p style={paragraph}>
           Coverage rate tells you how many square meters one litre of paint will
-          cover per coat. It&apos;s printed on every tin, but typical ranges
-          are:
+          cover per coat. Use the figure printed on the tin. Published figures differ a lot between
+          products, as these examples show:
         </p>
         <GuideTable>
           <thead>
             <tr>
-              <th style={th}>Paint type</th>
-              <th style={th}>Coverage per litre</th>
+              <th style={th}>Paint (manufacturer&apos;s stated coverage)</th>
+              <th style={th}>Coverage per coat</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style={td}>Standard interior emulsion</td>
-              <td style={td}>10–12 m²</td>
+              <td style={td}>Dulux Trade Vinyl Matt (UK, interior)</td>
+              <td style={td}>Up to 17 m²/L</td>
             </tr>
             <tr>
-              <td style={td}>Premium interior paint</td>
-              <td style={td}>12–14 m²</td>
+              <td style={td}>Benjamin Moore Regal Select, flat (US, interior)</td>
+              <td style={td}>400–450 ft²/gal (9.8–11.0 m²/L)</td>
             </tr>
             <tr>
-              <td style={td}>Primer / undercoat</td>
-              <td style={td}>8–10 m²</td>
-            </tr>
-            <tr>
-              <td style={td}>Exterior masonry paint</td>
-              <td style={td}>6–10 m²</td>
+              <td style={td}>Benjamin Moore Element Guard, flat (US, exterior)</td>
+              <td style={td}>300–400 ft²/gal (7.4–9.8 m²/L)</td>
             </tr>
           </tbody>
         </GuideTable>
         <p style={paragraph}>
-          When in doubt, use 10 m²/L as a conservative default for interior
-          walls — it&apos;s better to slightly overestimate than to run short on
-          a second coat.
+          Our calculator starts at 10 m²/L indoors and 7 m²/L for exterior walls,
+          but these are only starting values: some products cover less, and
+          rough or porous surfaces take more paint.
         </p>
 
         <h2 style={sectionHeading}>Step 4 — Calculate total litres needed</h2>
@@ -202,8 +198,9 @@ export default function PaintCoverageGuide() {
             coat first
           </li>
           <li style={listItem}>
-            New bare plaster — needs a mist coat (diluted paint) before normal
-            coats
+            New bare plaster — needs a thinned first coat (mist coat) before two
+            normal coats. Dulux Trade, for example, thins Vinyl Matt with up to 1
+            part water to 5 parts paint to seal new or bare surfaces
           </li>
           <li style={listItem}>
             Bright or saturated colors on white walls — may need three coats for
@@ -213,15 +210,13 @@ export default function PaintCoverageGuide() {
 
         <h2 style={sectionHeading}>Putting it together</h2>
         <p style={paragraph}>
-          The steps are straightforward once you have your measurements — the
-          most common mistake is forgetting to multiply by the number of coats,
-          which can leave you with half the paint you actually need. If
+          The steps are straightforward once you have your measurements — remember to multiply by the number of coats, or a two-coat job will end up with half the paint it needs. If
           you&apos;d rather skip the manual calculation, our{" "}
           <Link href="/paint-calculator" style={link}>
             paint calculator
           </Link>{" "}
-          takes your room dimensions and coat count and works out the litres and
-          tin quantity automatically.
+          takes your room dimensions, coverage rate and coat count and works out
+          the litres and tins. It does not deduct doors and windows.
         </p>
 
         <h2 style={sectionHeading}>FAQ</h2>

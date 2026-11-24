@@ -52,7 +52,7 @@ const articleSchema = {
     "A complete reference guide to standard brick dimensions in the UK, US, Australia, Europe, and beyond — with coordinating sizes, mortar joints, and bricks per m².",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/standard-brick-sizes-by-country" },
   datePublished: "2026-06-16",
-  dateModified: "2026-06-16",
+  dateModified: "2026-11-24",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -332,7 +332,7 @@ export default function StandardBrickSizesByCountry() {
               <td style={td}>Maxi</td>
               <td style={td}>290 × 140 × 90 mm</td>
               <td style={td}>300 × 150 × 100 mm</td>
-              <td style={td}>~33</td>
+              <td style={td}>33.3 (order 34)</td>
             </tr>
           </tbody>
         </GuideTable>

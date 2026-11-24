@@ -8,7 +8,7 @@ import StairCalc from "./StairCalc";
 export const metadata: Metadata = {
   title: "Stair Calculator — Rise, Run & Stringer Length | BuildCalc",
   description:
-    "Calculate stair risers, treads, total run, and stringer length for IRC-compliant residential stairs. Includes code check for riser height, tread depth, and stair angle.",
+    "Calculate stair risers, treads, total run and stringer length for residential stairs, and check riser height, tread depth, width and flight rise against the IRC.",
   keywords: [
     "stair calculator",
     "stair rise and run calculator",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Stair Calculator — Rise, Run & Stringer Length | BuildCalc",
     description:
-      "Calculate stair risers, treads, total run, and stringer length for IRC-compliant residential stairs. Includes code check for riser height, tread depth, and stair angle.",
+      "Calculate stair risers, treads, total run and stringer length for residential stairs, and check riser height, tread depth, width and flight rise against the IRC.",
     url: "https://buildcalczone.com/stair-calculator",
   },
 };
@@ -51,7 +51,7 @@ const faqs = [
   {
     question: "How many steps do I need for a 9-foot ceiling?",
     answer:
-      "A 9 ft floor-to-floor height is 108 inches. At a 7-inch target riser: ⌈108 ÷ 7⌉ = 16 risers, actual riser = 108 ÷ 16 = 6.75 inches. At 7.5-inch target: ⌈108 ÷ 7.5⌉ = 15 risers, actual riser = 7.2 inches. Either is code-compliant.",
+      "A 9 ft floor-to-floor height is 108 inches. At a 7-inch target riser: ⌈108 ÷ 7⌉ = 16 risers, actual riser = 108 ÷ 16 = 6.75 inches. At 7.5-inch target: ⌈108 ÷ 7.5⌉ = 15 risers, actual riser = 7.2 inches. Both are under the 7¾-inch riser limit.",
   },
 ];
 
@@ -60,7 +60,7 @@ export default function StairCalculatorPage() {
     <>
       <CalcSchema
         name="Stair Calculator"
-        description="Calculate riser count, actual riser height, tread count, total run, and stringer length for IRC-compliant residential stairs."
+        description="Calculate riser count, actual riser height, tread count, total run, and stringer length for residential stairs, checked against four IRC limits."
         url="https://buildcalczone.com/stair-calculator"
         faqs={faqs}
       />

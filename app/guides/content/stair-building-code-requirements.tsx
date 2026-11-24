@@ -72,7 +72,7 @@ const articleSchema = {
     "@id": "https://buildcalczone.com/guides/stair-building-code-requirements",
   },
   datePublished: "2026-07-08",
-  dateModified: "2026-10-16",
+  dateModified: "2026-11-24",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -125,14 +125,16 @@ export default function StairBuildingCodeRequirements() {
         </header>
 
         <NoteBox>
-          This guide follows the 2024 IRC (International Residential Code), the
-          current edition — the 2027 edition has not been released yet. The
-          2024 edition renumbered the stair rules: stairways moved from R311.7
+          This guide follows the 2024 IRC (International Residential Code). As of
+          November 2026, ICC&apos;s store lists the 2027 IRC as available in late
+          January 2027. The 2024 edition renumbered the stair rules: stairways moved from R311.7
           to R318.7, handrail details to R320, guards to R321 and stair
           lighting to R325.6–R325.7. Each state or city adopts its own edition
           and may amend it, so confirm the code in force with your local
           building department before cutting stringers. Stairs in buildings
-          outside the IRC follow 2024 IBC Section 1011.
+          outside the IRC follow the IBC, shown
+          here from the 2024 edition (Section 1011). ICC already sells the 2027
+          IBC; this page has not been checked against it.
         </NoteBox>
 
         <h2 style={sectionHeading}>Quick reference — IRC vs IBC</h2>
@@ -140,8 +142,8 @@ export default function StairBuildingCodeRequirements() {
           <thead>
             <tr>
               <th style={th}>Requirement</th>
-              <th style={th}>IRC residential</th>
-              <th style={th}>IBC commercial</th>
+              <th style={th}>2024 IRC residential</th>
+              <th style={th}>2024 IBC commercial</th>
             </tr>
           </thead>
           <tbody>

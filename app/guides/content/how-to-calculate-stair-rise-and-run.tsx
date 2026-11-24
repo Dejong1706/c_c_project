@@ -44,13 +44,13 @@ const articleSchema = {
   "@type": "Article",
   headline: "How to Calculate Stair Rise and Run",
   description:
-    "Step-by-step guide to calculating stair rise, run, riser count, tread count, and stringer length for IRC-compliant residential stairs.",
+    "Step-by-step guide to calculating stair rise, run, riser count, tread count, and stringer length within the IRC riser and tread limits.",
   mainEntityOfPage: {
     "@type": "WebPage",
     "@id": "https://buildcalczone.com/guides/how-to-calculate-stair-rise-and-run",
   },
   datePublished: "2026-07-07",
-  dateModified: "2026-10-16",
+  dateModified: "2026-11-24",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -189,7 +189,8 @@ export default function HowToCalculateStairRiseAndRun() {
           Risers = ⌈Total Rise &divide; Target Riser Height⌉
         </div>
         <p style={paragraph}>
-          <strong>Example:</strong> 108-inch total rise, 7-inch target riser:
+          <strong>Example:</strong>{" "}
+          108-inch total rise, 7-inch target riser:
         </p>
         <div style={formula}>⌈108 &divide; 7⌉ = ⌈15.43⌉ = 16 risers</div>
 
@@ -209,7 +210,8 @@ export default function HowToCalculateStairRiseAndRun() {
           Actual Riser = Total Rise &divide; Number of Risers
         </div>
         <p style={paragraph}>
-          <strong>Example:</strong> 108 &divide; 16 = 6.75 inches per riser ✓
+          <strong>Example:</strong>{" "}
+          108 &divide; 16 = 6.75 inches per riser ✓
           (under 7¾&quot; IRC maximum)
         </p>
         <div style={note}>
@@ -231,7 +233,8 @@ export default function HowToCalculateStairRiseAndRun() {
         <div style={formula}>Treads = Risers &minus; 1</div>
         <div style={formula}>Total Run = Treads &times; Tread Depth</div>
         <p style={paragraph}>
-          <strong>Example:</strong> 16 risers, 11-inch tread depth: 15 treads
+          <strong>Example:</strong>{" "}
+          16 risers, 11-inch tread depth: 15 treads
           &times; 11&quot; = 165 inches (13 ft 9 in) total run
         </p>
 
@@ -251,7 +254,8 @@ export default function HowToCalculateStairRiseAndRun() {
           the deck surface and doesn&apos;t climb the full rise.
         </div>
         <p style={paragraph}>
-          <strong>Example:</strong> 108-inch total rise minus one 6.75-inch
+          <strong>Example:</strong>{" "}
+          108-inch total rise minus one 6.75-inch
           riser = 101.25-inch stringer rise, with a 165-inch run:
         </p>
         <div style={formula}>

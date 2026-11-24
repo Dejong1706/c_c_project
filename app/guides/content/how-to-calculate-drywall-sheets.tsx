@@ -15,7 +15,7 @@ const faqs = [
   {
     question: "Should I subtract doors and windows from drywall calculations?",
     answer:
-      "You can, but many pros don't — drywall is hung over openings and cut out, so the cutoffs become waste. If you do subtract, use 21 sq ft per standard door and 15 sq ft per standard window, then increase your waste factor to 15%.",
+      "You can, but many pros don't — drywall is hung over openings and cut out, so the cutoffs become waste. If you leave openings in, their area already covers much of the waste and 10% is enough. If you subtract many openings, use 21 sq ft per standard door and 15 sq ft per standard window and raise the waste factor to about 15%. These are rules of thumb.",
   },
   {
     question: "How many sheets of drywall do I need for a 12×12 room?",
@@ -47,7 +47,7 @@ const articleSchema = {
     "Step-by-step guide to calculating how many drywall sheets you need for walls and ceiling — with formula, worked examples, and sheet size comparison.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-drywall-sheets" },
   datePublished: "2026-07-14",
-  dateModified: "2026-11-05",
+  dateModified: "2026-11-24",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -135,7 +135,7 @@ export default function HowToCalculateDrywallSheets() {
             <tr>
               <td style={td}>4×10 ft</td>
               <td style={td}>40 sq ft</td>
-              <td style={td}>9 ft walls — fewer horizontal seams</td>
+              <td style={td}>9 ft walls when hung vertically</td>
             </tr>
             <tr>
               <td style={td}>4×12 ft</td>
@@ -145,10 +145,10 @@ export default function HowToCalculateDrywallSheets() {
           </tbody>
         </table>
         <div style={note}>
-          4×12 sheets are preferred by professionals for ceilings — fewer seams
-          means less taping and a smoother finish. But at ~90 lbs per sheet,
-          they require two people and ideally a drywall lift (rental
-          ~$50–$80/day).
+          Longer sheets mean fewer seams to tape, but they are heavier and awkward
+          to lift: check the weight for your board and plan on two people or a
+          drywall lift. All three sizes are 4 ft wide, so two rows hung
+          horizontally cover 8 ft of wall height, whatever the length.
         </div>
 
         {/* Step 1 */}
@@ -161,7 +161,8 @@ export default function HowToCalculateDrywallSheets() {
           Wall area = 2 &times; (Length + Width) &times; Ceiling height
         </div>
         <p style={paragraph}>
-          <strong>Example:</strong> 15 ft × 12 ft room, 9 ft ceiling:
+          <strong>Example:</strong>{" "}
+          15 ft × 12 ft room, 9 ft ceiling:
         </p>
         <div style={formula}>
           2 &times; (15 + 12) &times; 9 = 2 &times; 27 &times; 9 = 486 sq ft
@@ -173,7 +174,8 @@ export default function HowToCalculateDrywallSheets() {
         </h2>
         <div style={formula}>Ceiling area = Length &times; Width</div>
         <p style={paragraph}>
-          <strong>Example:</strong> 15 &times; 12 = 180 sq ft ceiling
+          <strong>Example:</strong>{" "}
+          15 &times; 12 = 180 sq ft ceiling
         </p>
         <p style={paragraph}>
           Total surface area = 486 + 180 = <strong>666 sq ft</strong>
@@ -195,7 +197,7 @@ export default function HowToCalculateDrywallSheets() {
           <thead>
             <tr>
               <th style={th}>Opening type</th>
-              <th style={th}>Standard deduction</th>
+              <th style={th}>Typical deduction</th>
               <th style={th}>Size</th>
             </tr>
           </thead>
@@ -213,7 +215,8 @@ export default function HowToCalculateDrywallSheets() {
           </tbody>
         </table>
         <p style={paragraph}>
-          <strong>Example:</strong> 1 door + 2 windows: 21 + (2 &times; 15) = 51
+          <strong>Example:</strong>{" "}
+          1 door + 2 windows: 21 + (2 &times; 15) = 51
           sq ft deducted
         </p>
         <p style={paragraph}>
@@ -222,7 +225,8 @@ export default function HowToCalculateDrywallSheets() {
         <div style={note}>
           Some pros skip subtracting openings entirely — drywall is hung over
           openings and cut out, making cutoffs part of the waste. If you skip
-          deductions, use a 15% waste factor instead of 10%.
+          deductions, the opening area already covers much of the waste, so 10%
+          is enough. If you subtract many openings, use about 15%.
         </div>
 
         {/* Step 4 */}
@@ -234,7 +238,8 @@ export default function HowToCalculateDrywallSheets() {
           coverage&rceil;
         </div>
         <p style={paragraph}>
-          <strong>Example:</strong> 615 sq ft, 10% waste, 4&times;8 sheets (32
+          <strong>Example:</strong>{" "}
+          615 sq ft, 10% waste, 4&times;8 sheets (32
           sq ft):
         </p>
         <div style={formula}>
@@ -356,13 +361,13 @@ export default function HowToCalculateDrywallSheets() {
             </tr>
             <tr>
               <td style={td}>Drywall tape</td>
-              <td style={td}>1 roll per 150 sq ft</td>
+              <td style={td}>About 0.4 ft per sq ft (one 500 ft roll per 1,250 sq ft)</td>
             </tr>
             <tr>
               <td style={td}>Drywall screws (1¼&quot; Type W coarse)</td>
               <td style={td}>
                 28 per 4&times;8 wall sheet, 35 per 4&times;8 ceiling sheet
-                (16&quot; OC, 2024 IRC code minimum)
+                (framing 16&quot; OC, 2024 IRC minimum)
               </td>
             </tr>
             <tr>

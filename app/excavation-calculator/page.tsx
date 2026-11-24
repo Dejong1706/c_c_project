@@ -32,22 +32,22 @@ const faqs = [
   {
     question: "How do I calculate excavation volume?",
     answer:
-      "Multiply length × width × depth to get the volume in cubic metres. For trenches with sloped sides, use the average of the top and bottom width instead of a single width measurement.",
+      "Multiply length × width × depth to get the volume in cubic metres. For a trench with sloped sides and vertical ends, use the average of the top and bottom width. For a pit with four sloped sides, use depth ÷ 6 × (top area + 4 × mid-depth area + bottom area): a pit 4 × 4 m at the top, 2 × 2 m at the bottom and 2 m deep is 2 ÷ 6 × (16 + 36 + 4) = 18.67 m³.",
   },
   {
     question: "How many trucks do I need to remove excavated soil?",
     answer:
-      "A standard dump truck carries about 6 cubic metres of material. Divide your total excavation volume by 6 and round up to get the number of truck loads needed.",
+      "Divide the loose volume (after swell) by the truck's capacity and round up. Truck sizes vary, so ask your haulage company; this calculator uses 6 m³ as an example. For 20 m³ in the ground at 25% swell: 20 × 1.25 = 25 m³, and 25 ÷ 6 rounds up to 5 loads. A truck may reach its weight limit before it is full.",
   },
   {
-    question: "Why should I add a buffer to my excavation volume?",
+    question: "What is the difference between over-excavation and swell?",
     answer:
-      "Soil swells when excavated — loose soil takes up more volume than compacted soil in the ground. A 10–15% buffer accounts for this swell and any over-excavation at the edges.",
+      "Over-excavation is extra soil dug beyond the design size. Swell is the increase in volume when soil is loosened: it changes how much you haul away, not the size of the hole. The calculator applies them separately. Its defaults (10% and 25%) are planning figures, and swell depends on the soil.",
   },
   {
     question: "What is the difference between a pit and a trench excavation?",
     answer:
-      "A pit is a broad, roughly square or rectangular hole (for foundations or basements), while a trench is long and narrow (for pipes, footings, or drainage). The volume calculation is the same for both.",
+      "A pit is a broad, roughly square or rectangular hole (for foundations or basements), while a trench is long and narrow (for pipes, footings, or drainage). With vertical sides the volume calculation is the same for both.",
   },
 ];
 

@@ -30,17 +30,17 @@ const faqs = [
   {
     question: "How much paint do I need for a room?",
     answer:
-      "Calculate the total wall area (2 × (length + width) × height), then divide by the coverage rate (typically 10 m² per litre). Multiply by the number of coats needed.",
+      "Calculate the total wall area (2 × (length + width) × height), then divide by the coverage rate on the tin (this calculator starts at 10 m² per litre indoors). Multiply by the number of coats needed.",
   },
   {
     question: "How many coats of paint do I need?",
     answer:
-      "Most walls need 2 coats for even coverage, especially when changing colors significantly. A single coat may suffice for touch-ups or when using the same color.",
+      "Two coats is the usual starting point. A strong color change can need a primer or a third coat, and new plaster needs a thinned first coat before the finish coats. Follow the instructions on the tin.",
   },
   {
     question: "How much area does 1 litre of paint cover?",
     answer:
-      "On average, 1 litre of paint covers about 10 m² per coat, though this varies by paint type, surface texture, and application method.",
+      "It depends on the paint and surface, so use the figure on the tin. Published examples: Benjamin Moore Regal Select flat 400–450 ft² per US gallon (9.8–11.0 m²/L), Dulux Trade Vinyl Matt up to 17 m²/L, Benjamin Moore Element Guard exterior flat 300–400 ft² per gallon (7.4–9.8 m²/L).",
   },
   {
     question: "Should I subtract windows and doors from paint calculations?",

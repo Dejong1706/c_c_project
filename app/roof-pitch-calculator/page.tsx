@@ -41,7 +41,7 @@ const faqs = [
   {
     question: "What is a pitch factor and how do I use it?",
     answer:
-      "The pitch factor (also called roof multiplier) is √((rise/12)² + 1). Multiply your roof's flat footprint area by the pitch factor to get the true sloped surface area for ordering shingles, underlayment, or metal panels. A 6:12 pitch has a factor of 1.118 — a 1,000 sq ft footprint needs 1,118 sq ft of roofing material.",
+      "The pitch factor (also called roof multiplier) is √((rise/12)² + 1). Multiply your roof's flat footprint area, including eave and gable overhangs, by the pitch factor to get the true sloped surface area. A 6:12 pitch has a factor of 1.118, so a 1,000 sq ft footprint has 1,118 sq ft of roof surface before waste.",
   },
   {
     question: "What is the minimum roof pitch for shingles?",

@@ -5,7 +5,7 @@ const faqs = [
   {
     question: "How many bricks do I need per square metre?",
     answer:
-      "For a standard single-leaf wall using standard bricks (215×102.5×65mm) with 10mm mortar joints, you need approximately 60 bricks per square metre. Maxi bricks (290×140×90mm) require around 34 per square metre, and jumbo bricks (290×140×140mm) around 23 per square metre.",
+      "For a standard single-leaf wall using standard bricks (215×102.5×65mm) with 10mm mortar joints, you need approximately 60 bricks per square metre. Maxi bricks (290×140×90mm) work out at 33.3, rounded up to 34 per square metre, and jumbo bricks (290×140×140mm) at 22.2, rounded up to 23.",
   },
   {
     question: "What is a maxi brick?",
@@ -45,7 +45,7 @@ const articleSchema = {
     "Brick quantities per square metre for standard, maxi and jumbo bricks. Includes waste allowance guidance and pallet quantity notes.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-many-bricks-per-square-metre" },
   datePublished: "2026-06-16",
-  dateModified: "2026-10-22",
+  dateModified: "2026-11-24",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -118,23 +118,23 @@ export default function HowManyBricksPerSquareMetreGuide() {
             <tr>
               <td style={td}>Standard</td>
               <td style={td}>215×102.5×65mm</td>
-              <td style={td}>~60</td>
+              <td style={td}>59.3 → 60</td>
             </tr>
             <tr>
               <td style={td}>Maxi</td>
               <td style={td}>290×140×90mm</td>
-              <td style={td}>~33</td>
+              <td style={td}>33.3 → 34</td>
             </tr>
             <tr>
               <td style={td}>Jumbo</td>
               <td style={td}>290×140×140mm</td>
-              <td style={td}>~23</td>
+              <td style={td}>22.2 → 23</td>
             </tr>
           </tbody>
         </GuideTable>
         <NoteBox>
-          These figures are calculated from the face dimensions including a 10mm
-          mortar joint on each edge. Actual quantities can vary slightly
+          Each figure is 1,000,000 mm² divided by the face area of one brick plus
+          one 10mm joint, then rounded up to a whole brick. Actual quantities can vary slightly
           depending on the brick manufacturer&apos;s tolerances and the joint
           width used on site.
         </NoteBox>
@@ -226,8 +226,9 @@ export default function HowManyBricksPerSquareMetreGuide() {
           <Link href="/brick-calculator" style={link}>
             brick calculator
           </Link>{" "}
-          handles this automatically — enter your wall dimensions and it returns
-          brick count and pallet estimate with adjustable waste.
+          does this for UK standard and US modular brick — enter your wall
+          dimensions and it returns a brick count and pallet estimate with
+          adjustable waste. For maxi and jumbo bricks, use the figures above.
         </p>
         <p style={paragraph}>
           For the mortar to lay them, the{" "}

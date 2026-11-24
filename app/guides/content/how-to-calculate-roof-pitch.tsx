@@ -14,7 +14,7 @@ const faqs = [
   {
     question: "How do I calculate roof pitch?",
     answer:
-      "Measure the vertical rise in inches over a 12-inch horizontal run. That rise number is your pitch — a 6-inch rise over 12 inches of run is a 6:12 pitch. You can measure from inside the attic by holding a level against a rafter and measuring straight down at the 12-inch mark.",
+      "Measure the vertical rise in inches over a 12-inch horizontal run. That rise number is your pitch — a 6-inch rise over 12 inches of run is a 6:12 pitch. From inside the attic, touch one end of a level to the underside of a rafter, hold it level with the other end pointing toward the ridge, and measure straight up to the rafter at the 12-inch mark.",
   },
   {
     question: "What is the minimum roof pitch for shingles?",
@@ -24,12 +24,12 @@ const faqs = [
   {
     question: "How do I convert roof pitch to degrees?",
     answer:
-      "Use the formula: Degrees = arctan(rise ÷ 12) × (180 ÷ π). Common results: 4:12 = 18.4°, 6:12 = 26.6°, 8:12 = 33.7°, 12:12 = 45°. The roof pitch calculator above handles this conversion instantly.",
+      "Use the formula: Degrees = arctan(rise ÷ 12) × (180 ÷ π). Common results: 4:12 = 18.4°, 6:12 = 26.6°, 8:12 = 33.7°, 12:12 = 45°. The roof pitch calculator linked on this page handles this conversion instantly.",
   },
   {
     question: "What is a pitch factor and why does it matter?",
     answer:
-      "The pitch factor is √((rise/12)² + 1). Multiply your roof's flat footprint area by this number to get the true sloped surface area. A 6:12 pitch has a factor of 1.118 — so a 1,000 sq ft footprint needs 1,118 sq ft of shingles or roofing material.",
+      "The pitch factor is √((rise/12)² + 1). Multiply your roof's flat footprint area, including eave and gable overhangs, by this number to get the true sloped surface area. A 6:12 pitch has a factor of 1.118, so a 1,000 sq ft footprint has 1,118 sq ft of roof surface before waste.",
   },
   {
     question: "What roof pitch requires fall protection?",
@@ -56,7 +56,7 @@ const articleSchema = {
     "Measure and calculate roof pitch from rise and run, convert to degrees, find rafter length and pitch factor, and see OSHA low-slope vs steep roof limits.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-roof-pitch" },
   datePublished: "2026-07-21",
-  dateModified: "2026-10-21",
+  dateModified: "2026-11-24",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -180,10 +180,10 @@ export default function HowToCalculateRoofPitch() {
         </p>
         <ol style={{ paddingLeft: "20px", margin: "0 0 16px" }}>
           {[
-            "Hold a level horizontally against the underside of a rafter.",
-            "Mark a point exactly 12 inches from where the level touches the rafter.",
-            "Measure straight down from that mark to the rafter surface.",
-            "That vertical measurement in inches is your pitch (e.g. 6 inches = 6:12).",
+            "Touch one end of a level to the underside of a rafter, with the other end pointing toward the ridge, and hold it horizontal (bubble centred).",
+              "Mark the level 12 inches from the end that touches the rafter.",
+              "Measure straight up from that mark to the underside of the same rafter.",
+              "That vertical measurement in inches is your pitch (e.g. 6 inches = 6:12).",
           ].map((step, i) => (
             <li
               key={i}
@@ -195,14 +195,14 @@ export default function HowToCalculateRoofPitch() {
         </ol>
 
         <p style={{ fontSize: "14px", fontWeight: 600, color: "var(--text-1)", marginBottom: "4px" }}>
-          Method 2 — From the roof surface
+          Method 2 — From the roof surface (only with fall protection)
         </p>
         <ol style={{ paddingLeft: "20px", margin: "0 0 16px" }}>
           {[
-            "Place a level flat on the roof surface, bubble centred.",
-            "Hold one end of the level at the roof surface.",
-            "Measure 12 inches along the level from that end.",
-            "Measure straight down from the 12-inch mark to the roof — that's your rise.",
+            "Rest one end of a level on the roof, with the other end pointing down the slope toward the eave.",
+              "Raise the free end until the bubble is centred. Only the uphill end now touches the roof.",
+              "Mark the level 12 inches from the end that touches the roof.",
+              "Measure straight down from that mark to the roof surface. That is your rise in inches.",
           ].map((step, i) => (
             <li
               key={i}
@@ -214,9 +214,9 @@ export default function HowToCalculateRoofPitch() {
         </ol>
 
         <div style={note}>
-          A speed square gives an instant pitch reading on the roof — hold the
-          pivot point against the rafter edge and read the degree or pitch scale
-          where the level vial aligns.
+          If you have a digital angle finder, hold it along the rafter to read
+          the angle in degrees, then convert it with the formula below: x = 12
+          &times; tan(angle).
         </div>
 
         {/* Calculate from rise and run */}
@@ -225,7 +225,8 @@ export default function HowToCalculateRoofPitch() {
           Pitch (x:12) = Rise (in) &divide; Run (in) &times; 12
         </div>
         <p style={paragraph}>
-          <strong>Example:</strong> a roof rises 9 inches over a 12-inch run:
+          <strong>Example:</strong>{" "}
+          a roof rises 9 inches over a 12-inch run:
           9 &divide; 12 &times; 12 = <strong>9:12 pitch</strong>
         </p>
         <p style={paragraph}>
@@ -236,7 +237,8 @@ export default function HowToCalculateRoofPitch() {
           Pitch (x:12) = (Total Rise &divide; Total Run) &times; 12
         </div>
         <p style={paragraph}>
-          <strong>Example:</strong> total rise 8 ft, total run 16 ft:
+          <strong>Example:</strong>{" "}
+          total rise 8 ft, total run 16 ft:
           (8 &divide; 16) &times; 12 = <strong>6:12 pitch</strong>
         </p>
 
@@ -299,12 +301,14 @@ export default function HowToCalculateRoofPitch() {
           Rafter length = Run &times; Pitch factor
         </div>
         <p style={paragraph}>
-          <strong>Example:</strong> 6:12 pitch, 12 ft run:
+          <strong>Example:</strong>{" "}
+          6:12 pitch, 12 ft run:
           12 &times; 1.118 = <strong>13.42 ft rafter length</strong>
         </p>
         <div style={note}>
-          Add 12–18 inches to calculated rafter length for the eave overhang,
-          and allow for the plumb cut at the ridge and the bird&apos;s mouth
+          An eave overhang is measured horizontally, so multiply it by the pitch
+          factor before adding it: a 12 in overhang at 6:12 adds 12 &times; 1.118
+          = 13.4 in of rafter. Also allow for the plumb cut at the ridge and the bird&apos;s mouth
           (seat cut) at the wall plate before purchasing lumber.
         </div>
 
@@ -318,11 +322,12 @@ export default function HowToCalculateRoofPitch() {
           Pitch factor = &radic;((rise &divide; 12)&sup2; + 1)
         </div>
         <div style={formula}>
-          True roof area = Flat footprint area &times; Pitch factor
+          True roof area = Flat footprint area (including overhangs) &times; Pitch factor
         </div>
         <p style={paragraph}>
-          <strong>Example:</strong> 1,500 sq ft footprint, 6:12 pitch (factor 1.118):
-          1,500 &times; 1.118 = <strong>1,677 sq ft</strong> of roofing material needed
+          <strong>Example:</strong>{" "}
+          1,500 sq ft footprint, 6:12 pitch (factor 1.118):
+          1,500 &times; 1.118 = <strong>1,677 sq ft</strong> of sloped roof area, before waste
         </p>
 
         {/* CTA */}

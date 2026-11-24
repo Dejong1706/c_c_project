@@ -8,7 +8,7 @@ import { ceilCount } from "../components/calcMath";
 type UnitLen = "ft" | "m";
 type SheetSize = "4x8" | "4x10" | "4x12";
 
-const toFt: Record<UnitLen, number> = { ft: 1, m: 3.28084 };
+const toFt: Record<UnitLen, number> = { ft: 1, m: 1 / 0.3048 };
 
 const SHEET_SIZES: Record<SheetSize, { label: string; sqft: number }> = {
   "4x8": { label: "4×8 ft (32 sq ft)", sqft: 32 },
@@ -18,7 +18,7 @@ const SHEET_SIZES: Record<SheetSize, { label: string; sqft: number }> = {
 const SHEET_ORDER: SheetSize[] = ["4x8", "4x10", "4x12"];
 const TYPES = SHEET_ORDER.map((k) => SHEET_SIZES[k].label);
 
-// Standard deductions per USG / Georgia-Pacific
+// Typical opening sizes (planning figures)
 const DOOR_SQFT = 21; // 3×7 ft standard interior door
 const WINDOW_SQFT = 15; // 3×5 ft standard window
 
@@ -71,8 +71,8 @@ export default function DrywallCalc() {
           ((netWallArea * 28 + ceilingArea * 35) / 32) * (1 + waste / 100),
         )
       : 0;
-    // Tape: 1 roll per ~150 sq ft
-    const tapeRolls = valid ? ceilCount(totalArea / 150) : 0;
+    // Tape: rule of thumb, ~0.4 ft of joint per sq ft of board
+    const tapeFt = valid ? ceilCount(totalArea * 0.4) : 0;
 
     return [
       {
@@ -108,13 +108,15 @@ export default function DrywallCalc() {
       {
         label: "Drywall screws",
         value: valid ? screws.toLocaleString() : "—",
-        unit: 'screws (code min., 16" OC)',
+        unit: 'screws (IRC minimum, framing 16" OC)',
         tier: 3,
       },
       {
         label: "Drywall tape",
-        value: valid ? tapeRolls : "—",
-        unit: "rolls",
+        value: valid ? tapeFt : "—",
+        unit: valid
+          ? `ft (${ceilCount(tapeFt / 500)} × 500 ft roll)`
+          : "ft",
         tier: 3,
       },
     ];
@@ -248,7 +250,7 @@ export default function DrywallCalc() {
       onTypeChange={setSheetIdx}
       inputs={inputs}
       results={results}
-      notice={`Wall area = 2 × (L + W) × H. Deductions: ${DOOR_SQFT} sq ft per door, ${WINDOW_SQFT} sq ft per window (USG / Georgia-Pacific standard). Sheets = ⌈Total area × (1 + ${waste}% waste) ÷ ${sheet.sqft} sq ft⌉. Joint compound: 1 gal per 100 sq ft. Screws (2024 IRC minimum, 16" OC): 28 per 32 sq ft of wall, 35 per 32 sq ft of ceiling, plus waste. Install ceiling drywall before walls. Use ½" for walls, ⅝" Type X for garages and fire-rated assemblies.`}
+      notice={`Wall area = 2 × (L + W) × H. Deductions: ${DOOR_SQFT} sq ft per door, ${WINDOW_SQFT} sq ft per window (typical sizes). Sheets = ⌈Total area × (1 + ${waste}% waste) ÷ ${sheet.sqft} sq ft⌉. Joint compound 1 gal per 100 sq ft and tape 0.4 ft per sq ft are rules of thumb. Screws (2024 IRC minimum, framing 16" OC, spaced 16" on walls and 12" on ceilings): 28 per 32 sq ft of wall, 35 per 32 sq ft of ceiling, plus waste. Board type and thickness for garages and fire-rated assemblies depend on location: check your local code.`}
       related={[
         {
           href: "/paint-calculator",

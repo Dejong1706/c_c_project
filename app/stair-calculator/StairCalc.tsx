@@ -26,7 +26,7 @@ const MOUNT_TYPES: Record<MountType, { label: string; desc: string }> = {
   },
 };
 const MOUNT_ORDER: MountType[] = ["standard", "flush"];
-const TYPES = MOUNT_ORDER.map((k) => MOUNT_TYPES[k].label);
+
 
 export default function StairCalc() {
   const [mountIdx, setMountIdx] = useState(0);
@@ -84,8 +84,8 @@ export default function StairCalc() {
 
     const codeStatus =
       riserOk && treadOk && widthOk && flightOk
-        ? "✓ IRC compliant"
-        : "✗ Check code";
+        ? "✓ Within the limits checked"
+        : "✗ Outside a limit checked";
 
     return [
       {
@@ -141,15 +141,15 @@ export default function StairCalc() {
         tier: 3,
       },
       {
-        label: "IRC code check",
+        label: "IRC limits checked",
         value: valid ? codeStatus : "—",
         unit: valid
           ? `riser ${riserOk ? "✓" : "✗"} · tread ${
               treadOk ? "✓" : "✗"
             } · width ${widthOk ? "✓" : "✗"}${
-              flightOk ? "" : ' · ✗ over 151" — add a landing'
+              flightOk ? " · flight rise ✓" : ' · ✗ over 151" — add a landing'
             }`
-          : "riser · tread · width",
+          : "riser · tread · width · flight rise",
         tier: 3,
       },
     ];
@@ -246,12 +246,10 @@ export default function StairCalc() {
   return (
     <CalcShell
       title="Stair calculator"
-      description="Calculate riser count, actual riser height, tread count, total run, and stringer length for IRC-compliant residential stairs."
-      types={TYPES}
-      onTypeChange={setMountIdx}
+      description="Calculate riser count, actual riser height, tread count, total run, and stringer length for residential stairs, checked against four IRC limits."
       inputs={inputs}
       results={results}
-      notice={`Risers = ⌈Total Rise ÷ Target Riser⌉. Actual riser = Total Rise ÷ Risers (equal distribution per 2024 IRC §R318.7.5.1 ⅜" uniformity rule). Stringer = √((Rise − one riser)² + Run²) for standard mount, √(Rise² + Run²) for flush mount. 2024 IRC: max riser 7¾" and min tread 10" (R318.7.5), min width 36" (R318.7.1), max 151" rise per flight (R318.7.3). Carpenter's rule of thumb (not code): Rise + Run ≈ 17–18". A cut 2×12 stringer spans at most 6'-0" horizontally without a support post or landing (AWC DCA 6). Measure finished floor to finished floor — include flooring thickness on both ends. Always verify with your local building department before cutting stringers.`}
+      notice={`Risers = ⌈Total Rise ÷ Target Riser⌉. Actual riser = Total Rise ÷ Risers (equal distribution per 2024 IRC §R318.7.5.1 ⅜" uniformity rule). Stringer = √((Rise − one riser)² + Run²) for standard mount, √(Rise² + Run²) for flush mount. 2024 IRC: max riser 7¾" and min tread 10" (R318.7.5), min width 36" (R318.7.1), max 151" rise per flight (R318.7.3). Carpenter's rule of thumb (not code): Rise + Run ≈ 17–18". A cut 2×12 stringer spans at most 6'-0" horizontally without a support post or landing (AWC DCA 6). Measure finished floor to finished floor — include flooring thickness on both ends. The check covers only riser, tread, width and rise per flight — not headroom, landings, handrails, guards, nosings, stringer strength or local amendments. Always verify with your local building department before cutting stringers.`}
       related={[
         {
           href: "/concrete-calculator",
@@ -261,7 +259,7 @@ export default function StairCalc() {
         {
           href: "/excavation-calculator",
           label: "Excavation calculator",
-          desc: "Soil volume & cost",
+          desc: "Soil volume & truck loads",
         },
       ]}
     />

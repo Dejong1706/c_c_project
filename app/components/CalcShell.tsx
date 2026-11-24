@@ -48,7 +48,9 @@ export default function CalcShell({
     tier1.length > 1 || tier2.length
       ? [...tier1.slice(1), ...tier2]
       : results.slice(1, 3);
-  const tertiary = results.filter((r) => r.tier === 3).length
+  // Fall back to slicing only when no tiers are set; otherwise a missing tier 3
+  // would repeat results already shown above
+  const tertiary = results.some((r) => r.tier)
     ? results.filter((r) => r.tier === 3)
     : results.slice(3);
   const primaryEmpty =

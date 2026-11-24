@@ -102,7 +102,7 @@ const guides: {
   {
     title: "How Many Tiles Do I Need?",
     href: "/guides/how-many-tiles-do-i-need",
-    desc: "Step-by-step calculation including waste percentage by layout pattern, buying by the box, and common mistakes.",
+    desc: "Step-by-step calculation including waste percentage by layout pattern, buying by the box, and grout joints.",
     category: "Tile",
   },
   {
@@ -121,7 +121,7 @@ const guides: {
   {
     title: "How to Calculate Paint Coverage",
     href: "/guides/how-to-calculate-paint-coverage",
-    desc: "Wall area formula, coverage rates by paint type, and how many coats you actually need.",
+    desc: "Wall area formula, published coverage examples, and how many coats to allow.",
     category: "Paint",
   },
   {

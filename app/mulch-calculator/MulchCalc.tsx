@@ -9,7 +9,7 @@ type UnitLen = "ft" | "m";
 type DepthUnit = "in" | "cm";
 type BedShape = "rectangle" | "circle";
 
-const toFt: Record<UnitLen, number> = { ft: 1, m: 3.28084 };
+const toFt: Record<UnitLen, number> = { ft: 1, m: 1 / 0.3048 };
 const toIn: Record<DepthUnit, number> = { in: 1, cm: 0.393701 };
 
 // 1 cubic yard = 27 cubic feet
@@ -220,7 +220,7 @@ export default function MulchCalc() {
         {
           href: "/excavation-calculator",
           label: "Excavation calculator",
-          desc: "Soil volume & cost",
+          desc: "Soil volume & truck loads",
         },
         {
           href: "/concrete-calculator",

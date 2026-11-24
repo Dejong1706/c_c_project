@@ -155,14 +155,6 @@ const websiteSchema = {
   name: "BuildCalc",
   url: "https://buildcalczone.com",
   description: "Free construction calculators for concrete, tiles, bricks, rebar, paint and more.",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: "https://buildcalczone.com/?q={search_term_string}",
-    },
-    "query-input": "required name=search_term_string",
-  },
 };
 
 const sectionTitle: React.CSSProperties = {
@@ -190,7 +182,7 @@ export default function Home() {
               full calculator for more shapes, metric units and waste options.
             </p>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "8px", marginTop: "4px" }}>
-              {["Free, no sign-up", "Metric and imperial", "Every formula explained in a guide"].map((t) => (
+              {["Free, no sign-up", "Metric or US units in most calculators", "Step-by-step guides with worked examples"].map((t) => (
                 <li key={t} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "var(--text-2)" }}>
                   <IconCheck size={16} color="var(--accent)" stroke={2.4} />
                   {t}
