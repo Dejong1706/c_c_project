@@ -11,7 +11,7 @@
 ## 다음 할 일 (2026-11-24 재감사, **현재 기준 목록**)
 
 - 범위: 가이드 25개 빌드 본문, 계산기 15개(단위 변환기는 처음에 FAQ만 보고 나중에 변환 계수 확인, 화면 입력 테스트는 전부 안 함), 홈/레이아웃/메타/개인정보/README를 **읽어서** 검토. 처음 `node`로 실행한 것은 문제로 적은 일부 수치(벽돌 장수, 지붕 면적, 굴착, 멀치, 트럭, 페인트)뿐. 메타 길이·내부 링크 수는 빌드 HTML로 집계. **외부 1차 출처 대조는 이번에 하지 않음** → 아래 "정확한 값"도 **미확정**. 각 항목 작업 때 `docs/verification.md` 순서로 확인.
-- 아래 번호 순서대로 평일 하루 1개. 끝나면 `[x] (날짜)`. 세부는 2–4단계 목록(줄 번호는 옛것이므로 문구 검색)을 함께 볼 것. ★ = 이번에 새로 찾은 것.
+- 아래 번호 순서대로 평일 하루 1개. 끝나면 `[x] (날짜)`. 세부는 2–4단계 목록(줄 번호는 옛것이므로 문구 검색)을 함께 볼 것. ★ = 11-24 재감사에서 새로 찾은 문제, ◆ = 11-24 홈 화면 검증에서 새로 찾은 문제.
 - 주의: 2–4단계에 남은 항목 중 10월에 고친 것은 이번에 `[x]` 처리했다.
 
 - 검증 절차 문서 `docs/verification.md` 신설 + `AGENTS.md` 연결 (2026-11-24). 원인: lint/tsc/build를 내용 검증처럼 보고, 바꾼 값의 다른 위치(notice·다른 가이드·FAQ)를 확인하지 않음(펜스 10-16, 타일 10-20, 담장 10-22)
@@ -20,6 +20,8 @@
 ### 1순위: 안전 / 사이트 안 모순 / 실제로 틀린 결과
 
 - [ ] 1. ★ **bricks-for-a-wall 가이드 (안전)**: 예시 A가 반장 벽 정원 담장 **높이 1.2 m** — 같은 사이트 single-vs-double 가이드의 상한(375–525 mm)을 크게 넘는다. 1단계 표 "half-brick = garden walls", "full-brick = load-bearing exterior walls"와 FAQ도 같이 수정. 2 m 벽에 2.1 m 문 예시(불가능), 영국식 쌓기 설명, 8/12 mm 줄눈 63/58 → **61/57**, 모르타르 17 L·20% → 17.6 L·21%, "25 kg 1:4 = 150–200장" 근거, 계산기에 없는 기능 약속(벽돌 크기·모르타르), "Do mortar joint" → "Does"
+- [ ] 1a. ◆ **홈 벽돌 계산기(QuickCalc)**: 기본 예시가 **높이 6 ft(1.83 m)** 인데 벽 두께·용도 안내 없음. 장수는 반장 벽(single wythe) 기준이라 독립 담장이면 사이트의 한도(375–525 mm)를 넘는다. 같은 20×6 ft 벽이 홈 851장(US 6.75/ft², 5%) vs 벽돌 계산기 736장(UK 60/m², 10%, 로직을 따로 계산) → 기준 표시 또는 US 옵션(28번과 함께). 미국 예시에 영국 높이표를 그대로 적용하지 말고 미국 근거 확인
+- [ ] 1b. ◆ **홈 계단 계산기**: 층고 152″·300″도 계단참 안내 없이 단수와 "Shortest total run"을 보여 줌(참 길이 제외). 다른 페이지는 151″ 초과 시 참 필요. "1 treads" 표기도 함께
 - [ ] 2. ★ **펜스 계산기 notice**: "Burial depth = max(height ÷ 3, 2 ft)"라고 쓰지만 실제 계산·FAQ·가이드는 **높이 ÷ 2** (10-16 변경 때 누락). 함께: 가이드 "vinyl can't be cut", 동결선 "must", "industry-standard … professional contractors", 레일 7–8 ft 공백(계산기는 7 ft 초과 → 4), Step 4 동결선 범위(24–48+)와 FAQ(36–48) 불일치, 게이트 폭을 빼지 않아 피킷·레일 과다
 - [ ] 3. **지붕 피치 측정 방법** (가이드 + ★FAQ도 같은 오류): 다락에서는 수평자에서 **위로** 서까래 아랫면까지. 지붕 위 방법은 "flat + bubble centred" 자기모순 → 한쪽 끝만 대고 수평 유지. ★처마 12–18″는 수평 돌출이므로 × pitch factor, ★footprint 면적에 처마 포함 안내
 - [ ] 4. **지붕 계산기 면적** (결정 필요, 아래): 24×40 ft·6:12 한쪽 면이 322로 나오지만 실제 537 sq ft (40% 과소). 결정 전이라도 결과 숨김 권장. "enter span below"는 위치에 맞는 문구로
@@ -29,6 +31,7 @@
 - [ ] 8. **strength-grades 가이드**: C15–C20 → C16/20–C20/25, 공기연행, 표 구간 겹침(3500–4000/4000–4500), "foundations 4000–4500"과 IRC R402.2 관계, 28일 설명
 - [ ] 9. **brick-sizes 가이드** (2026-06-16 이후 미검증): 줄눈표 63/58 → 61/57, NF 52 → **49**, King 행이 Queen과 사실상 같음, Imperial은 nominal, ASTM C652(중공)·BS EN 771-1 귀속, ★빠른 참조표 "10 mm 줄눈" 단서와 본문 ⅜″ 불일치, 계산기에 없는 "joint size 설정" 약속. 백링크용 자료 페이지 후보이므로 정확도 우선
 - [ ] 10. **bricks-per-m² 가이드**: 맥시 표 33 vs FAQ 34 (33.3), 점보 23 → 22.2. 한 규칙(올림 또는 반올림)으로 통일하고 계산기·다른 가이드와 맞추기
+- [ ] 10a. ◆ **모르타르 계산기 낭비율**: 기본 10%. BIA TN10(2009-02)은 일반적으로 순 모르타르량에 **15–25%** 추가("Mortar Waste"). 벽돌은 **최소 5%** → 벽돌 가이드·계산기 낭비율 서술과 함께 정리. TN10 현행 여부 먼저 확인
 - [ ] 11. **lay-tile 가이드**: 평탄도 1/8″는 15″ 이상 타일만, 대형 기준 12″/18″ 혼재 → 15″, back-butter "required", CTA "grout", FAQ "unprofessional and is structurally weak" 단정, 출처 없는 시간·트로웰 수치
 - [ ] 12. **타일/바닥재 계산기 문구**: 박스당 10장 고정 → 입력 추가, 대각선 안내 "10–15% more **on top**" vs FAQ·가이드 "총 15%", FAQ "about 33" → 34 (12 ÷ 0.603² = 33.002라 **계산기·가이드가 모두 34**. 10-12에 불필요로 봤던 판단을 변경), Flooring "per NWFA" (LVP·카펫·타일에 적용, 코드 주석의 출처도 판매·계산기 사이트)
 - [ ] 13. **페인트 2개 가이드 + 계산기**: masonry 6–10 vs 4–6 m²/L, premium 더 넓게 vs 더 좁게, 10 m²/L "conservative"(407 ft²/gal), 계산기에 없는 coverage 입력 약속, 새 석고 FAQ(2회만 곱함 vs mist + 2), "going from light to dark", 중복 FAQ. Exterior 옵션은 실내와 계산 동일
@@ -38,14 +41,14 @@
 
 ### 2순위: 사이트 전반 표기·기술
 
-- [ ] 17. 문구 일괄: 홈 "Every formula explained in a guide"(철근은 이제 있음, 굴착·바닥재 없음), `SearchAction` 삭제, 관련 링크 "Soil volume & cost" **4곳**(fence·mulch·★stair·★roof), "Tiles & grout estimator", how-many-tiles의 "common mistakes" 약속(메타·카드·schema)
+- [ ] 17. 문구 일괄: ◆홈 "Metric and imperial"(철근 지름 mm만, 바닥재 결과 sq ft, 지붕 span ft, 계단 디딤판 in), 홈 "Every formula explained in a guide"(철근은 이제 있음, 굴착·바닥재 없음), `SearchAction` 삭제, 관련 링크 "Soil volume & cost" **4곳**(fence·mulch·★stair·★roof), "Tiles & grout estimator", how-many-tiles의 "common mistakes" 약속(메타·카드·schema)
 - [ ] 18. title 60자 초과 **14개** — 계산기: excavation 75, concrete 72, roof 66, unit 65, bags 64, fence 64, rebar 63, mortar 61 / 가이드: rise-run 70, cubic-yards 68, bricks-m² 68, volume 65, tiles 62, paint-coverage 61. description: bags 181, brick 176, stair 168, concrete 166, drywall 166, curing 119
 - [ ] 19. ★ **404 페이지 title 없음**(배포본 확인). 기본 title 추가 + Breadcrumb name이 SEO 제목 전체인 것 수정
 - [ ] 20. ★ 표기 통일: metre/meter 혼용(US 대상 계산기 "cubic metres", FAQ "square meter"), 215×102 vs 102.5 mm, 18/17.6/17 L, ton/tonne, "on centre". 규칙을 content-rules에 한 줄로 추가
 - [ ] 21. 개인정보처리방침: first-party 쿠키 서술(GA4 `_ga`), "개인 식별 불가" vs 맞춤 광고. Google Fonts·jsDelivr 누락 문제는 10-26·11-03 제거로 **해소**. 연락 수단·동의 배너는 결정 필요
-- [ ] 22. CalcShell: 실제 0이 "—"로 보임(석고보드 공제 > 벽, 1단 계단)
+- [ ] 22. ◆QuickCalc 벽돌 면적: 0.5×0.5 ft가 "0 sq ft". CalcShell: 실제 0이 "—"로 보임(석고보드 공제 > 벽, 1단 계단)
 - [ ] 23. 접근성: 햄버거 aria-expanded·Escape, skip link, aria-current, Breadcrumb aria, lay-tile 단계 heading, 토글·★가이드 필터 aria-pressed, FAQ 질문 h3, ★/guides 카드 제목 heading
-- [ ] 24. 코드: 단위 상수 통일, 레지스트리 통합, `docs/` 2개, README(계산기 13 → 15, 가이드 20 → 25, "광고 없이", 모르타르 "물 배합")
+- [ ] 24. 코드: 단위 상수 통일(**1순위로 올림, 2번과 함께** — ◆ 같은 100 ft 펜스의 피킷이 ft 입력 240개, 30.48 m 입력 241개. 화면에서 확인, 원인은 반올림된 3.28084. 1/0.3048로 바꾸면 240), 레지스트리 통합, `docs/` 2개, README(계산기 13 → 15, 가이드 20 → 25, "광고 없이", 모르타르 "물 배합")
 
 ### 3순위: 추가하면 좋은 것
 
@@ -61,11 +64,35 @@
 ### 날짜가 정해진 일
 
 - [ ] 2026-12 초: SEO 점검 (Bing Pages·Keywords CSV 포함)
-- [ ] 2027-01: ★ 2027 IRC/IBC 출간 여부 확인 → stair 가이드 "2027 edition has not been released yet", content-rules 1번, "2024 IRC" 표기 전체 재검토
+- [ ] **지금**: ◆ ICC 상점에서 2027 **IBC**는 예약 문구 없이 판매 중으로 보임(대리 조회, 재확인 필요) → 계단 가이드의 2024 IBC 비교표·"1011" 서술, `content-rules.md` 1번("IBC도 2024 현행, 2027판은 2027-01") 갱신 여부
+- [ ] 2027-01 말: ★ 2027 **IRC** 출간 확인 (상점 문구 "available late January 2027") → stair 가이드 "2027 edition has not been released yet", content-rules 1번, "2024 IRC" 표기 전체 재검토
 
 ### 사용자 결정 필요
 
 - 지붕 면적(길이 입력 추가 권장 / 결과 삭제), 계단 flush mount 정의, 멀치 2개 병합(301)/차별화, 연락 수단, EEA 동의 배너
+
+### 원문 확인이 필요한 것 (◆ 2026-11-24 검증에서 미확인)
+
+- [ ] 2024 IRC R318.7.5.1(7¾″)·R318.7.5.2(10″)·R318.7.3(151″): codes.iccsafe.org 403, UpCodes에서 IRC 2024를 찾지 못함. 사이트가 여러 곳에서 인용하므로 **사용자가 브라우저로 ICC 원문을 열어 문구를 전달**해 주는 것이 가장 확실함
+- [ ] BIA TN10(2009)의 현행 여부
+- [ ] 실제 휴대폰·다른 브라우저 화면 (375는 Chrome 모바일 모드만 확인)
+
+### 2026-11-24 홈 화면 검증 결과 (verification.md 첫 실행, 수정 없음)
+
+결론: **실패 (FAIL 8, 미확인 5)**. FAIL = 예시 높이(1a), 홈과 계산기 장수 차이(1a), 계단참(1b), "Every formula"(17), "Metric and imperial"(17), SearchAction(17), 0 sq ft·"1 treads"(22·1b), 연결된 지붕 가이드·계산기의 기존 오류(3·4번, 다시 대조 안 함). 미확인 = 위 목록 + 다른 가이드 전체 재독(6단계 3번) 안 함
+
+| 단계(당시 번호) | 판정 | 근거 |
+|---|---|---|
+| 0 범위 | PASS | 홈의 지붕 카드와 홈 주장 7묶음 |
+| 1 코드 | PASS | eslint·tsc·build 0 |
+| 2 화면 | PASS, 일부 미확인 | 43개 경로 200, 없는 경로 404, 1280·500·375 이미지 확인, 가로 넘침 0 |
+| 3 계산기 | FAIL | QuickCalc 32회 입력, 정상·경계값 17개는 별도 계산과 일치, 1b·22 발견 |
+| 4 내용 | FAIL, 일부 미확인 | 0.60 ft³ = Quikrete 1101 데이터시트(2022-10), 675장/100 ft²·최소 5% = BIA TN10(2009-02) |
+| 5 재계산 | FAIL | 산술 일치, 예시 높이(1a) |
+| 6 일관성 | FAIL | 1a, 17, 3·4번 |
+| 7 배포 | PASS | 실제 사이트에 카드, 링크 3개 200, sitemap 날짜 일치 |
+
+절차 보완: 내용(3) → 계산기 동작(4) 순서로 교체, 단계 동시 실행 금지, 원문이 막힐 때 경로, `scripts/verify-ui.mjs` 추가. 1–4단계 일부를 동시에 실행한 점은 절차 위반
 
 ### 이번에 문제없다고 확인한 것
 
