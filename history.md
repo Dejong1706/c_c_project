@@ -8,6 +8,69 @@
 - 수정은 4단계로 나눠 진행한다. **1단계(틀린 숫자)는 완료**했고, 아래는 남은 작업이다.
 - 줄 번호는 감사 시점 기준이라 일부 어긋날 수 있다. 수정 전에 해당 문구를 검색해서 찾을 것.
 
+## 다음 할 일 (2026-11-24 재감사, **현재 기준 목록**)
+
+- 범위: 가이드 25개 빌드 본문, 계산기 15개 로직·notice·FAQ, 홈/레이아웃/메타/개인정보/README. 수치는 `node`로 재계산, 메타 길이·내부 링크 수는 빌드 HTML로 집계. **외부 1차 출처 대조는 이번에 하지 않음** → 각 항목 작업 때 현행판 확인(content-rules 1번).
+- 아래 번호 순서대로 평일 하루 1개. 끝나면 `[x] (날짜)`. 세부는 2–4단계 목록(줄 번호는 옛것이므로 문구 검색)을 함께 볼 것. ★ = 이번에 새로 찾은 것.
+- 주의: 2–4단계에 남은 항목 중 10월에 고친 것은 이번에 `[x]` 처리했다.
+
+### 1순위: 안전 / 사이트 안 모순 / 실제로 틀린 결과
+
+- [ ] 1. ★ **bricks-for-a-wall 가이드 (안전)**: 예시 A가 반장 벽 정원 담장 **높이 1.2 m** — 같은 사이트 single-vs-double 가이드의 상한(375–525 mm)을 크게 넘는다. 1단계 표 "half-brick = garden walls", "full-brick = load-bearing exterior walls"와 FAQ도 같이 수정. 2 m 벽에 2.1 m 문 예시(불가능), 영국식 쌓기 설명, 8/12 mm 줄눈 63/58 → **61/57**, 모르타르 17 L·20% → 17.6 L·21%, "25 kg 1:4 = 150–200장" 근거, 계산기에 없는 기능 약속(벽돌 크기·모르타르), "Do mortar joint" → "Does"
+- [ ] 2. ★ **펜스 계산기 notice**: "Burial depth = max(height ÷ 3, 2 ft)"라고 쓰지만 실제 계산·FAQ·가이드는 **높이 ÷ 2** (10-16 변경 때 누락). 함께: 가이드 "vinyl can't be cut", 동결선 "must", "industry-standard … professional contractors", 레일 7–8 ft 공백(계산기는 7 ft 초과 → 4), Step 4 동결선 범위(24–48+)와 FAQ(36–48) 불일치, 게이트 폭을 빼지 않아 피킷·레일 과다
+- [ ] 3. **지붕 피치 측정 방법** (가이드 + ★FAQ도 같은 오류): 다락에서는 수평자에서 **위로** 서까래 아랫면까지. 지붕 위 방법은 "flat + bubble centred" 자기모순 → 한쪽 끝만 대고 수평 유지. ★처마 12–18″는 수평 돌출이므로 × pitch factor, ★footprint 면적에 처마 포함 안내
+- [ ] 4. **지붕 계산기 면적** (결정 필요, 아래): 24×40 ft·6:12 한쪽 면이 322로 나오지만 실제 537 sq ft (40% 과소). 결정 전이라도 결과 숨김 권장. "enter span below"는 위치에 맞는 문구로
+- [ ] 5. **굴착 계산기**: "Sloped sides"에 정사각 구덩이(위 4×4, 아래 2×2, 깊이 2)를 넣으면 24.0, 실제 18.67 m³ (**29% 과다**) → "Trench, sloped sides" 라벨 우선. swell 10–15%는 일반 흙·점토에 과소, 슬라이더 최대 30%. over-excavation과 swell을 한 값으로 섞은 것 분리
+- [ ] 6. **drywall-calculator FAQ + drywall-sheets**: 차고 ⅝″ Type X "IRC 필수"(R302.6), green board, 4×12가 9 ft 벽 높이 커버(틀림), **낭비율 서로 반대**(본문: 공제 안 하면 15% / FAQ: 공제하면 15%), 테이프 1롤/150 sq ft(과다), 4×12 무게·리프트 대여료, notice "USG / Georgia-Pacific standard" 공제 출처 미확인, 나사 "16″ OC" 라벨(천장은 12″)
+- [ ] 7. **curing 가이드**: "loses 50%+" → 최대 약 50%, "Research confirms … 23%"·"20–30%" 출처 없음, 강도 발현표, "hydration nearly stops", 온도표 공백, ACI 308R "specifies". ★손비빔 가이드(Quikrete 5일/7일, 동결 48시간)와 이 가이드(7일, 72시간) 기준 불일치, CTA "bags, and mix ratios"
+- [ ] 8. **strength-grades 가이드**: C15–C20 → C16/20–C20/25, 공기연행, 표 구간 겹침(3500–4000/4000–4500), "foundations 4000–4500"과 IRC R402.2 관계, 28일 설명
+- [ ] 9. **brick-sizes 가이드** (2026-06-16 이후 미검증): 줄눈표 63/58 → 61/57, NF 52 → **49**, King 행이 Queen과 사실상 같음, Imperial은 nominal, ASTM C652(중공)·BS EN 771-1 귀속, ★빠른 참조표 "10 mm 줄눈" 단서와 본문 ⅜″ 불일치, 계산기에 없는 "joint size 설정" 약속. 백링크용 자료 페이지 후보이므로 정확도 우선
+- [ ] 10. **bricks-per-m² 가이드**: 맥시 표 33 vs FAQ 34 (33.3), 점보 23 → 22.2. 한 규칙(올림 또는 반올림)으로 통일하고 계산기·다른 가이드와 맞추기
+- [ ] 11. **lay-tile 가이드**: 평탄도 1/8″는 15″ 이상 타일만, 대형 기준 12″/18″ 혼재 → 15″, back-butter "required", CTA "grout", FAQ "unprofessional and is structurally weak" 단정, 출처 없는 시간·트로웰 수치
+- [ ] 12. **타일/바닥재 계산기 문구**: 박스당 10장 고정 → 입력 추가, 대각선 안내 "10–15% more **on top**" vs FAQ·가이드 "총 15%", FAQ "about 33" → 34 (12 ÷ 0.603² = 33.002라 **계산기·가이드가 모두 34**. 10-12에 불필요로 봤던 판단을 변경), Flooring "per NWFA" (LVP·카펫·타일에 적용, 코드 주석의 출처도 판매·계산기 사이트)
+- [ ] 13. **페인트 2개 가이드 + 계산기**: masonry 6–10 vs 4–6 m²/L, premium 더 넓게 vs 더 좁게, 10 m²/L "conservative"(407 ft²/gal), 계산기에 없는 coverage 입력 약속, 새 석고 FAQ(2회만 곱함 vs mist + 2), "going from light to dark", 중복 FAQ. Exterior 옵션은 실내와 계산 동일
+- [ ] 14. **mulch 가이드**: 400 sq ft 3 in + 10% = 4.07 yd³인데 "Order 4", "delivery included"가 표와 모순, 가격($47–81, $30–45)·"most homeowners 2–4 yd³" 출처 없음, 보충 두께 1–2 in vs 0.5–1 in, ★멀치에 "dye-lot". 병합/차별화 결정과 같이
+- [ ] 15. **콘크리트 계산기·포대**: 트럭 "6 m³ (8 yd³)" → 7.85 yd³, 트럭 용량 문구. concrete-bags "bag size 선택"·"post hole" 약속. ★volume 가이드 "most professionals"·"Contractors typically" 전언 정리. cubic-yards title "Converter"(변환기 없음), ★"factor itself is exact"(0.7646은 반올림)
+- [ ] 16. ★ **계단 계산기 판정 문구**: 단 높이·깊이·폭·비행 높이만 보고 "✓ IRC compliant" → "Within the limits checked". flush mount 정의(결정 필요)
+
+### 2순위: 사이트 전반 표기·기술
+
+- [ ] 17. 문구 일괄: 홈 "Every formula explained in a guide"(철근은 이제 있음, 굴착·바닥재 없음), `SearchAction` 삭제, 관련 링크 "Soil volume & cost" **4곳**(fence·mulch·★stair·★roof), "Tiles & grout estimator", how-many-tiles의 "common mistakes" 약속(메타·카드·schema)
+- [ ] 18. title 60자 초과 **14개** — 계산기: excavation 75, concrete 72, roof 66, unit 65, bags 64, fence 64, rebar 63, mortar 61 / 가이드: rise-run 70, cubic-yards 68, bricks-m² 68, volume 65, tiles 62, paint-coverage 61. description: bags 181, brick 176, stair 168, concrete 166, drywall 166, curing 119
+- [ ] 19. ★ **404 페이지 title 없음**(배포본 확인). 기본 title 추가 + Breadcrumb name이 SEO 제목 전체인 것 수정
+- [ ] 20. ★ 표기 통일: metre/meter 혼용(US 대상 계산기 "cubic metres", FAQ "square meter"), 215×102 vs 102.5 mm, 18/17.6/17 L, ton/tonne, "on centre". 규칙을 content-rules에 한 줄로 추가
+- [ ] 21. 개인정보처리방침: first-party 쿠키 서술(GA4 `_ga`), "개인 식별 불가" vs 맞춤 광고. Google Fonts·jsDelivr 누락 문제는 10-26·11-03 제거로 **해소**. 연락 수단·동의 배너는 결정 필요
+- [ ] 22. CalcShell: 실제 0이 "—"로 보임(석고보드 공제 > 벽, 1단 계단)
+- [ ] 23. 접근성: 햄버거 aria-expanded·Escape, skip link, aria-current, Breadcrumb aria, lay-tile 단계 heading, 토글·★가이드 필터 aria-pressed, FAQ 질문 h3, ★/guides 카드 제목 heading
+- [ ] 24. 코드: 단위 상수 통일, 레지스트리 통합, `docs/` 2개, README(계산기 13 → 15, 가이드 20 → 25, "광고 없이", 모르타르 "물 배합")
+
+### 3순위: 추가하면 좋은 것
+
+- [ ] 25. ★ **Sources 블록** 공통 컴포넌트: 출처를 확인한 가이드(계단·모르타르·지붕·나사·줄눈·철근·손비빔·single/double) 끝에 1차 출처·판·확인일. 신뢰도와 편집 링크 요청에 쓸 자료
+- [ ] 26. ★ **About/Contact + 검토 기준 페이지** (연락 수단 결정 후). 현재 사이트에 운영자·연락처·계산 검증 방법 설명이 없음
+- [ ] 27. 관련 가이드 나머지: ★계산기 유입 링크가 적은 flooring·fence(각 2), 가이드는 drywall-screw·single-double·rebar·mulch·fence(각 3). `RelatedGuides`가 없는 가이드 12개 중 관련 글이 있는 것부터(paint-coverage → wall-area, curing ↔ strength, 계단 2개, 벽돌 3개, volume ↔ cubic-yards)
+- [ ] 28. 계산기 기능: 벽돌 US 모듈러(6.75/ft²)와 ft² 출력(홈 QuickCalc는 US·5%, 계산기는 UK·10%로 결과가 다름), 철근 #3–#11 선택 + lb, 페인트 갤런·도포율, 모르타르 94 lb, 콘크리트 ft³ 출력, ★포대 계산기 원형(기둥 구멍), ★계단 디딤판·폭의 cm 입력, 굴착 네 면 경사, 펜스 체인링크 레일
+- [ ] 29. Bing CTR: single-vs-double 내벽 섹션 + title/description ("school brickwork" 9위·클릭 0)
+- [ ] 30. 새 가이드 후보(수요 순, 1차 출처 확보 가능한 것): 80 lb 포대 1개 부피(Bing 손비빔 3–5위) → Type S vs N → 데크 계단 코드 → 철근 무게표 → 굴착 swell
+- [ ] 31. 얇은 가이드 확장: cubic-yards(약 610단어), bricks-m²(680), mulch 2개(690), paint-coverage(750), roof-degrees(760). 분량보다 검색 의도를 채우는 표·예시 위주
+- 낮춤: "FAQ 4개뿐인 가이드에 FAQ 추가"(현재 7개: volume·cubic-yards·grout·strength·tiles·paint·bricks-m²)는 실제 검색어가 확인될 때만. 개수 채우기 목적의 FAQ는 추가하지 않음
+
+### 날짜가 정해진 일
+
+- [ ] 2026-12 초: SEO 점검 (Bing Pages·Keywords CSV 포함)
+- [ ] 2027-01: ★ 2027 IRC/IBC 출간 여부 확인 → stair 가이드 "2027 edition has not been released yet", content-rules 1번, "2024 IRC" 표기 전체 재검토
+
+### 사용자 결정 필요
+
+- 지붕 면적(길이 입력 추가 권장 / 결과 삭제), 계단 flush mount 정의, 멀치 2개 병합(301)/차별화, 연락 수단, EEA 동의 배너
+
+### 이번에 문제없다고 확인한 것
+
+- 재계산 일치: 계단 rise-run 예시, 지붕 각도·factor 표, ACI 0.0018 표, 나사 장당 수, 포대 수, 석고보드 예시 표, 줄눈별 타일 감소율, single/double 모르타르 0.018/0.045 m³
+- 빌드 HTML: 깨진 내부 링크 0, h1 페이지당 1개
+
+---
+
 ## 완료
 
 ### 1단계: 틀린 숫자 수정 (2026-10-08)
@@ -145,7 +208,7 @@
   - ~170, ~186행 예시: 2 m 높이 벽에 2.1 m 문 (불가능)
   - ~26행: 영국식 쌓기 설명 오류 ("매 단에 양방향" 아님)
   - ~362–368행: 계산기에 없는 기능 약속 (벽돌 크기, 모르타르 추정)
-- [ ] `single-vs-double-leaf-brick-wall.tsx` (**안전 관련**)
+- [x] (2026-10-22) `single-vs-double-leaf-brick-wall.tsx` (**안전 관련**)
   - ~18, ~207–213, ~424행: 정원 담장 높이 한계를 Building Regulations(Approved Doc A)로 귀속한 것과 과장
     - 반장 벽 + 기둥 1.8 m는 과장이다. 일반 지침은 약 0.5–0.75 m.
     - 출처는 LABC/BRE/BDA 지침.
@@ -153,7 +216,7 @@
   - ~13행: 영국식 쌓기 설명 오류
   - ~24, ~133, ~325행: 공동 폭 50–100 mm → 현대 영국 100–150 mm
   - ~461행: 계산기에 없는 모르타르 계산 약속
-- [ ] `brick-calculator/page.tsx` ~48행 FAQ
+- [x] (2026-10-22) `brick-calculator/page.tsx` ~48행 FAQ
   - "single leaf = one brick thick" → half-brick
   - double leaf ≠ cavity wall (영국 cavity 내측은 보통 블록)
 
@@ -198,7 +261,7 @@
 - [ ] `how-to-lay-tile-step-by-step.tsx`
   - ~184–186행: 평탄도 1/8″ in 10 ft는 15″ 이상 타일에만 해당. 그보다 작으면 1/4″ in 10 ft.
   - 대형 타일 기준 불일치 (~28, ~274행 12″ vs ~18행 18″) → ANSI/TCNA 15″. back-buttering은 "필수"가 아니라 80/95% 접착 확보 수단.
-  - ~229행: 1/16″ = 1.6 mm (2 mm 아님)
+  - (2026-10-20 해소) ~229행: 1/16″ = 1.6 mm (2 mm 아님)
   - ~366행: 없는 "grout 추정" 기능 약속
 - [ ] `tile-calculator/page.tsx` ~32행 FAQ: "about 33" → 34 (계산기·가이드와 일치시키기)
 - [ ] 대각선/헤링본 낭비율 불일치
@@ -214,8 +277,8 @@
 ### 마당 / 토공
 
 - [ ] `how-to-calculate-fence-post-spacing.tsx`
-  - ~252–257행: "기둥당 2포대" → 12″×24″ 구멍이면 3포대 (계산기와 맞추기)
-  - FAQ ~27행: "전체 길이의 1/3, 6 ft 펜스면 8 ft 기둥에 2 ft 매립"은 자기모순 → 계산기 규칙(지상 높이의 1/3, 최소 2 ft)으로 통일
+  - (2026-10-16 해소) ~252–257행: "기둥당 2포대" → 12″×24″ 구멍이면 3포대 (계산기와 맞추기)
+  - (2026-10-16 해소, 높이 ÷ 2로 통일) FAQ ~27행: "전체 길이의 1/3, 6 ft 펜스면 8 ft 기둥에 2 ft 매립"은 자기모순 → 계산기 규칙(지상 높이의 1/3, 최소 2 ft)으로 통일
   - ~142행: "vinyl can't be cut" → 짧은 칸은 레일/패널 절단 가능 (계산기 조정 간격과도 모순)
   - ~211행: "반드시 동결선 아래"는 IRC 요건이 아니라 권장 (frost heave 방지). 북부 동결 깊이 36–48″ → 48–72″ 이상인 곳도 많음
 - [ ] 굴착 swell 계수 과소
@@ -271,7 +334,7 @@
 
 - [ ] **개인정보처리방침** (`privacy-policy/page.tsx`)
   - ~247, ~262–263행: "연락 달라"는데 연락 수단 없음 → **연락처(이메일/폼) 결정 필요**
-  - 제3자 누락: Google Fonts, jsDelivr Tabler 웹폰트(`@latest` 버전 고정 안 됨)
+  - (10-26·11-03 제거로 해소) 제3자 누락: Google Fonts, jsDelivr Tabler 웹폰트(`@latest` 버전 고정 안 됨)
   - ~222행: "first-party 쿠키 없음"은 틀림 (GA4 `_ga`는 first-party)
   - ~129행: 개인 식별 불가 서술 vs AdSense 맞춤 광고
   - AdSense 사용 시 EEA/영국/스위스 대상 **동의 배너(CMP)** 필요 → 결정 필요 (AdSense 자체 CMP 사용 등)
@@ -353,22 +416,13 @@
 - [x] 목 (2026-10-29): 계산기 공통 접근성 — `Field.tsx:36` 단위 select aria-label, `WasteSlider.tsx` label 연결·aria-valuetext, `CalcShell` 결과 aria-live, 결과 보조글 대비(0.7 → 0.85), 입력 테두리 대비, range `:focus-visible`
 - [x] 금 (2026-10-30): UnitConverter — label 연결, 값 입력 label, ⇄ 버튼 aria-label, aria-live + 참조표 머리글·누락 단위
 
-**4주차 이후 후보**
+**4주차 이후 후보** (미완료 항목은 위 "다음 할 일 (2026-11-24 재감사)"로 옮김)
 - [x] Google Fonts → `next/font/google` (lint 경고 해소, 미사용 300/italic 제거) (2026-11-02분, 11-03 커밋)
 - [x] 미사용 파일 정리: `public/` 기본 svg들, `favicon.svg`, `icon-192.png`, `tailwind.config.ts`(v4에서 무시), lockfile 1개만 유지 (2026-11-03)
 - [x] 계산기 15개 Related guides 마크업 → 공통 컴포넌트, 가이드용 `<RelatedGuides>`(`shared.tsx`) (2026-11-04)
 - [x] 가이드 간 상호 링크 없는 쌍: roof 2개, drywall 2개, mulch 2개, lay-tile ↔ grout/tiles, rebar ↔ strength-grades (2026-11-05)
 - [x] 계산기 관련 가이드 보강: brick ← single-vs-double-leaf(10-22에 이미 추가돼 있었음), rebar ← strength-grades, fence ← mix-by-hand, mortar ← bricks-for-a-wall, concrete-bags ← curing (2026-11-23)
 - [x] 홈 프로젝트 카드에 지붕 추가 (2026-11-24)
-- [ ] 나머지 title 60자 초과 / description 120–160자 벗어난 페이지 정리
-- [ ] 접근성: Layout 햄버거 aria-expanded·Escape·skip link·aria-current, Breadcrumb aria, lay-tile 단계 제목을 heading으로, 가이드 FAQ 질문을 `<h3>`로, 토글 버튼 aria-pressed(공통 SegmentedToggle)
-- [ ] 단위 상수 `calcMath.ts`로 통일 (3.28084 vs 1/0.3048, 0.393701)
-- [ ] 레지스트리 통합(guides.ts / calculators.ts) — 수동 동기화 지점 제거
-- [ ] `docs/adding-a-calculator.md` §4, `docs/adding-a-guide.md`(가이드 수, CATEGORY_ORDER) 최신화
-- [ ] 얇은 가이드 확장: roof-degrees, bricks-per-m², mulch 2개 (what-size-rebar 무게 공식 d²/162 섹션은 2026-10-23 완료)
-- [ ] FAQ 4개뿐인 가이드 8개에 롱테일 FAQ 추가
-- [ ] `how-to-calculate-bricks-for-a-wall.tsx:39` "Do mortar joint thickness" → "Does"
-- [ ] paint 가이드 2개 동일 FAQ("How many coats") 중복 제거
 
 ### 2026-11-24 홈 프로젝트 카드에 지붕 추가
 
