@@ -82,6 +82,15 @@ const projects: {
     ],
   },
   {
+    title: "Plan a roof",
+    icon: IconBuildingCottage,
+    calcs: [{ href: "/roof-pitch-calculator", label: "Roof pitch" }],
+    guides: [
+      { href: "/guides/how-to-calculate-roof-pitch", label: "How to Calculate Roof Pitch" },
+      { href: "/guides/roof-pitch-to-degrees-conversion", label: "Roof Pitch to Degrees Conversion Chart" },
+    ],
+  },
+  {
     title: "Tile or floor a room",
     icon: IconLayoutGrid,
     calcs: [

@@ -359,7 +359,7 @@
 - [x] 계산기 15개 Related guides 마크업 → 공통 컴포넌트, 가이드용 `<RelatedGuides>`(`shared.tsx`) (2026-11-04)
 - [x] 가이드 간 상호 링크 없는 쌍: roof 2개, drywall 2개, mulch 2개, lay-tile ↔ grout/tiles, rebar ↔ strength-grades (2026-11-05)
 - [x] 계산기 관련 가이드 보강: brick ← single-vs-double-leaf(10-22에 이미 추가돼 있었음), rebar ← strength-grades, fence ← mix-by-hand, mortar ← bricks-for-a-wall, concrete-bags ← curing (2026-11-23)
-- [ ] 홈 프로젝트 카드에 지붕 없음
+- [x] 홈 프로젝트 카드에 지붕 추가 (2026-11-24)
 - [ ] 나머지 title 60자 초과 / description 120–160자 벗어난 페이지 정리
 - [ ] 접근성: Layout 햄버거 aria-expanded·Escape·skip link·aria-current, Breadcrumb aria, lay-tile 단계 제목을 heading으로, 가이드 FAQ 질문을 `<h3>`로, 토글 버튼 aria-pressed(공통 SegmentedToggle)
 - [ ] 단위 상수 `calcMath.ts`로 통일 (3.28084 vs 1/0.3048, 0.393701)
@@ -370,6 +370,14 @@
 - [ ] `how-to-calculate-bricks-for-a-wall.tsx:39` "Do mortar joint thickness" → "Does"
 - [ ] paint 가이드 2개 동일 FAQ("How many coats") 중복 제거
 
+### 2026-11-24 홈 프로젝트 카드에 지붕 추가
+
+- `app/page.tsx` "What are you building?"에 "Plan a roof" 카드(stairs 다음): roof-pitch-calculator + how-to-calculate-roof-pitch, roof-pitch-to-degrees-conversion. 라벨은 계산기 페이지 RelatedGuides와 동일(새 수치·주장 없음)
+- 홈 카드에 없는 계산기는 unit-converter만 남음(특정 작업이 아니라 제외, All calculators에는 있음)
+- sitemap 홈 날짜 2026-11-24
+- 검증: eslint·tsc·build 통과, 빌드 HTML에서 카드·링크 확인
+- IndexNow: 배포 후 `/` 제출 예정
+
 ### 2026-11-23 계산기 Related guides 보강 (4개)
 
 - `RelatedGuides` 목록 끝에 추가: rebar-calculator ← concrete-strength-grades, fence-calculator ← how-to-mix-concrete-by-hand, mortar-calculator ← how-to-calculate-bricks-for-a-wall, concrete-bags ← concrete-curing-time-guide
@@ -377,7 +385,7 @@
 - 라벨은 다른 계산기에서 쓰는 문구 그대로(새 수치·주장 없음)
 - sitemap 날짜 4개 계산기 2026-11-23 (계산기 페이지엔 dateModified 없음)
 - 검증: eslint·tsc·build 통과, 빌드 HTML에서 4개 페이지 새 가이드 링크 확인
-- IndexNow: 배포 후 4개 URL 제출 예정
+- IndexNow: 배포(3664879) 확인 후 4개 URL 제출 → 200 OK (2026-11-23)
 
 ### 2026-11-05 가이드 간 상호 링크 (Related Guides 섹션 10개)
 
