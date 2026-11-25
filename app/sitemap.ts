@@ -48,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/how-to-mix-concrete-by-hand",
-      date: "2026-10-16",
+      date: "2026-11-25",
       priority: 0.7,
     },
     {
@@ -98,7 +98,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/concrete-curing-time-guide",
-      date: "2026-10-16",
+      date: "2026-11-25",
       priority: 0.7,
     },
     {

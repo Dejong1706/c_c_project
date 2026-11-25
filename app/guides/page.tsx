@@ -45,7 +45,7 @@ const guides: {
   {
     title: "Concrete Curing Time Guide",
     href: "/guides/concrete-curing-time-guide",
-    desc: "How long concrete takes to cure at every stage — 24 hours, 7 days, 28 days — and how temperature affects strength gain.",
+    desc: "How long concrete takes to cure: days to 50–95% strength at 70°F and 50°F (ACI), moist curing time, freezing risk, and when to walk or drive on it.",
     category: "Concrete",
   },
   // Structural

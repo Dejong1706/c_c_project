@@ -55,7 +55,7 @@ const articleSchema = {
     "Step-by-step guide to mixing concrete by hand. Covers cement vs concrete vs mortar, ACI small-job mixtures, bagged premix yields, water per bag, safety, and curing.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-mix-concrete-by-hand" },
   datePublished: "2026-06-12",
-  dateModified: "2026-10-16",
+  dateModified: "2026-11-25",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -399,7 +399,7 @@ export default function HowToMixConcreteByHandGuide() {
           <Link href="/guides/concrete-curing-time-guide" style={link}>
             concrete curing time guide
           </Link>{" "}
-          covers when you can walk, build or drive on it.
+          covers strength gain, freezing and when to walk or drive on it.
         </p>
 
         <h2 style={sectionHeading}>Putting it together</h2>
