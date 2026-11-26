@@ -38,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/concrete-strength-grades",
-      date: "2026-11-05",
+      date: "2026-11-26",
       priority: 0.7,
     },
     {
