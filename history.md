@@ -47,7 +47,7 @@
 
 - [x] (2026-11-25) 7. **curing 가이드**: "loses 50%+" → 최대 약 50%, "Research confirms … 23%"·"20–30%" 출처 없음, 강도 발현표, "hydration nearly stops", 온도표 공백, ACI 308R "specifies". ★손비빔 가이드(Quikrete 5일/7일, 동결 48시간)와 이 가이드(7일, 72시간) 기준 불일치, CTA "bags, and mix ratios"
 - [x] (2026-11-26) 8. **strength-grades 가이드**: C15–C20 → C16/20–C20/25, 공기연행, 표 구간 겹침(3500–4000/4000–4500), "foundations 4000–4500"과 IRC R402.2 관계, 28일 설명
-- [ ] 9. **brick-sizes 가이드** (2026-06-16 이후 미검증): 줄눈표 63/58 → 61/57, NF 52 → **49**, King 행이 Queen과 사실상 같음, Imperial은 nominal, ASTM C652(중공)·BS EN 771-1 귀속, ★빠른 참조표 "10 mm 줄눈" 단서와 본문 ⅜″ 불일치, 계산기에 없는 "joint size 설정" 약속. 백링크용 자료 페이지 후보이므로 정확도 우선 → (2026-11-24 줄눈표·NF·Imperial 개수·줄눈 단서·joint size 약속은 수정, 규격 귀속·King·출처는 남음)
+- [x] (2026-11-27) 9. **brick-sizes 가이드** (2026-06-16 이후 미검증): 줄눈표 63/58 → 61/57, NF 52 → **49**, King 행이 Queen과 사실상 같음, Imperial은 nominal, ASTM C652(중공)·BS EN 771-1 귀속, ★빠른 참조표 "10 mm 줄눈" 단서와 본문 ⅜″ 불일치, 계산기에 없는 "joint size 설정" 약속. 백링크용 자료 페이지 후보이므로 정확도 우선 → (2026-11-24 줄눈표·NF·Imperial 개수·줄눈 단서·joint size 약속은 수정, 규격 귀속·King·출처는 남음)
 - [ ] 10a. ◆ **모르타르 계산기 낭비율**: 기본 10%. BIA TN10(2009-02)은 일반적으로 순 모르타르량에 **15–25%** 추가("Mortar Waste"). 벽돌은 **최소 5%** → 벽돌 가이드·계산기 낭비율 서술과 함께 정리. TN10 현행 여부 먼저 확인
 - [ ] 11. **lay-tile 가이드**: 평탄도 1/8″는 15″ 이상 타일만, 대형 기준 12″/18″ 혼재 → 15″, back-butter "required", CTA "grout", FAQ "unprofessional and is structurally weak" 단정, 출처 없는 시간·트로웰 수치
 - [ ] 14. **mulch 가이드**: 400 sq ft 3 in + 10% = 4.07 yd³인데 "Order 4", "delivery included"가 표와 모순, 가격($47–81, $30–45)·"most homeowners 2–4 yd³" 출처 없음, 보충 두께 1–2 in vs 0.5–1 in, ★멀치에 "dye-lot". 병합/차별화 결정과 같이
@@ -89,6 +89,18 @@
 - [ ] 2024 IRC Table R402.2(콘크리트 최소 강도·공기연행 각주): ICC 403. 받으면 strength-grades 가이드에 수치 추가 검토
 - [ ] BIA TN10(2009)의 현행 여부
 - [ ] 실제 휴대폰·다른 브라우저 화면 (375는 Chrome 모바일 모드만 확인)
+
+### 2026-11-27 brick-sizes 가이드 (9번)
+- 미국 표를 BIA TN 10(2009-02) Table 1·2·4 원문으로 교체: Modular 7½–7⅝ × 3½–3⅝ × 2¼ in, nominal 8 × 4 × 2⅔ in(높이 68 mm, 67 → 68), 72.7/m². "Jumbo Modular"(BIA에 없는 이름) → Engineer Modular(nominal 3⅕ in, 60.5). Standard 203 × 95 → 89–92 mm·70.5. Queen 59.2, **King 9⅝–9¾ in 길이·49.0**(Queen과 같던 행 수정). 제조사마다 이름·치수가 다르다는 BIA 문구, 규격 범위 표시
+- ASTM 귀속: 크기는 BIA 업계 명칭, 허용오차는 C216(facing)·C652(hollow) (TN 10 문구 그대로). BS EN 771-1은 크기를 정하지 않고 허용오차 시험·신고 방식(T2 ±4/±3/±2 mm, Wienerberger UK 03/23 rev 2)
+- 독일 DF 64·NF 48·2DF 32는 DIN 4172 8분 격자(125 mm, 1 cm 줄눈 기준)로 재계산(기존 NF 49·DF 65는 10 mm 단순 계산). 출처: 독일 벽돌산업협회(Bundesverband der Deutschen Ziegelindustrie) Architekten-Ordner 2017, Lücking 2024 데이터시트(NF 48·2DF 32). 네덜란드: "WDF (Waalformat)" 혼동 → WF 210×100×50(~76)·WDF 210×100×65(~61), 줄눈은 출처가 없어 10 mm **가정**으로 표시
+- 호주: PGH Bricks FAQ(230 × 110 × 76 mm "Australian Standard", 모두 따르지는 않음) → AS/NZS 4455 귀속 삭제, 출처 없는 Modular 290×90×90 행 삭제
+- **삭제**(현행 원문 못 찾음): 영국 Imperial 행·1969 FAQ, 남아공(SANS 227) 절, 인도 절(IS 1077:1992 원문은 확인했으나 2025년 6차 개정판(2025-08-26 관보)이 현행이고 원문 미확인), 프랑스 행, "Why do sizes vary" FAQ, "Most countries assume 10 mm", "15 mm blockwork" 예. 낭비율은 BIA "at least 5%"로. 끝에 Sources 목록(확인일) 추가
+- 함께 수정: bricks-for-a-wall 가이드 국가별 표(DF 65 → 64, 남아공·인도 행 삭제), meta description, 가이드 목록 카드, sitemap 날짜 2개
+- 출처(2026-11-27 원문 열람, PDF는 pdftotext): BIA TN 10(gobrick.com), Wienerberger UK Dimensions and Tolerances 03/23 rev 2 + "Does brick size matter" 글, backstein.com Architekten-Ordner Kap. 1(2017), Lücking Kleinformate 2024, pghbricks.com.au FAQ
+- **미확인**: BIA TN 10이 현행인지(NBS 목록에는 Current, BIA 2026 TN 목록 미열람), DIN 4172 현행 여부(2017 자료 기준), AS/NZS 4455 원문, IS 1077:2025 치수, SANS 227, Wienerberger DE 기술자료(404). 네덜란드 줄눈 두께
+- 남은 것(범위 밖): how-many-bricks-per-square-metre의 "maxi … commonly used in South Africa"·팔레트 500장 출처 없음, brick-mortar-mix-ratio의 maxi/jumbo 예
+- 검증: eslint·tsc·build 0. sitemap 43개 중 42개 경로 200(홈은 검사 루프에서 빠짐, 이번 변경과 무관)·없는 경로 404. 3개 페이지 자동 검사(1280/500/375) 통과, brick-sizes 1280 전체·375 일부(미국·호주·독일 표) 이미지 확인, 나머지는 자동 검사만. m²당 개수 전부 `node` 재계산(UK 59.26/61.43/57.21, AU 48.45, DE 64/48/32, NL 75.76/60.61, BIA 100 sq ft ↔ 10 m² 환산 일치). 빌드 HTML 옛 문구 0건, `</strong>[A-Za-z0-9]` 0건. 계산기 변경 없음(4단계 해당 없음). 실제 휴대폰 미확인
 
 ### 2026-11-26 strength-grades 가이드 (8번)
 - 미국 강도표를 NRMCA 원문 기준으로 교체: CIP 35(2500 psi 주거 ~ 4000+ 상업, 28일, 4×8/6×12 실린더, ASTM C39, 3·7일 시험은 불합격 근거 아님), CIP 2(외부 슬래브: 습윤·동결·제빙염 4000 psi, 그 외 3500 psi, 공기연행 약 6%, "ACI 332와 일치"). 구간이 겹치던 표와 출처 없는 "기초 4000–4500"·"5000+" 삭제. 기초·구조는 채택된 코드(IRC R402.2, 주별 개정)와 설계자가 정한다고 안내(수치 없이)
@@ -260,7 +272,7 @@
     - "모든 면 vs bed/perp" 설명도 틀림 (차이는 frog 때문)
   - ~315–318행: "네 가지 석회 배합이 Type M/S/N/O에 대응" → 표 첫 행은 무석회(1:0:3–4)
   - ~375–376행: 한중 기준 2°C → 미국 TMS 602는 40°F(4.4°C), 영국 통상 "3°C and falling"
-- [ ] `standard-brick-sizes-by-country.tsx`
+- [x] (2026-11-27) `standard-brick-sizes-by-country.tsx`
   - ~208–211행 King 사이즈 → 약 9⅝×3×2¾ in (244×76×70 mm), m²당 약 50장
   - ~456–468행 줄눈표: 8 mm → **61**, 12 mm → **57**
   - ~18, ~160–163행 Imperial UK: 9×4.5×3 in은 nominal. 실제는 약 8⅝×4⅛×2⅝ in (219×105×67), 약 57/m²

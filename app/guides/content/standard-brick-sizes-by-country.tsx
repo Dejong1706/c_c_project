@@ -5,32 +5,22 @@ const faqs = [
   {
     question: "What is the standard brick size in the UK?",
     answer:
-      "The standard UK brick (as per BS EN 771-1) is 215 × 102.5 × 65 mm. With a 10 mm mortar joint, the coordinating size becomes 225 × 112.5 × 75 mm. This is the most common brick used in residential and commercial construction across England, Scotland, Wales, and Northern Ireland.",
+      "215 × 102.5 × 65 mm (length × width × height). This is the work size, the size the brick is made to. UK brickwork is laid with a nominal 10 mm mortar joint, so the co-ordinating size, brick plus one joint, is 225 × 112.5 × 75 mm. BS EN 771-1 is the European product standard UK clay bricks are made to; it sets how size tolerances are tested and declared rather than fixing the 215 mm size itself.",
   },
   {
     question: "Are US bricks the same size as UK bricks?",
     answer:
-      "No. The standard US modular brick (ASTM C652) is 194 × 92 × 57 mm (nominal 203 × 102 × 67 mm with mortar). It is slightly smaller in length and height than the UK standard. This means brick counts per square metre differ between US and UK projects — always check which standard your supplier uses.",
-  },
-  {
-    question: "What is a metric brick vs an imperial brick?",
-    answer:
-      "Imperial bricks (pre-1969 UK) measured 9 × 4.5 × 3 inches (229 × 114 × 76 mm). When the UK switched to metric in 1969, the standard changed to 215 × 102.5 × 65 mm. The metric brick is slightly smaller, so the two are not directly interchangeable in coursing calculations without adjustment.",
-  },
-  {
-    question: "Why do brick sizes vary by country?",
-    answer:
-      "Sizes reflect each country's historical building standards, climate requirements, and masonry traditions. Larger bricks (like those used in Australia and South Africa) lay faster and suit thicker load-bearing walls. Smaller bricks offer finer coursing detail. Each national standard body (BSI, ASTM, Standards Australia, etc.) sets the accepted tolerances for their region.",
+      "No. The US modular brick is specified as 3⅝ × 2¼ × 7⅝ in (92 × 57 × 194 mm). With a ⅜ in joint it lays to a nominal 4 × 2⅔ × 8 in (102 × 68 × 203 mm), so three courses rise 8 in. The UK brick is longer and taller, so the two need different brick counts per square metre: about 73 for US modular against about 60 for UK standard, both without waste.",
   },
   {
     question: "What is the standard brick size in Australia?",
     answer:
-      "The standard Australian brick (AS/NZS 4455) is 230 × 110 × 76 mm. With a 10 mm mortar joint, the coordinating size is 240 × 120 × 86 mm. Australia also commonly uses a 'standard' 230 × 110 × 76 mm and a 'modular' 290 × 90 × 90 mm brick depending on the application.",
+      "PGH Bricks, an Australian manufacturer, gives the 'standard' brick as 230 × 110 × 76 mm (length × width × height) and notes that not every maker follows it exactly. With a 10 mm joint that works out at about 48 bricks per square metre of single-leaf wall, before waste. Check the actual size on your supplier's data sheet.",
   },
   {
     question: "How does brick size affect how many bricks I need?",
     answer:
-      "Directly — a larger brick covers more wall area per unit, so you need fewer bricks per square metre. For example, UK standard bricks require about 60 bricks/m² (half-brick wall), while Australian standard bricks require about 48 bricks/m². Always use the correct brick size for your region when calculating quantities.",
+      "The count per square metre is 1 ÷ (brick length + joint) ÷ (brick height + joint), with sizes in metres. A larger face means fewer bricks: about 60 per m² for UK standard bricks with 10 mm joints and about 48 for the Australian 230 × 76 mm face. Both are for a single-leaf (half-brick) wall before waste.",
   },
 ];
 
@@ -49,10 +39,10 @@ const articleSchema = {
   "@type": "Article",
   headline: "Standard Brick Sizes by Country",
   description:
-    "A complete reference guide to standard brick dimensions in the UK, US, Australia, Europe, and beyond — with coordinating sizes, mortar joints, and bricks per m².",
+    "Standard brick sizes in the UK, US, Australia, Germany and the Netherlands, with joint sizes and bricks per m², taken from industry and manufacturer sources.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/standard-brick-sizes-by-country" },
   datePublished: "2026-06-16",
-  dateModified: "2026-11-24",
+  dateModified: "2026-11-27",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -97,33 +87,35 @@ export default function StandardBrickSizesByCountry() {
             Standard Brick Sizes by Country
           </h1>
           <IntroText>
-            Brick dimensions vary significantly between countries. Using the
-            wrong size in your calculations leads to incorrect material orders.
-            This guide covers the standard work sizes, coordinating sizes (with
-            mortar), and approximate brick counts per m² for the most common
-            building regions worldwide.
+            Brick dimensions differ between countries, and a count worked out
+            for the wrong size gives the wrong order. This guide lists the
+            standard sizes in the UK, the US, Australia, Germany and the
+            Netherlands, the joint each size is laid with, and the number of
+            bricks per m². Each figure comes from an industry body or a
+            manufacturer, listed under Sources at the end.
           </IntroText>
         </header>
 
         {/* What "work size" and "coordinating size" mean */}
         <h2 style={sectionHeading}>Work Size vs Coordinating Size</h2>
         <p style={paragraph}>
-          Every brick standard distinguishes between two dimensions:
+          Brick sizes are given in two ways:
         </p>
         <ul style={{ paddingLeft: "20px", marginBottom: "16px" }}>
           <li style={listItem}>
-            <strong>Work size</strong> — the actual manufactured brick dimension
-            (length × width × height).
+            <strong>Work size</strong> (US: <em>specified size</em>): the size
+            the brick is made to, without mortar.
           </li>
           <li style={listItem}>
-            <strong>Coordinating size</strong> — work size plus one mortar joint
-            on each relevant face. Most countries assume a 10 mm joint, making
-            the coordinating size 10 mm larger in each direction.
+            <strong>Coordinating size</strong> (US: <em>nominal size</em>):
+            the work size plus one mortar joint. In the UK the joint is a
+            nominal 10 mm; US modular bricks are sized for a ⅜ in or ½ in
+            joint.
           </li>
         </ul>
         <p style={paragraph}>
-          Brick counts per m² are always calculated using the coordinating size,
-          not the bare work size.
+          Brick counts per m² use the coordinating size, not the bare work
+          size.
         </p>
         <div style={formula}>
           Bricks per m² = 1,000 mm ÷ (length + joint) × 1,000 mm ÷ (height +
@@ -137,105 +129,118 @@ export default function StandardBrickSizesByCountry() {
         {/* UK */}
         <h2 style={sectionHeading}>United Kingdom</h2>
         <p style={paragraph}>
-          The UK standard is defined by <strong>BS EN 771-1</strong>. The metric
-          standard brick replaced the imperial brick in 1969.
+          The standard UK brick has a work size of{" "}
+          <strong>215 × 102.5 × 65 mm</strong> and is laid with a nominal 10 mm
+          joint (Wienerberger). UK clay bricks are made to the European product
+          standard <strong>BS EN 771-1</strong>. That standard does not fix the
+          215 mm size; it sets how the manufacturer tests and declares size
+          tolerances. For a 215 × 102.5 × 65 mm brick, the tightest category
+          (T2) allows the mean of 10 bricks to differ by ±4 mm in length, ±3 mm
+          in width and ±2 mm in height.
         </p>
         <GuideTable>
           <thead>
             <tr>
               <th style={th}>Type</th>
               <th style={th}>Work Size (L × W × H)</th>
-              <th style={th}>Coordinating Size</th>
+              <th style={th}>Coordinating Size (10 mm joint)</th>
               <th style={th}>Bricks/m² (half-brick)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style={td}>Standard (metric)</td>
+              <td style={td}>Standard</td>
               <td style={td}>215 × 102.5 × 65 mm</td>
               <td style={td}>225 × 112.5 × 75 mm</td>
-              <td style={td}>~60</td>
-            </tr>
-            <tr>
-              <td style={td}>Imperial (pre-1969)</td>
-              <td style={td}>229 × 114 × 76 mm</td>
-              <td style={td}>239 × 124 × 86 mm</td>
-              <td style={td}>~49</td>
+              <td style={td}>~60 (59.3)</td>
             </tr>
           </tbody>
         </GuideTable>
         <NoteBox>
-          Imperial bricks are still found in renovation work on older
-          properties. They are not interchangeable with metric bricks in
-          coursing — mixing the two changes joint spacing.
+          Bricks in older UK buildings are often a different size from the
+          215 × 65 mm metric brick, and the sizes vary. When matching existing
+          brickwork, measure several of the existing bricks and the joints, and
+          work the count out from those measurements.
         </NoteBox>
 
         {/* USA */}
         <h2 style={sectionHeading}>United States</h2>
         <p style={paragraph}>
-          US brick sizes are governed by <strong>ASTM C652</strong> and{" "}
-          <strong>ASTM C216</strong>. The most common type is the modular brick.
+          US brick sizes are industry designations listed by the Brick Industry
+          Association (BIA) in Technical Note 10. Size tolerances are set in{" "}
+          <strong>ASTM C216</strong> (facing brick) and{" "}
+          <strong>ASTM C652</strong> (hollow brick). BIA notes that the name of a
+          brick and its size can vary by manufacturer, so it recommends
+          specifying the dimensions, written width × height × length.
+        </p>
+        <p style={paragraph}>
+          The table below gives the sizes in length × width × height order, the
+          same as the rest of this guide. Where BIA gives a range, specified
+          sizes vary within it from manufacturer to manufacturer. Non-modular
+          bricks have no nominal size.
         </p>
         <GuideTable>
           <thead>
             <tr>
               <th style={th}>Type</th>
-              <th style={th}>Work Size (L × W × H)</th>
-              <th style={th}>Nominal Size (with 3/8″ joint)</th>
-              <th style={th}>Bricks/m² (approx)</th>
+              <th style={th}>Specified Size (L × W × H)</th>
+              <th style={th}>Nominal Size (L × W × H)</th>
+              <th style={th}>Bricks/m² (BIA, no waste)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td style={td}>Modular</td>
-              <td style={td}>194 × 92 × 57 mm</td>
-              <td style={td}>203 × 102 × 67 mm</td>
-              <td style={td}>~73</td>
+              <td style={td}>7½–7⅝ × 3½–3⅝ × 2¼ in (191–194 × 89–92 × 57 mm)</td>
+              <td style={td}>8 × 4 × 2⅔ in (203 × 102 × 68 mm)</td>
+              <td style={td}>72.7</td>
+            </tr>
+            <tr>
+              <td style={td}>Engineer Modular</td>
+              <td style={td}>7½–7⅝ × 3½–3⅝ × 2¾–2<sup>13</sup>⁄<sub>16</sub> in (191–194 × 89–92 × 70–71 mm)</td>
+              <td style={td}>8 × 4 × 3⅕ in (203 × 102 × 81 mm)</td>
+              <td style={td}>60.5</td>
             </tr>
             <tr>
               <td style={td}>Standard (non-modular)</td>
-              <td style={td}>203 × 95 × 57 mm</td>
-              <td style={td}>213 × 102 × 67 mm</td>
-              <td style={td}>~70</td>
+              <td style={td}>8 × 3½–3⅝ × 2¼ in (203 × 89–92 × 57 mm)</td>
+              <td style={td}>—</td>
+              <td style={td}>70.5</td>
             </tr>
             <tr>
-              <td style={td}>Queen</td>
-              <td style={td}>194 × 73 × 70 mm</td>
-              <td style={td}>203 × 83 × 79 mm</td>
-              <td style={td}>~62</td>
+              <td style={td}>Queen (non-modular)</td>
+              <td style={td}>7⅝–8 × 2¾–3 × 2¾ in (194–203 × 70–76 × 70 mm)</td>
+              <td style={td}>—</td>
+              <td style={td}>59.2</td>
             </tr>
             <tr>
-              <td style={td}>King</td>
-              <td style={td}>194 × 70 × 70 mm</td>
-              <td style={td}>203 × 83 × 79 mm</td>
-              <td style={td}>~62</td>
-            </tr>
-            <tr>
-              <td style={td}>Jumbo Modular</td>
-              <td style={td}>194 × 92 × 70 mm</td>
-              <td style={td}>203 × 102 × 79 mm</td>
-              <td style={td}>~62</td>
+              <td style={td}>King (non-modular)</td>
+              <td style={td}>9⅝–9¾ × 2¾–3 × 2⅝–2¾ in (244–248 × 70–76 × 67–70 mm)</td>
+              <td style={td}>—</td>
+              <td style={td}>49.0</td>
             </tr>
           </tbody>
         </GuideTable>
         <NoteBox>
-          US bricks use a 3/8 inch (9.5 mm) mortar joint as standard, slightly
-          less than the 10 mm used in most other countries.
+          Bricks/m² are BIA Table 4 figures (bricks per 10 m² ÷ 10) and do not
+          include waste. BIA&apos;s general rule is to add at least 5% to the
+          net brick quantity for waste and breakage.
         </NoteBox>
 
         {/* Australia */}
-        <h2 style={sectionHeading}>Australia & New Zealand</h2>
+        <h2 style={sectionHeading}>Australia</h2>
         <p style={paragraph}>
-          Australian and New Zealand bricks conform to{" "}
-          <strong>AS/NZS 4455</strong>. Australian construction uses a 10 mm
-          mortar joint.
+          PGH Bricks, an Australian manufacturer, gives the &quot;standard&quot;
+          Australian brick as <strong>230 × 110 × 76 mm</strong> and notes that
+          not everyone follows these measurements exactly. The count below
+          uses a 10 mm joint.
         </p>
         <GuideTable>
           <thead>
             <tr>
               <th style={th}>Type</th>
               <th style={th}>Work Size (L × W × H)</th>
-              <th style={th}>Coordinating Size</th>
+              <th style={th}>Coordinating Size (10 mm joint)</th>
               <th style={th}>Bricks/m² (half-brick)</th>
             </tr>
           </thead>
@@ -244,126 +249,91 @@ export default function StandardBrickSizesByCountry() {
               <td style={td}>Standard</td>
               <td style={td}>230 × 110 × 76 mm</td>
               <td style={td}>240 × 120 × 86 mm</td>
-              <td style={td}>~48</td>
-            </tr>
-            <tr>
-              <td style={td}>Modular</td>
-              <td style={td}>290 × 90 × 90 mm</td>
-              <td style={td}>300 × 100 × 100 mm</td>
-              <td style={td}>~33</td>
+              <td style={td}>~48 (48.4)</td>
             </tr>
           </tbody>
         </GuideTable>
         <NoteBox>
-          The Australian standard brick is larger than UK and US equivalents,
-          which is why fewer bricks per m² are needed. Always confirm with your
-          supplier — some Australian manufacturers produce slightly non-standard
-          sizes.
+          Australian makers also sell other sizes. Take the size from your
+          supplier&apos;s data sheet and use the formula at the top of this
+          guide.
         </NoteBox>
 
-        {/* Europe */}
-        <h2 style={sectionHeading}>Europe (EN Standard)</h2>
+        {/* Germany */}
+        <h2 style={sectionHeading}>Germany</h2>
         <p style={paragraph}>
-          Most European countries follow <strong>EN 771-1</strong> but each
-          country maintains its own preferred format within that standard. The
-          most widely used across continental Europe is the DF (Dünnformat /
-          thin format) brick.
+          The German formats follow the octametric grid of{" "}
+          <strong>DIN 4172</strong>: a module of ⅛ m (125 mm) covering brick and
+          joint, based on a 1 cm joint. The bricks themselves are made to{" "}
+          <strong>DIN EN 771-1</strong>. Because the grid sets the course height,
+          the bed joint is not exactly 10 mm (four DF courses or three NF
+          courses make 250 mm), so the counts below come from the grid.
         </p>
         <GuideTable>
           <thead>
             <tr>
               <th style={th}>Format</th>
-              <th style={th}>Country / Region</th>
               <th style={th}>Work Size (L × W × H)</th>
+              <th style={th}>Grid per Brick (L × H)</th>
               <th style={th}>Bricks/m² (half-brick)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td style={td}>DF (Dünnformat)</td>
-              <td style={td}>Germany, Austria, CH</td>
               <td style={td}>240 × 115 × 52 mm</td>
-              <td style={td}>~65</td>
+              <td style={td}>250 × 62.5 mm</td>
+              <td style={td}>64</td>
             </tr>
             <tr>
               <td style={td}>NF (Normalformat)</td>
-              <td style={td}>Germany (older)</td>
               <td style={td}>240 × 115 × 71 mm</td>
-              <td style={td}>~49</td>
+              <td style={td}>250 × 83⅓ mm</td>
+              <td style={td}>48</td>
             </tr>
             <tr>
-              <td style={td}>WDF (Waalformat)</td>
-              <td style={td}>Netherlands, Belgium</td>
+              <td style={td}>2DF</td>
+              <td style={td}>240 × 115 × 113 mm</td>
+              <td style={td}>250 × 125 mm</td>
+              <td style={td}>32</td>
+            </tr>
+          </tbody>
+        </GuideTable>
+        <NoteBox>
+          The 48 (NF) and 32 (2DF) per m² match the figures in a German
+          manufacturer&apos;s 2024 data sheet (Lücking) for a 115 mm wall.
+        </NoteBox>
+
+        {/* Netherlands */}
+        <h2 style={sectionHeading}>Netherlands</h2>
+        <p style={paragraph}>
+          The Waalformat (WF) and the taller Waaldickformat (WDF) are listed by
+          the German brick industry association among the formats used
+          alongside the German ones. The sources found do not give a Dutch joint
+          size, so the counts below assume a 10 mm joint. Check the joint your
+          bricklayer will use.
+        </p>
+        <GuideTable>
+          <thead>
+            <tr>
+              <th style={th}>Format</th>
+              <th style={th}>Work Size (L × W × H)</th>
+              <th style={th}>Coordinating Size (10 mm joint)</th>
+              <th style={th}>Bricks/m² (half-brick)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style={td}>WF (Waalformat)</td>
               <td style={td}>210 × 100 × 50 mm</td>
-              <td style={td}>~76</td>
+              <td style={td}>220 × 110 × 60 mm</td>
+              <td style={td}>~76 (75.8)</td>
             </tr>
             <tr>
-              <td style={td}>Standard</td>
-              <td style={td}>France</td>
-              <td style={td}>220 × 105 × 57 mm</td>
-              <td style={td}>~65</td>
-            </tr>
-          </tbody>
-        </GuideTable>
-
-        {/* South Africa */}
-        <h2 style={sectionHeading}>South Africa</h2>
-        <p style={paragraph}>
-          South African bricks are governed by <strong>SANS 227</strong>. Two
-          sizes dominate the market.
-        </p>
-        <GuideTable>
-          <thead>
-            <tr>
-              <th style={th}>Type</th>
-              <th style={th}>Work Size (L × W × H)</th>
-              <th style={th}>Coordinating Size</th>
-              <th style={th}>Bricks/m² (half-brick)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style={td}>Standard</td>
-              <td style={td}>222 × 106 × 73 mm</td>
-              <td style={td}>232 × 116 × 83 mm</td>
-              <td style={td}>~52</td>
-            </tr>
-            <tr>
-              <td style={td}>Maxi</td>
-              <td style={td}>290 × 140 × 90 mm</td>
-              <td style={td}>300 × 150 × 100 mm</td>
-              <td style={td}>33.3 (order 34)</td>
-            </tr>
-          </tbody>
-        </GuideTable>
-
-        {/* India */}
-        <h2 style={sectionHeading}>India</h2>
-        <p style={paragraph}>
-          Indian standard bricks are defined by <strong>IS 1077</strong>. The
-          modular brick was introduced to replace older non-modular sizes.
-        </p>
-        <GuideTable>
-          <thead>
-            <tr>
-              <th style={th}>Type</th>
-              <th style={th}>Work Size (L × W × H)</th>
-              <th style={th}>Coordinating Size</th>
-              <th style={th}>Bricks/m² (half-brick)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style={td}>Modular</td>
-              <td style={td}>190 × 90 × 90 mm</td>
-              <td style={td}>200 × 100 × 100 mm</td>
-              <td style={td}>~50</td>
-            </tr>
-            <tr>
-              <td style={td}>Non-modular (traditional)</td>
-              <td style={td}>230 × 110 × 70 mm</td>
-              <td style={td}>240 × 120 × 80 mm</td>
-              <td style={td}>~52</td>
+              <td style={td}>WDF (Waaldickformat)</td>
+              <td style={td}>210 × 100 × 65 mm</td>
+              <td style={td}>220 × 110 × 75 mm</td>
+              <td style={td}>~61 (60.6)</td>
             </tr>
           </tbody>
         </GuideTable>
@@ -371,78 +341,77 @@ export default function StandardBrickSizesByCountry() {
         {/* Summary table */}
         <h2 style={sectionHeading}>Quick Reference: Bricks per m²</h2>
         <p style={paragraph}>
-          This table summarises the approximate number of bricks needed per m²
-          of half-brick (single-leaf) wall using each country&apos;s most common
-          standard brick and a 10 mm mortar joint (⅜″ in the US).
+          Bricks per m² of half-brick (single-leaf) wall for the main size in
+          each section above, before waste.
         </p>
         <GuideTable>
           <thead>
             <tr>
               <th style={th}>Country</th>
-              <th style={th}>Standard</th>
+              <th style={th}>Brick</th>
               <th style={th}>Work Size (mm)</th>
+              <th style={th}>Joint</th>
               <th style={th}>Bricks/m²</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td style={td}>UK</td>
-              <td style={td}>BS EN 771-1</td>
+              <td style={td}>Standard</td>
               <td style={td}>215 × 102.5 × 65</td>
+              <td style={td}>10 mm</td>
               <td style={td}>~60</td>
             </tr>
             <tr>
-              <td style={td}>USA (modular)</td>
-              <td style={td}>ASTM C652</td>
+              <td style={td}>USA</td>
+              <td style={td}>Modular</td>
               <td style={td}>194 × 92 × 57</td>
+              <td style={td}>⅜ in</td>
               <td style={td}>~73</td>
             </tr>
             <tr>
               <td style={td}>Australia</td>
-              <td style={td}>AS/NZS 4455</td>
+              <td style={td}>Standard</td>
               <td style={td}>230 × 110 × 76</td>
+              <td style={td}>10 mm</td>
               <td style={td}>~48</td>
             </tr>
             <tr>
-              <td style={td}>Germany (DF)</td>
-              <td style={td}>EN 771-1</td>
+              <td style={td}>Germany</td>
+              <td style={td}>NF</td>
+              <td style={td}>240 × 115 × 71</td>
+              <td style={td}>DIN 4172 grid</td>
+              <td style={td}>48</td>
+            </tr>
+            <tr>
+              <td style={td}>Germany</td>
+              <td style={td}>DF</td>
               <td style={td}>240 × 115 × 52</td>
-              <td style={td}>~65</td>
+              <td style={td}>DIN 4172 grid</td>
+              <td style={td}>64</td>
             </tr>
             <tr>
               <td style={td}>Netherlands</td>
-              <td style={td}>EN 771-1</td>
+              <td style={td}>WF</td>
               <td style={td}>210 × 100 × 50</td>
+              <td style={td}>10 mm (assumed)</td>
               <td style={td}>~76</td>
-            </tr>
-            <tr>
-              <td style={td}>South Africa</td>
-              <td style={td}>SANS 227</td>
-              <td style={td}>222 × 106 × 73</td>
-              <td style={td}>~52</td>
-            </tr>
-            <tr>
-              <td style={td}>India (modular)</td>
-              <td style={td}>IS 1077</td>
-              <td style={td}>190 × 90 × 90</td>
-              <td style={td}>~50</td>
             </tr>
           </tbody>
         </GuideTable>
         <NoteBox>
-          All bricks/m² figures are for a half-brick (single-leaf) wall with a
-          10 mm mortar joint (⅜″ for the US row). Add 5–10% for waste and cuts.
+          These are net counts. Add a waste allowance before ordering; BIA
+          suggests at least 5% as a general rule, and job conditions may call
+          for more.
         </NoteBox>
 
         {/* Mortar joint note */}
         <h2 style={sectionHeading}>How Mortar Joint Size Affects Your Count</h2>
         <p style={paragraph}>
-          A standard 10 mm mortar joint is assumed in most national standards.
-          If your project uses a different joint size — for example, 8 mm for a
-          tighter finish or 15 mm for rough blockwork — your brick count will
-          change.
+          The counts above assume the joint shown. A thinner or thicker joint
+          changes the coordinating size and so the count. Using UK standard
+          bricks as an example:
         </p>
-        <p style={paragraph}>Using UK standard bricks as an example:</p>
         <GuideTable>
           <thead>
             <tr>
@@ -474,7 +443,8 @@ export default function StandardBrickSizesByCountry() {
           <Link href="/brick-calculator" style={link}>
             Brick Calculator
           </Link>{" "}
-          for UK standard (10 mm joints) or US modular brick; for another joint size, use the formula at the top of this guide.
+          for UK standard (10 mm joints) or US modular brick; for another size
+          or joint, use the formula at the top of this guide.
         </p>
 
         <RelatedGuides
@@ -509,6 +479,36 @@ export default function StandardBrickSizesByCountry() {
             </p>
           </div>
         ))}
+
+        {/* Sources */}
+        <h2 style={sectionHeading}>Sources</h2>
+        <p style={paragraph}>Checked 27 November 2026.</p>
+        <ul style={{ paddingLeft: "20px", marginBottom: "16px" }}>
+          <li style={listItem}>
+            Brick Industry Association, Technical Note 10,{" "}
+            <em>Dimensioning and Estimating Brick Masonry</em> (February 2009),
+            Tables 1, 2 and 4 and the waste section (gobrick.com).
+          </li>
+          <li style={listItem}>
+            Wienerberger UK, Technical Guidance <em>Dimensions and
+            Tolerances</em> (03/23, rev 2), and the Wienerberger UK article on
+            brick sizes (10 mm joint).
+          </li>
+          <li style={listItem}>
+            Zweischalige Wand Marketing e.V. / Bundesverband der Deutschen
+            Ziegelindustrie e.V., <em>Architekten-Ordner, Kapitel 1
+            Baustoffkunde</em> (2017), sections 1.4.1 and 1.5.1 (formats, DIN
+            4172).
+          </li>
+          <li style={listItem}>
+            Lücking, product handbook 2024, <em>Kleinformate HLZ B 12-0,90</em>{" "}
+            data sheet (NF and 2DF bricks per m²).
+          </li>
+          <li style={listItem}>
+            PGH Bricks (Australia), FAQs: &quot;What size is a
+            &apos;standard&apos; brick?&quot;
+          </li>
+        </ul>
       </article>
     </>
   );

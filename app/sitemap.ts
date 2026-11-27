@@ -78,12 +78,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       route: "/guides/standard-brick-sizes-by-country",
-      date: "2026-11-24",
+      date: "2026-11-27",
       priority: 0.7,
     },
     {
       route: "/guides/how-to-calculate-bricks-for-a-wall",
-      date: "2026-11-24",
+      date: "2026-11-27",
       priority: 0.7,
     },
     {

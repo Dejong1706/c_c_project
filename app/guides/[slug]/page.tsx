@@ -181,7 +181,7 @@ const metaMap: Record<
   "standard-brick-sizes-by-country": {
     title: "Standard Brick Sizes by Country | BuildCalc",
     description:
-      "Complete reference for standard brick dimensions in the UK, US, Australia, Europe, South Africa, and India — with mortar joint sizes and bricks per m².",
+      "Standard brick sizes in the UK, US, Australia, Germany and the Netherlands — work and nominal sizes, joint sizes and bricks per m², with sources.",
     keywords: [
       "standard brick size",
       "brick dimensions",

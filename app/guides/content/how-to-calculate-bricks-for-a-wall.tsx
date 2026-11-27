@@ -65,7 +65,7 @@ const articleSchema = {
     "Step-by-step guide to calculating how many bricks you need for any wall — including half-brick and full-brick walls, openings, waste factors, and mortar quantities.",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://buildcalczone.com/guides/how-to-calculate-bricks-for-a-wall" },
   datePublished: "2026-06-18",
-  dateModified: "2026-11-24",
+  dateModified: "2026-11-27",
   author: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   publisher: { "@type": "Organization", name: "BuildCalc", url: "https://buildcalczone.com" },
   image: { "@type": "ImageObject", url: "https://buildcalczone.com/opengraph-image", width: 1200, height: 630 },
@@ -333,17 +333,7 @@ export default function HowToCalculateBricksForAWall() {
             <tr>
               <td style={td}>Germany (DF)</td>
               <td style={td}>240 × 115 × 52</td>
-              <td style={td}>~65</td>
-            </tr>
-            <tr>
-              <td style={td}>South Africa</td>
-              <td style={td}>222 × 106 × 73</td>
-              <td style={td}>~52</td>
-            </tr>
-            <tr>
-              <td style={td}>India (modular)</td>
-              <td style={td}>190 × 90 × 90</td>
-              <td style={td}>~50</td>
+              <td style={td}>64</td>
             </tr>
           </tbody>
         </GuideTable>

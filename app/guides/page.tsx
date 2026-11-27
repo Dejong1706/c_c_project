@@ -83,7 +83,7 @@ const guides: {
   {
     title: "Standard Brick Sizes by Country",
     href: "/guides/standard-brick-sizes-by-country",
-    desc: "Work sizes, coordinating sizes, and bricks per m² for UK, US, Australia, Europe, and more.",
+    desc: "Work sizes, coordinating sizes, and bricks per m² for the UK, US, Australia, Germany and the Netherlands.",
     category: "Masonry",
   },
   {
